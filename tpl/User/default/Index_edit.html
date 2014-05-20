@@ -1,0 +1,135 @@
+<include file="Index:header"/>
+<link rel="stylesheet" href="{weiwin::STATICS}/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="{weiwin::STATICS}/kindeditor/plugins/code/prettify.css" />
+<script src="{weiwin::STATICS}/kindeditor/kindeditor.js" type="text/javascript"></script>
+<script src="{weiwin::STATICS}/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
+<script src="{weiwin::STATICS}/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
+<script src="/tpl/static/artDialog/jquery.artDialog.js?skin=default"></script>
+<script>
+	KindEditor.ready(function(K){
+		var editor = K.editor({
+			allowFileManager:true
+		});
+		K('#upload').click(function() {
+			editor.loadPlugin('image', function() {
+				editor.plugin.imageDialog({
+					fileUrl : K('#pic').val(),
+					clickFn : function(url, title) {
+						if(url.indexOf("http") > -1){
+							K('#pic').val(url);
+						}else{
+							K('#pic').val("{weiwin::C('site_url')}"+url);
+						}
+						editor.hideDialog();
+					}
+				});
+			});
+		});
+	});
+</script>
+<!--tab start-->
+<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/cymain.css" />  
+<div class="tab">
+<ul>
+<li class='<if condition="(ACTION_NAME eq \'autobind_add\')">current </if> tabli' id="tab5"><a href="{weiwin::U('Index/autobind_add')}">一键绑定</a></li>
+<li class='<if condition="(ACTION_NAME eq \'add\')">current </if> tabli' id="tab5"><a href="{weiwin::U('Index/add')}">手动绑定</a></li>
+</ul>
+</div>
+<!--tab end-->
+<div class="content"  >
+          <div class="cLineB"><h4>修改微信公众号</h4></div>
+          <form method="post" action="{weiwin::U('User/Index/upsave')}" enctype="multipart/form-data">
+          <input type="hidden" name="id" value="{weiwin:$info.id}">
+          <div class="msgWrap">
+            <table class="userinfoArea" border="0" cellspacing="0" cellpadding="0" width="100%">
+              <thead>
+                <tr>
+                  <th><span class="red">*</span>公众号名称：</th>
+                  <td><input type="text" required="" class="px" name="wxname" value="{weiwin:$info.wxname}" tabindex="1" size="25">
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th><span class="red">*</span>公众号原始id：</th>
+                  <td><input type="text" required="" name="wxid" value="{weiwin:$info.wxid}" onmouseup="this.value=this.value.replace('_430','')" class="px" tabindex="1" size="25" readonly="readonly" style="width: 160px; background-image: none; background-color:#38A7AB;>　<span class="red"> 此项已经锁定，无法更改，如需更改请联系管理员。</span></td>
+                </tr>
+                <tr>
+                  <th><span class="red">*</span>微信号：</th>
+                  <td><input type="text" required="" name="weixin" value="{weiwin:$info.weixin}" class="px" tabindex="1" size="25">　比如：lentu123 </td>
+                </tr>
+                  <tr>
+                  <th>头像地址（url）:</th>
+                  <td><input class="px" name="headerpic" id="pic" value="{weiwin:$info.headerpic}" size="60">  <span class="ke-button-common" id="upload" style="margin-top: 0px;margin-left: 5px;"><input type="button" class="ke-button-common ke-button" value="上传图片"></span></td>
+                </tr>
+                 
+                 <input type="hidden" name="token" value="{weiwin:$info.token}" class="px" tabindex="1" size="40">
+               
+                
+                <tr>
+                  <th><span class="red">*</span>地区</th>
+                  <td>
+                  省：<input type="text" class="px" id="province" value="{weiwin:$info.province}" name="province" tabindex="1" size="20">  市：<input id="city" value="{weiwin:$info.city}" type="text" name="city" class="px" tabindex="1" size="20">
+               （此处关联公交等本地化查询）
+                  </td>
+                </tr>
+                <tr>
+                  <th>公众号邮箱：</th>
+                  <td><input type="text" required="" class="px" tabindex="1" value="{weiwin:$info.qq}" name="qq" size="25"></td>
+                </tr>
+                 <tr>
+                  <th>粉丝数：</th>
+                  <td><input type="text" required="" name="wxfans" value="{weiwin:$info.wxfans}" class="px" tabindex="1" size="25"></td>
+                </tr>
+             
+                <tr>
+                  <th>类型：</th>
+                  <td><select id="type" name="type">
+                  <option value="1,情感" <eq name="info.typeid" value="1">selected</eq> >情感</option>
+                  <option value="2,数码" <eq name="info.typeid" value="2">selected</eq> >数码</option>
+                  <option value="3,娱乐" <eq name="info.typeid" value="3">selected</eq> >娱乐</option>
+                  <option value="4,IT" <eq name="info.typeid" value="4">selected</eq> >IT</option>
+                  <option value="5,数码" <eq name="info.typeid" value="5">selected</eq> >数码</option>
+                  <option value="6,购物" <eq name="info.typeid" value="6">selected</eq> >购物</option>
+                  <option value="7,生活" <eq name="info.typeid" value="7">selected</eq> >生活</option>
+                  <option value="8,服务" <eq name="info.typeid" value="8">selected</eq> >服务</option>
+                  </select></td>
+                </tr>
+				                 <tr>
+				                   <th><span class="red">■■■■■■■■■■■■■■■■■</span></th>
+                  <td><input value="http://www.0066.pw//images/qqemail-help.png"  onchange="document.getElementById('end').src=this.value;"  style="width:0px;" id="pic2">请使用腾讯的QQ邮箱，需要开启IMAP/SMTP服务，<a href="###" onclick="viewImg('pic2')">开启帮助点我</a><script src="/tpl/static/upyun.js"></script><span class="red">■■■■■■■■■■■■■■■■■</span></td>
+                </tr>   
+                 <tr>
+                  <th><span class="red">*</span>邮件地址：</th>
+                  <td><input type="text" required="" name="email" value="{weiwin:$info.email}" class="px" tabindex="1" size="25"> <span class="red">请一定填写QQ邮箱地址</span> 比如：123456@qq.com</td>
+                </tr>    
+				                 <tr>
+                  <th><span class="red">*</span>SMTP账号：</th>
+                  <td><input type="text" required="" name="emailuser" value="{weiwin:$info.emailuser}" class="px" tabindex="1" size="25"> <span class="red">请填写您的QQ号码</span></td>
+                </tr>  
+				                 <tr>
+                  <th><span class="red">*</span>SMTP密码：</th>
+                  <td><input type="password" required="" name="emailpassword" value="{weiwin:$info.emailpassword}" class="px" tabindex="1" size="25"> <span class="red">请填写您的QQ密码</span>请放心填写，此密码只有您自己看见</td>
+                </tr>  
+				                 <tr>
+                  <th><span class="red">*</span>邮件平台状态：</th>
+                  <td><input type="text" required="" name="emailstatus" value="{weiwin:$info.emailstatus}" class="px" tabindex="1" size="25"> <span class="red">填1表示开启，填0表示关闭</span></td>
+                </tr>        
+                <tr>
+                  <th></th>
+                  <td><button type="submit" class="btnGreen" id="saveSetting">保存</button></td>
+                </tr>
+              </tbody>
+            </table>
+            
+          </div>
+          </form>
+        </div>
+        
+        <div class="clr"></div>
+      </div>
+    </div>
+  </div>
+  <!--底部-->
+  	</div>
+<include file="Public:footer"/>	
