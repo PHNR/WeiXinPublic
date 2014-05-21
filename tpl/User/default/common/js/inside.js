@@ -10,8 +10,8 @@ var G = {
     util: {},
     domain: {
         w: 'weiwin.com',
-        t: 'http://www.weiwin.com',
-        k: 'http://suetec.sudongting.cn/wm-xin-a'
+        t: 'http://weixin.weiwin.com',
+        k: '../../font'
     },
     set: {
         KindEditor_seting: {
@@ -852,7 +852,7 @@ G.logic.uploadify = {
         this.live();
     }
 };
-if (!((/weimob.com/i.test(window.location)))) G.domain.t = "/static", G.domain.k = "/wm-xin-a";
+if (!((/weimob.com/i.test(window.location)))) G.domain.t = "/static", G.domain.k = "/font";
 $(function () { 
     G.logic.page.init();
     G.logic.form.init();

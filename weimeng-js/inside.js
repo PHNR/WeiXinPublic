@@ -9,9 +9,9 @@ var G = {
     logic: {},
     util: {},
     domain: {
-        w: 'v513.com',
-        t: 'http://weixin.v513.com',
-        k: 'http://www.v513.com/wm-xin-a'
+        w: 'weiwin.com',
+        t: 'http://weixin.weiwin.com',
+        k: '../../font'
     },
     set: {
         KindEditor_seting: {
@@ -852,7 +852,7 @@ G.logic.uploadify = {
         this.live();
     }
 };
-if (!((/weimob.com/i.test(window.location)))) G.domain.t = "/static", G.domain.k = "/wm-xin-a";
+if (!((/weimob.com/i.test(window.location)))) G.domain.t = "/static", G.domain.k = "/font";
 $(function () { 
     G.logic.page.init();
     G.logic.form.init();
