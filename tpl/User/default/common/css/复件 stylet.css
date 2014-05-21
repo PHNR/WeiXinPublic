@@ -157,7 +157,6 @@ ul{
 	text-indent:4.5%;
 	line-height:25px;
 }
-
 #nav ul{
 	width:238px;
 	height:49px;
@@ -539,5 +538,4 @@ ul{
 	-webkit-box-shadow: 2px 2px 10px #909090;/*safari或chrome*/
 	box-shadow: 1px 1px 10px #cccccc;/*opera或ie9*/
 }
-
 .contab{ clear:both; }
