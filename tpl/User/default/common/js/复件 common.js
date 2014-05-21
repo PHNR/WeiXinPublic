@@ -1,13 +1,13 @@
 /*
-	[Discuz!] (C)2001-2009 Comsenz Inc.
-	This is NOT a freeware, use is subject to license terms
+ [Discuz!] (C)2001-2009 Comsenz Inc.
+ This is NOT a freeware, use is subject to license terms
 
-	$Id: common.js 30758 2012-06-18 06:48:59Z chenmengshu $
-*/
+ $Id: common.js 30758 2012-06-18 06:48:59Z chenmengshu $
+ */
 
 var BROWSER = {};
 var USERAGENT = navigator.userAgent.toLowerCase();
-browserVersion({'ie':'msie','firefox':'','chrome':'','opera':'','safari':'','mozilla':'','webkit':'','maxthon':'','qq':'qqbrowser'});
+browserVersion({'ie': 'msie', 'firefox': '', 'chrome': '', 'opera': '', 'safari': '', 'mozilla': '', 'webkit': '', 'maxthon': '', 'qq': 'qqbrowser'});
 if(BROWSER.safari) {
 	BROWSER.firefox = true;
 }
@@ -26,7 +26,7 @@ JSMENU['active'] = [];
 JSMENU['timer'] = [];
 JSMENU['drag'] = [];
 JSMENU['layer'] = 0;
-JSMENU['zIndex'] = {'win':200,'menu':300,'dialog':400,'prompt':500};
+JSMENU['zIndex'] = {'win': 200, 'menu': 300, 'dialog': 400, 'prompt': 500};
 JSMENU['float'] = '';
 var AJAX = [];
 AJAX['url'] = [];
@@ -50,10 +50,10 @@ var NOTICETITLE = [];
 
 if(BROWSER.firefox && window.HTMLElement) {
 	HTMLElement.prototype.__defineSetter__('outerHTML', function(sHTML) {
-			var r = this.ownerDocument.createRange();
+		var r = this.ownerDocument.createRange();
 		r.setStartBefore(this);
 		var df = r.createContextualFragment(sHTML);
-		this.parentNode.replaceChild(df,this);
+		this.parentNode.replaceChild(df, this);
 		return sHTML;
 	});
 
@@ -61,22 +61,34 @@ if(BROWSER.firefox && window.HTMLElement) {
 		var attr;
 		var attrs = this.attributes;
 		var str = '<' + this.tagName.toLowerCase();
-		for(var i = 0;i < attrs.length;i++){
+		for(var i = 0; i < attrs.length; i++) {
 			attr = attrs[i];
 			if(attr.specified)
-			str += ' ' + attr.name + '="' + attr.value + '"';
+				str += ' ' + attr.name + '="' + attr.value + '"';
 		}
 		if(!this.canHaveChildren) {
 			return str + '>';
 		}
 		return str + '>' + this.innerHTML + '</' + this.tagName.toLowerCase() + '>';
-		});
+	});
 
 	HTMLElement.prototype.__defineGetter__('canHaveChildren', function() {
 		switch(this.tagName.toLowerCase()) {
-			case 'area':case 'base':case 'basefont':case 'col':case 'frame':case 'hr':case 'img':case 'br':case 'input':case 'isindex':case 'link':case 'meta':case 'param':
-			return false;
-			}
+			case 'area':
+			case 'base':
+			case 'basefont':
+			case 'col':
+			case 'frame':
+			case 'hr':
+			case 'img':
+			case 'br':
+			case 'input':
+			case 'isindex':
+			case 'link':
+			case 'meta':
+			case 'param':
+				return false;
+		}
 		return true;
 	});
 }
@@ -92,21 +104,21 @@ function $C(classname, ele, tag) {
 	if(ele.getElementsByClassName) {
 		var eles = ele.getElementsByClassName(classname);
 		if(tag != '*') {
-			for (var i = 0, L = eles.length; i < L; i++) {
-				if (eles[i].tagName.toLowerCase() == tag.toLowerCase()) {
-						returns.push(eles[i]);
+			for(var i = 0, L = eles.length; i < L; i++) {
+				if(eles[i].tagName.toLowerCase() == tag.toLowerCase()) {
+					returns.push(eles[i]);
 				}
 			}
 		} else {
 			returns = eles;
 		}
-	}else {
+	} else {
 		eles = ele.getElementsByTagName(tag);
-		var pattern = new RegExp("(^|\\s)"+classname+"(\\s|$)");
-		for (i = 0, L = eles.length; i < L; i++) {
-				if (pattern.test(eles[i].className)) {
-						returns.push(eles[i]);
-				}
+		var pattern = new RegExp("(^|\\s)" + classname + "(\\s|$)");
+		for(i = 0, L = eles.length; i < L; i++) {
+			if(pattern.test(eles[i].className)) {
+				returns.push(eles[i]);
+			}
 		}
 	}
 	return returns;
@@ -139,7 +151,7 @@ function browserVersion(types) {
 			var matches = re.exec(USERAGENT);
 			var ver = matches != null ? matches[2] : 0;
 			other = ver !== 0 && v != 'mozilla' ? 0 : other;
-		}else {
+		} else {
 			var ver = 0;
 		}
 		eval('BROWSER.' + i + '= ver');
@@ -152,12 +164,12 @@ function getEvent() {
 	func = getEvent.caller;
 	while(func != null) {
 		var arg0 = func.arguments[0];
-		if (arg0) {
-			if((arg0.constructor  == Event || arg0.constructor == MouseEvent) || (typeof(arg0) == "object" && arg0.preventDefault && arg0.stopPropagation)) {
+		if(arg0) {
+			if((arg0.constructor == Event || arg0.constructor == MouseEvent) || (typeof(arg0) == "object" && arg0.preventDefault && arg0.stopPropagation)) {
 				return arg0;
 			}
 		}
-		func=func.caller;
+		func = func.caller;
 	}
 	return null;
 }
@@ -170,7 +182,7 @@ function in_array(needle, haystack) {
 	if(typeof needle == 'string' || typeof needle == 'number') {
 		for(var i in haystack) {
 			if(haystack[i] == needle) {
-					return true;
+				return true;
 			}
 		}
 	}
@@ -313,13 +325,14 @@ function Ajax(recvType, waitId) {
 			}
 		} else if(window.ActiveXObject) {
 			var versions = ['Microsoft.XMLHTTP', 'MSXML.XMLHTTP', 'Microsoft.XMLHTTP', 'Msxml2.XMLHTTP.7.0', 'Msxml2.XMLHTTP.6.0', 'Msxml2.XMLHTTP.5.0', 'Msxml2.XMLHTTP.4.0', 'MSXML2.XMLHTTP.3.0', 'MSXML2.XMLHTTP'];
-			for(var i=0; i<versions.length; i++) {
+			for(var i = 0; i < versions.length; i++) {
 				try {
 					request = new ActiveXObject(versions[i]);
 					if(request) {
 						return request;
 					}
-				} catch(e) {}
+				} catch(e) {
+				}
 			}
 		}
 		return request;
@@ -347,7 +360,7 @@ function Ajax(recvType, waitId) {
 				aj.resultHandle(aj.XMLHttpRequest.responseText, aj);
 			} else if(aj.recvType == 'XML') {
 				if(!aj.XMLHttpRequest.responseXML || !aj.XMLHttpRequest.responseXML.lastChild || aj.XMLHttpRequest.responseXML.lastChild.localName == 'parsererror') {
-					aj.resultHandle('<a href="' + aj.targetUrl + '" target="_blank" style="color:red">内部错误，无法显示此内容</a>' , aj);
+					aj.resultHandle('<a href="' + aj.targetUrl + '" target="_blank" style="color:red">内部错误，无法显示此内容</a>', aj);
 				} else {
 					aj.resultHandle(aj.XMLHttpRequest.responseXML.lastChild.firstChild.nodeValue, aj);
 				}
@@ -358,7 +371,9 @@ function Ajax(recvType, waitId) {
 
 	aj.get = function(targetUrl, resultHandle) {
 		targetUrl = hostconvert(targetUrl);
-		setTimeout(function(){aj.showLoading()}, 250);
+		setTimeout(function() {
+			aj.showLoading()
+		}, 250);
 		if(in_array(targetUrl, AJAX['url'])) {
 			return false;
 		} else {
@@ -370,20 +385,24 @@ function Ajax(recvType, waitId) {
 		var attackevasive = isUndefined(attackevasive) ? 0 : attackevasive;
 		var delay = attackevasive & 1 ? (aj.stackId + 1) * 1001 : 100;
 		if(window.XMLHttpRequest) {
-			setTimeout(function(){
-			aj.XMLHttpRequest.open('GET', aj.targetUrl);
-			aj.XMLHttpRequest.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-			aj.XMLHttpRequest.send(null);}, delay);
+			setTimeout(function() {
+				aj.XMLHttpRequest.open('GET', aj.targetUrl);
+				aj.XMLHttpRequest.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+				aj.XMLHttpRequest.send(null);
+			}, delay);
 		} else {
-			setTimeout(function(){
-			aj.XMLHttpRequest.open("GET", targetUrl, true);
-			aj.XMLHttpRequest.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-			aj.XMLHttpRequest.send();}, delay);
+			setTimeout(function() {
+				aj.XMLHttpRequest.open("GET", targetUrl, true);
+				aj.XMLHttpRequest.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+				aj.XMLHttpRequest.send();
+			}, delay);
 		}
 	};
 	aj.post = function(targetUrl, sendString, resultHandle) {
 		targetUrl = hostconvert(targetUrl);
-		setTimeout(function(){aj.showLoading()}, 250);
+		setTimeout(function() {
+			aj.showLoading()
+		}, 250);
 		if(in_array(targetUrl, AJAX['url'])) {
 			return false;
 		} else {
@@ -403,7 +422,7 @@ function Ajax(recvType, waitId) {
 
 function getHost(url) {
 	var host = "null";
-	if(typeof url == "undefined"|| null == url) {
+	if(typeof url == "undefined" || null == url) {
 		url = window.location.href;
 	}
 	var regex = /^\w+\:\/\/([^\/]*).*/;
@@ -426,7 +445,7 @@ function hostconvert(url) {
 
 function newfunction(func) {
 	var args = [];
-	for(var i=1; i<arguments.length; i++) args.push(arguments[i]);
+	for(var i = 1; i < arguments.length; i++) args.push(arguments[i]);
 	return function(event) {
 		doane(event);
 		window[func].apply(window, args);
@@ -471,8 +490,8 @@ function safescript(id, call, seconds, times, timeoutcall, endcall, index) {
 		if(!safescripts[id] || !index) {
 			safescripts[id] = safescripts[id] || [];
 			safescripts[id].push({
-				'times':0,
-				'si':setInterval(function () {
+				'times': 0,
+				'si': setInterval(function() {
 					safescript(id, call, seconds, times, timeoutcall, endcall, safescripts[id].length);
 				}, seconds)
 			});
@@ -499,28 +518,33 @@ function safescript(id, call, seconds, times, timeoutcall, endcall, index) {
 			} else {
 				eval(endcall);
 			}
-		} catch(e) {}
+		} catch(e) {
+		}
 	}
 }
 
 function $F(func, args, script) {
-	var run = function () {
+	var run = function() {
 		var argc = args.length, s = '';
-		for(i = 0;i < argc;i++) {
+		for(i = 0; i < argc; i++) {
 			s += ',args[' + i + ']';
 		}
 		eval('var check = typeof ' + func + ' == \'function\'');
 		if(check) {
 			eval(func + '(' + s.substr(1) + ')');
 		} else {
-			setTimeout(function () { checkrun(); }, 50);
+			setTimeout(function() {
+				checkrun();
+			}, 50);
 		}
 	};
-	var checkrun = function () {
+	var checkrun = function() {
 		if(JSLOADED[src]) {
 			run();
 		} else {
-			setTimeout(function () { checkrun(); }, 50);
+			setTimeout(function() {
+				checkrun();
+			}, 50);
 		}
 	};
 	script = script || 'common_extra';
@@ -547,21 +571,22 @@ function appendscript(src, text, reload, charset) {
 		if(src) {
 			scriptNode.src = src;
 			scriptNode.onloadDone = false;
-			scriptNode.onload = function () {
+			scriptNode.onload = function() {
 				scriptNode.onloadDone = true;
 				JSLOADED[src] = 1;
 			};
-			scriptNode.onreadystatechange = function () {
+			scriptNode.onreadystatechange = function() {
 				if((scriptNode.readyState == 'loaded' || scriptNode.readyState == 'complete') && !scriptNode.onloadDone) {
 					scriptNode.onloadDone = true;
 					JSLOADED[src] = 1;
 				}
 			};
-		} else if(text){
+		} else if(text) {
 			scriptNode.text = text;
 		}
 		document.getElementsByTagName('head')[0].appendChild(scriptNode);
-	} catch(e) {}
+	} catch(e) {
+	}
 }
 
 function stripscript(s) {
@@ -687,7 +712,7 @@ function ajaxpost(formid, showid, waitid, showidclass, submitbtn, recall) {
 			$('append_parent').removeChild(ajaxframe.parentNode);
 		} else {
 			setTimeout(
-				function(){
+				function() {
 					$('append_parent').removeChild(ajaxframe.parentNode);
 				},
 				100
@@ -710,7 +735,7 @@ function ajaxpost(formid, showid, waitid, showidclass, submitbtn, recall) {
 	$(formid).target = ajaxframeid;
 	var action = $(formid).getAttribute('action');
 	action = hostconvert(action);
-	$(formid).action = action.replace(/\&inajax\=1/g, '')+'&inajax=1';
+	$(formid).action = action.replace(/\&inajax\=1/g, '') + '&inajax=1';
 	$(formid).submit();
 	if(submitbtn) {
 		submitbtn.disabled = true;
@@ -740,7 +765,7 @@ function ajaxmenu(ctrlObj, timeout, cache, duration, pos, recall, idclass, conte
 	if(isUndefined(idclass)) idclass = 'p_pop';
 	if(isUndefined(contentclass)) contentclass = 'p_opt';
 	var func = function() {
-		showMenu({'ctrlid':ctrlObj.id,'menuid':menuid,'duration':duration,'timeout':timeout,'pos':pos,'cache':cache,'layer':2});
+		showMenu({'ctrlid': ctrlObj.id, 'menuid': menuid, 'duration': duration, 'timeout': timeout, 'pos': pos, 'cache': cache, 'layer': 2});
 		if(typeof recall == 'function') {
 			recall();
 		} else {
@@ -762,7 +787,7 @@ function ajaxmenu(ctrlObj, timeout, cache, duration, pos, recall, idclass, conte
 		menu.innerHTML = '<div class="' + contentclass + '" id="' + menuid + '_content"></div>';
 		$('append_parent').appendChild(menu);
 		var url = (!isUndefined(ctrlObj.href) ? ctrlObj.href : ctrlObj.attributes['href'].value);
-		url += (url.indexOf('?') != -1 ? '&' :'?') + 'ajaxmenu=1';
+		url += (url.indexOf('?') != -1 ? '&' : '?') + 'ajaxmenu=1';
 		ajaxget(url, menuid + '_content', 'ajaxwaitid', '', '', func);
 	}
 	doane();
@@ -774,7 +799,7 @@ function hash(string, length) {
 	var i = 0;
 	var result = '';
 	filllen = length - string.length % length;
-	for(i = 0; i < filllen; i++){
+	for(i = 0; i < filllen; i++) {
 		string += "0";
 	}
 	while(start < string.length) {
@@ -788,7 +813,7 @@ function stringxor(s1, s2) {
 	var s = '';
 	var hash = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	var max = Math.max(s1.length, s2.length);
-	for(var i=0; i<max; i++) {
+	for(var i = 0; i < max; i++) {
 		var k = s1.charCodeAt(i) ^ s2.charCodeAt(i);
 		s += hash.charAt(k % 52);
 	}
@@ -817,17 +842,17 @@ function ajaxinnerhtml(showid, s) {
 			showid.firstChild.parentNode.removeChild(showid.firstChild);
 		}
 		var div1 = document.createElement('DIV');
-		div1.id = showid.id+'_div';
-		div1.innerHTML = '<table><tbody id="'+showid.id+'_tbody">'+s+'</tbody></table>';
+		div1.id = showid.id + '_div';
+		div1.innerHTML = '<table><tbody id="' + showid.id + '_tbody">' + s + '</tbody></table>';
 		$('append_parent').appendChild(div1);
 		var trs = div1.getElementsByTagName('TR');
 		var l = trs.length;
-		for(var i=0; i<l; i++) {
+		for(var i = 0; i < l; i++) {
 			showid.appendChild(trs[0]);
 		}
 		var inputs = div1.getElementsByTagName('INPUT');
 		var l = inputs.length;
-		for(var i=0; i<l; i++) {
+		for(var i = 0; i < l; i++) {
 			showid.appendChild(inputs[0]);
 		}
 		div1.parentNode.removeChild(div1);
@@ -866,7 +891,7 @@ function loadcss(cssname) {
 		if(!$('css_' + cssname)) {
 			css = document.createElement('link');
 			css.id = 'css_' + cssname,
-			css.type = 'text/css';
+				css.type = 'text/css';
 			css.rel = 'stylesheet';
 			css.href = 'data/cache/style_' + STYLEID + '_' + cssname + '.css?' + VERHASH;
 			var headNode = document.getElementsByTagName("head")[0];
@@ -908,7 +933,8 @@ function showMenu(v) {
 	for(i in EXTRAFUNC['showmenu']) {
 		try {
 			eval(EXTRAFUNC['showmenu'][i] + '()');
-		} catch(e) {}
+		} catch(e) {
+		}
 	}
 
 	if(evt == 'click' && in_array(menuid, JSMENU['active'][layer]) && mtype != 'win') {
@@ -928,7 +954,7 @@ function showMenu(v) {
 			ctrlObj.onmouseout = function() {
 				if(this.outfunc) this.outfunc();
 				if(duration < 3 && !JSMENU['timer'][menuid]) {
-					JSMENU['timer'][menuid] = setTimeout(function () {
+					JSMENU['timer'][menuid] = setTimeout(function() {
 						hideMenu(menuid, mtype);
 					}, timeout);
 				}
@@ -959,7 +985,9 @@ function showMenu(v) {
 		menuObj.mtype = mtype;
 		menuObj.layer = layer;
 		menuObj.cover = cover;
-		if(ctrlObj && ctrlObj.getAttribute('fwin')) {menuObj.scrolly = true;}
+		if(ctrlObj && ctrlObj.getAttribute('fwin')) {
+			menuObj.scrolly = true;
+		}
 		menuObj.style.position = 'absolute';
 		menuObj.style.zIndex = zindex + layer;
 		menuObj.onclick = function(e) {
@@ -974,7 +1002,7 @@ function showMenu(v) {
 			}
 			if(duration != 1) {
 				menuObj.onmouseout = function() {
-					JSMENU['timer'][menuid] = setTimeout(function () {
+					JSMENU['timer'][menuid] = setTimeout(function() {
 						hideMenu(menuid, mtype);
 					}, timeout);
 				};
@@ -991,16 +1019,23 @@ function showMenu(v) {
 			coverObj.style.backgroundColor = '#000';
 			coverObj.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=50)';
 			coverObj.style.opacity = 0.5;
-			coverObj.onclick = function () { hideMenu(); };
+			coverObj.onclick = function() {
+				hideMenu();
+			};
 			$('append_parent').appendChild(coverObj);
-			_attachEvent(window, 'load', function () {
+			_attachEvent(window, 'load', function() {
 				coverObj.style.height = Math.max(document.documentElement.clientHeight, document.body.offsetHeight) + 'px';
 			}, document);
 		}
 	}
 	if(drag) {
 		dragobj.style.cursor = 'move';
-		dragobj.onmousedown = function(event) {try{dragMenu(menuObj, event, 1);}catch(e){}};
+		dragobj.onmousedown = function(event) {
+			try {
+				dragMenu(menuObj, event, 1);
+			} catch(e) {
+			}
+		};
 	}
 
 	if(cover) $(menuid + '_cover').style.display = '';
@@ -1014,7 +1049,7 @@ function showMenu(v) {
 			menuObj.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + O + ')';
 			menuObj.style.opacity = O / 100;
 			O += 20;
-			var fadeInTimer = setTimeout(function () {
+			var fadeInTimer = setTimeout(function() {
 				fadeIn(O);
 			}, 40);
 		};
@@ -1059,10 +1094,12 @@ var delayShowST = null;
 function delayShow(ctrlObj, call, time) {
 	if(typeof ctrlObj == 'object') {
 		var ctrlid = ctrlObj.id;
-		call = call || function () { showMenu(ctrlid); };
+		call = call || function() {
+			showMenu(ctrlid);
+		};
 	}
 	var time = isUndefined(time) ? 500 : time;
-	delayShowST = setTimeout(function () {
+	delayShowST = setTimeout(function() {
 		if(typeof call == 'function') {
 			call();
 		} else {
@@ -1070,7 +1107,9 @@ function delayShow(ctrlObj, call, time) {
 		}
 	}, time);
 	if(!ctrlObj.delayinit) {
-		_attachEvent(ctrlObj, 'mouseout', function() {clearTimeout(delayShowST);});
+		_attachEvent(ctrlObj, 'mouseout', function() {
+			clearTimeout(delayShowST);
+		});
 		ctrlObj.delayinit = 1;
 	}
 }
@@ -1085,15 +1124,25 @@ function dragMenu(menuObj, e, op) {
 		JSMENU['drag'] = [e.clientX, e.clientY];
 		JSMENU['drag'][2] = parseInt(menuObj.style.left);
 		JSMENU['drag'][3] = parseInt(menuObj.style.top);
-		document.onmousemove = function(e) {try{dragMenu(menuObj, e, 2);}catch(err){}};
-		document.onmouseup = function(e) {try{dragMenu(menuObj, e, 3);}catch(err){}};
+		document.onmousemove = function(e) {
+			try {
+				dragMenu(menuObj, e, 2);
+			} catch(err) {
+			}
+		};
+		document.onmouseup = function(e) {
+			try {
+				dragMenu(menuObj, e, 3);
+			} catch(err) {
+			}
+		};
 		doane(e);
-	}else if(op == 2 && JSMENU['drag'][0]) {
+	} else if(op == 2 && JSMENU['drag'][0]) {
 		var menudragnow = [e.clientX, e.clientY];
 		menuObj.style.left = (JSMENU['drag'][2] + menudragnow[0] - JSMENU['drag'][0]) + 'px';
 		menuObj.style.top = (JSMENU['drag'][3] + menudragnow[1] - JSMENU['drag'][1]) + 'px';
 		doane(e);
-	}else if(op == 3) {
+	} else if(op == 3) {
 		JSMENU['drag'] = [];
 		document.onmousemove = null;
 		document.onmouseup = null;
@@ -1223,7 +1272,7 @@ function hideMenu(attr, mtype) {
 			hideMenu(JSMENU['active'][attr][j], mtype);
 		}
 		return;
-	}else if(typeof attr == 'string') {
+	} else if(typeof attr == 'string') {
 		var menuObj = $(attr);
 		if(!menuObj || (mtype && menuObj.mtype != mtype)) return;
 		var ctrlObj = '', ctrlclass = '';
@@ -1238,7 +1287,7 @@ function hideMenu(attr, mtype) {
 					menuObj.style.display = 'none';
 					if(menuObj.cover) $(attr + '_cover').style.display = 'none';
 				}
-			}else {
+			} else {
 				menuObj.parentNode.removeChild(menuObj);
 				if(menuObj.cover) $(attr + '_cover').parentNode.removeChild($(attr + '_cover'));
 			}
@@ -1259,7 +1308,7 @@ function hideMenu(attr, mtype) {
 				menuObj.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + O + ')';
 				menuObj.style.opacity = O / 100;
 				O -= 20;
-				var fadeOutTimer = setTimeout(function () {
+				var fadeOutTimer = setTimeout(function() {
 					fadeOut(O);
 				}, 40);
 			};
@@ -1271,19 +1320,19 @@ function hideMenu(attr, mtype) {
 }
 
 function getCurrentStyle(obj, cssproperty, csspropertyNS) {
-	if(obj.style[cssproperty]){
+	if(obj.style[cssproperty]) {
 		return obj.style[cssproperty];
 	}
-	if (obj.currentStyle) {
+	if(obj.currentStyle) {
 		return obj.currentStyle[cssproperty];
-	} else if (document.defaultView.getComputedStyle(obj, null)) {
+	} else if(document.defaultView.getComputedStyle(obj, null)) {
 		var currentStyle = document.defaultView.getComputedStyle(obj, null);
 		var value = currentStyle.getPropertyValue(csspropertyNS);
-		if(!value){
+		if(!value) {
 			value = currentStyle[cssproperty];
 		}
 		return value;
-	} else if (window.getComputedStyle) {
+	} else if(window.getComputedStyle) {
 		var currentStyle = window.getComputedStyle(obj, "");
 		return currentStyle.getPropertyValue(csspropertyNS);
 	}
@@ -1314,7 +1363,7 @@ function fetchOffset(obj, mode) {
 			top_offset += obj.offsetTop;
 		}
 	}
-	return {'left' : left_offset, 'top' : top_offset};
+	return {'left': left_offset, 'top': top_offset};
 }
 
 function showTip(ctrlobj) {
@@ -1339,7 +1388,7 @@ function showDialog(msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, 
 	var menuObj = $(menuid);
 	confirmtxtdefault = '确定';
 	closetime = isUndefined(closetime) ? '' : closetime;
-	closefunc = function () {
+	closefunc = function() {
 		if(typeof func == 'function') func();
 		else eval(func);
 		hideMenu(menuid, 'dialog');
@@ -1374,8 +1423,8 @@ function showDialog(msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, 
 		s += msg ? msg : '';
 	} else {
 		s += '<div class="c altw"><div class="' + (mode == 'alert' ? 'alert_error' : (mode == 'right' ? 'alert_right' : 'alert_info')) + '"><p>' + msg + '</p></div></div>';
-		s += '<p class="o pns">' + (leftmsg ? '<span class="z xg1">' + leftmsg + '</span>' : '') + '<button id="fwin_dialog_submit" value="true" class="pn pnc"><strong>'+confirmtxt+'</strong></button>';
-		s += mode == 'confirm' ? '<button id="fwin_dialog_cancel" value="true" class="pn" onclick="hideMenu(\'' + menuid + '\', \'dialog\')"><strong>'+canceltxt+'</strong></button>' : '';
+		s += '<p class="o pns">' + (leftmsg ? '<span class="z xg1">' + leftmsg + '</span>' : '') + '<button id="fwin_dialog_submit" value="true" class="pn pnc"><strong>' + confirmtxt + '</strong></button>';
+		s += mode == 'confirm' ? '<button id="fwin_dialog_cancel" value="true" class="pn" onclick="hideMenu(\'' + menuid + '\', \'dialog\')"><strong>' + canceltxt + '</strong></button>' : '';
 		s += '</p>';
 	}
 	s += '</td><td class="m_r"></td></tr><tr><td class="b_l"></td><td class="b_c"></td><td class="b_r"></td></tr></table>';
@@ -1393,10 +1442,11 @@ function showDialog(msg, mode, t, func, cover, funccancel, leftmsg, confirmtxt, 
 		};
 		$('fwin_dialog_close').onclick = $('fwin_dialog_cancel').onclick;
 	}
-	showMenu({'mtype':'dialog','menuid':menuid,'duration':3,'pos':'00','zindex':JSMENU['zIndex']['dialog'],'cache':0,'cover':cover});
+	showMenu({'mtype': 'dialog', 'menuid': menuid, 'duration': 3, 'pos': '00', 'zindex': JSMENU['zIndex']['dialog'], 'cache': 0, 'cover': cover});
 	try {
 		if($('fwin_dialog_submit')) $('fwin_dialog_submit').focus();
-	} catch(e) {}
+	} catch(e) {
+	}
 }
 
 function showWindow(k, url, mode, cache, menuv) {
@@ -1409,7 +1459,7 @@ function showWindow(k, url, mode, cache, menuv) {
 	var hidedom = '';
 
 	if(disallowfloat && disallowfloat.indexOf(k) != -1) {
-		if(BROWSER.ie) url += (url.indexOf('?') != -1 ?  '&' : '?') + 'referer=' + escape(location.href);
+		if(BROWSER.ie) url += (url.indexOf('?') != -1 ? '&' : '?') + 'referer=' + escape(location.href);
 		location.href = url;
 		doane();
 		return;
@@ -1419,14 +1469,22 @@ function showWindow(k, url, mode, cache, menuv) {
 		if(mode == 'get') {
 			menuObj.url = url;
 			url += (url.search(/\?/) > 0 ? '&' : '?') + 'infloat=yes&handlekey=' + k;
-			url += cache == -1 ? '&t='+(+ new Date()) : '';
-			ajaxget(url, 'fwin_content_' + k, null, '', '', function() {initMenu();show();});
+			url += cache == -1 ? '&t=' + (+new Date()) : '';
+			ajaxget(url, 'fwin_content_' + k, null, '', '', function() {
+				initMenu();
+				show();
+			});
 		} else if(mode == 'post') {
 			menuObj.act = $(url).action;
-			ajaxpost(url, 'fwin_content_' + k, '', '', '', function() {initMenu();show();});
+			ajaxpost(url, 'fwin_content_' + k, '', '', '', function() {
+				initMenu();
+				show();
+			});
 		}
 		if(parseInt(BROWSER.ie) != 6) {
-			loadingst = setTimeout(function() {showDialog('', 'info', '<img src="' + IMGDIR + '/loading.gif"> 请稍候...')}, 500);
+			loadingst = setTimeout(function() {
+				showDialog('', 'info', '<img src="' + IMGDIR + '/loading.gif"> 请稍候...')
+			}, 500);
 		}
 	};
 	var initMenu = function() {
@@ -1446,7 +1504,7 @@ function showWindow(k, url, mode, cache, menuv) {
 	};
 	var show = function() {
 		hideMenu('fwin_dialog', 'dialog');
-		v = {'mtype':'win','menuid':menuid,'duration':3,'pos':'00','zindex':JSMENU['zIndex']['win'],'drag':typeof drag == null ? '' : drag,'cache':cache};
+		v = {'mtype': 'win', 'menuid': menuid, 'duration': 3, 'pos': '00', 'zindex': JSMENU['zIndex']['win'], 'drag': typeof drag == null ? '' : drag, 'cache': cache};
 		for(k in menuv) {
 			v[k] = menuv[k];
 		}
@@ -1505,17 +1563,17 @@ function AC_FL_RunContent() {
 	var ret = AC_GetArgs(arguments, "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000", "application/x-shockwave-flash");
 	if(BROWSER.ie && !BROWSER.opera) {
 		str += '<object ';
-		for (var i in ret.objAttrs) {
+		for(var i in ret.objAttrs) {
 			str += i + '="' + ret.objAttrs[i] + '" ';
 		}
 		str += '>';
-		for (var i in ret.params) {
+		for(var i in ret.params) {
 			str += '<param name="' + i + '" value="' + ret.params[i] + '" /> ';
 		}
 		str += '</object>';
 	} else {
 		str += '<embed ';
-		for (var i in ret.embedAttrs) {
+		for(var i in ret.embedAttrs) {
 			str += i + '="' + ret.embedAttrs[i] + '" ';
 		}
 		str += '></embed>';
@@ -1528,22 +1586,76 @@ function AC_GetArgs(args, classid, mimeType) {
 	ret.embedAttrs = new Object();
 	ret.params = new Object();
 	ret.objAttrs = new Object();
-	for (var i = 0; i < args.length; i = i + 2){
+	for(var i = 0; i < args.length; i = i + 2) {
 		var currArg = args[i].toLowerCase();
-		switch (currArg){
-			case "classid":break;
-			case "pluginspage":ret.embedAttrs[args[i]] = 'http://www.macromedia.com/go/getflashplayer';break;
-			case "src":ret.embedAttrs[args[i]] = args[i+1];ret.params["movie"] = args[i+1];break;
-			case "codebase":ret.objAttrs[args[i]] = 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0';break;
-			case "onafterupdate":case "onbeforeupdate":case "onblur":case "oncellchange":case "onclick":case "ondblclick":case "ondrag":case "ondragend":
-			case "ondragenter":case "ondragleave":case "ondragover":case "ondrop":case "onfinish":case "onfocus":case "onhelp":case "onmousedown":
-			case "onmouseup":case "onmouseover":case "onmousemove":case "onmouseout":case "onkeypress":case "onkeydown":case "onkeyup":case "onload":
-			case "onlosecapture":case "onpropertychange":case "onreadystatechange":case "onrowsdelete":case "onrowenter":case "onrowexit":case "onrowsinserted":case "onstart":
-			case "onscroll":case "onbeforeeditfocus":case "onactivate":case "onbeforedeactivate":case "ondeactivate":case "type":
-			case "id":ret.objAttrs[args[i]] = args[i+1];break;
-			case "width":case "height":case "align":case "vspace": case "hspace":case "class":case "title":case "accesskey":case "name":
-			case "tabindex":ret.embedAttrs[args[i]] = ret.objAttrs[args[i]] = args[i+1];break;
-			default:ret.embedAttrs[args[i]] = ret.params[args[i]] = args[i+1];
+		switch(currArg) {
+			case "classid":
+				break;
+			case "pluginspage":
+				ret.embedAttrs[args[i]] = 'http://www.macromedia.com/go/getflashplayer';
+				break;
+			case "src":
+				ret.embedAttrs[args[i]] = args[i + 1];
+				ret.params["movie"] = args[i + 1];
+				break;
+			case "codebase":
+				ret.objAttrs[args[i]] = 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0';
+				break;
+			case "onafterupdate":
+			case "onbeforeupdate":
+			case "onblur":
+			case "oncellchange":
+			case "onclick":
+			case "ondblclick":
+			case "ondrag":
+			case "ondragend":
+			case "ondragenter":
+			case "ondragleave":
+			case "ondragover":
+			case "ondrop":
+			case "onfinish":
+			case "onfocus":
+			case "onhelp":
+			case "onmousedown":
+			case "onmouseup":
+			case "onmouseover":
+			case "onmousemove":
+			case "onmouseout":
+			case "onkeypress":
+			case "onkeydown":
+			case "onkeyup":
+			case "onload":
+			case "onlosecapture":
+			case "onpropertychange":
+			case "onreadystatechange":
+			case "onrowsdelete":
+			case "onrowenter":
+			case "onrowexit":
+			case "onrowsinserted":
+			case "onstart":
+			case "onscroll":
+			case "onbeforeeditfocus":
+			case "onactivate":
+			case "onbeforedeactivate":
+			case "ondeactivate":
+			case "type":
+			case "id":
+				ret.objAttrs[args[i]] = args[i + 1];
+				break;
+			case "width":
+			case "height":
+			case "align":
+			case "vspace":
+			case "hspace":
+			case "class":
+			case "title":
+			case "accesskey":
+			case "name":
+			case "tabindex":
+				ret.embedAttrs[args[i]] = ret.objAttrs[args[i]] = args[i + 1];
+				break;
+			default:
+				ret.embedAttrs[args[i]] = ret.params[args[i]] = args[i + 1];
 		}
 	}
 	ret.objAttrs["classid"] = classid;
@@ -1558,7 +1670,9 @@ function simulateSelect(selectId, widthvalue) {
 	if(!selectObj) return;
 	if(BROWSER.other) {
 		if(selectObj.getAttribute('change')) {
-			selectObj.onchange = function () {eval(selectObj.getAttribute('change'));}
+			selectObj.onchange = function() {
+				eval(selectObj.getAttribute('change'));
+			}
 		}
 		return;
 	}
@@ -1603,7 +1717,7 @@ function simulateSelect(selectId, widthvalue) {
 	}
 
 	selectObj.options.length = 0;
-	selectObj.options[0]= new Option('', defaultv);
+	selectObj.options[0] = new Option('', defaultv);
 	selectObj.style.display = 'none';
 	selectObj.outerHTML += '<a href="javascript:;" id="' + selectId + '_ctrl" style="width:' + selectwidth + '" tabindex="' + tabindex + '">' + defaultopt + '</a>';
 
@@ -1616,7 +1730,7 @@ function simulateSelect(selectId, widthvalue) {
 
 	$(selectId + '_ctrl').onclick = function(e) {
 		$(selectId + '_ctrl_menu').style.width = selectwidth;
-		showMenu({'ctrlid':(selectId == 'loginfield' ? 'account' : selectId + '_ctrl'),'menuid':selectId + '_ctrl_menu','evt':'click','pos':'43'});
+		showMenu({'ctrlid': (selectId == 'loginfield' ? 'account' : selectId + '_ctrl'), 'menuid': selectId + '_ctrl_menu', 'evt': 'click', 'pos': '43'});
 		doane(e);
 	};
 	$(selectId + '_ctrl').onfocus = menuObj.onfocus = function() {
@@ -1735,7 +1849,9 @@ function ctrlEnter(event, btnId, onlyEnter) {
 
 function parseurl(str, mode, parsecode) {
 	if(isUndefined(parsecode)) parsecode = true;
-	if(parsecode) str= str.replace(/\s*\[code\]([\s\S]+?)\[\/code\]\s*/ig, function($1, $2) {return codetag($2);});
+	if(parsecode) str = str.replace(/\s*\[code\]([\s\S]+?)\[\/code\]\s*/ig, function($1, $2) {
+		return codetag($2);
+	});
 	str = str.replace(/([^>=\]"'\/@]|^)((((https?|ftp|gopher|news|telnet|rtsp|mms|callto|bctp|ed2k|thunder|qqdl|synacast):\/\/))([\w\-]+\.)*[:\.@\-\w\u4e00-\u9fa5]+\.([\.a-zA-Z0-9]+|\u4E2D\u56FD|\u7F51\u7EDC|\u516C\u53F8)((\?|\/|:)+[\w\.\/=\?%\-&;~`@':+!#]*)*)/ig, mode == 'html' ? '$1<a href="$2" target="_blank">$2</a>' : '$1[url]$2[/url]');
 	str = str.replace(/([^\w>=\]"'\/@]|^)((www\.)([\w\-]+\.)*[:\.@\-\w\u4e00-\u9fa5]+\.([\.a-zA-Z0-9]+|\u4E2D\u56FD|\u7F51\u7EDC|\u516C\u53F8)((\?|\/|:)+[\w\.\/=\?%\-&;~`@':+!#]*)*)/ig, mode == 'html' ? '$1<a href="$2" target="_blank">$2</a>' : '$1[url]$2[/url]');
 	str = str.replace(/([^\w->=\]:"'\.\/]|^)(([\-\.\w]+@[\.\-\w]+(\.\w+)+))/ig, mode == 'html' ? '$1<a href="mailto:$2">$2</a>' : '$1[email]$2[/email]');
@@ -1755,30 +1871,30 @@ function codetag(text) {
 }
 
 function saveUserdata(name, data) {
-	if(BROWSER.ie){
+	if(BROWSER.ie) {
 		if(data.length < 54889) {
 			with(document.documentElement) {
 				setAttribute("value", data);
 				save('Discuz_' + name);
 			}
 		}
-	} else if(window.localStorage){
+	} else if(window.localStorage) {
 		localStorage.setItem('Discuz_' + name, data);
-	} else if(window.sessionStorage){
+	} else if(window.sessionStorage) {
 		sessionStorage.setItem('Discuz_' + name, data);
 	}
 	setcookie('clearUserdata', '', -1);
 }
 
 function loadUserdata(name) {
-	if(BROWSER.ie){
+	if(BROWSER.ie) {
 		with(document.documentElement) {
 			load('Discuz_' + name);
 			return getAttribute("value");
 		}
-	} else if(window.localStorage){
+	} else if(window.localStorage) {
 		return localStorage.getItem('Discuz_' + name);
-	} else if(window.sessionStorage){
+	} else if(window.sessionStorage) {
 		return sessionStorage.getItem('Discuz_' + name);
 	}
 }
@@ -1787,7 +1903,7 @@ function initTab(frameId, type) {
 	$F('_initTab', arguments);
 }
 
-function openDiy(){
+function openDiy() {
 	window.location.href = ((window.location.href + '').replace(/[\?\&]diy=yes/g, '').split('#')[0] + ( window.location.search && window.location.search.indexOf('?diy=yes') < 0 ? '&diy=yes' : '?diy=yes'));
 }
 
@@ -1841,14 +1957,14 @@ function initSearchmenu(searchform, cloudSearchUrl) {
 	}
 	var tclass = searchtxt.className;
 	searchtxt.className = tclass + ' xg1';
-	searchtxt.onfocus = function () {
+	searchtxt.onfocus = function() {
 		if(searchtxt.value == '请输入搜索内容') {
 			searchtxt.value = '';
 			searchtxt.className = tclass;
 		}
 	};
-	searchtxt.onblur = function () {
-		if(searchtxt.value == '' ) {
+	searchtxt.onblur = function() {
+		if(searchtxt.value == '') {
 			searchtxt.value = '请输入搜索内容';
 			searchtxt.className = tclass + ' xg1';
 		}
@@ -1857,8 +1973,8 @@ function initSearchmenu(searchform, cloudSearchUrl) {
 	var o = $(searchform + '_type');
 	var a = $(searchform + '_type_menu').getElementsByTagName('a');
 	var formobj = searchtxt.form;
-	for(var i=0; i<a.length; i++){
-		if(a[i].className == 'curtype'){
+	for(var i = 0; i < a.length; i++) {
+		if(a[i].className == 'curtype') {
 			o.innerHTML = a[i].innerHTML;
 			$(searchform + '_mod').value = a[i].rel;
 			formobj.method = 'post';
@@ -1871,12 +1987,12 @@ function initSearchmenu(searchform, cloudSearchUrl) {
 
 			if($('cloudsearchforumId')) {
 				$('cloudsearchforumId').value = '0';
-				if (a[i].rel == 'curforum') {
+				if(a[i].rel == 'curforum') {
 					$('cloudsearchforumId').value = $('dzsearchforumid').value
 				}
 			}
 		}
-		a[i].onclick = function(){
+		a[i].onclick = function() {
 			o.innerHTML = this.innerHTML;
 			$(searchform + '_mod').value = this.rel;
 			formobj.method = 'post';
@@ -1889,7 +2005,7 @@ function initSearchmenu(searchform, cloudSearchUrl) {
 
 			if($('cloudsearchforumId')) {
 				$('cloudsearchforumId').value = '0';
-				if (this.rel == 'curforum') {
+				if(this.rel == 'curforum') {
 					$('cloudsearchforumId').value = $('dzsearchforumid').value
 				}
 			}
@@ -1932,19 +2048,25 @@ function createPalette(colorid, id, func) {
 }
 
 function cardInit() {
-	var cardShow = function (obj) {
+	var cardShow = function(obj) {
 		if(BROWSER.ie && BROWSER.ie < 7 && obj.href.indexOf('username') != -1) {
 			return;
 		}
 		pos = obj.getAttribute('c') == '1' ? '43' : obj.getAttribute('c');
-		USERCARDST = setTimeout(function() {ajaxmenu(obj, 500, 1, 2, pos, null, 'p_pop card');}, 250);
+		USERCARDST = setTimeout(function() {
+			ajaxmenu(obj, 500, 1, 2, pos, null, 'p_pop card');
+		}, 250);
 	};
 	var a = document.body.getElementsByTagName('a');
-	for(var i = 0;i < a.length;i++){
+	for(var i = 0; i < a.length; i++) {
 		if(a[i].getAttribute('c')) {
 			a[i].setAttribute('mid', hash(a[i].href));
-			a[i].onmouseover = function() {cardShow(this)};
-			a[i].onmouseout = function() {clearTimeout(USERCARDST);};
+			a[i].onmouseover = function() {
+				cardShow(this)
+			};
+			a[i].onmouseout = function() {
+				clearTimeout(USERCARDST);
+			};
 		}
 	}
 }
@@ -1955,13 +2077,13 @@ function navShow(id) {
 		return;
 	}
 	var uls = $('mu').getElementsByTagName('ul');
-	for(i = 0;i < uls.length;i++) {
+	for(i = 0; i < uls.length; i++) {
 		if(uls[i].className != 'cl current') {
 			uls[i].style.display = 'none';
 		}
 	}
 	if(mnobj.className != 'cl current') {
-		showMenu({'ctrlid':'mn_' + id,'menuid':'snav_mn_' + id,'pos':'*'});
+		showMenu({'ctrlid': 'mn_' + id, 'menuid': 'snav_mn_' + id, 'pos': '*'});
 		mnobj.className = 'cl floatmu';
 		mnobj.style.width = ($('nv').clientWidth) + 'px';
 		mnobj.style.display = '';
@@ -1983,7 +2105,7 @@ function strLenCalc(obj, checklen, maxlen) {
 }
 
 function noticeTitle() {
-	NOTICETITLE = {'State':0, 'oldTitle':document.title, flashNumber:0, sleep:15};
+	NOTICETITLE = {'State': 0, 'oldTitle': document.title, flashNumber: 0, sleep: 15};
 	if(!getcookie('noticeTitle')) {
 		window.setInterval('noticeTitleFlash();', 500);
 	} else {
@@ -2009,12 +2131,12 @@ function con_handle_response(response) {
 }
 
 function showTopLink() {
-	if($('ft')){
+	if($('ft')) {
 		var viewPortHeight = parseInt(document.documentElement.clientHeight);
 		var scrollHeight = parseInt(document.body.getBoundingClientRect().top);
 		var basew = parseInt($('ft').clientWidth);
 		var sw = $('scrolltop').clientWidth;
-		if (basew < 1000) {
+		if(basew < 1000) {
 			var left = parseInt(fetchOffset($('ft'))['left']);
 			left = left < sw ? left * 2 - sw : left;
 			$('scrolltop').style.left = ( basew + left ) + 'px';
@@ -2023,10 +2145,10 @@ function showTopLink() {
 			$('scrolltop').style.right = 0;
 		}
 
-		if (BROWSER.ie && BROWSER.ie < 7) {
+		if(BROWSER.ie && BROWSER.ie < 7) {
 			$('scrolltop').style.top = viewPortHeight - scrollHeight - 150 + 'px';
 		}
-		if (scrollHeight < -100) {
+		if(scrollHeight < -100) {
 			$('scrolltop').style.visibility = 'visible';
 		} else {
 			$('scrolltop').style.visibility = 'hidden';
@@ -2039,23 +2161,23 @@ function showCreditmenu() {
 }
 
 function showUpgradeinfo() {
-	showMenu({'ctrlid':'g_upmine', 'pos':'21'});
+	showMenu({'ctrlid': 'g_upmine', 'pos': '21'});
 }
 
 function addFavorite(url, title) {
 	try {
 		window.external.addFavorite(url, title);
-	} catch (e){
+	} catch(e) {
 		try {
 			window.sidebar.addPanel(title, url, '');
-        	} catch (e) {
+		} catch(e) {
 			showDialog("请按 Ctrl+D 键添加到收藏夹", 'notice');
 		}
 	}
 }
 
 function setHomepage(sURL) {
-	if(BROWSER.ie){
+	if(BROWSER.ie) {
 		document.body.style.behavior = 'url(#default#homepage)';
 		document.body.setHomePage(sURL);
 	} else {
@@ -2081,8 +2203,8 @@ if(BROWSER.ie) {
 	document.documentElement.addBehavior("#default#userdata");
 }
 
-function drop_confirm(msg, url){
-    if(confirm(msg)){
-        window.location = url;
-    }
+function drop_confirm(msg, url) {
+	if(confirm(msg)) {
+		window.location = url;
+	}
 }
