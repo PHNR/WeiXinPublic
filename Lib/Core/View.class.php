@@ -11,14 +11,16 @@
 
 /**
  * ThinkPHP 视图类
- * @category   Think
- * @package  Think
+ *
+ * @category    Think
+ * @package     Think
  * @subpackage  Core
- * @author liu21st <liu21st@gmail.com>
+ * @author      liu21st <liu21st@gmail.com>
  */
 class View {
     /**
      * 模板输出变量
+     *
      * @var tVar
      * @access protected
      */
@@ -26,7 +28,9 @@ class View {
 
     /**
      * 模板变量赋值
+     *
      * @access public
+     *
      * @param mixed $name
      * @param mixed $value
      */
@@ -40,8 +44,11 @@ class View {
 
     /**
      * 取得模板变量的值
+     *
      * @access public
+     *
      * @param string $name
+     *
      * @return mixed
      */
     public function get($name = '') {
@@ -53,12 +60,15 @@ class View {
 
     /**
      * 加载模板和页面输出 可以返回输出内容
+     *
      * @access public
+     *
      * @param string $templateFile 模板文件名
-     * @param string $charset 模板输出字符集
-     * @param string $contentType 输出类型
-     * @param string $content 模板输出内容
-     * @param string $prefix 模板缓存前缀
+     * @param string $charset      模板输出字符集
+     * @param string $contentType  输出类型
+     * @param string $content      模板输出内容
+     * @param string $prefix       模板缓存前缀
+     *
      * @return mixed
      */
     public function display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') {
@@ -81,10 +91,13 @@ class View {
 
     /**
      * 输出内容文本可以包括Html
+     *
      * @access private
-     * @param string $content 输出内容
-     * @param string $charset 模板输出字符集
+     *
+     * @param string $content     输出内容
+     * @param string $charset     模板输出字符集
      * @param string $contentType 输出类型
+     *
      * @return mixed
      */
     private function render($content, $charset = '', $contentType = '') {
@@ -100,10 +113,13 @@ class View {
 
     /**
      * 解析和获取模板内容 用于输出
+     *
      * @access public
+     *
      * @param string $templateFile 模板文件名
-     * @param string $content 模板输出内容
-     * @param string $prefix 模板缓存前缀
+     * @param string $content      模板输出内容
+     * @param string $prefix       模板缓存前缀
+     *
      * @return string
      */
     public function fetch($templateFile = '', $content = '', $prefix = '') {
