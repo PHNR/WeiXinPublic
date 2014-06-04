@@ -167,7 +167,6 @@ if(@$GLOBALS["HTTP_RAW_POST_DATA"]) {
 }
 
 
-
 class wechatCallbackapiTest {
     public function valid() {
         $echoStr = htmlspecialchars($_GET["echostr"]);
@@ -224,7 +223,7 @@ class wechatCallbackapiTest {
         $nonce = $_GET["nonce"];
         $token = TOKEN;
         $tmpArr = array($token, $timestamp, $nonce);
-        sort($tmpArr);
+        sort($tmpArr, SORT_STRING);
         $tmpStr = implode($tmpArr);
         $tmpStr = sha1($tmpStr);
         if($tmpStr == $signature) {
@@ -235,8 +234,7 @@ class wechatCallbackapiTest {
     }
 
 
-    public function HTTP_Post($URL, $data, $cookie, $referrer = "") //有些服务器可能需要通过此方式
-    {
+    public function HTTP_Post($URL, $data, $cookie, $referrer = "") {//有些服务器可能需要通过此方式
         $URL_Info = parse_url($URL);
         // making string from $data
         // Find out which port is needed - if not given use standard (=80)
@@ -301,9 +299,7 @@ class wechatCallbackapiTest {
 }
 
 
-
 function vcurll($url, $post = '', $cookie = '', $cookiejar = '', $referer = '') {
-
     if(function_exists('curl_init')) {
         $tmpInfo = '';
         $cookiepath = getcwd() . './' . $cookiejar;
@@ -337,7 +333,6 @@ function vcurll($url, $post = '', $cookie = '', $cookiejar = '', $referer = '') 
         curl_close($curl);
         return $tmpInfo;
     } else if(function_exists('file_get_contents')) {
-
         return file_get_contents($url);
     }
 }
