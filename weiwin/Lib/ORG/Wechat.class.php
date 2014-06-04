@@ -76,7 +76,7 @@ class Wechat {
     private function auth($token) {
         $data = array($_GET['timestamp'], $_GET['nonce'], $token);
         $sign = $_GET['signature'];
-        sort($data);
+        sort($data, SORT_STRING);
         $signature = sha1(implode($data));
         return true || $signature === $sign; //临时屏蔽验证
     }
