@@ -99,6 +99,7 @@ class TagLibCx extends TagLib {
         } else {
             $parseStr .= ' $__LIST__ = ' . $name . ';';
         }
+        $parseStr .= ' $__LIST__ = array_reverse($__LIST__, true);';
         $parseStr .= 'if( count($__LIST__)==0 ) : echo "' . $empty . '" ;';
         $parseStr .= 'else: ';
         $parseStr .= 'foreach($__LIST__ as $key=>$' . $id . '): ';
