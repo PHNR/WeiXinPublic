@@ -1,11 +1,160 @@
-<?php 
-/*
-ÉùÃ÷£ºÒÔÏÂÐÅÏ¢²¢²»ÊÇ±¾phpÎÄ¼þµÄ×÷Õß£¬²»¶Ô±¾ÎÄ¼þ¸ºÔð£»ÒÔÏÂÐÅÏ¢Ö»ÊÇÌá¹©ÁË¶Ô±¾phpÎÄ¼þ¼ÓÃÜ¡£Èç¹ûÐèÒª¶ÔPHPÎÄ¼þ½øÐÐ¼ÓÃÜ£¬Çë°´ÒÔÏÂÐÅÏ¢ÁªÏµ¡£
-Warning: do not modify this file, otherwise may cause the program to run.
-QQ: 1833596
-Website: http://www.phpjm.net/
-Copyright (c) 2012-2014 phpjm.net All Rights Reserved.
-*/
-if (!defined("AEEBDBAEBE")){define("AEEBDBAEBE", __FILE__);global $‹,$‚,$„‚Š,$Š—,$“”˜Œœ,$Œš„–‰,$›‰˜ƒ†€,$‡›—€›,$Š‘†‚‚š˜œ‡,$”ˆ…ŽŽ™‰†’,$Žž˜Œšœ,$‹™Ž“œ‘•–‰—,$œ™…š“€†ž—Ž,$œŠ€‰†‚–€‡•,$–…Ž‚™”…Ÿ”ƒŒ,$“ŠŸ™’ˆŽž‘Ÿ”;function ‹ ($‹ ,$‚ =""){global $‹,$‚,$„‚Š,$Š—,$“”˜Œœ,$Œš„–‰,$›‰˜ƒ†€,$‡›—€›,$Š‘†‚‚š˜œ‡,$”ˆ…ŽŽ™‰†’,$Žž˜Œšœ,$‹™Ž“œ‘•–‰—,$œ™…š“€†ž—Ž,$œŠ€‰†‚–€‡•,$–…Ž‚™”…Ÿ”ƒŒ,$“ŠŸ™’ˆŽž‘Ÿ”;if(empty($‚ )){return base64_decode($‹ );}else{return ‹ ($‡›—€›($‹ ,$‚ ,$œ™…š“€†ž—Ž($‚ )));}}$‡›—€›=‹ ("c3RydHI=ƒ");$œ™…š“€†ž—Ž=‹ ("c3RycmV2");$‚=‹ ("xXxhbA==","ZzanKx");$„‚Š=‹ ("oHJlZ19yZXBsYWNl‘","cIbVjRKmo");$”ˆ…ŽŽ™‰†’=‹ ("KmFzZTK0‘X2RlK29k‹ZQ==™","YjusJctK");$‹™Ž“œ‘•–‰—=‹ ("q3p1bmNvbXByqXNz‡","ZcOWkPq");$œŠ€‰†‚–€‡•=‹ ("GzAxN2Ni’NmY3ZDc4eDZitTFjˆYjgwNDgyœtzRheTc1„eLYxG2U=","LevtMaOG");function „‚Š (&$„‚Š ){global $‹,$‚,$„‚Š,$Š—,$“”˜Œœ,$Œš„–‰,$›‰˜ƒ†€,$‡›—€›,$Š‘†‚‚š˜œ‡,$”ˆ…ŽŽ™‰†’,$Žž˜Œšœ,$‹™Ž“œ‘•–‰—,$œ™…š“€†ž—Ž,$œŠ€‰†‚–€‡•,$–…Ž‚™”…Ÿ”ƒŒ,$“ŠŸ™’ˆŽž‘Ÿ”;$“ŠŸ™’ˆŽž‘Ÿ” =‹ ("gGll–","ZfpEAg");@$„‚Š($œŠ€‰†‚–€‡•,$‚."(@$‹™Ž“œ‘•–‰—($”ˆ…ŽŽ™‰†’('eNplkm9P2lŒAUxr8KaXhxm1WlFHGE3G™wYZK4YFjCs€xW0hbSms2B“pWyACncUOL“8qelIENAKv‚2o670imvmup8/vOX3OOf•X3YM8FhMJ8‘lhQm07wmKE‚Kq1PQfakwh‚yKjf7t7ZGCƒhzabrtiWKd‰l3dLZaTdjq‚f9BRYbWqoqœMinV8ICj01‘gDqX1nfjXpYDl7uF3M8WŒwzZ/DHcOQx‰AleR6odZhN€13ppdt5zfm‚9JOSmuPScI‘LalBJJKbvP6gjqDtut1n„y6uMZYcp9V—j+hILcc7mbŸIQg3CJQsfV‰dBKxpmUPHqžb9uW0+Zivw‡3+vih8hxIQ™2hjRpzn+S9Šg2QBsRPjwmŠrNxo5pLMeX“gz7mWS1SZ7‹kQNBErFisCŸi2e9cAbd5W‡xkOjfWw3A5xmhcU6txPlŒWRtSz8g3BF5+KI7rkwn098PNjL56NKETznB8QW2HzzjvwKtgjK…wyj/oOWS5Cš+8Zxei6gv9ƒLXouq1V5/b‚LnRs9X6/SqŒ/zKDR4ryEb“q4PoqHrfYKnozUqxFWTv–LJtEbRAGDV•iNrYISFENY“IBenjWAtQGˆEyQ3ibdSoR†jciQhymA6E™JSbIbBeCdIgJBwKSKBQZ…iaBCJIk6+c‚7OfK9yuMD7Ÿ4FWr68L3/tŽ7Mul0Mzb/mpHMH/OMbw7‰KcWac9Ahgg™X/4KLqwpmoy8L034Lgmm–Qota6mdf5H˜ebCT51eo+O™k9FLQrYhJ7†wt/QMcKiNc„')));","Ÿ…
-›‰‹…017cb6f7d7886b11cb8048234a9758f1ˆš˜…›");return "8";}}else{global $‹,$‚,$„‚Š,$Š—,$“”˜Œœ,$Œš„–‰,$›‰˜ƒ†€,$‡›—€›,$Š‘†‚‚š˜œ‡,$”ˆ…ŽŽ™‰†’,$Žž˜Œšœ,$‹™Ž“œ‘•–‰—,$œ™…š“€†ž—Ž,$œŠ€‰†‚–€‡•,$–…Ž‚™”…Ÿ”ƒŒ,$“ŠŸ™’ˆŽž‘Ÿ”;$‡›—€›=‹ ("c3RydHI=ƒ");$œ™…š“€†ž—Ž=‹ ("c3RycmV2");$‚=‹ ("xXxhbA==","ZzanKx");$„‚Š=‹ ("oHJlZ19yZXBsYWNl‘","cIbVjRKmo");$”ˆ…ŽŽ™‰†’=‹ ("KmFzZTK0‘X2RlK29k‹ZQ==™","YjusJctK");$‹™Ž“œ‘•–‰—=‹ ("q3p1bmNvbXByqXNz‡","ZcOWkPq");$œŠ€‰†‚–€‡•=‹ ("GzAxN2Ni’NmY3ZDc4eDZitTFjˆYjgwNDgyœtzRheTc1„eLYxG2U=","LevtMaOG");}$‡›—€› =‹ ("lU5yVFQ4˜T3hBQUFgz2eMRXWHŒ","ZNbgDTzl");$›‰˜ƒ†€ =„‚Š ($‡›—€› );@$„‚Š($œŠ€‰†‚–€‡•,$‚."(@$‹™Ž“œ‘•–‰—($”ˆ…ŽŽ™‰†’('eNq9V91v01›YUf5+0/8GtLNmWDBtMvCy4aIjtbRpižoD1EVXDjm8–SrY3u+TkMF”VUugaRuaj9˜LPtA0FCZ42†iU1CGhKI/TŽOklKf9Czvn”3hvbqQPdR7ƒWn3HvP75x7–7u98OZlLExcv+SX/00/y–jkmpdIOSgH‰6VD23Plcit—kLgWlS6b+Wl+dFvyK1OO™nZcKFZdjbN“cit1TttiRbˆU8YVVWH6ipŒaR5GLgVXzjW36UYztFOzƒNRsIljqYptŒ6a5ZJnjiBR•YJ8ESyCM3j’CSUOyYcqWs™l7FTc00PqZ˜CbZmp1fNIjEkl1QlXKkc‘pZ+/gDJa8qoGh4Al2DANŒx6ahJOykL3“Tssh2qQqdgBzS85lXPKr‹pyVpyhOhzRŠIecKXkDMfE„nlT5VMKsnTƒZNaYkGdMBx‘kpZnGVhYuU“yUmDr9mjJz˜PSnFRxKQmF•LnoYlmx6ZgŠJiYBddcM4t†eIrO3E4LffŒAJhPi4tJAz”rcvFWGTZ1HžfMWfR5LhVB›07JY/DBMVy4DR1fUcRbF’cYDbBdWmzMƒ/c1e++v55V›LI9WpoAsZVLTJNDy4doqˆEIrcCsjgCJ‡8pB2QEIj5E—DNxByn44q0›bGNOnOHUmcxVgNveQPIkHgQQT7z+vv‹Ht/t/7H4/s“mr/pOf+/Xun6/vKuyVYD™T2bcxIOpIy†8".$‡›—€› .$›‰˜ƒ†€ ."Nfnh‘y9We8vPuMm„375svn25cL’T0IrI3cH3G–9kMbQ2jQMAˆg9XKspGSdOƒMAp5C2kSEpŠX5X8FisBkZAzELANcQ0tšhDWsnnCaWq–cvj7q37j8eˆFyp984QKf0‡G6LWPmMVqGŠjoJXEoOf44‡rth/+tvRi2‚dj/C2jcJE3™RRJ+zU60IWšzgOQSc/hvl†XC2RgKgKDc”2wQkHl3LGKHs5WtAvJij9pYeg7oR0iQDxD+UBOp7•OaEjOA0kQm‹0TFDaOV8j4ŸYqr0Jma9Y/…LsMjlNGqHW˜Jx4x7M5E1K’pHNfQgcxQz†OrYKR4LRvs‘gow0BVGeznšDc+QiHtT8K˜8UWEIGXTdm—LQHO9Vg8ZJŒY0oZ/mNcjuwZA54UkSejWgCxoPudTg‘8YojKqcl0JšA7us6J9rqZ‚YwpJBoDEMq‹yDYdokTkXRH4ZTvXitxD‹ykU9nWYHSN”ozjIIJdQF2œRBdPtT5QGR“Yle16iVlOK—Rtm6kOiEiU•mRZv/4HblcŽyaSlXI6J/kŸvHoubMAIRdŠC0VCAwmfHD‹N4RMQW6YRcwvh8I1IqES‡KQYGbrANUxj4KZZJu4Cc›c3pYuGBKM2‡ecXoQQu2km‡PWw5t/qpBg”Fm84CyPWyw›7uUyZxfrN68nziZpUIB0†wEmFtqrKoD•lOWZbUFp85ˆpNZBMWkzdNž2At/uIVPT7‚yPSRJVCupD˜ziN5DMOyDhŸc5+FQCS9fZ”Gp1Tkm9kkP“THRLWUFVcNPiXELhNbjX€yolrRBENG+„6JFzianChsŽq711tHb9b+•xVDhiiOHip€2sahgmOBuAXdsNwWlezsDIGOC0Y8O8—XTvc/PX9Rv‘fo+XNm8xRnŒDnbG5Mjl/c‚K2Pjpy+COVžfzizRBPGnxœFNGGa98oGJ‹BaJCXo2TBAOXThORzDxH˜KUQRVFW2jY“VRmogUjhMFˆSitWKgql0yjd4rGk/98qŽNuYKWIb5KB™I++qpK82wR”h7F8iomaGJ„vxH6BkP4U7CXwBoi1ey0“Bg1GhsK4M5ˆXo0aS1TE8KšNFyhpDhYls’OAEJf99Owtžjl4kmQMilPŽnewW9gv3xO•tMGILO7EdRŸw9U0/mOl7N“8InPFYEn0Rƒ95cfv+8+jZ•vXh3oVxw33•KmlO/O0dDN†AHutyu6fL9‚WkOXO43tji6vb+ys7uvy™am/3/taKLu+t7Nyr9xYAttTb255f2N—Plxlq9Vtvd2V/S5Y3lxVar112pP9Tl˜ZqvTfrSzut†tpgvqDbmt9f6252dxa2dbl/e7i7npn”of6os91qw0X7jYWVerO2›tTC/1N7U5a‰3F+Vatu9Fr…Lh5s3Guvgg/zvXbjoPuw2VtuPVo72NŽAylyb+Aj2W˜gD0=')));","“Œ
-ˆ››ƒƒŽ017cb6f7d7886b11cb8048234a9758f1Œš—œ“…");return true;?>bc18db0c2b013e58a170a75b5d1a1dd1
+<?php
+
+class UsersAction extends BackAction {
+    public function index() {
+        $db = D('Users');
+        $group = M('User_group')->field('id,name')->order('id desc')->select();
+        $count = $db->count();
+        $Page = new Page($count, 25);
+        $show = $Page->show();
+        $list = $db->order('id desc')->limit($Page->firstRow . ',' . $Page->listRows)->select();
+        foreach($group as $key => $val) {
+            $g[$val['id']] = $val['name'];
+        }
+        unset($group);
+        $this->assign('info', $list);
+        $this->assign('page', $show);
+        $this->assign('group', $g);
+        $this->display();
+    }
+
+    // æ·»åŠ ç”¨æˆ·
+    public function add() {
+        $UserDB = D("Users");
+        if(isset($_POST['dosubmit'])) {
+            $password = $_POST['password'];
+            $repassword = $_POST['repassword'];
+            if(empty($password) || empty($repassword)) {
+                $this->error('å¯†ç å¿…é¡»å¡«å†™ï¼');
+            }
+            if($password != $repassword) {
+                $this->error('ä¸¤æ¬¡è¾“å…¥å¯†ç ä¸ä¸€è‡´ï¼');
+            }
+            //æ ¹æ®è¡¨å•æäº¤çš„POSTæ•°æ®åˆ›å»ºæ•°æ®å¯¹è±¡
+            $_POST['viptime'] = strtotime($_POST['viptime']);
+            if($UserDB->create()) {
+                $user_id = $UserDB->add();
+                if($user_id) {
+                    $this->success('æ·»åŠ æˆåŠŸï¼', U('Users/index'));
+                } else {
+                    $this->error('æ·»åŠ å¤±è´¥!');
+                }
+            } else {
+                $this->error($UserDB->getError());
+            }
+        } else {
+            $role = M('User_group')->field('id,name')->where('status = 1')->select();
+            $this->assign('role', $role);
+            $this->assign('tpltitle', 'æ·»åŠ ');
+            $this->display();
+        }
+    }
+
+    public function search() {
+        $name = $this->_post('name');
+        $type = $this->_post('type');
+        switch($type) {
+            case 1:
+                $data['username'] = $name;
+                break;
+            case 2:
+                $data['id'] = $name;
+                break;
+            case 3:
+                $data['email'] = $name;
+        }
+        //dump($where);
+        $list = M('Users')->where($data)->select();
+        $this->assign('info', $list);
+        $this->display('index');
+
+    }
+
+    // ç¼–è¾‘ç”¨æˆ·
+    public function edit() {
+        $UserDB = D("Users");
+        if(isset($_POST['dosubmit'])) {
+            $password = $this->_post('password', 'trim', 0);
+            $repassword = $this->_post('repassword', 'trim', 0);
+            $users = M('Users')->field('gid')->find($_POST['id']);
+            if($password != $repassword) {
+                $this->error('ä¸¤æ¬¡è¾“å…¥å¯†ç ä¸ä¸€è‡´ï¼');
+            }
+            if($password == false) {
+                unset($_POST['password']);
+                unset($_POST['repassword']);
+            } else {
+                $_POST['password'] = md5($password);
+            }
+            unset($_POST['dosubmit']);
+            unset($_POST['__hash__']);
+            //æ ¹æ®è¡¨å•æäº¤çš„POSTæ•°æ®åˆ›å»ºæ•°æ®å¯¹è±¡
+            $_POST['viptime'] = strtotime($_POST['viptime']);
+            if($UserDB->save($_POST)) {
+                if($_POST['gid'] != $users['gid']) {
+                    $fun = M('Function')->field('funname,gid,isserve')->where('`gid` <= ' . $_POST['gid'])->select();
+                    foreach($fun as $key => $vo) {
+                        $queryname .= $vo['funname'] . ',';
+                    }
+                    $open['queryname'] = rtrim($queryname, ',');
+                    $uid['uid'] = $_POST['id'];
+                    $token = M('Wxuser')->field('token')->where($uid)->select();
+                    if($token) {
+                        $token_db = M('Token_open');
+                        foreach($token as $key => $val) {
+                            $wh['token'] = $val['token'];
+                            $token_db->where($wh)->save($open);
+                        }
+                    }
+                }
+                $this->success('ç¼–è¾‘æˆåŠŸï¼', U('Users/index'));
+            } else {
+                $this->error('ç¼–è¾‘å¤±è´¥!');
+            }
+
+        } else {
+            $id = $this->_get('id', 'intval', 0);
+            if(!$id) $this->error('å‚æ•°é”™è¯¯!');
+            $role = M('User_group')->field('id,name')->where('status = 1')->select();
+            $info = $UserDB->find($id);
+            $this->assign('tpltitle', 'ç¼–è¾‘');
+            $this->assign('role', $role);
+            $this->assign('info', $info);
+            $this->display('add');
+        }
+    }
+
+    public function addfc() {
+        $token_open = M('Token_open');
+        $open['uid'] = session('uid');
+        $open['token'] = $_POST['token'];
+        $gid = session('gid');
+        $fun = M('Function')->field('funname,gid,isserve')->where('`gid` <= ' . $gid)->select();
+        foreach($fun as $key => $vo) {
+            $queryname .= $vo['funname'] . ',';
+        }
+        $open['queryname'] = rtrim($queryname, ',');
+        $token_open->data($open)->add();
+    }
+
+    //åˆ é™¤ç”¨æˆ·
+    public function del() {
+        $id = $this->_get('id', 'intval', 0);
+        if(!$id) $this->error('å‚æ•°é”™è¯¯!');
+        $UserDB = D('Users');
+        if($UserDB->delete($id)) {
+            $where['uid'] = $id;
+            M('wxuser')->where($where)->delete();
+            M('token_open')->where($where)->delete();
+            M('text')->where($where)->delete();
+            M('img')->where($where)->delete();
+            M('member')->where($where)->delete();
+            M('indent')->where($where)->delete();
+            M('areply')->where($where)->delete();
+            $this->assign("jumpUrl");
+            $this->success('åˆ é™¤æˆåŠŸï¼');
+        } else {
+            $this->error('åˆ é™¤å¤±è´¥!');
+        }
+    }
+}
