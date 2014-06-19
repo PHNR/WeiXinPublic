@@ -48,7 +48,6 @@ class TmplsAction extends UserAction {
         $desinfo[35] = "此模板支持二级分类，适合分类比较多的地方公众号，前4个一级分类可以突出显示，小图标";
         $desinfo[36] = "";
         $this->assign('desinfo', $desinfo);
-        //
         $this->display();
     }
 
@@ -452,13 +451,17 @@ class TmplsAction extends UserAction {
                 $data['tpltypeid'] = 99;
                 $data['tpltypename'] = '199_index';
                 break;
+            case 100:
+                $data['tpltypeid'] = 100;
+                $data['tpltypename'] = '76_index';
+                break;
         }
         $where['token'] = session('token');
         $db->where($where)->save($data);
         //
         M('Home')->where(array('token' => session('token')))->save(array('advancetpl' => 0));
         if(isset($_GET['noajax'])) {
-            $this->success('设置成功', '/index.php?g=User&m=Tmpls&a=index&token=' . $this->token);
+            $this->success('设置成功', 'index.php?g=User&m=Tmpls&a=index&token=' . $this->token);
         }
     }
 

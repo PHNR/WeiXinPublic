@@ -1,0 +1,215 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{weiwin:$tpl['wxname']}</title><base href="." />
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="{weiwin::RES}/css/76/idangerous.swiper.css">
+<link href="{weiwin::RES}/css/76/iscroll.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{weiwin::RES}/css/76/plugmenu.css">
+<link href="{weiwin::RES}/css/76/cate18_.css" rel="stylesheet" type="text/css">
+<style></style>
+<script src="{weiwin::RES}/css/76/iscroll.js" type="text/javascript"></script>
+<script type="text/javascript">
+var myScroll;
+function loaded() {
+	myScroll = new iScroll('wrapper', {
+		snap: true,
+		momentum: false,
+		hScrollbar: false,
+		onScrollEnd: function() {
+			document.querySelector('#indicator > li.active').className = '';
+			document.querySelector('#indicator > li:nth-child(' + (this.currPageX + 1) + ')').className = 'active';
+		}
+	});
+}
+document.addEventListener('DOMContentLoaded', loaded, false);
+</script>
+</head>
+<body id="cate18" style="">
+<div id="insert1" style="z-index:10000; position:fixed; top:20px;"></div>
+<div class="banner">
+	<div id="wrapper" style="overflow: hidden; ">
+		<div id="scroller" style="width: 5637px; -webkit-transition: 0ms; -webkit-transform: translate3d(-3758px, 0px, 0px) scale(1); ">
+			<ul id="thelist">
+				<volist name="flash" id="so">
+					<li><p>{weiwin:$so.info}</p><a href="{weiwin:$so.url}"><img src="{weiwin:$so.img}"  style="width: 1879px; " /></a></li>
+				</volist>
+			</ul>
+		</div>
+	</div>
+	<div id="nav">
+		<div id="prev" onClick="myScroll.scrollToPage('prev', 0,400,3);return false">← prev</div>
+		<ul id="indicator">
+			<li class="">1</li>
+			<li class="">2</li>
+			<li class="active">3</li>
+		</ul>
+		<div id="next" onClick="myScroll.scrollToPage('next', 0,400,3);return false">next →</div>
+	</div>
+	<div class="clr"></div>
+</div>
+<div class="device">
+<a class="arrow-left" href="#"></a>
+<a class="arrow-right" href="#"></a>
+
+	<div class="swiper-container" style="cursor: -webkit-grab;">
+		<div class="swiper-wrapper"
+			 style="width: 5637px; height: 185px; -webkit-transform: translate3d(-1879px, 0px, 0px); -webkit-transition: 0s; ">
+			<div class="swiper-slide swiper-slide-visible swiper-slide-active" style="width: 1879px; height: 185px; ">
+				<div class="content-slide">
+					<volist name="info" id="vo" offset="0" length="8">
+						<a href="<if condition="$vo['url'] eq ''">{weiwin::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{weiwin:$vo.url|htmlspecialchars_decode}</if>">
+						<p class="ico"><img src="{weiwin:$vo.img}"></p>
+						<p class="title">{weiwin:$vo.name}</p>
+						</a>
+					</volist>
+				</div>
+			</div>
+			<div class="swiper-slide" style="width: 1879px; height: 185px; ">
+				<div class="content-slide">
+					<volist name="info" id="vo" offset="8" length="8">
+						<a href="<if condition="$vo['url'] eq ''">{weiwin::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{weiwin:$vo.url|htmlspecialchars_decode}</if>">
+						<p class="ico"><img src="{weiwin:$vo.img}"></p>
+						<p class="title">{weiwin:$vo.name}</p>
+						</a>
+					</volist>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="pagination"><span class="swiper-pagination-switch swiper-visible-switch swiper-active-switch"></span></div>
+<script type="text/javascript">
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	window.shareData = {
+		"imgUrl": "http://www.139931.com/ke4/attached/image/uid696/671/20131024004026_48733.jpg",
+		"timeLineLink": "http://www.139931.com/wxapi.php?ac=cate18&tid=671&from=app",
+		"sendFriendLink": "http://www.139931.com/wxapi.php?ac=cate18&tid=671&from=app",
+		"weiboLink": "http://www.139931.com/wxapi.php?ac=cate18&tid=671&from=app",
+		"tTitle": "美，从这里开始...",
+		"tContent": "海贝，是物超所值的品质，是时尚潮流的舒适，是展现女性美丽的典范！",
+		"fTitle": "美，从这里开始...",
+		"fContent": "海贝，是物超所值的品质，是时尚潮流的舒适，是展现女性美丽的典范！",
+		"wContent": "海贝，是物超所值的品质，是时尚潮流的舒适，是展现女性美丽的典范！"
+	};
+	// 发送给好友
+	WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+		WeixinJSBridge.invoke('sendAppMessage', {
+			"img_url": window.shareData.imgUrl,
+			// "img_width": "640",
+			// "img_height": "640",
+			"link": window.shareData.sendFriendLink,
+			"desc": window.shareData.fContent,
+			"title": window.shareData.fTitle
+		}, function (res) {
+			_report('send_msg', res.err_msg);
+		})
+	});
+
+	// 分享到朋友圈
+	WeixinJSBridge.on('menu:share:timeline', function (argv) {
+		WeixinJSBridge.invoke('shareTimeline', {
+			"img_url": window.shareData.imgUrl,
+			"img_width": "640",
+			"img_height": "640",
+			"link": window.shareData.timeLineLink,
+			"desc": window.shareData.tContent,
+			"title": window.shareData.tTitle
+		}, function (res) {
+			_report('timeline', res.err_msg);
+		});
+	});
+
+	// 分享到微博
+	WeixinJSBridge.on('menu:share:weibo', function (argv) {
+		WeixinJSBridge.invoke('shareWeibo', {
+			"content": window.shareData.wContent,
+			"url": window.shareData.weiboLink,
+		}, function (res) {
+			_report('weibo', res.err_msg);
+		});
+	});
+}, false)
+</script>
+<script src="{weiwin::RES}/css/175/jquery-1.10.1.min.js" type="text/javascript"></script>
+<script src="{weiwin::RES}/css/175/idangerous.swiper-2.1.min.js" type="text/javascript"></script>
+<script>
+var mySwiper = new Swiper('.swiper-container',{
+	pagination: '.pagination',
+	loop:true,
+	grabCursor: true,
+	paginationClickable: true
+})
+$('.arrow-left').on('click', function(e){
+	e.preventDefault()
+	mySwiper.swipePrev()
+})
+$('.arrow-right').on('click', function(e){
+	e.preventDefault()
+	mySwiper.swipeNext()
+})
+var count = document.getElementById("thelist").getElementsByTagName("img").length;
+var count2 = document.getElementsByClassName("menuimg").length;
+for(i=0;i<count;i++){
+	document.getElementById("thelist").getElementsByTagName("img").item(i).style.cssText = " width:"+document.body.clientWidth+"px";
+}
+document.getElementById("scroller").style.cssText = " width:"+document.body.clientWidth*count+"px";
+setInterval(function(){
+	myScroll.scrollToPage('next', 0,400,count);
+},3500 );
+window.onresize = function(){
+	for(i=0;i<count;i++){
+		document.getElementById("thelist").getElementsByTagName("img").item(i).style.cssText = " width:"+document.body.clientWidth+"px";
+	}
+	document.getElementById("scroller").style.cssText = " width:"+document.body.clientWidth*count+"px";
+}
+</script>
+<div style="display:none"></div>
+<div id="leafContainer"><div style="top: -100px; left: 421px; -webkit-animation: fade 10.157366317231208s 1.270775479497388s, drop 10.157366317231208s 1.270775479497388s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui2.png" style="-webkit-animation: clockwiseSpin 7.677793754264712s; "></div><div style="top: -100px; left: 36px; -webkit-animation: fade 8.318756395950913s 3.0034197692293674s, drop 8.318756395950913s 3.0034197692293674s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui2.png" style="-webkit-animation: clockwiseSpin 7.4954203283414245s; "></div><div style="top: -100px; left: 398px; -webkit-animation: fade 7.411039683967829s 2.457117374287918s, drop 7.411039683967829s 2.457117374287918s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui2.png" style="-webkit-animation: counterclockwiseSpinAndFlip 6.823754656128585s; "></div><div style="top: -100px; left: 140px; -webkit-animation: fade 8.80600900715217s 1.230421222280711s, drop 8.80600900715217s 1.230421222280711s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui4.png" style="-webkit-animation: counterclockwiseSpinAndFlip 6.508220513351262s; "></div><div style="top: -100px; left: 473px; -webkit-animation: fade 9.897792068310082s 4.349573936779052s, drop 9.897792068310082s 4.349573936779052s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui3.png" style="-webkit-animation: clockwiseSpin 6.874006260186434s; "></div><div style="top: -100px; left: 38px; -webkit-animation: fade 7.567733549512923s 3.9737727807369083s, drop 7.567733549512923s 3.9737727807369083s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui2.png" style="-webkit-animation: clockwiseSpin 6.796453804709017s; "></div><div style="top: -100px; left: 368px; -webkit-animation: fade 9.838659090921283s 1.2282557506114244s, drop 9.838659090921283s 1.2282557506114244s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui4.png" style="-webkit-animation: counterclockwiseSpinAndFlip 4.364536770619452s; "></div><div style="top: -100px; left: 348px; -webkit-animation: fade 9.978867098223418s 4.339373729890212s, drop 9.978867098223418s 4.339373729890212s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui4.png" style="-webkit-animation: clockwiseSpin 4.396245768293738s; "></div><div style="top: -100px; left: 86px; -webkit-animation: fade 5.667821601498872s 1.491618452128023s, drop 5.667821601498872s 1.491618452128023s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui4.png" style="-webkit-animation: clockwiseSpin 6.597682262770832s; "></div><div style="top: -100px; left: 213px; -webkit-animation: fade 9.243869820609689s 3.046888898825273s, drop 9.243869820609689s 3.046888898825273s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui4.png" style="-webkit-animation: clockwiseSpin 6.457712074741721s; "></div><div style="top: -100px; left: 81px; -webkit-animation: fade 9.397906763944775s 1.37476583593525s, drop 9.397906763944775s 1.37476583593525s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui4.png" style="-webkit-animation: clockwiseSpin 6.7675617383793s; "></div><div style="top: -100px; left: 482px; -webkit-animation: fade 7.242790498770773s 4.197370799956843s, drop 7.242790498770773s 4.197370799956843s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui4.png" style="-webkit-animation: clockwiseSpin 4.764294602908194s; "></div><div style="top: -100px; left: 164px; -webkit-animation: fade 7.364775231573731s 1.902790036983788s, drop 7.364775231573731s 1.902790036983788s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui1.png" style="-webkit-animation: counterclockwiseSpinAndFlip 5.562033176422119s; "></div><div style="top: -100px; left: 271px; -webkit-animation: fade 6.149943670723587s 1.3977405650075525s, drop 6.149943670723587s 1.3977405650075525s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui4.png" style="-webkit-animation: clockwiseSpin 7.815493187867105s; "></div><div style="top: -100px; left: 56px; -webkit-animation: fade 10.968079441227019s 4.068285506218672s, drop 10.968079441227019s 4.068285506218672s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui2.png" style="-webkit-animation: counterclockwiseSpinAndFlip 4.80222122464329s; "></div><div style="top: -100px; left: 21px; -webkit-animation: fade 9.140630348119885s 2.193510099314153s, drop 9.140630348119885s 2.193510099314153s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui4.png" style="-webkit-animation: counterclockwiseSpinAndFlip 4.464367934502661s; "></div><div style="top: -100px; left: 446px; -webkit-animation: fade 10.262007681187242s 4.453420611098409s, drop 10.262007681187242s 4.453420611098409s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui4.png" style="-webkit-animation: clockwiseSpin 5.330418044701219s; "></div><div style="top: -100px; left: 205px; -webkit-animation: fade 8.526431581005454s 3.371312867384404s, drop 8.526431581005454s 3.371312867384404s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui3.png" style="-webkit-animation: counterclockwiseSpinAndFlip 4.675836071372032s; "></div><div style="top: -100px; left: 190px; -webkit-animation: fade 9.422843621578068s 1.1882081546355039s, drop 9.422843621578068s 1.1882081546355039s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui2.png" style="-webkit-animation: counterclockwiseSpinAndFlip 6.5636736853048205s; "></div><div style="top: -100px; left: 117px; -webkit-animation: fade 7.362236411776394s 1.5958761831279844s, drop 7.362236411776394s 1.5958761831279844s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui1.png" style="-webkit-animation: clockwiseSpin 7.7101285280659795s; "></div><div style="top: -100px; left: 91px; -webkit-animation: fade 6.477275994140655s 4.681887493934482s, drop 6.477275994140655s 4.681887493934482s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui1.png" style="-webkit-animation: clockwiseSpin 7.737256261520088s; "></div><div style="top: -100px; left: 149px; -webkit-animation: fade 6.456339901313186s 4.658662296133116s, drop 6.456339901313186s 4.658662296133116s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui3.png" style="-webkit-animation: clockwiseSpin 7.8130228677764535s; "></div><div style="top: -100px; left: 105px; -webkit-animation: fade 5.501684037037194s 2.950487429043278s, drop 5.501684037037194s 2.950487429043278s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui4.png" style="-webkit-animation: counterclockwiseSpinAndFlip 6.442412139847875s; "></div><div style="top: -100px; left: 120px; -webkit-animation: fade 7.420946175698191s 3.1684541003778577s, drop 7.420946175698191s 3.1684541003778577s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui3.png" style="-webkit-animation: counterclockwiseSpinAndFlip 7.442229399457574s; "></div><div style="top: -100px; left: 454px; -webkit-animation: fade 5.966681896243244s 1.342243377584964s, drop 5.966681896243244s 1.342243377584964s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui1.png" style="-webkit-animation: counterclockwiseSpinAndFlip 7.723759600892663s; "></div><div style="top: -100px; left: 417px; -webkit-animation: fade 8.736122028436512s 3.8758932158816606s, drop 8.736122028436512s 3.8758932158816606s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui1.png" style="-webkit-animation: counterclockwiseSpinAndFlip 4.959103210829198s; "></div><div style="top: -100px; left: 83px; -webkit-animation: fade 5.107356152031571s 2.608289944473654s, drop 5.107356152031571s 2.608289944473654s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui3.png" style="-webkit-animation: counterclockwiseSpinAndFlip 7.645419302396476s; "></div><div style="top: -100px; left: 109px; -webkit-animation: fade 9.737453414592892s 4.444626299664378s, drop 9.737453414592892s 4.444626299664378s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui2.png" style="-webkit-animation: counterclockwiseSpinAndFlip 5.2094031404703856s; "></div><div style="top: -100px; left: 19px; -webkit-animation: fade 7.329503110144287s 0.17846867558546364s, drop 7.329503110144287s 0.17846867558546364s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui1.png" style="-webkit-animation: counterclockwiseSpinAndFlip 6.514479395933449s; "></div><div style="top: -100px; left: 392px; -webkit-animation: fade 8.24379594065249s 3.9583014452364296s, drop 8.24379594065249s 3.9583014452364296s; "><img src="http://www.apiwx.com/index/images/dhimg/meigui4.png" style="-webkit-animation: counterclockwiseSpinAndFlip 6.002816140651703s; "></div></div>
+<style>
+	#leafContainer {
+		position: fixed;
+		z-index: 2;
+		width: 100%;
+		height: 690px;
+		top: 0;
+		overflow: hidden;
+	}
+	#leafContainer > div {
+		position: absolute;
+		max-width: 100px;
+		max-height: 100px;
+		-webkit-animation-iteration-count: infinite, infinite;
+		-webkit-animation-direction: normal, normal;
+		-webkit-animation-timing-function: linear, ease-in;
+	}
+	#leafContainer > div > img {
+		position: absolute;
+		width: 100%;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-direction: alternate;
+		-webkit-animation-timing-function: ease-in-out;
+		-webkit-transform-origin: 50% -100%;
+	}
+	@-webkit-keyframes fade {
+		0% { opacity: 1; }
+		95% { opacity: 1; }
+		100% { opacity: 0; }
+	}
+	@-webkit-keyframes drop {
+		0% { -webkit-transform: translate(0px, -50px); }
+		100% { -webkit-transform: translate(0px, 650px); }
+	}
+	@-webkit-keyframes clockwiseSpin {
+		0% { -webkit-transform: rotate(-50deg); }
+		100% { -webkit-transform: rotate(50deg); }
+	}
+	@-webkit-keyframes counterclockwiseSpinAndFlip {
+		0% { -webkit-transform: scale(-1, 1) rotate(50deg); }
+		100% { -webkit-transform: scale(-1, 1) rotate(-50deg); }
+	}
+</style>
+<script src="./tpl/Wap/default/common/css/132/bjdh2.js" type="text/javascript"></script>
+</body></html>
