@@ -66,8 +66,9 @@ playbox.init("playbox");
 <li>
 <volist name="info" id="vo" offset="0" length='4'>
 <a href="<if condition="$vo['url'] eq ''">{weiwin::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{weiwin:$vo.url}</if>" class="weimob-list-item">
-<span class="{weiwin:$vo.icon}"></span>
-<img src="{weiwin:$vo.img}" alt="{weiwin:$vo.name}" />
+<span class="{weiwin:$vo.icon}">
+</span>
+	<img src="{weiwin:$vo.img}" alt="{weiwin:$vo.name}" />
 <div>{weiwin:$vo.name}</div>
 </a>
 </volist>
@@ -75,8 +76,9 @@ playbox.init("playbox");
 <li>
 <volist name="info" id="vo" offset="4" length='8'>
 <a href="<if condition="$vo['url'] eq ''">{weiwin::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{weiwin:$vo.url}</if>" class="weimob-list-item">
-<span class="{weiwin:$vo.icon}"></span>
-<img src="{weiwin:$vo.img}" alt="{weiwin:$vo.name}" />
+<span class="{weiwin:$vo.icon}">
+</span>
+	<img src="{weiwin:$vo.img}" alt="{weiwin:$vo.name}" />
 <div>{weiwin:$vo.name}</div>
 </a>
 </volist>
