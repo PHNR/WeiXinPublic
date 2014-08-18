@@ -1,26 +1,40 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>{weiwin::C('site_title')} {weiwin::C('site_name')}</title>
-  <link href="{weiwin::RES}/css/ss.css" rel="stylesheet" type="text/css"  />
-  <link href="{weiwin::RES}/css/style.css" rel="stylesheet" type="text/css" />
+﻿<!DOCTYPE html><html><head><meta charset="utf-8" />
+<title>{weiwin::C('site_title')} {weiwin::C('site_name')}</title>
+<link href="{weiwin::RES}/css/ss.css" rel="stylesheet" type="text/css"  />
+<link href="{weiwin::RES}/css/style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../font/font-awesome.css" media="all" />
-  <link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/stylet.css" />
+<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/stylet.css" />
 <script type="text/javascript" src="{weiwin::RES}/js/jquery.min.js"></script>
 <script type="text/javascript" src="{weiwin::RES}/js/common.js"></script>
 <script type="text/javascript" charset="utf-8" src="./tpl/static/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="./tpl/static/ueditor/ueditor.all.min.js"> </script>
 <script type="text/javascript" charset="utf-8" src="./tpl/static/ueditor/lang/zh-cn/zh-cn.js"></script>
-
 <style>
-
-/*UP*/ 
-
-a.a_upload,a.a_choose{border:1px solid #3d810c;box-shadow:0 1px #CCCCCC;-moz-box-shadow:0 1px #CCCCCC;-webkit-box-shadow:0 1px #CCCCCC;cursor:pointer;display:inline-block;text-align:center;vertical-align:bottom;overflow:visible;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;vertical-align:middle;background-color:#f1f1f1;background-image: -webkit-linear-gradient(bottom, #CCC 0%, #2F8BC9 3%, #2F8BC9 97%, #FFF 100%); background-image: -moz-linear-gradient(bottom, #CCC 0%, #E5E5E5 3%, #FFF 97%, #FFF 100%); background-image: -ms-linear-gradient(bottom, #CCC 0%, #E5E5E5 3%, #FFF 97%, #FFF 100%); color:white;border:1px solid #AAA;padding:2px 8px 2px 8px;font-size: 14px;line-height: 1.5;
-
+/*UP*/
+a.a_upload, a.a_choose {
+	border: 1px solid #3D810C;
+	-webkit-box-shadow: 0 1px #CCC;
+	   -moz-box-shadow: 0 1px #CCC;
+	        box-shadow: 0 1px #CCC;
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	vertical-align: bottom;
+	overflow: visible;
+	-webkit-border-radius: 3px;
+	   -moz-border-radius: 3px;
+	        border-radius: 3px;
+	vertical-align: middle;
+	background-color: #F1F1F1;
+	background-image: -webkit-linear-gradient(bottom, #CCC 0%, #2F8BC9 3%, #2F8BC9 97%, #FFF 100%);
+	background-image:    -moz-linear-gradient(bottom, #CCC 0%, #2F8BC9 3%, #2F8BC9 97%, #FFF 100%);
+	background-image:     -ms-linear-gradient(bottom, #CCC 0%, #2F8BC9 3%, #2F8BC9 97%, #FFF 100%);
+	color: white;
+	border: 1px solid #AAA;
+	padding: 2px 8px 2px 8px;
+	font-size: 14px;
+	line-height: 1.5;
 }
-
 </style>
 </head>
 
@@ -72,7 +86,7 @@ a.a_upload,a.a_choose{border:1px solid #3d810c;box-shadow:0 1px #CCCCCC;-moz-box
                   </span>
                   <span>
                     <a href="#" onclick="Javascript:window.open('{weiwin::U('System/Admin/logout')}')" onLoad=setTimeout("abc.style.display='none'",5000) >安全退出</a>
-                  </span>                    
+                  </span>
                 </li>
             </ul>
             
@@ -407,7 +421,6 @@ a.a_upload,a.a_choose{border:1px solid #3d810c;box-shadow:0 1px #CCCCCC;-moz-box
 				<a href="{weiwin::U('Liuyan/index',array('token'=>$token))}" class="Highland" >
                     <img src="{weiwin::RES}/images/diyxuanchuan_34.jpg" /><span>留言板</span><span class="introduction">留言板</span>
                 </a>
-
             </div>
         </div><!-- ThreeMenu end-->
     </div><!--Menu   end -->
