@@ -29,7 +29,7 @@ ul { margin: 0px; padding: 0px; list-style-type: none; list-style-position: insi
 #nav .analyse div ul { color: white; font-weight: bold; margin-top: 5px; margin-left: 10px; }
 #nav .analyse .add { float: right; margin-top: -90px; margin-right: 20px; }
 /*  nav  结束*/
-#floatline { width: 1178px; height: 5px; background: #2995DD; margin-left: 19px; }
+#floatline { width: 1178px; height: 0; background: #2995DD; margin-left: 19px; }
 #Frame { width: 1210px; background: #FFF; margin: 0px auto; clear: both; }
 .Menu { /*height:100%;*/ float: left; }
 .Menu .TwoMenu { width: 90px; float: left; position: relative; background: #00859D; margin-left: 19px; }
