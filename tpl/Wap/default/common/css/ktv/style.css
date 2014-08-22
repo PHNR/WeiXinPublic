@@ -1,4 +1,5 @@
-html, body { color: #222; font-family: "Microsoft YaHei", Helvitica, Verdana, Tohoma, Arial, san-serif; background-color: #EEE; margin: 0 auto; padding: 0; text-decoration: none; width: 320px }
+html, body { color: #222; font-family: "Microsoft YaHei", Helvitica, Verdana, Tohoma, Arial, san-serif; background-color: #EEE; margin: 0; padding: 0; text-decoration: none; width: auto; }
+body { padding: 4%; }
 ol, ul { list-style: none outside none; margin: 0; padding: 0; }
 h1, h2, h3, h4, h5, h6 { font-size: 100%; /*font-weight:normal;*/ }
 h2 { font-size: 16px; }
