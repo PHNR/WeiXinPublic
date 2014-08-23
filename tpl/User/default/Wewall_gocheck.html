@@ -1,6 +1,6 @@
 <include file="Public:head"/>
 
-<div class="content" >
+<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;">
 
          
 
@@ -40,11 +40,11 @@
 
 				<volist name="info" id="vo">
 
-				<tr class="tr{weiwin:$vo.id}">
+				<tr class="tr{pigcms:$vo.id}">
 
                   
 
-                  <td>{weiwin:$vo.content}</td>
+                  <td>{pigcms:$vo.content}</td>
 
                   
 
@@ -52,9 +52,9 @@
 
                    <td class="norightborder">
 
-				   <a href="javascript:passlog({weiwin:$vo.id})">审核通过</a> 
+				   <a href="javascript:passlog({pigcms:$vo.id})">审核通过</a> 
 
-				   <a href="javascript:dellog({weiwin:$vo.id})">删除</a></td>
+				   <a href="javascript:dellog({pigcms:$vo.id})">删除</a></td>
 
           
 
@@ -80,11 +80,11 @@
 
     		type: "post", 
 
-    		url : "{weiwin::U('Wewall/sentcheck')}",
+    		url : "{pigcms::U('Wewall/sentcheck')}",
 
     		dataType:'json', 
 
-    		data: 'uid={weiwin:$id}',
+    		data: 'uid={pigcms:$id}',
 
     		success: function(json){
 
@@ -108,13 +108,13 @@
 
 	function passlog(num){
 
-		$.ajax({ url : "{weiwin::U('Wewall/passlog')}",dataType:'text',  data: 'id='+num,success: function(data){ $(".tr"+num).remove()}  });	 
+		$.ajax({ url : "{pigcms::U('Wewall/passlog')}",dataType:'text',  data: 'id='+num,success: function(data){ $(".tr"+num).remove()}  });	 
 
 	}
 
 	function dellog(num){
 
-		$.ajax({ url : "{weiwin::U('Wewall/dellog')}",dataType:'text',  data: 'id='+num,success: function(data){ $(".tr"+num).remove()}  });	 
+		$.ajax({ url : "{pigcms::U('Wewall/dellog')}",dataType:'text',  data: 'id='+num,success: function(data){ $(".tr"+num).remove()}  });	 
 
 	}
 

@@ -2,7 +2,15 @@
 
 
 
+
+
+
+
 <!DOCTYPE html>
+
+
+
+
 
 
 
@@ -10,7 +18,15 @@
 
 
 
+
+
+
+
     <head>
+
+
+
+
 
 
 
@@ -18,35 +34,71 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/yuyue/common.css" media="all" />
 
 
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/yuyue/datepicker.css" media="all" />
+
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/yuyue/common.css" media="all" />
 
 
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/yuyue/onlinebooking.css" media="all" />
 
 
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/yuyue/weimob-ui-1-1.css" media="all" />
+
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/yuyue/datepicker.css" media="all" />
 
 
 
-<script type="text/javascript" src="{weiwin::RES}/js/yuyue/jQuery.js"></script>
 
 
 
-<script type="text/javascript" src="{weiwin::RES}/js/yuyue/jquery-ui.js"></script>
+
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/yuyue/onlinebooking.css" media="all" />
 
 
 
-<script type="text/javascript" src="{weiwin::RES}/js/yuyue/swipe.js"></script>
 
 
 
-<title>{weiwin:$data.copyright}</title>
+
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/yuyue/weimob-ui-1-1.css" media="all" />
+
+
+
+
+
+
+
+<script type="text/javascript" src="{pigcms::RES}/js/yuyue/jQuery.js"></script>
+
+
+
+
+
+
+
+<script type="text/javascript" src="{pigcms::RES}/js/yuyue/jquery-ui.js"></script>
+
+
+
+
+
+
+
+<script type="text/javascript" src="{pigcms::RES}/js/yuyue/swipe.js"></script>
+
+
+
+
+
+
+
+<title>{pigcms:$data.copyright}</title>
+
+
+
+
 
 
 
@@ -54,15 +106,31 @@
 
 
 
+
+
+
+
 		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 
 
 
-        <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
 
 
 
-        <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+
+        <meta name="Keywords" content="微我网、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
+
+
+
+
+
+
+
+        <meta name="Description" content="微我网，国内最大的微信公众智能服务平台，微我网八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
+
+
+
+
 
 
 
@@ -70,7 +138,15 @@
 
 
 
+
+
+
+
             <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+
+
+
+
 
 
 
@@ -78,7 +154,15 @@
 
 
 
+
+
+
+
             <meta content="no-cache" http-equiv="pragma">
+
+
+
+
 
 
 
@@ -86,7 +170,15 @@
 
 
 
+
+
+
+
             <meta content="telephone=no, address=no" name="format-detection">
+
+
+
+
 
 
 
@@ -94,7 +186,15 @@
 
 
 
+
+
+
+
             <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
+
+
+
+
 
 
 
@@ -102,7 +202,15 @@
 
 
 
+
+
+
+
         <!-- Mobile Devices Support @end -->
+
+
+
+
 
 
 
@@ -110,7 +218,15 @@
 
 
 
+
+
+
+
         <style>
+
+
+
+
 
 
 
@@ -118,7 +234,15 @@
 
 
 
+
+
+
+
         </style>
+
+
+
+
 
 
 
@@ -126,7 +250,15 @@
 
 
 
+
+
+
+
     <body onselectstart="return true;" ondragstart="return false;">
+
+
+
+
 
 
 
@@ -134,7 +266,15 @@
 
 
 
+
+
+
+
 	<body id="onlinebooking" ondragstart="return false;" onselectstart="return false;">
+
+
+
+
 
 
 
@@ -142,7 +282,15 @@
 
 
 
+
+
+
+
 	<div id="imgs_box" class="box_swipe">
+
+
+
+
 
 
 
@@ -150,15 +298,31 @@
 
 
 
+
+
+
+
 			<foreach name='info[pic]' item='i'>
 
 
 
-				<li><img src="{weiwin:$i}"></li>
+
+
+
+
+				<li><img src="{pigcms:$i}"></li>
+
+
+
+
 
 
 
 			</foreach>
+
+
+
+
 
 
 
@@ -166,7 +330,15 @@
 
 
 
+
+
+
+
 			<ol>
+
+
+
+
 
 
 
@@ -174,11 +346,27 @@
 
 
 
+
+
+
+
 				<li class="on"></li>
 
 
 
+
+
+
+
 			</foreach>
+
+
+
+
+
+
+
+
 
 
 
@@ -190,7 +378,15 @@
 
 
 
+
+
+
+
 	</div>
+
+
+
+
 
 
 
@@ -198,11 +394,23 @@
 
 
 
+
+
+
+
 	<div class="qiandaobanner"> 
 
 
 
-		<img src="{weiwin::RES}/images/yuyue/head_pic.jpg">
+
+
+
+
+		<img src="{pigcms::RES}/images/yuyue/head_pic.jpg">
+
+
+
+
 
 
 
@@ -210,7 +418,15 @@
 
 
 
+
+
+
+
 	</if>
+
+
+
+
 
 
 
@@ -218,11 +434,23 @@
 
 
 
+
+
+
+
 	<!--后台可控制是否显示-->
 
 
 
+
+
+
+
 	<ul class="round">
+
+
+
+
 
 
 
@@ -230,11 +458,23 @@
 
 
 
+
+
+
+
 			<table border="0" cellpadding="0" cellspacing="0" width="100%">
 
 
 
+
+
+
+
 				<tr>
+
+
+
+
 
 
 
@@ -242,7 +482,15 @@
 
 
 
+
+
+
+
 					<td class="yuanjia">原价</td>
+
+
+
+
 
 
 
@@ -250,7 +498,15 @@
 
 
 
+
+
+
+
 					</tr>
+
+
+
+
 
 
 
@@ -258,11 +514,23 @@
 
 
 
+
+
+
+
 		</li>
 
 
 
+
+
+
+
 		<li>
+
+
+
+
 
 
 
@@ -270,7 +538,15 @@
 
 
 
+
+
+
+
 			<table class="jiagebiao" border="0" cellpadding="0" cellspacing="0" width="100%">
+
+
+
+
 
 
 
@@ -278,15 +554,31 @@
 
 
 
-					<td>{weiwin:$info.name}</td>
 
 
 
-					<td class="yuanjia" id="yj">{weiwin:$info.yuanjia}</td>
+
+					<td>{pigcms:$info.name}</td>
 
 
 
-					<td class="youhuijia" id="yhj">{weiwin:$info.youhui}</td>
+
+
+
+
+					<td class="yuanjia" id="yj">{pigcms:$info.yuanjia}</td>
+
+
+
+
+
+
+
+					<td class="youhuijia" id="yhj">{pigcms:$info.youhui}</td>
+
+
+
+
 
 
 
@@ -294,7 +586,15 @@
 
 
 
+
+
+
+
 			</table>
+
+
+
+
 
 
 
@@ -302,11 +602,23 @@
 
 
 
+
+
+
+
 		</li>
 
 
 
+
+
+
+
 	</ul>
+
+
+
+
 
 
 
@@ -314,7 +626,15 @@
 
 
 
+
+
+
+
 	<ul class="round">
+
+
+
+
 
 
 
@@ -322,11 +642,23 @@
 
 
 
+
+
+
+
 			<h2>相关说明</h2>
 
 
 
-			<div class="text">{weiwin:$info.memo}</div>
+
+
+
+
+			<div class="text">{pigcms:$info.memo}</div>
+
+
+
+
 
 
 
@@ -334,11 +666,27 @@
 
 
 
-		<li class="tel"><a href="tel:{weiwin:$data.phone}"><span>{weiwin:$data.phone} 电话预订</span></a></li>
+
+
+
+
+		<li class="tel"><a href="tel:{pigcms:$data.phone}"><span>{pigcms:$data.phone} 电话预订</span></a></li>
+
+
+
+
 
 
 
 	</ul>
+
+
+
+
+
+
+
+
 
 
 
@@ -347,6 +695,14 @@
 
 
 	<!--后台可控制是否显示-->
+
+
+
+
+
+
+
+
 
 
 
@@ -358,11 +714,27 @@
 
 
 
+
+
+
+
 		<li class="userinfo"><a href="dingdan"><span>请完善个人资料再填表单</span></a></li>
 
 
 
+
+
+
+
 	</ul>
+
+
+
+
+
+
+
+
 
 
 
@@ -374,7 +746,15 @@
 
 
 
+
+
+
+
 	<ul class="round">
+
+
+
+
 
 
 
@@ -382,7 +762,15 @@
 
 
 
+
+
+
+
 		<li class="title mb"><span class="none">请认真填写在线订单</span></li>
+
+
+
+
 
 
 
@@ -390,7 +778,15 @@
 
 
 
+
+
+
+
 			<input name="formhash" id="formhash" value="2be3071a" type="hidden">
+
+
+
+
 
 
 
@@ -398,7 +794,15 @@
 
 
 
+
+
+
+
 				<tr>
+
+
+
+
 
 
 
@@ -406,7 +810,15 @@
 
 
 
+
+
+
+
 					<td><input name="name" class="px" id="truename" value="" placeholder="请输入您的真实姓名" type="text"></td>
+
+
+
+
 
 
 
@@ -414,11 +826,23 @@
 
 
 
+
+
+
+
 			</table>
 
 
 
+
+
+
+
 		</li>
+
+
+
+
 
 
 
@@ -426,11 +850,23 @@
 
 
 
+
+
+
+
 			<table class="kuang" border="0" cellpadding="0" cellspacing="0" width="100%">
 
 
 
+
+
+
+
 				<tr>
+
+
+
+
 
 
 
@@ -438,7 +874,15 @@
 
 
 
+
+
+
+
 					<td><input name="phone" class="px" id="tel" value="" placeholder="请输入您的电话" type="tel"></td>
+
+
+
+
 
 
 
@@ -446,11 +890,23 @@
 
 
 
+
+
+
+
 			</table>
 
 
 
+
+
+
+
 		</li>
+
+
+
+
 
 
 
@@ -458,11 +914,23 @@
 
 
 
+
+
+
+
 			<table class="kuang" border="0" cellpadding="0" cellspacing="0" width="100%">
 
 
 
+
+
+
+
 			<tr>
+
+
+
+
 
 
 
@@ -470,11 +938,23 @@
 
 
 
+
+
+
+
 				<td>
 
 
 
-					<input type="text" class="px" name="date" id="dateline" readonly="readonly"/>
+
+
+
+
+					<input type="text" class="px" name="date" id="dateline" readonly/>
+
+
+
+
 
 
 
@@ -482,7 +962,15 @@
 
 
 
+
+
+
+
 				</td>
+
+
+
+
 
 
 
@@ -490,11 +978,23 @@
 
 
 
+
+
+
+
 			</table>
 
 
 
+
+
+
+
 		</li>
+
+
+
+
 
 
 
@@ -502,7 +1002,15 @@
 
 
 
+
+
+
+
 			<table class="kuang" border="0" cellpadding="0" cellspacing="0" width="100%">
+
+
+
+
 
 
 
@@ -510,7 +1018,15 @@
 
 
 
+
+
+
+
 				<th>预约时间</th>
+
+
+
+
 
 
 
@@ -518,7 +1034,15 @@
 
 
 
+
+
+
+
 					<select name="time" id="timepart" class="dropdown-select">
+
+
+
+
 
 
 
@@ -526,7 +1050,15 @@
 
 
 
+
+
+
+
 				</td>
+
+
+
+
 
 
 
@@ -534,7 +1066,15 @@
 
 
 
+
+
+
+
 			</table>
+
+
+
+
 
 
 
@@ -542,7 +1082,15 @@
 
 
 
+
+
+
+
 		<li class="nob">
+
+
+
+
 
 
 
@@ -550,7 +1098,15 @@
 
 
 
+
+
+
+
 				<tr>
+
+
+
+
 
 
 
@@ -558,7 +1114,15 @@
 
 
 
-					<td><input class="px" id="room_type" value="{weiwin:$info.name}" readonly="readonly" type="text"></td>
+
+
+
+
+					<td><input class="px" id="room_type" value="{pigcms:$info.name}" readonly type="text"></td>
+
+
+
+
 
 
 
@@ -566,7 +1130,15 @@
 
 
 
+
+
+
+
 			</table>
+
+
+
+
 
 
 
@@ -574,7 +1146,15 @@
 
 
 
+
+
+
+
 		
+
+
+
+
 
 
 
@@ -582,11 +1162,23 @@
 
 
 
+
+
+
+
 			<table class="kuang" border="0" cellpadding="0" cellspacing="0" width="100%">
 
 
 
+
+
+
+
 				<tr>
+
+
+
+
 
 
 
@@ -594,7 +1186,15 @@
 
 
 
-					<td class="userinfo" id="price1">￥{weiwin:$info.yuanjia}</td>
+
+
+
+
+					<td class="userinfo" id="price1">￥{pigcms:$info.yuanjia}</td>
+
+
+
+
 
 
 
@@ -602,7 +1202,15 @@
 
 
 
+
+
+
+
 			</table>
+
+
+
+
 
 
 
@@ -610,7 +1218,15 @@
 
 
 
+
+
+
+
 		<li class="nob">
+
+
+
+
 
 
 
@@ -618,7 +1234,15 @@
 
 
 
+
+
+
+
 				<tr>
+
+
+
+
 
 
 
@@ -626,7 +1250,15 @@
 
 
 
-					<td class="userinfo price" id="price2">￥{weiwin:$info.youhui}</td>
+
+
+
+
+					<td class="userinfo price" id="price2">￥{pigcms:$info.youhui}</td>
+
+
+
+
 
 
 
@@ -634,7 +1266,15 @@
 
 
 
+
+
+
+
 			</table>
+
+
+
+
 
 
 
@@ -642,7 +1282,15 @@
 
 
 
+
+
+
+
 		<li class="nob">
+
+
+
+
 
 
 
@@ -650,7 +1298,15 @@
 
 
 
+
+
+
+
 				<tr>
+
+
+
+
 
 
 
@@ -658,7 +1314,15 @@
 
 
 
-					<td class="userinfo price2" id="price3">￥{weiwin:$info.sheng}</td>
+
+
+
+
+					<td class="userinfo price2" id="price3">￥{pigcms:$info.sheng}</td>
+
+
+
+
 
 
 
@@ -666,7 +1330,15 @@
 
 
 
+
+
+
+
 			</table>
+
+
+
+
 
 
 
@@ -674,11 +1346,23 @@
 
 
 
+
+
+
+
 		
 
 
 
+
+
+
+
 		
+
+
+
+
 
 
 
@@ -686,7 +1370,15 @@
 
 
 
+
+
+
+
 		<li class="nob" >
+
+
+
+
 
 
 
@@ -694,15 +1386,31 @@
 
 
 
+
+
+
+
 				<tr>
 
 
 
-					<th>{weiwin:$item.name}</th>
 
 
 
-					<td><input name="text{weiwin:$i}" class="single px" id="text{weiwin:$i}" value="" placeholder="{weiwin:$item.value}" type="text"></td>
+
+					<th>{pigcms:$item.name}</th>
+
+
+
+
+
+
+
+					<td><input name="text{pigcms:$i}" class="single px" id="text{pigcms:$i}" value="" placeholder="{pigcms:$item.value}" type="text"></td>
+
+
+
+
 
 
 
@@ -710,7 +1418,15 @@
 
 
 
+
+
+
+
 			</table>
+
+
+
+
 
 
 
@@ -718,11 +1434,23 @@
 
 
 
+
+
+
+
 		</volist>
 
 
 
+
+
+
+
 		
+
+
+
+
 
 
 
@@ -730,7 +1458,15 @@
 
 
 
+
+
+
+
 		<li class="nob" >
+
+
+
+
 
 
 
@@ -738,15 +1474,31 @@
 
 
 
+
+
+
+
 				<tr>
 
 
 
-					<th>{weiwin:$item.name}</th>
+
+
+
+
+					<th>{pigcms:$item.name}</th>
+
+
+
+
 
 
 
 					<td>
+
+
+
+
 
 
 
@@ -754,11 +1506,23 @@
 
 
 
+
+
+
+
 						<volist name="item[value]" id="i">
 
 
 
-						<option value="{weiwin:$i}">{weiwin:$i}</option>
+
+
+
+
+						<option value="{pigcms:$i}">{pigcms:$i}</option>
+
+
+
+
 
 
 
@@ -766,7 +1530,15 @@
 
 
 
+
+
+
+
 						</select>
+
+
+
+
 
 
 
@@ -774,7 +1546,15 @@
 
 
 
+
+
+
+
 				</tr>
+
+
+
+
 
 
 
@@ -782,7 +1562,15 @@
 
 
 
+
+
+
+
 		</li>
+
+
+
+
 
 
 
@@ -790,11 +1578,23 @@
 
 
 
+
+
+
+
 		
 
 
 
+
+
+
+
 		
+
+
+
+
 
 
 
@@ -802,7 +1602,15 @@
 
 
 
+
+
+
+
 			<table class="kuang" border="0" cellpadding="0" cellspacing="0" width="100%">
+
+
+
+
 
 
 
@@ -810,7 +1618,15 @@
 
 
 
-					<th class="thtop" valign="top">{weiwin:$str.message}</th>
+
+
+
+
+					<th class="thtop" valign="top">{pigcms:$str.message}</th>
+
+
+
+
 
 
 
@@ -818,23 +1634,47 @@
 
 
 
+
+
+
+
 						<textarea name="memo" class="pxtextarea" style=" height:99px;overflow-y:visible" id="info" placeholder="请输入备注信息"></textarea>
 
 
 
-						<input type="hidden" name="wecha_id" id="wecha_id" value="{weiwin:$data.wecha_id}" />
 
 
 
-						<input type="hidden" name="pid" id="pid" value="{weiwin:$data.id}" />
+
+						<input type="hidden" name="wecha_id" id="wecha_id" value="{pigcms:$data.wecha_id}" />
 
 
 
-						<input type="hidden" name="token" id="token" value="{weiwin:$data.token}" />
 
 
 
-						<input type="hidden" name="price" id="price" value="{weiwin:$info.youhui}" />
+
+						<input type="hidden" name="pid" id="pid" value="{pigcms:$data.id}" />
+
+
+
+
+
+
+
+						<input type="hidden" name="token" id="token" value="{pigcms:$data.token}" />
+
+
+
+
+
+
+
+						<input type="hidden" name="price" id="price" value="{pigcms:$info.youhui}" />
+
+
+
+
 
 
 
@@ -842,7 +1682,15 @@
 
 
 
+
+
+
+
 				</tr>
+
+
+
+
 
 
 
@@ -850,7 +1698,15 @@
 
 
 
+
+
+
+
 		</li>
+
+
+
+
 
 
 
@@ -858,7 +1714,15 @@
 
 
 
+
+
+
+
 	</ul>
+
+
+
+
 
 
 
@@ -866,7 +1730,15 @@
 
 
 
+
+
+
+
 		<input id="showcard" class="submit" value="提交" type="button" > 
+
+
+
+
 
 
 
@@ -874,7 +1746,15 @@
 
 
 
+
+
+
+
 			<div id="title" class="wtitle">操作提示<span class="close" id="alertclose"></span></div>
+
+
+
+
 
 
 
@@ -882,7 +1762,15 @@
 
 
 
+
+
+
+
 				<div id="txt"></div>
+
+
+
+
 
 
 
@@ -890,15 +1778,39 @@
 
 
 
+
+
+
+
 		</div>
 
 
 
+
+
+
+
 	</div>
 
 
 
+
+
+
+
 	</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -914,7 +1826,15 @@
 
 
 
+
+
+
+
 function dothis(nums){
+
+
+
+
 
 
 
@@ -922,7 +1842,15 @@ function dothis(nums){
 
 
 
+
+
+
+
 		var yhj = $("#yhj").text();
+
+
+
+
 
 
 
@@ -930,7 +1858,15 @@ function dothis(nums){
 
 
 
+
+
+
+
 		var str1 = yj*nums;
+
+
+
+
 
 
 
@@ -938,7 +1874,15 @@ function dothis(nums){
 
 
 
+
+
+
+
 		var str3 = diff*nums;
+
+
+
+
 
 
 
@@ -946,11 +1890,23 @@ function dothis(nums){
 
 
 
+
+
+
+
 		$("#price2").text("￥"+str2);
 
 
 
+
+
+
+
 		$("#price3").text("￥"+str3);
+
+
+
+
 
 
 
@@ -962,7 +1918,19 @@ function dothis(nums){
 
 
 
+
+
+
+
+
+
+
+
 $(document).ready(function () {
+
+
+
+
 
 
 
@@ -970,7 +1938,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 				speed:1000,
+
+
+
+
 
 
 
@@ -978,7 +1954,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 				callback: function(){
+
+
+
+
 
 
 
@@ -986,7 +1970,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 					lis.removeClass("on").eq(this.index).addClass("on");
+
+
+
+
 
 
 
@@ -994,7 +1986,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 			}); 
+
+
+
+
 
 
 
@@ -1002,7 +2002,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 		minDate: new Date(),
+
+
+
+
 
 
 
@@ -1010,7 +2018,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 	}).val((
+
+
+
+
 
 
 
@@ -1018,7 +2034,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 				return [d.getFullYear(), d.getMonth()+1, d.getDate()].join("-");
+
+
+
+
 
 
 
@@ -1026,7 +2050,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 		)(new Date()));
+
+
+
+
 
 
 
@@ -1034,7 +2066,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 		var ret_single = ret_download = tel_num = '';
+
+
+
+
 
 
 
@@ -1042,11 +2082,23 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 			var s_name = $(this).parent().siblings().text();
 
 
 
+
+
+
+
 			var s_value = $(this).val();
+
+
+
+
 
 
 
@@ -1054,7 +2106,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 		});
+
+
+
+
 
 
 
@@ -1062,7 +2122,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 		$(".download").each(function(i){
+
+
+
+
 
 
 
@@ -1070,7 +2138,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 			var s_value = $(this).val();
+
+
+
+
 
 
 
@@ -1078,7 +2154,19 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 		});
+
+
+
+
+
+
+
+
 
 
 
@@ -1090,7 +2178,15 @@ $(document).ready(function () {
 
 
 
-		if("{weiwin:$str['phone']}" == 1){
+
+
+
+
+		if("{pigcms:$str['phone']}" == 1){
+
+
+
+
 
 
 
@@ -1098,11 +2194,23 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 			if(tel_num ==''){alert('电话不能为空');return;} 
 
 
 
+
+
+
+
 			if(tel_num.length < 11){alert('请输入正确的电话');return;} 
+
+
+
+
 
 
 
@@ -1114,7 +2222,19 @@ $(document).ready(function () {
 
 
 
-		if("{weiwin:$str['name']}" == 1){if($("#truename").val()==''){alert('名字不能为空');return;}}
+
+
+
+
+
+
+
+
+		if("{pigcms:$str['name']}" == 1){if($("#truename").val()==''){alert('名字不能为空');return;}}
+
+
+
+
 
 
 
@@ -1122,7 +2242,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 		var submitData = {
+
+
+
+
 
 
 
@@ -1130,7 +2258,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 			pid: $("#pid").val(),
+
+
+
+
 
 
 
@@ -1138,7 +2274,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 			name: $("#truename").val(),
+
+
+
+
 
 
 
@@ -1146,7 +2290,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 			or_date: $("#dateline").val(),
+
+
+
+
 
 
 
@@ -1154,7 +2306,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 			nums: $("#nums").val(),
+
+
+
+
 
 
 
@@ -1162,7 +2322,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 			kind: $("#room_type").val(),
+
+
+
+
 
 
 
@@ -1170,7 +2338,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 			fieldsigle: ret_single,
+
+
+
+
 
 
 
@@ -1178,7 +2354,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 		};
+
+
+
+
 
 
 
@@ -1186,7 +2370,15 @@ $(document).ready(function () {
 
 
 
-		$.post('index.php?g=wap&m={weiwin:$type}&a=add', submitData,
+
+
+
+
+		$.post('index.php?g=Wap&m={pigcms:$type}&a=add', submitData,
+
+
+
+
 
 
 
@@ -1194,11 +2386,23 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 				if (0 == data.error) {
 
 
 
+
+
+
+
 					alert(data.msg);
+
+
+
+
 
 
 
@@ -1206,7 +2410,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 				} else {
+
+
+
+
 
 
 
@@ -1214,7 +2426,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 					setTimeout('window.location.href="'+data.url+'"',3000);
+
+
+
+
 
 
 
@@ -1222,7 +2442,15 @@ $(document).ready(function () {
 
 
 
+
+
+
+
 			},
+
+
+
+
 
 
 
@@ -1234,11 +2462,35 @@ $(document).ready(function () {
 
 
 
+
+
+
+
+
+
+
+
 	}); 
 
 
 
+
+
+
+
 }); 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1254,7 +2506,15 @@ $("#dateline").change(function () {
 
 
 
+
+
+
+
 	var submitData = {
+
+
+
+
 
 
 
@@ -1262,7 +2522,15 @@ $("#dateline").change(function () {
 
 
 
+
+
+
+
 	dateline: $("#dateline").val(),
+
+
+
+
 
 
 
@@ -1270,7 +2538,15 @@ $("#dateline").change(function () {
 
 
 
+
+
+
+
 	action: "getcount"
+
+
+
+
 
 
 
@@ -1278,7 +2554,27 @@ $("#dateline").change(function () {
 
 
 
+
+
+
+
 }); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1298,6 +2594,10 @@ $("#windowclosebutton").click(function () {
 
 
 
+
+
+
+
 $("#windowcenter").slideUp(500);
 
 
@@ -1306,7 +2606,19 @@ $("#windowcenter").slideUp(500);
 
 
 
+
+
+
+
+
+
+
+
 }); 
+
+
+
+
 
 
 
@@ -1314,7 +2626,19 @@ $("#alertclose").click(function () {
 
 
 
+
+
+
+
 $("#windowcenter").slideUp(500);
+
+
+
+
+
+
+
+
 
 
 
@@ -1326,7 +2650,15 @@ $("#windowcenter").slideUp(500);
 
 
 
+
+
+
+
 function jumpurl(url){
+
+
+
+
 
 
 
@@ -1334,7 +2666,15 @@ function jumpurl(url){
 
 
 
+
+
+
+
 }
+
+
+
+
 
 
 
@@ -1346,7 +2686,19 @@ function alert(title){
 
 
 
+
+
+
+
+
+
+
+
 $("#windowcenter").slideToggle("slow"); 
+
+
+
+
 
 
 
@@ -1354,11 +2706,23 @@ $("#txt").html(title);
 
 
 
+
+
+
+
 //$("#windowcenter").hide("slow"); 
 
 
 
+
+
+
+
 setTimeout('$("#windowcenter").slideUp(500)',4000);
+
+
+
+
 
 
 
@@ -1370,7 +2734,19 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
+
+
+
+
 	        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+
+
+
+
 
 
 
@@ -1378,7 +2754,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
             "imgUrl": "img/head_pic.jpg", 
+
+
+
+
 
 
 
@@ -1386,7 +2770,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
             "sendFriendLink": "http://www.weimob.com/webreserve/ReserveBook?rid=3201",
+
+
+
+
 
 
 
@@ -1394,7 +2786,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
             "tTitle": "炳胜微订座欢迎您！",
+
+
+
+
 
 
 
@@ -1402,7 +2802,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
             "fTitle": "炳胜微订座欢迎您！",
+
+
+
+
 
 
 
@@ -1410,7 +2818,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
             "wContent": "小包间" 
+
+
+
+
 
 
 
@@ -1418,7 +2834,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
         // 发送给好友
+
+
+
+
 
 
 
@@ -1426,7 +2850,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
             WeixinJSBridge.invoke('sendAppMessage', { 
+
+
+
+
 
 
 
@@ -1434,7 +2866,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
                 "img_width": "640",
+
+
+
+
 
 
 
@@ -1442,7 +2882,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
                 "link": window.shareData.sendFriendLink,
+
+
+
+
 
 
 
@@ -1450,7 +2898,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
                 "title": window.shareData.fTitle
+
+
+
+
 
 
 
@@ -1458,7 +2914,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
                 _report('send_msg', res.err_msg);
+
+
+
+
 
 
 
@@ -1466,7 +2930,19 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
         });
+
+
+
+
+
+
+
+
 
 
 
@@ -1478,7 +2954,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
         WeixinJSBridge.on('menu:share:timeline', function (argv) {
+
+
+
+
 
 
 
@@ -1486,7 +2970,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
                 "img_url": window.shareData.imgUrl,
+
+
+
+
 
 
 
@@ -1494,7 +2986,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
                 "img_height": "640",
+
+
+
+
 
 
 
@@ -1502,7 +3002,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
                 "desc": window.shareData.tContent,
+
+
+
+
 
 
 
@@ -1510,7 +3018,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
             }, function (res) {
+
+
+
+
 
 
 
@@ -1518,11 +3034,27 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
             });
 
 
 
+
+
+
+
         });
+
+
+
+
+
+
+
+
 
 
 
@@ -1534,7 +3066,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
         WeixinJSBridge.on('menu:share:weibo', function (argv) {
+
+
+
+
 
 
 
@@ -1542,7 +3082,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
                 "content": window.shareData.wContent,
+
+
+
+
 
 
 
@@ -1550,7 +3098,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
             }, function (res) {
+
+
+
+
 
 
 
@@ -1558,7 +3114,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
             });
+
+
+
+
 
 
 
@@ -1566,7 +3130,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
         }, false)
+
+
+
+
 
 
 
@@ -1574,7 +3146,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
-<footer style="text-align:center; color:#ffd800;margin-right:20px;margin-top:0px;"><a>©{weiwin:$data.copyright}</a></footer>
+
+
+
+
+<footer style="text-align:center; color:#ffd800;margin-right:20px;margin-top:0px;"><a>(c){pigcms:$data.copyright}</a></footer>
+
+
+
+
 
 
 
@@ -1582,11 +3162,23 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
+
+
+
+
 					</div>
 
 
 
+
+
+
+
 	</body>
+
+
+
+
 
 
 

@@ -1,71 +1,38 @@
 <div style="height:40px;"></div>
-
 <div class="footermenu">
-
     <ul>
-
     	<li>
-
-            <a <php>if($infoType=='memberCardHome'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=index&token={weiwin:$token}&wecha_id={weiwin:$wecha_id}">
-
-           <img src="{weiwin::RES}/card/images/home.png">
-
+            <a <php>if($infoType=='memberCardHome'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=index&token={pigcms:$token}&wecha_id={pigcms:$wecha_id}">
+           <img src="{pigcms::RES}/card/images/home.png">
             <p>会员卡</p>
-
             </a>
-
         </li>
-
         <li>
-
-            <a <php>if($infoType=='card'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=card&token={weiwin:$token}&cardid={weiwin:$thisCard.id}&wecha_id={weiwin:$wecha_id}">
-
-           <img src="{weiwin::RES}/card/images/c.png">
-
+            <a <php>if($infoType=='card'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=card&token={pigcms:$token}&cardid={pigcms:$thisCard.id}&wecha_id={pigcms:$wecha_id}">
+           <img src="{pigcms::RES}/card/images/c.png">
             <p>此卡首页</p>
-
             </a>
-
         </li>
-
         <li>
-
-            <a <php>if($infoType=='privelege'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=previlege&token={weiwin:$token}&wecha_id={weiwin:$wecha_id}&cardid={weiwin:$thisCard.id}">
-
-           <img src="{weiwin::RES}/card/images/prev.png">
-
+            <a <php>if($infoType=='privelege'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=previlege&token={pigcms:$token}&wecha_id={pigcms:$wecha_id}&cardid={pigcms:$thisCard.id}">
+           <img src="{pigcms::RES}/card/images/prev.png">
             <p>特权</p>
-
             </a>
-
         </li>
-
         <li>
-
-            <a <php>if($infoType=='coupon'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=coupon&token={weiwin:$token}&wecha_id={weiwin:$wecha_id}&cardid={weiwin:$thisCard.id}">
-
-           <img src="{weiwin::RES}/card/images/coupon.png">
-
+            <a <php>if($infoType=='coupon'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=coupon&token={pigcms:$token}&wecha_id={pigcms:$wecha_id}&cardid={pigcms:$thisCard.id}">
+           <img src="{pigcms::RES}/card/images/coupon.png">
             <p>优惠券</p>
-
             </a>
-
         </li>
-
         <li>
-
-            <a <php>if($infoType=='integral'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=integral&token={weiwin:$token}&wecha_id={weiwin:$wecha_id}&cardid={weiwin:$thisCard.id}">
-
-           <img src="{weiwin::RES}/card/images/intergral.png">
-
+            <a <php>if($infoType=='integral'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=integral&token={pigcms:$token}&wecha_id={pigcms:$wecha_id}&cardid={pigcms:$thisCard.id}">
+           <img src="{pigcms::RES}/card/images/intergral.png">
             <p>兑换</p>
-
             </a>
-
         </li>
-
       
-
     </ul>
-
 </div>
+<script type="text/javascript" src="/tpl/Wap/default/common/js/ChatFloat.js"></script>
+<if condition="$kefu['hyk'] eq '1'"><a href="{pigcms:$kefu.info2}" id="CustomerChatFloat" style="position: fixed; right: 0px; top: 150px; z-index: 99999; height: 70px; width: 65px; min-width: 65px; background-image: url(/tpl/Wap/default/common/css/img/MobileChatFloat.png); background-size: 65px; background-position: 0px 0px; background-repeat: no-repeat no-repeat;"></a></if> 

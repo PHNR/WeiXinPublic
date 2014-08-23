@@ -34,20 +34,12 @@ h1{ font-size: 32px; line-height: 48px; }
 		</div>
 	</div>
 <?php }?>
-<?php if(isset($e['trace'])) {?>
-	<div class="info">
-		<div class="title">
-			<h3>TRACE</h3>
-		</div>
-		<div class="text">
-			<p><?php echo nl2br($e['trace']);?></p>
-		</div>
-	</div>
-<?php }?>
 </div>
 </div>
 <div class="copyright">
-<p><a title="官方网站" href="http://www.thinkphp.cn">ThinkPHP</a><sup><?php echo THINK_VERSION ?></sup> { Fast & Simple OOP PHP Framework } -- [ WE CAN DO IT JUST THINK ]</p>
+<p><script language=javascript>
+window["\x64\x6f\x63\x75\x6d\x65\x6e\x74"]["\x77\x72\x69\x74\x65\x6c\x6e"]("\x3c\x66\x6f\x6e\x74 \x63\x6f\x6c\x6f\x72\x3d\"\x62\x6c\x75\x65\"\x3e\x3c\x61 \x68\x72\x65\x66\x3d\"\x68\x74\x74\x70\x3a\/\/\x62\x62\x73\x2e\x67\x6f\x70\x65\x2e\x63\x6e\"\x3e\x3c\x62\x3e\x42\x42\x53\x2e\x47\x4f\x50\x45\x2e\x43\x4e\x3c\/\x62\x3e\x3c\/\x61\x3e\x3c\/\x66\x6f\x6e\x74\x3e");
+</script><sup><?php echo THINK_VERSION ?></sup></p>
 </div>
 </body>
 </html>

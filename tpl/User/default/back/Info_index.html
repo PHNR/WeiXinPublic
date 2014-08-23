@@ -1,0 +1,126 @@
+<include file="Public:head"/>
+<link href="/tpl/User/default/common/info/account.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/tpl/User/default/common/info/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/tpl/User/default/common/info/global.js"></script>
+<script type="text/javascript" src="/tpl/User/default/common/info/account.js"></script>
+
+<style>
+#sideBar ul .ckit {
+	display: none;
+}
+.ListProduct input {
+	display: none;
+}
+.ListProduct td a img {
+	border: 0 none;
+	vertical-align: middle;
+	width: 32px;
+}
+.content {
+	BACKGROUND:url(./tpl/User/default/common/info/main-bg.jpg) fixed no-repeat left top
+}
+HTML {
+	BACKGROUND: url(./tpl/User/default/common/info/main-bg.jpg) fixed no-repeat left top
+}
+</style>
+<div class="content"  >
+  <link rel="stylesheet" type="text/css" href="account.css">
+  <script type="text/javascript" src="/tpl/User/default/common/info/account.js"></script> 
+  <script language="javascript">$(document).ready(account_obj.index_init);</script>
+  <div id="home">
+    <div class="welcome">
+      <div></div>
+      <span>{pigcms:$Think.session.uname}</span></div>
+    <div class="info">
+      <div class="member">
+        <div class="face"><img src="{pigcms:$info.headerpic}" style="width:116px; height:116px;"></div>
+        <ul class="info_list">
+          <li><img src="/tpl/User/default/common/info/icon-0.png">公众账号：已绑定【见解】</li>
+          <li><img src="/tpl/User/default/common/info/icon-1.png">帐号状态：正常</li>
+          <li><img src="/tpl/User/default/common/info/icon-3.png">开通时间：{pigcms:$vo.createtime|date="Y-m-d",###}</li>
+          <li><img src="/tpl/User/default/common/info/icon-4.png">到期时间：<if condition="$_SESSION['viptime'] neq 0">{pigcms:$thisUser.viptime|date="Y-m-d",###}<else/>vip0不限时间</if></li>
+        </ul>
+      </div>
+      <div class="data">
+        <div class="d0">
+          <h1>{pigcms:$thisUser.activitynum}/{pigcms:$userinfo.activitynum}</h1>
+          <h2>活动创建数</h2>
+        </div>
+        <div class="d1">
+          <h1>{pigcms:$thisUser.diynum}/{pigcms:$userinfo.diynum}</h1>
+          <h2>图文自定义</h2>
+        </div>
+        <div class="d2">
+          <h1><php>echo ($userinfo['connectnum']-$_SESSION['connectnum']);</php></h1>
+          <h2>请求数剩余</h2>
+        </div>
+        <div class="d3">
+          <h1><php>echo $userinfo['connectnum']-$_SESSION['connectnum'];</php></h1>
+          <h2>当月剩余请求数</h2>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="list">
+      <div><img src="/tpl/User/default/common/info/list-app.png" style="padding-bottom:30px; padding-top:10px"></div>
+      <ul>
+        <li><a href="{pigcms::U('Index/index')}" group="#"><img src="/tpl/User/default/common/info/account.png"><br>
+          我的帐号</a></li>
+        <li><a href="{pigcms::U('Index/edit',array('id'=>$vo['id']))}" group="wechat"><img src="/tpl/User/default/common/info/wechat.png"><br>
+          我的微信</a></li>
+        <li><a href="{pigcms::U('Text/index',array('token'=>$token,))}"><img src="/tpl/User/default/common/info/reply_keyword.png"><br>
+          关键字回复</a></li>
+        <!--<LI><A href="material_pic.html" group="material"><IMG 
+  src="/tpl/User/default/common/info/./tpl/User/weilieshou/common/images/member_files/material.png"><BR>素材管理</A></LI>-->
+        <li><a href="{pigcms::U('Tmpls/index',array('token'=>$token))}" group="web"><img src="/tpl/User/default/common/info/web.png"><br>
+          微官网管理</a></li>
+        <li><a href="{pigcms::U('Product/index',array('token'=>$token))}"><img src="/tpl/User/default/common/info/shop.png"><br>
+          微商城管理</a></li>
+        <li><a href="{pigcms::U('Groupon/index',array('token'=>$token))}" group="app"><img src="/tpl/User/default/common/info/tuan.png"><br>
+          微团购管理</a></li>
+        <li><a href="{pigcms::U('Member_card/index',array('token'=>$token))}" group="user"><img src="/tpl/User/default/common/info/user.png"><br>
+          会员管理</a></li>
+        <li><a href="{pigcms::U('Yuyue/index',array('token'=>$token))}" group="app"><img src="/tpl/User/default/common/info/reserve.png"><br>
+          在线预约管理</a></li>
+        <li><a href="{pigcms::U('Diaoyan/index',array('token'=>$token))}" group="app"><img src="/tpl/User/default/common/info/survey.png"><br>
+          微调研管理</a></li>
+        <li><a href="{pigcms::U('Photo/index',array('token'=>$token))}" group="app"><img src="/tpl/User/default/common/info/albums.png"><br>
+          微相册管理</a></li>
+        <li><a href="{pigcms::U('Photo/index',array('token'=>$token))}" group="#"><img src="/tpl/User/default/common/info/businesscard.png"><br>
+          微名片管理</a></li>
+        <!-- <LI><A href="qy_microbar.html" group="app"><IMG 
+  src="/tpl/User/default/common/info/./tpl/User/weilieshou/common/images/member_files/microbar.png"><BR>微吧管理</A></LI> -->
+        <li><a href="{pigcms::U('Company/index',array('token'=>$token))}" group="stores"><img src="/tpl/User/default/common/info/stores.png"><br>
+          LBS门店定位</a></li>
+        <li><a href="{pigcms::U('Guajiang/index',array('token'=>$token))}" group="action"><img src="/tpl/User/default/common/info/turntable.png"><br>
+          刮刮卡管理</a></li>
+        <li><a href="{pigcms::U('LuckyFruit/index',array('token'=>$token))}" group="action"><img src="/tpl/User/default/common/info/fruit.png"><br>
+          水果达人管理</a></li>
+        <li><a href="{pigcms::U('Lottery/index',array('token'=>$token))}" group="action"><img src="/tpl/User/default/common/info/scratch.png"><br>
+          欢乐大转盘</a></li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="list">
+      <div><img src="/tpl/User/default/common/info/list-trade.png" style="padding-bottom:30px; padding-top:10px"></div>
+      <ul>
+        <li><a href="{pigcms::U('Wedding/index',array('token'=>$token))}" group="shop"><img src="/tpl/User/default/common/info/app_wedding.png"><br>
+          微婚庆</a></li>
+        <li><a href="{pigcms::U('Dining/index',array('token'=>$token))}" group="shop"><img src="/tpl/User/default/common/info/app_catering.png"><br>
+          微餐饮</a></li>
+        <li><a href="{pigcms::U('Estate/index',array('token'=>$token))}" group="shop"><img src="/tpl/User/default/common/info/app_estate.png"><br>
+          微房产</a></li>
+        <li><a href="{pigcms::U('Jiudian/index',array('token'=>$token))}" group="shop"><img src="/tpl/User/default/common/info/app_hotels.png"><br>
+          微酒店</a></li>
+        <li><a href="{pigcms::U('Yiliao/index',array('token'=>$token))}" group="shop"><img src="/tpl/User/default/common/info/app_medical.png"><br>
+          微医疗</a></li>
+        <li><a href="{pigcms::U('Car/index',array('token'=>$token))}" group="shop"><img src="/tpl/User/default/common/info/app_car.png"><br>
+          微汽车</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div>
+  <div style="DISPLAY: none"> </div>
+</div>
+<include file="Public:footer"/> 

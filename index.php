@@ -1,9 +1,13 @@
-<?PHP header('Content-type: text/html; charset=utf-8');
-error_reporting(E_ALL);
-ini_set('display_error', 1);
+<?php
+header("Content-type: text/html; charset=utf-8");
+ini_set('display_errors', '1');
+error_reporting(E_ALL ^ E_NOTICE);
+
 if(get_magic_quotes_gpc()) {
     function stripslashes_deep($value) {
-        $value = is_array($value) ? array_map('stripslashes_deep', $value) : stripslashes($value);
+        $value = is_array($value) ?
+            array_map('stripslashes_deep', $value) :
+            stripslashes($value);
         return $value;
     }
 
@@ -12,16 +16,15 @@ if(get_magic_quotes_gpc()) {
     $_COOKIE = array_map('stripslashes_deep', $_COOKIE);
 }
 define('APP_NAME', 'cms');
-define('CONF_PATH', './data/Conf/');
+define('CONF_PATH', './Conf/');
 define('TMPL_PATH', './tpl/');
-define('HTML_PATH', './data/html/');
-define('CORE', './');
 $GLOBALS['_beginTime'] = microtime(true);
 define('MEMORY_LIMIT_ON', function_exists('memory_get_usage'));
+define('CORE', './');
 if(MEMORY_LIMIT_ON) $GLOBALS['_startUseMems'] = memory_get_usage();
-define('APP_PATH', './weiwin/');
+define('APP_PATH', './PigCms/');
 defined('APP_PATH') or define('APP_PATH', dirname($_SERVER['SCRIPT_FILENAME']) . '/');
-define('RUNTIME_PATH', './data/Conf/logs/');
+define('RUNTIME_PATH', './Conf/logs/');
 defined('RUNTIME_PATH') or define('RUNTIME_PATH', APP_PATH . 'Runtime/');
 define('APP_DEBUG', 1);
 defined('APP_DEBUG') or define('APP_DEBUG', false);

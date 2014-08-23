@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html><head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
 <meta name="description" content="">
-<title>{weiwin:$Coupon.title}</title>
-<link href="{weiwin::RES}/css/guajiang/css/activity-style.css" rel="stylesheet" type="text/css">
+<title>{pigcms:$Coupon.title}</title>
+<link href="{pigcms::RES}/css/guajiang/activity-style.css" rel="stylesheet" type="text/css">
 <style type="text/css">
 #txt {
 	color: #000000;
@@ -48,111 +49,26 @@ Invalid property value.filter: progid:DXImageTransform.Microsoft.gradient(Gradie
 Unknown property name.-ms-filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#838383',endColorstr='#202020');
 }
 </style>
-<script type="text/javascript">
-if (typeof WeixinJSBridge== 'undefined'){
-	//window.location.href='/alert.html';
-}else{
-	
-}
-function loading(canvas,options){   
-  this.canvas = canvas;   
-  if(options){   
-    this.radius = options.radius||12;   
-    this.circleLineWidth = options.circleLineWidth||4;   
-    this.circleColor = options.circleColor||'lightgray';   
-    this.moveArcColor = options.moveArcColor||'gray';   
-  }else{   
-    this.radius = 12;   
-    this.circelLineWidth = 4;   
-    this.circleColor = 'lightgray';   
-    this.moveArcColor = 'gray';   
-  }   
-}   
-loading.prototype = {   
-  show:function (){   
-    var canvas = this.canvas;   
-    if(!canvas.getContext)return;   
-    if(canvas.__loading)return;   
-    canvas.__loading = this;   
-    var ctx = canvas.getContext('2d');   
-    var radius = this.radius;   
-    var me = this;   
-    var rotatorAngle = Math.PI*1.5;   
-    var step = Math.PI/6;   
-    canvas.loadingInterval = setInterval(function(){   
-      ctx.clearRect(0,0,canvas.width,canvas.height);   
-      var lineWidth = me.circleLineWidth;   
-      var center = {x:canvas.width/2,y:canvas.height/2};  
-
-      ctx.beginPath();   
-      ctx.lineWidth = lineWidth;   
-      ctx.strokeStyle = me.circleColor;   
-      ctx.arc(center.x,center.y+20,radius,0,Math.PI*2);   
-      ctx.closePath();   
-      ctx.stroke();   
-      //在圆圈上面画小圆   
-      ctx.beginPath();   
-      ctx.strokeStyle = me.moveArcColor;   
-      ctx.arc(center.x,center.y+20,radius,rotatorAngle,rotatorAngle+Math.PI*.45);   
-      ctx.stroke();   
-      rotatorAngle+=step;   
- 
-    },100);   
-  },   
-  hide:function(){   
-    var canvas = this.canvas;   
-    canvas.__loading = false;   
-    if(canvas.loadingInterval){   
-      window.clearInterval(canvas.loadingInterval);   
-    }   
-    var ctx = canvas.getContext('2d');   
-    if(ctx)ctx.clearRect(0,0,canvas.width,canvas.height);   
-  }   
-};   
-</script></head>
-
-
-
-
-<body data-role="page" class="activity-scratch-card-winning">
-  <script type="text/javascript">
-var loadingObj = new loading(document.getElementById('loading'),{radius:20,circleLineWidth:8});   
-    loadingObj.show();   
-
-</script>
-<script src="{weiwin::RES}/css/guajiang/js/jquery.js" type="text/javascript"></script>
-<script src="{weiwin::RES}/css/guajiang/js/wScratchPad.js" type="text/javascript"></script>
+</head>
+<body class="activity-coupon-winning">
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js" type="text/javascript"></script>
+<script src="{pigcms::RES}/css/guajiang/alert.js" type="text/javascript"></script>
 
 <if condition="$Coupon['end'] eq 1">
-	<div class="main">
-		<div class="banner">
-            <img src="{weiwin::RES}/css/guajiang/images/activity-coupon-null.jpg">
-		</div>
-		<div class="content" style="margin-top:-5px">
-			<div class="boxcontent boxwhite">
-				<div class="box">
-					<div class="title-brown">活动不存在或者优惠券被领光了！</div>
-					<div class="Detail">
-						<p>{weiwin:$Coupon.msg}</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div style="text-align:center;padding:40px 0 0 0;color:#eee">:( 活动不存在或者优惠券被领光了</div>
 <else/> <!--有优惠券的情况下-->
 
 	<if condition="$Coupon['end'] eq 2"> <!--过期-->
 		<div class="main">
 			<div class="banner">
-					<!-- <img src="{weiwin::RES}/css/guajiang/images/activity-coupon-end.jpg">-->
-                    <img src="{weiwin:$lottery.endpicurl}">
+					<img src="{pigcms:$lottery.endpicurl}" />
 			</div>
 			<div class="content" style="margin-top:-5px">
 				<div class="boxcontent boxwhite">
 					<div class="box">
 						<div class="title-brown">活动结束说明：</div>
 						<div class="Detail">
-							<p>{weiwin:$Coupon.endinfo}</p>
+							<p>{pigcms:$Coupon.endinfo}</p>
 						</div>
 					</div>
 				</div>
@@ -160,81 +76,133 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 		</div>
 	<else/><!---->
 		<!--if condition="$Coupon['end'] eq 3"--> <!--如果领过了-->
-		<?php if($Coupon['end'] == 3): ?>
+		<?php if($Coupon['end'] == 3&&$Coupon['phone']){ ?>
 			<div class="main">
 				<div class="cover">
-					<img src="{weiwin:$lottery.zjpic}">
+					<img src="<php>if(!$lottery['zjpic']){</php>/tpl/Wap/default/common/css/guajiang/images/activity-coupon-winning.jpg<php>}else{</php>{pigcms:$lottery.zjpic}<php>}</php>" />
 				</div>
 				<div class="boxcontent boxwhite">
 						<div class="box">
 							<div class="title-brown"> <span>我的优惠券</span> </div>
 							<div class="Detail">
-							 <p><span class="red">{weiwin:$Coupon.wxname}</span> - {weiwin:$Coupon.msg}</p>
-							 <p>优惠券名称: <span class="red">{weiwin:$Coupon.myprize}</span></p>
-							 <p>优惠券SN码: <span class="red">{weiwin:$Coupon.sn}</span></p>
-							 <p class="red">{weiwin:$Coupon.aginfo}</p>
+							 <p><span class="red">{pigcms:$Coupon.wxname} {pigcms:$Coupon.phone}</span></p>
+							 <p>优惠券名称: <span class="red">{pigcms:$Coupon.myprize}</span></p>
+							 <p>优惠券{pigcms:$lottery.renamesn}: <span class="red">{pigcms:$Coupon.sn}</span></p>
+							 <p class="red">{pigcms:$Coupon.aginfo}</p>
+							 <php>if(!$Coupon['sendtime']){</php>
+							 <!--商家提交 start-->
+							 <p><input name=""  class="px" id="parssword" type="password"  value="" placeholder="商家输入兑奖密码"></p>
+							 <p><input class="pxbtn" name="提 交"  id="save-btnn" type="button" value="商家提交"></p>
+							 <!--商家提交 end-->
+							 <php>}else{</php>
+							 <p>已于{pigcms:$Coupon.sendtime|date="Y-m-d",###}兑奖</p>
+							 <php>}</php>
 							</div>
 						</div>
 				</div>
 			</div>
-		<?php else:?>
+		<?php }else{?>
 		<!--else/--> <!--没有领过-->
 			<div class="main">
 				<div class="cover" id="Conponid">
-					<img id="winaprize" src="{weiwin:$lottery.starpicurl}">
+					<img id="winaprize" src="{pigcms:$lottery.starpicurl}" />
 					<div id="scratchpad"></div>
 				</div>
 			</div>
-		<?php endif;?>
+		<?php };?>
 		<!--/if--><!--没有领过-->
 		<!--都显示-->
 			<div class="content">	   
-				<div id="zjl" style="display:none" class="boxcontent boxwhite">
+			
+			
+			<pigcmsif where="$wecha_id neq ''">
+				<div id="zjl" <?php if($Coupon['end'] != 3||($Coupon['end'] == 3&&$Coupon['phone'])){ ?>style="display:none"<?php }?> class="boxcontent boxwhite">
+				<!--领到了优惠券start-->
 					<div class="box">
 						<div class="title-red"><span>恭喜你</span></div>
 						<div class="Detail">
-							<p>您获得了：<span class="red">{weiwin:$Coupon.winprize} </span></p>
-							<p>优惠券SN码: <span class="red">{weiwin:$Coupon.sncode} </span></p>
-							<p class="red">{weiwin:$Coupon.aginfo}</p>
+							<p>您获得了：<span class="red">{pigcms:$Coupon.winprize} </span></p>
+							<p>优惠券{pigcms:$lottery.renamesn}: <span class="red">{pigcms:$Coupon.sn} </span></p>
+							<p class="red">{pigcms:$Coupon.aginfo}</p>
 							<p>
-							<input name="" class="px" id="tel" value="" type="text" placeholder="请输入您的手机号">
-							<input name=""  class="px" id="wechaname" value="" type="text" placeholder="请输入您的姓名">
-							<input name=""  id="wechaid" value="{weiwin:$Coupon.wecha_id}" type="hidden">
-							<input name=""  id="lid" value="{weiwin:$Coupon.lid}" type="hidden">
-							<input name=""  id="winprize" value="{weiwin:$Coupon.winprize}" type="hidden">
-							<input name=""  id="sncode" value="{weiwin:$Coupon.sncode}" type="hidden">
-							</p><p>
+							<input name="" class="px" id="tel" value="" type="text" placeholder="请输入您的{pigcms:$lottery.renametel}">
+							<input name=""  class="px" id="wechaname" value="" type="text" placeholder="请输入您的微信号">
+							<input name=""  id="wechaid" value="{pigcms:$Coupon.wecha_id}" type="hidden">
+							<input name=""  id="lid" value="{pigcms:$Coupon.lid}" type="hidden">
+							<input name=""  id="winprize" value="{pigcms:$Coupon.winprize}" type="hidden">
+							<input name=""  id="sncode" value="{pigcms:$Coupon.sncode}" type="hidden">
+							</p>
 							<p>
-							<input class="pxbtn" name="提 交"id="save-btn" type="button" value="用户提交">
+							<input class="pxbtn" name="提 交" id="save-btn" type="button" value="用户提交" />
 							</p>
 						</div>
 					</div>
+					<!--领到了优惠券end-->
 				</div>
+			</pigcmsif>	
+				
+				<pigcmsif where="$wecha_id eq ''">
+<div class="boxcontent boxwhite">
+						<div class="box">
+							<div class="title-brown">友情提醒：</div>
+							<div class="Detail">
+				<p style="color:#f00;line-height:160%">您可能是从朋友圈等分享过的页面打开的链接，无法直接参与此活动，如需参与此活动请按照以下步骤操作：<br>1、关注微信名称“{pigcms:$wxuser.wxname}”或者微信号“{pigcms:$wxuser.weixin}”<br>2、输入关键词：“{pigcms:$Coupon.keyword}”</p>            
+               </div>
+</div>
+</div>
+			</pigcmsif>
+			
 
 					<div class="boxcontent boxwhite">
 						<div class="box">
 							<div class="title-brown"><span>优惠券项目：</span></div>
 							<div class="Detail">
-							<p> 每人最多允许抽奖次数:{weiwin:$Coupon.canrqnums} - 已抽取<span id="usenums">{weiwin:$Coupon.usenums}</span>次</p>
-							 	<p>优惠券类型1: {weiwin:$Coupon.fist} <if condition="$Coupon['displayjpnums'] eq 1">数量:{weiwin:$Coupon.fistnums}</if></p>
-							<if condition="$Coupon['second'] neq ''">
-							<p>优惠券类型2: {weiwin:$Coupon.second} <if condition="$Coupon['displayjpnums'] eq 1">数量:{weiwin:$Coupon.secondnums}</if></p>
-							</if>
-							 <if condition="$Coupon['third'] neq ''">
-								<p>优惠券类型3: {weiwin:$Coupon.third} <if condition="$Coupon['displayjpnums'] eq 1">数量:{weiwin:$Coupon.thirdnums}</if></p>
-							</if>
+							<p> 每人最多允许抽奖次数:{pigcms:$Coupon.canrqnums} - 已抽取<span id="usenums">{pigcms:$Coupon.usenums}</span>次</p>
+							 	<p>优惠券1: {pigcms:$Coupon.fist} <php>if($lottery['displayjpnums']){</php>数量:{pigcms:$Coupon.fistnums}<php>}</php></p>
+	
+							<php>if($Coupon['second']!=''){</php>
+							<p>优惠券2: {pigcms:$Coupon.second} <php>if($lottery['displayjpnums']){</php>数量:{pigcms:$Coupon.secondnums}<php>}</php></p>
+							<php>}</php>
+
+							 <php>if($Coupon['third']!=''){</php>
+								<p>优惠券3: {pigcms:$Coupon.third} <php>if($lottery['displayjpnums']){</php>数量:{pigcms:$Coupon.thirdnums}<php>}</php></p>
+							<php>}</php>
 							</div>
 						</div>
 					</div>
 					<div class="boxcontent boxwhite">
 						<div class="box">
 							<div class="title-brown">活动说明：</div>
-							<div class="Detail">{weiwin:$Coupon.info}
-								<p>活动时间:{weiwin:$Coupon.statdate|date="Y-m-d",###}至{weiwin:$Coupon.enddate|date="Y-m-d",###}</p>
-								<p>{weiwin:$Coupon.txt}</p>					 			
+							<div class="Detail">
+							<?php if ($Coupon['statdate']>time()){echo '<p style="color:red">活动还没有开始 :(</p>';}?>
+							<p>{pigcms:$Coupon.title}</p>
+							<p>{pigcms:$Coupon.info}</p>
+								<p>活动时间: {pigcms:$Coupon.statdate|date="Y-m-d",###}至{pigcms:$Coupon.enddate|date="Y-m-d",###}</p>
+								<p>{pigcms:$Coupon.txt}</p>					 			
 							</div>
 						</div>
 					</div>
+					
+					<if condition="$Coupon.sttxt">
+					<div class="boxcontent boxwhite">
+						<div class="box">
+							<div class="title-brown">优惠券介绍：</div>
+							<div class="Detail">
+								<p>{pigcms:$Coupon.sttxt}</p>					 			
+							</div>
+						</div>
+					</div>
+					</if>
+					<if condition="$Coupon.sttxt">
+					<div class="boxcontent boxwhite">
+						<div class="box">
+							<div class="title-brown">兑换券说明：</div>
+							<div class="Detail">
+								<p>{pigcms:$Coupon.aginfo}</p>					 			
+							</div>
+						</div>
+					</div>
+					</if>
 				</div>
 				<div style="clear:both;"></div>
 <!--都显示-->
@@ -242,9 +210,9 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 
 </if> <!--结束-->
 <div style="height:60px;"></div>
-<!--<div class="footFix" id="footReturn"><a href="javascript:void(0)" onClick="location.href='{weiwin::U('Wap/Index/index',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}';"><span>返回3G网站</span></a></div>	
--->
-<script src="{weiwin::RES}/css/guajiang/js/alert.js" type="text/javascript"></script>
+<div class="footFix" id="footReturn"><a href="javascript:void(0)" onClick="location.href='{pigcms::U('Wap/Index/index',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id']))}';"><span>返回3G网站</span></a></div>	
+
+
 <style type="text/css">
 .window {
 	width:290px;
@@ -369,12 +337,13 @@ var loadingObj = new loading(document.getElementById('loading'),{radius:20,circl
 </div>
  
  
-
+<pigcmsif where="$wecha_id neq ''">
 <script type="text/javascript">
-/*window.sncode = "{weiwin:$Coupon.sn}";*/
-window.prize = "{weiwin:$Coupon.winprize}";
-window.usenums = "{weiwin:$Coupon.usenums}"
-var zjl = {weiwin:$Coupon.zjl};
+<?php if($Coupon['end'] != 3){ ?>//中过奖之后不显示此js
+/*window.sncode = "{pigcms:$Coupon.sn}";*/
+window.prize = "{pigcms:$Coupon.winprize}";
+window.usenums = "{pigcms:$Coupon.usenums}"
+var zjl = {pigcms:$Coupon.zjl};
 //var num = 0;
 var goon = true;
 document.onreadystatechange = Onloadok;
@@ -383,17 +352,19 @@ function Onloadok()
 	if(document.readyState == "complete")
 	if(zjl==0&&goon){ //不中奖[谢谢参与]
 		goon = false;
-		document.getElementById('txt').innerHTML="{weiwin:$Coupon.winprize}";
+		document.getElementById('txt').innerHTML="{pigcms:$Coupon.winprize}";
 		document.getElementById('usenums').innerHTML=usenums;
 		$("#windowcenter").slideToggle(500);
 	}
 	if(zjl&&goon){
-		document.getElementById('winaprize').src="{weiwin::RES}/css/guajiang/images/activity-coupon-winning.jpg";
+		document.getElementById('winaprize').src="{pigcms:$lottery.zjpic}";
 		goon = false;
 		$("#zjl").slideToggle(500);
 	}
 }
-
+<?php
+}
+?>
                     
 $("#save-btn").bind("click",
 	function() {
@@ -408,7 +379,7 @@ $("#save-btn").bind("click",
 		//var falg;
 		//falg = tel.value.search(RegPhone);
 		if (!tel) {
-			alert("请输入正确手机号");
+			alert("请输入正确{pigcms:$lottery.renametel}");
 			return
 		}
 		if(!wxname){			
@@ -422,6 +393,7 @@ $("#save-btn").bind("click",
 			wxname	: wxname,
 			wechaid : wechaid,
 			winprize:winprize,
+			rid: {pigcms:$Coupon.rid},
 			lid 	: lid,
 			action 	: "add"
 		};
@@ -429,6 +401,7 @@ $("#save-btn").bind("click",
 			function(data) {
 				if (data.success == true) {
 					alert(data.msg);
+					window.location.href=location.href;
 					//$("#zjl").hide("slow");
 					return
 				} else { 
@@ -438,5 +411,36 @@ $("#save-btn").bind("click",
 			},"json")
 });
 
+$("#save-btnn").bind("click",
+function () {
+	var submitData = {
+		id: {pigcms:$lottery.id},
+		rid: {pigcms:$Coupon.rid},
+		parssword: $("#parssword").val()
+	};
+	$.post('index.php?g=Wap&m=Coupon&a=exchange', submitData,
+	function (data) {
+		if (data.success == true) {
+			alert(data.msg);
+			if (data.changed == true) {
+				window.location.href = location.href;
+			}
+			return
+		} else {alert(data.msg);}
+	},
+	"json")
+});
 </script>
+</pigcmsif>
+<script type="text/javascript">
+window.shareData = {  
+            "moduleName":"Coupon",
+            "moduleID":"{pigcms:$Coupon.id}",
+            "imgUrl": "{pigcms:$Coupon.starpicurl}", 
+            "sendFriendLink": "{pigcms:$f_siteUrl}{pigcms::U('Coupon/index',array('token'=>$token,'id'=>$Coupon['id']))}",
+            "tTitle": "{pigcms:$Coupon.title}",
+            "tContent": "{pigcms:$Coupon.info}"
+};
+</script>
+{pigcms:$shareScript}
 </body></html>

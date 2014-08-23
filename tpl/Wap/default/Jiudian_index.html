@@ -1,929 +1,239 @@
-
-
-
-
 <!DOCTYPE html>
-
-
 
 <html>
 
+<head>
 
+<meta charset="utf-8" />
 
-    <head>
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/yuyue/hotels/css/hotels.css" media="all" />
 
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/yuyue/hotels/css/datepicker.css" media="all" />
 
+<script type="text/javascript" src="{pigcms::RES}/css/yuyue/hotels/js/jQuery.js"></script>
 
-        <meta charset="utf-8" />
+<script type="text/javascript" src="{pigcms::RES}/css/yuyue/hotels/js/jquery-ui.js"></script>
 
+<title>{pigcms:$data.copyright}</title>
 
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/yuyue/common.css" media="all" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 
+<meta name="Keywords" content="微我网、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
 
+<meta name="Description" content="微我网，国内最大的微信公众智能服务平台，微我网八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/yuyue/datepicker.css" media="all" />
+<!-- Mobile Devices Support @begin -->
 
+<meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
 
+<meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/yuyue/onlinebooking.css" media="all" />
+<meta content="no-cache" http-equiv="pragma">
 
+<meta content="0" http-equiv="expires">
 
+<meta content="telephone=no, address=no" name="format-detection">
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/yuyue/weimob-ui-1-1.css" media="all" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
 
+<!-- apple devices fullscreen -->
 
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<script type="text/javascript" src="{weiwin::RES}/js/yuyue/jQuery.js"></script>
+<!-- Mobile Devices Support @end -->
 
+<style>
 
+img {
 
-<script type="text/javascript" src="{weiwin::RES}/js/yuyue/jquery-ui.js"></script>
-
-
-
-<title>{weiwin:$data.copyright}</title>
-
-
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-
-
-
-		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
-
-
-
-        <meta name="Keywords" content="微盟、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销" />
-
-
-
-        <meta name="Description" content="微盟，国内最大的微信公众智能服务平台，微盟八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。" />
-
-
-
-        <!-- Mobile Devices Support @begin -->
-
-
-
-            <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
-
-
-
-            <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
-
-
-
-            <meta content="no-cache" http-equiv="pragma">
-
-
-
-            <meta content="0" http-equiv="expires">
-
-
-
-            <meta content="telephone=no, address=no" name="format-detection">
-
-
-
-            <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-
-
-            <meta name="apple-mobile-web-app-capable" content="yes" /> <!-- apple devices fullscreen -->
-
-
-
-            <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-
-
-        <!-- Mobile Devices Support @end -->
-
-
-
-        <link rel="shortcut icon" href="img/favicon.ico" />
-
-
-
-        <style>
-
-
-
-            img{width:100%!important;}
-
-
-
-        </style>
-
-
-
-    </head>
-
-
-
-    <body onselectstart="return true;" ondragstart="return false;">
-
-
-
-        <body id="onlinebooking">
-
-
-
-<!-- -------------------------------------------------------------------------------------------------------------------------------- -->
-
-
-
-	<div class="qiandaobanner"> 
-
-
-
-		<if condition="$data['topic'] neq ''"><img src="{weiwin:$data.topic}"><else /><img src="{weiwin::RES}/images/yuyue/head_pic.jpg"></if>
-
-
-
-	</div>
-
-
-
-	<div class="cardexplain">
-
-
-
-	<!--普通用户登录时显示-->
-
-
-
-	<ul class="round">
-
-
-
-		<li>
-
-
-
-			<a href="{weiwin::U($type.'/order',array('token'=> $data['token'], 'wecha_id'=> $data['wecha_id'],'id'=>$data['id']))}"  ><span>我的订单<em class="ok">{weiwin:$data.count}</em></span></a>
-
-
-
-		</li>
-
-
-
-	</ul>
-
-
-
-	<!--后台可控制是否显示-->
-
-
-
-	
-
-
-
-	<ul class="round">
-
-
-
-		<li class="title">
-
-
-
-			<span class="none">{weiwin:$data.title}</span>
-
-
-
-		</li>
-
-
-
-		<volist name="info" id="item">
-
-
-
-		<li class="dandanb">
-
-
-
-			<a href="{weiwin::U($type.'/info',array('token'=> $data['token'], 'wecha_id'=> $data['wecha_id'],'id'=>$item['pid'],'aid'=>$item['id']))}" >
-
-
-
-			<span>
-
-
-
-			<table class="jiagebiao" border="0" cellpadding="0" cellspacing="0" width="100%">
-
-
-
-				<tr>
-
-
-
-					<td><div>{weiwin:$item.name}</div>
-
-
-
-						<div><img src="{weiwin:$item.pic1}" class="showimg" style="max-width:100px;">                            <p>{weiwin:$item.memo}</p>
-
-
-
-							<p>原价：<a class="yuanjia">￥{weiwin:$item.yuanjia}</a></p>
-
-
-
-							<p>优惠价：<a class="youhuijia">￥{weiwin:$item.youhui}</a></p></div></td>
-
-
-
-				</tr>
-
-
-
-			</table>
-
-
-
-			</span>
-
-
-
-			</a>
-
-
-
-		</li>
-
-
-
-		</volist>
-
-
-
-	</ul>
-
-
-
-	
-
-
-
-	<ul class="round">
-
-
-
-		<li>
-
-
-
-		<h2>订单说明</h2>
-
-
-
-		<div class="text">{weiwin:$data.info}</div>
-
-
-
-		</li>
-
-
-
-	</ul>
-
-
-
-
-
-
-
-	<!--后台可控制是否显示-->
-
-
-
-	<ul class="round">
-
-
-
-		<li class="addr"><a href="http://api.map.baidu.com/marker?location={weiwin:$data.longitude},{weiwin:$data.latitude}&title={weiwin:$data.copyright}&name={weiwin:$data.copyright}&content={weiwin:$data.address}&output=html&src=weiba|weiweb"><span>地址： {weiwin:$data.address}</span></a></li>
-
-
-
-		<li class="tel"><a href="tel:{weiwin:$data.phone}"><span>订单电话： {weiwin:$data.phone}</span></a></li>
-
-
-
-	</ul>
-
-
-
-
-
-
-
-
-
-
-
-	</div>
-
-
-
-
-
-
-
-
-
-
-
-<script type="text/javascript"> 
-
-
-
-
-
-
-
-$(document).ready(function () {
-
-
-
-		$( "#dateline" ).datepicker({
-
-
-
-			minDate: new Date(),
-
-
-
-			dateFormat: "yy-mm-dd"
-
-
-
-		}).val((
-
-
-
-				function(d){
-
-
-
-					return [d.getFullYear(), d.getMonth()+1, d.getDate()].join("-");
-
-
-
-				}
-
-
-
-			)(new Date()));
-
-
-
-	$("#showcard").click(function () {
-
-
-
-		var ret_single = ret_download = tel_num = '';
-
-
-
-		$(".single").each(function(i){
-
-
-
-			var s_name = $(this).parent().siblings().text();
-
-
-
-			var s_value = $(this).val();
-
-
-
-			if('' != s_value) ret_single += '$'+s_name+'#'+s_value;
-
-
-
-		});
-
-
-
-	
-
-
-
-		$(".download").each(function(i){
-
-
-
-			var s_name = $(this).parent().siblings().text();
-
-
-
-			var s_value = $(this).val();
-
-
-
-			if('' != s_value) ret_download += '$'+s_name+'#'+s_value;
-
-
-
-		});
-
-
-
-
-
-
-
-		tel_num = $("#tel").val();
-
-
-
-		if('undefined' !== typeof(tel_num)){
-
-
-
-			if(tel_num ==''){alert('电话不能为空');return;} 
-
-
-
-			if(tel_num.length < 11){alert('请输入正确的电话');return;} 
-
-
-
-		}
-
-
-
-
-
-
-
-		if($("#truename").val()==''){alert('名字不能为空');return;}
-
-
-
-//		if($("#dateline").val()==''){alert('请选择时间');return;}
-
-
-
-		var submitData = {
-
-
-
-			wecha_id: $("#wecha_id").val(),
-
-
-
-			pid: $("#pid").val(),
-
-
-
-			token: $("#token").val(),
-
-
-
-			name: $("#truename").val(),
-
-
-
-			phone: $("#tel").val(),
-
-
-
-			date: $("#dateline").val(),
-
-
-
-			time: $("#timepart").val(),
-
-
-
-			memo: $("#info").val(),
-
-
-
-			fieldsigle: ret_single,
-
-
-
-			fielddownload: ret_download,
-
-
-
-		};
-
-
-
-		if('fromUsername' == submitData.wechatid) submitData.wechatid = '';
-
-
-
-		$.post('index.php?g=wap&m='+{weiwin:$type}+'&a=add', submitData,
-
-
-
-			function(data) {
-
-
-
-				if (0 == data.errno) {
-
-
-
-					alert(data.msg);
-
-
-
-					setTimeout('window.location.href=location.href',1000);
-
-
-
-				} else {
-
-
-
-					alert(data.msg);
-
-
-
-					setTimeout('window.location.href=location.href',1000);
-
-
-
-				}
-
-
-
-			},
-
-
-
-		"json")
-
-
-
-
-
-
-
-	}); 
-
-
-
-}); 
-
-
-
-
-
-
-
-
-
-
-
-$("#dateline").change(function () {
-
-
-
-	var submitData = {
-
-
-
-	wxname: "o5JGbjuFTr6lumWIyyW3yfP-G5m0",
-
-
-
-	dateline: $("#dateline").val(),
-
-
-
-	formhash: $("#formhash").val(),
-
-
-
-	action: "getcount"
-
-
-
-	};
-
-
-
-}); 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$("#windowclosebutton").click(function () { 
-
-
-
-$("#windowcenter").slideUp(500);
-
-
-
-
-
-
-
-}); 
-
-
-
-$("#alertclose").click(function () { 
-
-
-
-$("#windowcenter").slideUp(500);
-
-
-
-
-
-
-
-}); 
-
-
-
-function jumpurl(url){
-
-
-
-	window.location.href = url;
-
-
+	max-width:100%!important;
 
 }
 
+</style>
 
+</head>
 
-function alert(title){ 
+<body onselectstart="return true;" ondragstart="return false;">
 
+<body id="hotels" ondragstart="return false;" onselectstart="return false;" >
 
+<section class="body">
 
+  <div class="qiandaobanner"> <a href="javascript:;"> 
 
+  <if condition="$data['topic'] neq ''"><img src="{pigcms:$data.topic}">
 
+    <else />
 
+    <img src="{pigcms::RES}/images/yuyue/hotels.jpg"></if> </a> </div>
 
-$("#windowcenter").slideToggle("slow"); 
+  <div class="cardexplain">
 
+    <ul class="round">
 
+      <li> <a href="{pigcms::U($type.'/order',array('token'=> $data['token'], 'wecha_id'=> $data['wecha_id'],'id'=>$data['id']))}"  ><span>我的订单<em class="ok">{pigcms:$data.count}</em></span></a> </li>
 
-$("#txt").html(title);
+    </ul>
 
+    <!--普通用户登录时显示-->
 
+    <!--商家房价及类型-->
 
-//$("#windowcenter").hide("slow"); 
+    <ul class="round">
 
+      <li class="title"> <span class="none">{pigcms:$data.title}</span> </li>
 
+    <volist name="info" id="item">
 
-setTimeout('$("#windowcenter").slideUp(500)',4000);
+      <li class="dandanb"> <a href="{pigcms::U($type.'/info',array('token'=> $data['token'], 'wecha_id'=> $data['wecha_id'],'id'=>$item['pid'],'aid'=>$item['id']))}" > <span>
 
+        <table class="jiagebiao" border="0" cellpadding="0" cellspacing="0" width="100%">
 
+          <tr>
 
-} 
+            <td><div>{pigcms:$item.name}</div>
 
+              <div><img src="{pigcms:$item.pic1}" class="showimg" style="max-width:100px;">
 
+                <p>{pigcms:$item.memo}</p>
 
+                <p>原价：<a class="yuanjia">￥{pigcms:$item.yuanjia}</a></p>
 
+                <p>优惠价：<a class="youhuijia">￥{pigcms:$item.youhui}</a></p>
 
+              </div></td>
 
+          </tr>
 
-	        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+        </table>
 
+        </span> </a> </li>
 
+    </volist>
 
-        window.shareData = {  
+    </ul>
 
+    <!--后台可控制是否显示-->
 
+    <ul class="round">
 
-            "imgUrl": "img/head_pic.jpg", 
+      <li class="title"><span class="none">订单说明</span></li>
 
+      <li style="display:none;">999</li>
 
+      <ol>
 
-            "timeLineLink": "http://www.weimob.com/webreserve/ReserveBook?rid=3201",
+        <div class="text" style="padding-left:10px;">
 
+          <p> <b>{pigcms:$data.info}</b> </p>
 
+        </div>
 
-            "sendFriendLink": "http://www.weimob.com/webreserve/ReserveBook?rid=3201",
+      </ol>
 
+    </ul>
 
+    <!--后台可控制是否显示-->
 
-            "weiboLink": "http://www.weimob.com/webreserve/ReserveBook?rid=3201",
+    <!--ul class="round">
 
+      <li class="title"><span class="none">预定时间段</span></li>
 
+      <li style="display:none;">999</li>
 
-            "tTitle": "炳胜微订座欢迎您！",
+      <ol>
 
+        <div class="text" style="padding-left:10px;">
 
+          <p> <b>{pigcms:$data.statdate} - {pigcms:$data.enddate}</b> </p>
 
-            "tContent": "小包间",
+        </div>
 
+      </ol>
 
+    </ul-->
 
-            "fTitle": "炳胜微订座欢迎您！",
+    <!--后台可控制是否显示-->
 
+    <ul class="round">
 
+      <li class="addr"><a href="http://api.map.baidu.com/marker?location={pigcms:$data.longitude},{pigcms:$data.latitude}&title={pigcms:$data.copyright}&name={pigcms:$data.copyright}&content={pigcms:$data.address}&output=html&src=weiba|weiweb"><span>地址： {pigcms:$data.address}</span></a></li>
 
-            "fContent": "小包间",
+      <li class="tel"><a href="tel:{pigcms:$data.phone}"><span>电话预定： {pigcms:$data.phone}</span></a></li>
 
+      <li class="detail"><a href=""><span>商家详情</span></a> {pigcms:$data.description}</li>
 
+    </ul>
 
-            "wContent": "小包间" 
+  </div>
 
+    </a> </div>
 
+</section>
 
-        };
+<script>
 
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
 
+			window.shareData = {
 
-        // 发送给好友
+				"imgUrl": "{pigcms:$res.pic}",
 
+				"timeLineLink": "{pigcms::C('site_url')}{pigcms::U('Index/content',array('token'=>$res['token'],'id'=>$res['id']))}=mp.weixin.qq.com",
 
+				"sendFriendLink": "{pigcms::C('site_url')}{pigcms::U('Index/content',array('token'=>$res['token'],'id'=>$res['id']))}=mp.weixin.qq.com",
 
-        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
+				"weiboLink": "{pigcms::C('site_url')}{pigcms::U('Index/content',array('token'=>$res['token'],'id'=>$res['id']))}=mp.weixin.qq.com",
 
+				"tTitle": "{pigcms:$res.title}-{pigcms:$tpl.wxname}",
 
+				"tContent": "{pigcms:$res.info|htmlspecialchars_decode}"
 
-            WeixinJSBridge.invoke('sendAppMessage', { 
+			};
 
 
 
-                "img_url": window.shareData.imgUrl,
+			// 分享到朋友圈
 
+			WeixinJSBridge.on('menu:share:timeline', function (argv) {
 
+				WeixinJSBridge.invoke('shareTimeline', {
 
-                "img_width": "640",
+					"img_url": window.shareData.imgUrl,
 
+					"img_width": "640",
 
+					"img_height": "640",
 
-                "img_height": "640",
+					"link": window.shareData.timeLineLink,
 
+					"desc": window.shareData.tContent,
 
+					"title": window.shareData.tTitle
 
-                "link": window.shareData.sendFriendLink,
+				}, function (res) {
 
+					_report('timeline', res.err_msg);
 
+				});
 
-                "desc": window.shareData.fContent,
+			});
 
+			
 
+		}, false)
 
-                "title": window.shareData.fTitle
+	</script>
 
+<footer style="text-align:center; color:#ffd800;margin-right:20px;margin-top:0px;"><a>©{pigcms:$data.copyright}</a></footer>
 
+</body>
 
-            }, function (res) {
+<div mark="stat_code" style="width:0px; height:0px; display:none;"></div>
 
-
-
-                _report('send_msg', res.err_msg);
-
-
-
-            })
-
-
-
-        });
-
-
-
-
-
-
-
-        // 分享到朋友圈
-
-
-
-        WeixinJSBridge.on('menu:share:timeline', function (argv) {
-
-
-
-            WeixinJSBridge.invoke('shareTimeline', {
-
-
-
-                "img_url": window.shareData.imgUrl,
-
-
-
-                "img_width": "640",
-
-
-
-                "img_height": "640",
-
-
-
-                "link": window.shareData.timeLineLink,
-
-
-
-                "desc": window.shareData.tContent,
-
-
-
-                "title": window.shareData.tTitle
-
-
-
-            }, function (res) {
-
-
-
-                _report('timeline', res.err_msg);
-
-
-
-            });
-
-
-
-        });
-
-
-
-
-
-
-
-        // 分享到微博
-
-
-
-        WeixinJSBridge.on('menu:share:weibo', function (argv) {
-
-
-
-            WeixinJSBridge.invoke('shareWeibo', {
-
-
-
-                "content": window.shareData.wContent,
-
-
-
-                "url": window.shareData.weiboLink,
-
-
-
-            }, function (res) {
-
-
-
-                _report('weibo', res.err_msg);
-
-
-
-            });
-
-
-
-        });
-
-
-
-        }, false)
-
-
-
-</script> 
-
-
-
-<footer style="text-align:center; color:#ffd800;margin-right:20px;margin-top:0px;"><a>©{weiwin:$data.copyright}</a></footer>
-
-
-
-</body>        		<div mark="stat_code" style="width:0px; height:0px; display:none;">
-
-
-
-					</div>
-
-
-
-	</body>
-
-
+</body>
 
 </html>

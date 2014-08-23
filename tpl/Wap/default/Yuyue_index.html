@@ -1,4 +1,4 @@
-﻿
+
 
 
 
@@ -18,31 +18,31 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/yuyue/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/yuyue/common.css" media="all" />
 
 
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/yuyue/datepicker.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/yuyue/datepicker.css" media="all" />
 
 
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/yuyue/onlinebooking.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/yuyue/onlinebooking.css" media="all" />
 
 
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/yuyue/weimob-ui-1-1.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/yuyue/weimob-ui-1-1.css" media="all" />
 
 
 
-<script type="text/javascript" src="{weiwin::RES}/js/yuyue/jQuery.js"></script>
+<script type="text/javascript" src="{pigcms::RES}/js/yuyue/jQuery.js"></script>
 
 
 
-<script type="text/javascript" src="{weiwin::RES}/js/yuyue/jquery-ui.js"></script>
+<script type="text/javascript" src="{pigcms::RES}/js/yuyue/jquery-ui.js"></script>
 
 
 
-<title>{weiwin:$data.title}</title>
+<title>{pigcms:$data.copyright}</title>
 
 
 
@@ -138,7 +138,7 @@
 
 
 
-		<img src="{weiwin::RES}/images/yuyue/head_pic.jpg">
+		<if condition="$data['topic'] neq ''"><img src="{pigcms:$data.topic}"><else /><img src="{pigcms::RES}/images/yuyue/head_pic.jpg"></if>
 
 
 
@@ -162,7 +162,7 @@
 
 
 
-			<a href="{weiwin::U('Yuyue/order',array('token'=> $data['token'], 'wecha_id'=> $data['wecha_id']))}"  ><span>我的订单<em class="ok">{weiwin:$data.count}</em></span></a>
+			<a href="{pigcms::U($type.'/order',array('token'=> $data['token'], 'wecha_id'=> $data['wecha_id'],'id'=>$data['id']))}"  ><span>我的订单<em class="ok">{pigcms:$data.count}</em></span></a>
 
 
 
@@ -175,6 +175,98 @@
 
 
 	<!--后台可控制是否显示-->
+
+
+
+	
+
+
+
+	<ul class="round">
+
+
+
+		<li class="title">
+
+
+
+			<span class="none">{pigcms:$data.title}</span>
+
+
+
+		</li>
+
+
+
+		<volist name="info" id="item">
+
+
+
+		<li class="dandanb">
+
+
+
+			<a href="{pigcms::U($type.'/info',array('token'=> $data['token'], 'wecha_id'=> $data['wecha_id'],'id'=>$item['pid'],'aid'=>$item['id']))}" >
+
+
+
+			<span>
+
+
+
+			<table class="jiagebiao" border="0" cellpadding="0" cellspacing="0" width="100%">
+
+
+
+				<tr>
+
+
+
+					<td><div>{pigcms:$item.name}</div>
+
+
+
+						<div><img src="{pigcms:$item.pic1}" class="showimg" style="max-width:100px;">                            <p>{pigcms:$item.memo}</p>
+
+
+
+							<p>原价：<a class="yuanjia">￥{pigcms:$item.yuanjia}</a></p>
+
+
+
+							<p>优惠价：<a class="youhuijia">￥{pigcms:$item.youhui}</a></p></div></td>
+
+
+
+				</tr>
+
+
+
+			</table>
+
+
+
+			</span>
+
+
+
+			</a>
+
+
+
+		</li>
+
+
+
+		</volist>
+
+
+
+	</ul>
+
+
+
+	
 
 
 
@@ -190,7 +282,7 @@
 
 
 
-		<div class="text">{weiwin:$data.info}</div>
+		<div class="text">{pigcms:$data.info}</div>
 
 
 
@@ -213,27 +305,14 @@
 	<ul class="round">
 
 
-		<li class="addr"><a href="http://api.map.baidu.com/marker?location={weiwin:$Data.lng},{weiwin:$Data.lat}&title=&name=&content=&output=html&src=weiba|weiweb"><span>地址： {weiwin:$data.address}</span></a></li>
+
+		<li class="addr"><a href="    http://api.map.baidu.com/marker?location={pigcms:$data.longitude},{pigcms:$data.latitude}&title={pigcms:$data.copyright}&content={pigcms:$data.copyright}&output=html"><span>地址： {pigcms:$data.address}</span></a></li>
+  
+        
 
 
 
-		<li class="tel"><a href="tel:{weiwin:$data.phone}"><span>订单电话： {weiwin:$data.phone}</span></a></li>
-
-
-
-	</ul>
-
-
-
-
-
-
-
-	<ul class="round roundyellow" style="display:none;">
-
-
-
-		<li class="userinfo"><a href="dingdan"><span>请完善个人资料再填表单</span></a></li>
+		<li class="tel"><a href="tel:{pigcms:$data.phone}"><span>订单电话： {pigcms:$data.phone}</span></a></li>
 
 
 
@@ -245,383 +324,7 @@
 
 
 
-	<!--粉丝填写过的信息的，直接就显示名字电话，粉丝没有填写过信息的话，这里就直接留空让粉丝填写-->
 
-
-
-	<ul class="round">
-
-
-
-		<form action="javascript:;" method="post">
-
-
-
-		<li class="title mb"><span class="none">请认真填写表单</span></li>
-
-
-
-		<if condition="$str.person eq 1"><li class="nob" style="display:none;"><else /><li class="nob" ></if> 
-
-
-
-			<input name="formhash" id="formhash" value="2be3071a" type="hidden">
-
-
-
-			<table class="kuang" border="0" cellpadding="0" cellspacing="0" width="100%">
-
-
-
-				<tr>
-
-
-
-					<th>联系人</th>
-
-
-
-					<td><input name="name" class="px" id="truename" value="" placeholder="请输入您的真实姓名" type="text"></td>
-
-
-
-				</tr>
-
-
-
-			</table>
-
-
-
-		</li>
-
-
-
-		<if condition="$str.phone eq 1"><li class="nob" style="display:none;"><else /><li class="nob" ></if>
-
-
-
-			<table class="kuang" border="0" cellpadding="0" cellspacing="0" width="100%">
-
-
-
-				<tr>
-
-
-
-					<th>联系电话</th>
-
-
-
-					<td><input name="phone" class="px" id="tel" value="" placeholder="请输入您的电话" type="tel"></td>
-
-
-
-				</tr>
-
-
-
-			</table>
-
-
-
-		</li>
-
-
-
-		<if condition="$str.data eq 1"><li class="nob" style="display:none;"><else /><li class="nob" ></if>
-
-
-
-			<table class="kuang" border="0" cellpadding="0" cellspacing="0" width="100%">
-
-
-
-			<tr>
-
-
-
-				<th>预约日期</th>
-
-
-
-				<td>
-
-
-
-					<input type="text" class="px" name="date" value="" id="dateline" readonly="readonly" />
-
-
-
-				</td>
-
-
-
-				</tr>
-
-
-
-			</table>
-
-
-
-		</li>
-
-
-
-		<if condition="$str.time eq 1"><li class="nob" style="display:none;"><else /><li class="nob" ></if>
-
-
-
-			<table class="kuang" border="0" cellpadding="0" cellspacing="0" width="100%">
-
-
-
-			<tr>
-
-
-
-				<th>预约时间</th>
-
-
-
-				<td>
-
-
-
-					<select name="time" id="timepart" class="dropdown-select">
-
-
-
-									<option value="0:00-1:00" selected>0:00-1:00</option><option value="1:00-2:00">1:00-2:00</option><option value="2:00-3:00">2:00-3:00</option><option value="3:00-4:00">3:00-4:00</option><option value="4:00-5:00">4:00-5:00</option><option value="5:00-6:00">5:00-6:00</option><option value="6:00-7:00">6:00-7:00</option><option value="7:00-8:00">7:00-8:00</option><option value="8:00-9:00">8:00-9:00</option><option value="9:00-10:00">9:00-10:00</option><option value="10:00-11:00">10:00-11:00</option><option value="11:00-12:00">11:00-12:00</option><option value="12:00-13:00">12:00-13:00</option><option value="13:00-14:00">13:00-14:00</option><option value="14:00-15:00">14:00-15:00</option><option value="15:00-16:00">15:00-16:00</option><option value="16:00-17:00">16:00-17:00</option><option value="17:00-18:00">17:00-18:00</option><option value="18:00-19:00">18:00-19:00</option><option value="19:00-20:00">19:00-20:00</option><option value="20:00-21:00">20:00-21:00</option><option value="21:00-22:00">21:00-22:00</option><option value="22:00-23:00">22:00-23:00</option><option value="23:00-24:00">23:00-24:00</option>					</select>
-
-
-
-				</td>
-
-
-
-				</tr>
-
-
-
-			</table>
-
-
-
-		</li>
-
-
-
-		<volist name="arr" id="item" key="i">
-
-
-
-		<li class="nob" >
-
-
-
-			<table class="kuang" border="0" cellpadding="0" cellspacing="0" width="100%">
-
-
-
-				<tr>
-
-
-
-					<th>{weiwin:$item.name}</th>
-
-
-
-					<td><input name="text{weiwin:$i}" class="single px" id="text{weiwin:$i}" value="" placeholder="{weiwin:$item.value}" type="text"></td>
-
-
-
-				</tr>
-
-
-
-			</table>
-
-
-
-		</li>
-
-
-
-		</volist>
-
-
-
-		
-
-
-
-		<volist name="list" id="item" key="k">
-
-
-
-		<li class="nob" >
-
-
-
-			<table class="kuang" border="0" cellpadding="0" cellspacing="0" width="100%">
-
-
-
-				<tr>
-
-
-
-					<th>{weiwin:$item.name}</th>
-
-
-
-					<td>
-
-
-
-						<select name="" class="download dropdown-select">
-
-
-
-						<volist name="item[value]" id="i">
-
-
-
-						<option value="{weiwin:$i}">{weiwin:$i}</option>
-
-
-
-						</volist>
-
-
-
-						</select>
-
-
-
-					</td>
-
-
-
-				</tr>
-
-
-
-			</table>
-
-
-
-		</li>
-
-
-
-		</volist>
-
-
-
-		
-
-
-
-		
-
-
-
-		<li class="nob">
-
-
-
-			<table class="kuang" border="0" cellpadding="0" cellspacing="0" width="100%">
-
-
-
-				<tr>
-
-
-
-					<th class="thtop" valign="top">{weiwin:$str.message}</th>
-
-
-
-					<td>
-
-
-
-						<textarea name="memo" class="pxtextarea" style=" height:99px;overflow-y:visible" id="info" placeholder="请输入备注信息"></textarea>
-
-
-
-						<input type="hidden" name="wecha_id" id="wecha_id" value="{weiwin:$data.wecha_id}" />
-
-
-
-						<input type="hidden" name="pid" id="pid" value="{weiwin:$data.id}" />
-
-
-
-						<input type="hidden" name="token" id="token" value="{weiwin:$data.token}" />
-
-
-
-					</td>
-
-
-
-				</tr>
-
-
-
-			</table>
-
-
-
-		</li>
-
-
-
-		</form>
-
-
-
-	</ul>
-
-
-
-	<div class="footReturn">
-
-
-
-		<input id="showcard" class="submit" value="提交消息" type="button" > 
-
-
-
-		<div class="window" id="windowcenter">
-
-
-
-			<div id="title" class="wtitle">操作提示<span class="close" id="alertclose"></span></div>
-
-
-
-			<div class="content">
-
-
-
-				<div id="txt"></div>
-
-
-
-			</div>
-
-
-
-		</div>
-
-
-
-	</div>
 
 
 
@@ -821,7 +524,7 @@ $(document).ready(function () {
 
 
 
-		$.post('index.php?g=wap&m=Yuyue&a=add', submitData,
+		$.post('index.php?g=wap&m='+{pigcms:$type}+'&a=add', submitData,
 
 
 
@@ -1005,204 +708,15 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
-	        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
 
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+WeixinJSBridge.call('showOptionMenu');
+});
+</script>
 
 
-        window.shareData = {  
 
-
-
-            "imgUrl": "img/head_pic.jpg", 
-
-
-
-            "timeLineLink": "{weiwin::C('site_url')}{weiwin::U('Wap/Yuyue/index',array('token'=>htmlspecialchars($_GET['token']),'id'=>htmlspecialchars($_GET['id'])))}",
-
-
-
-            "sendFriendLink": "{weiwin::C('site_url')}{weiwin::U('Wap/Yuyue/index',array('token'=>htmlspecialchars($_GET['token']),'id'=>htmlspecialchars($_GET['id'])))}",
-
-
-
-            "weiboLink": "{weiwin::C('site_url')}{weiwin::U('Wap/Yuyue/index',array('token'=>htmlspecialchars($_GET['token']),'id'=>htmlspecialchars($_GET['id'])))}",
-
-
-
-            "tTitle": "{weiwin:$data.copyright}",
-
-            "tContent": "{weiwin:$Data.word}",
-
-            "fTitle": "{weiwin:$Data.title}",
-
-            "fContent": "{weiwin:$Data.title}",
-
-            "wContent": "{weiwin:$Data.title}" 
-
-
-
-
-        };
-
-
-
-        // 发送给好友
-
-
-
-        WeixinJSBridge.on('menu:share:appmessage', function (argv) {
-
-
-
-            WeixinJSBridge.invoke('sendAppMessage', { 
-
-
-
-                "img_url": window.shareData.imgUrl,
-
-
-
-                "img_width": "640",
-
-
-
-                "img_height": "640",
-
-
-
-                "link": window.shareData.sendFriendLink,
-
-
-
-                "desc": window.shareData.fContent,
-
-
-
-                "title": window.shareData.fTitle
-
-
-
-            }, function (res) {
-
-
-
-                _report('send_msg', res.err_msg);
-
-
-
-            })
-
-
-
-        });
-
-
-
-
-
-
-
-        // 分享到朋友圈
-
-
-
-        WeixinJSBridge.on('menu:share:timeline', function (argv) {
-
-
-
-            WeixinJSBridge.invoke('shareTimeline', {
-
-
-
-                "img_url": window.shareData.imgUrl,
-
-
-
-                "img_width": "640",
-
-
-
-                "img_height": "640",
-
-
-
-                "link": window.shareData.timeLineLink,
-
-
-
-                "desc": window.shareData.tContent,
-
-
-
-                "title": window.shareData.tTitle
-
-
-
-            }, function (res) {
-
-
-
-                _report('timeline', res.err_msg);
-
-
-
-            });
-
-
-
-        });
-
-
-
-
-
-
-
-        // 分享到微博
-
-
-
-        WeixinJSBridge.on('menu:share:weibo', function (argv) {
-
-
-
-            WeixinJSBridge.invoke('shareWeibo', {
-
-
-
-                "content": window.shareData.wContent,
-
-
-
-                "url": window.shareData.weiboLink,
-
-
-
-            }, function (res) {
-
-
-
-                _report('weibo', res.err_msg);
-
-
-
-            });
-
-
-
-        });
-
-
-
-        }, false)
-
-
-
-</script> 
-
-
-
-<footer style="text-align:center; color:#ffd800;margin-right:20px;margin-top:0px;"><a href="#"></a></footer>
+<footer style="text-align:center; color:#ffd800;margin-right:20px;margin-top:0px;"><a>©{pigcms:$data.copyright}</a></footer>
 
 
 
@@ -1214,7 +728,16 @@ setTimeout('$("#windowcenter").slideUp(500)',4000);
 
 
 
-	</body>
+	<!-- wtoken.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F866a46b8a4d233aa883b072a2158aaa2' type='text/javascript'%3E%3C/script%3E"));
+
+</script>
+<script type="text/javascript" src="/tpl/Wap/default/common/js/ChatFloat.js"></script>
+<if condition="$kefu['yy'] eq '1'"><a href="{pigcms:$kefu.info2}" id="CustomerChatFloat" style="position: fixed; right: 0px; top: 150px; z-index: 99999; height: 70px; width: 65px; min-width: 65px; background-image: url(/tpl/Wap/default/common/css/img/MobileChatFloat.png); background-size: 65px; background-position: 0px 0px; background-repeat: no-repeat no-repeat;"></a></if> 
+</body>
 
 
 

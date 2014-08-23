@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -19,23 +19,23 @@
 	  </tr>
 	    <volist name="list" id="vo">
 			<tr>
-				<td align='center'>{weiwin:$vo.id}</td>
-				<td >{weiwin:$vo.name}</td>
-				<td >{weiwin:$vo['price']}</td>
-				<td >{weiwin:$vo.diynum}</td>
-				<td align='center'>{weiwin:$vo.connectnum}</td>
+				<td align='center'>{pigcms:$vo.id}</td>
+				<td >{pigcms:$vo.name}</td>
+				<td >{pigcms:$vo['price']}</td>
+				<td >{pigcms:$vo.diynum}</td>
+				<td align='center'>{pigcms:$vo.connectnum}</td>
 				<td align='center'><if condition="$vo['iscopyright'] eq 1">是<else/>否</if></td>
-				<td align='center'>{weiwin:$vo.activitynum}</td>
+				<td align='center'>{pigcms:$vo.activitynum}</td>
 				<td align='center'><eq name="vo.status" value="1"><font color="red">√</font><else/><font color="blue">×</font></eq> 
 				</td>
 				<td align='center'>
-					<a href="{weiwin::U('User_group/edit/',array('id'=>$vo['id']))}">修改</a>
-					| <eq name="vo.username" value="admin"><font color="#cccccc">删除</font><else/><a href="javascript:void(0)" onclick="return confirmurl('{weiwin::U('User_group/del/',array('id'=>$vo['id']))}','确定删除该用户吗?')">删除</a></eq>
+					<a href="{pigcms::U('User_group/edit/',array('id'=>$vo['id']))}">修改</a>
+					| <eq name="vo.username" value="admin"><font color="#cccccc">删除</font><else/><a href="javascript:void(0)" onclick="return confirmurl('{pigcms::U('User_group/del/',array('id'=>$vo['id']))}','确定删除该用户吗?')">删除</a></eq>
 				</td>
 			</tr>
 	    </volist>
      <tr bgcolor="#FFFFFF"> 
-      <td colspan="8"><div class="listpage">{weiwin:$page}</div></td>
+      <td colspan="8"><div class="listpage">{pigcms:$page}</div></td>
 	  <td></td>
     </tr>
    

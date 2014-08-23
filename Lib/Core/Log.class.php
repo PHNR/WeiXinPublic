@@ -6,35 +6,34 @@
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
+// | Author: 887583<887583@qq.com>
 // +----------------------------------------------------------------------
 
 /**
  * 日志处理类
- *
  * @category    Think
  * @package     Think
  * @subpackage  Core
- * @author      liu21st <liu21st@gmail.com>
+ * @author      887583<887583@qq.com>
  */
 class Log {
 
     // 日志级别 从上到下，由低到高
-    const EMERG  = 'EMERG'; // 严重错误: 导致系统崩溃无法使用
-    const ALERT  = 'ALERT'; // 警戒性错误: 必须被立即修改的错误
-    const CRIT   = 'CRIT'; // 临界值错误: 超过临界值的错误，例如一天24小时，而输入的是25小时这样
-    const ERR    = 'ERR'; // 一般错误: 一般性错误
-    const WARN   = 'WARN'; // 警告性错误: 需要发出警告的错误
+    const EMERG = 'EMERG'; // 严重错误: 导致系统崩溃无法使用
+    const ALERT = 'ALERT'; // 警戒性错误: 必须被立即修改的错误
+    const CRIT = 'CRIT'; // 临界值错误: 超过临界值的错误，例如一天24小时，而输入的是25小时这样
+    const ERR = 'ERR'; // 一般错误: 一般性错误
+    const WARN = 'WARN'; // 警告性错误: 需要发出警告的错误
     const NOTICE = 'NOTIC'; // 通知: 程序可以运行但是还不够完美的错误
-    const INFO   = 'INFO'; // 信息: 程序输出信息
-    const DEBUG  = 'DEBUG'; // 调试: 调试信息
-    const SQL    = 'SQL'; // SQL：SQL语句 注意只在调试模式开启时有效
+    const INFO = 'INFO'; // 信息: 程序输出信息
+    const DEBUG = 'DEBUG'; // 调试: 调试信息
+    const SQL = 'SQL'; // SQL：SQL语句 注意只在调试模式开启时有效
 
     // 日志记录方式
     const SYSTEM = 0;
-    const MAIL   = 1;
-    const FILE   = 3;
-    const SAPI   = 4;
+    const MAIL = 1;
+    const FILE = 3;
+    const SAPI = 4;
 
     // 日志信息
     static $log = array();
@@ -44,7 +43,6 @@ class Log {
 
     /**
      * 记录日志 并且会过滤未经设置的级别
-     *
      * @static
      * @access public
      *
@@ -62,7 +60,6 @@ class Log {
 
     /**
      * 日志保存
-     *
      * @static
      * @access public
      *
@@ -83,10 +80,11 @@ class Log {
                 rename($destination, dirname($destination) . '/' . time() . '-' . basename($destination));
         } else {
             $destination = $destination ? $destination : C('LOG_DEST');
-            $extra       = $extra ? $extra : C('LOG_EXTRA');
+            $extra = $extra ? $extra : C('LOG_EXTRA');
         }
         $now = date(self::$format);
-        error_log($now . ' ' . get_client_ip() . ' ' . $_SERVER['REQUEST_URI'] . "\r\n" . implode('', self::$log) . "\r\n", $type, $destination, $extra);
+        error_log($now . ' ' . get_client_ip() . ' ' . $_SERVER['REQUEST_URI'] . "\r\n" . implode('', self::$log) .
+        "\r\n", $type, $destination, $extra);
         // 保存后清空日志缓存
         self::$log = array();
         //clearstatcache();
@@ -94,7 +92,6 @@ class Log {
 
     /**
      * 日志直接写入
-     *
      * @static
      * @access public
      *
@@ -107,7 +104,7 @@ class Log {
      * @return void
      */
     static function write($message, $level = self::ERR, $type = '', $destination = '', $extra = '') {
-        $now  = date(self::$format);
+        $now = date(self::$format);
         $type = $type ? $type : C('LOG_TYPE');
         if(self::FILE == $type) { // 文件方式记录日志
             if(empty($destination))
@@ -117,19 +114,12 @@ class Log {
                 rename($destination, dirname($destination) . '/' . time() . '-' . basename($destination));
         } else {
             $destination = $destination ? $destination : C('LOG_DEST');
-            $extra       = $extra ? $extra : C('LOG_EXTRA');
+            $extra = $extra ? $extra : C('LOG_EXTRA');
         }
-        $debug_backtrace = debug_backtrace();
-        $logTrace        = '';
-        foreach($debug_backtrace as $place) {
-            $logTrace .= 'BACKTRACE: [file]' . $place['file'] . ' ; [line]' . $place['line'] . ' ; [function]' . $place['function'] . ' ; [args]' . var_export($place['args'], 1) . "\r\n";
-        }
-        error_log("{$now} {$level}: {$message}\r\n{$logTrace}", $type, $destination, $extra);
+        error_log("{$now} {$level}: {$message}\r\n", $type, $destination, $extra);
         //clearstatcache();
     }
 }
 
-
-
-return array('7dc0a883f92dda78efd677069552c7b8');
+return array('dc00d56e3324d5fcd954967720469a66');
 ?>

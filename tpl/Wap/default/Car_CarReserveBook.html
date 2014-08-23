@@ -7,16 +7,16 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
-        <link rel="stylesheet" type="text/css" href="{weiwin::RES}/car/css/reset.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/car/css/common.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/car/css/datepicker_car.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{pigcms::RES}/car/css/reset.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/car/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/car/css/datepicker_car.css" media="all" />
 <script src="./tpl/User/default/common/js/select/js/jquery.js"></script>
 <script src="./tpl/User/default/common/js/select/js/comm.js"></script>
 <script src="./tpl/User/default/common/js/select/js/linkagesel-min.js"></script>
-<script type="text/javascript" src="{weiwin::RES}/car/js/jquery_ui.js"></script>
-<script type="text/javascript" src="{weiwin::RES}/car/js/category.js"></script>
-<script type="text/javascript" src="{weiwin::RES}/car/js/bootstrap-datepicker.js"></script>
-<title>{weiwin:$reser['title']}</title>
+<script type="text/javascript" src="{pigcms::RES}/car/js/jquery_ui.js"></script>
+<script type="text/javascript" src="{pigcms::RES}/car/js/category.js"></script>
+<script type="text/javascript" src="{pigcms::RES}/car/js/bootstrap-datepicker.js"></script>
+<title>{pigcms:$reser['title']}</title>
 
 
 
@@ -30,7 +30,7 @@
                 padding-bottom:10px!important;
             }
         </style>
-        
+
         <script>
             $().ready(function(){
                 var nowTemp = new Date();
@@ -47,7 +47,7 @@
 
             function submit(){
         var form = document.getElementById("form1");
-        var obj = {truename:'',tel:'',dateline:'',wecha_id:'',rid:'',type:'',field1:'',timepart:'',info:'',housetype:'',carnum:'',km:''};
+        var obj = {truename:'',tel:'',dateline:'',wecha_id:'',rid:'',type:'',timepart:'',info:'',housetype:'',carnum:'',km:'',choose:''};
 
                 if('undefined' !== typeof(form.truename)){
                     obj.truename = form.truename.value;
@@ -80,9 +80,9 @@
                 if('undefined' !== typeof(form.type)){
                     obj.type = form.type.value;
                 }
-                if('undefined' !== typeof(form.field1)){
-                    obj.field1 = form.field1.value;
-                }
+                // if('undefined' !== typeof(form.field1)){
+                //     obj.field1 = form.field1.value;
+                // }
 
                 if('undefined' !== typeof(form.timepart)){
                     obj.timepart = form.timepart.value;
@@ -106,12 +106,13 @@
                  type: form.type.value,
                  carnum:form.carnum.value,
                  km:form.km.value,
-                 field1: form.field1.value,
+                 //field1: form.field1.value,
                  timepart: form.timepart.value,
-                 info: form.info.value
+                 info: form.info.value,
+                 choose:form.choose.value,
              }
 
-        $.post("{weiwin::U('Car/add',array('token'=>$token,'wecha_id'=>$wecha_id,'addtype'=>$addtype))}", obj,
+        $.post("{pigcms::U('Car/add',array('token'=>$token,'wecha_id'=>$wecha_id,'addtype'=>$addtype))}", obj,
             function(data) {
                 //alert(data.msg+'--'+data.housetype);
                 if (0 == data.errno) {
@@ -139,7 +140,7 @@ function jumpurl(url){
             <div id="bookBody" class="body">
             <header>
                 <ul>
-                    <li><img src="{weiwin:$reser['headpic']}" style="width:100%;" /></li>
+                    <li><img src="{pigcms:$reser['headpic']}" style="width:100%;" /></li>
                 </ul>
             </header>
             <section>
@@ -147,7 +148,7 @@ function jumpurl(url){
                     <dl class="list_book list_book_my">
                         <dd class="tbox">
                             <div><label>我的订单</label></div>
-                            <div class="align_right"><a href="{weiwin::U('Car/ReserveBooking',array('token'=>$token,'wecha_id'=>$wecha_id,'sid'=>$vo['id'],'bid'=>$vo['brand_id'],'getlist'=>1,'title'=>$title,'addtype'=>$reser['addtype']))}" >{weiwin:$count}</a></div>
+                            <div class="align_right"><a href="{pigcms::U('Car/ReserveBooking',array('token'=>$token,'wecha_id'=>$wecha_id,'sid'=>$vo['id'],'bid'=>$vo['brand_id'],'getlist'=>1,'title'=>$title,'addtype'=>$reser['addtype']))}" >{pigcms:$count}</a></div>
                         </dd>
                     </dl>
                 </div>
@@ -155,7 +156,7 @@ function jumpurl(url){
                     <dl class="list_book list_book_des">
                         <dd>
                             <div><label>订单说明</label></div>
-                            <div style="word-break:break-all;word-wrap:nowrap;white-space:normal;padding: 15px 0;">{weiwin:$reser['info']}</div>
+                            <div style="word-break:break-all;word-wrap:nowrap;white-space:normal;padding: 15px 0;">{pigcms:$reser['info']|html_entity_decode}</div>
                         </dd>
                     </dl>
                 </div>
@@ -163,10 +164,10 @@ function jumpurl(url){
                     <dl class="list_book list_book_contact">
                         <dd>
                             <div>
-                                <a href="http://chabus.duapp.com/mapapi.php?lng={weiwin:$reser['lng']}&lat={weiwin:$reser['lat']}&title={weiwin:$reser['title']}&info=温馨提示：{weiwin:$reser['address']}">
-                                    <span>地址：{weiwin:$reser['address']}</span>
+                                <a href="http://chabus.duapp.com/mapapi.php?lng={pigcms:$reser['lng']}&lat={pigcms:$reser['lat']}&title={pigcms:$reser['title']}&info=温馨提示：{pigcms:$reser['address']}">
+                                    <span>地址：{pigcms:$reser['address']}</span>
                                 </a></div>
-                            <div style="padding-top: 3px;"><a href="tel:{weiwin:$reser['tel']}"><span>订单电话： {weiwin:$reser['tel']}</span></a></div>
+                            <div style="padding-top: 3px;"><a href="tel:{pigcms:$reser['tel']}"><span>订单电话： {pigcms:$reser['tel']}</span></a></div>
                         </dd>
                     </dl>
                 </div>
@@ -175,83 +176,53 @@ function jumpurl(url){
                     <dl class="list_book list_book_my">
                         <dd class="round roundyellow">
                             <div >
-                                <a href="{weiwin::U('Car/changeCarinfo',array('token'=>$token,'wecha_id'=>$wecha_id))}"><span>请完善个人资料再填表单</span></a>
+                                <a href="{pigcms::U('Car/changeCarinfo',array('token'=>$token,'wecha_id'=>$wecha_id))}"><span>请完善个人资料再填表单</span></a>
                             </div>
                         </dd>
                     </dl>
                 </div>
                 <div class="pb_5 pl_10 pr_10">
 <form id="form1" action="javascript:submit();" method="post" >
-                        <input type="hidden" name="wecha_id" id="wecha_id" value="{weiwin:$wecha_id}" />
-                        <input type="hidden" name="rid" id="rid" value="{weiwin:$reser['id']}" />
+                        <input type="hidden" name="wecha_id" id="wecha_id" value="{pigcms:$wecha_id}" />
+                        <input type="hidden" name="rid" id="rid" value="{pigcms:$reser['id']}" />
                         <!--input type="hidden" name="aid" id="aid" value="3453" /-->
-                        <input type="hidden" name="type" id="type" value="{weiwin:$reser['addtype']}" />
+                        <input type="hidden" name="type" id="type" value="{pigcms:$reser['addtype']}" />
                         <!--input type="hidden" name="autoid" id="autoid" value="255" /-->
                         <dl class="list_book">
                             <dt><label>请认真填写表单</label></dt>
                             <dd class="tbox">
                                 <div><label>联系人:</label></div>
-                                <div><input type="text" name="truename" placeholder="请输入您的真实姓名" value="{weiwin:$reser['truename']}"/></div>
+                                <div><input type="text" name="truename" placeholder="请输入您的真实姓名" value="{pigcms:$reser['truename']}"/></div>
                             </dd>
                             <dd class="tbox">
                                 <div><label>联系电话：</label></div>
-                                <div><input type="tel" name="tel" placeholder="请输入您的电话" value="{weiwin:$reser['user_tel']}"/></div>
+                                <div><input type="tel" name="tel" placeholder="请输入您的电话" value="{pigcms:$reser['user_tel']}"/></div>
                             </dd>
 
                             <dd class="tbox">
-                                <div><label>车系/车型</label></div>
+                                <div><label>品牌/车系</label></div>
                                 <div>
-                                 <select name="field1" id="field1" class="input-medium" data-rule-required="true"></select>
-                                 <input type="hidden" name="housetype" id="housetype" value="{weiwin:$reser['housetype']}" />
+                                 <input type="text" name="housetype" id="housetype" value="{pigcms:$reser['housetype']}" />
                                 </div>
                             </dd>
-                           
-
-<script>
-    var opts = {
-            select: '#field1',
-            url: "{weiwin::U('Car/get_car_brand',array('token'=>$token))}",
-            head:'请选择！',
-            // /head: false,
-            autoLink:true,
-            autoBind:true,
-            autoHide:true,
-            level:2,
-            autoHide:false,
-            hideWidth:false,
-            minWidth:160,
-            maxWidth:498,
-            selClass:"input-medium"
-
-    };
-
-    var linkageSel = new LinkageSel(opts);
-    linkageSel.onChange(function(){
-        var input = $("#housetype"),
-        d = this.getSelectedDataArr('name'),
-        //s_id = linkageSel.getSelectedData('s_id'),
-        arr = [];
-        for (var i = 0, len = d.length; i < len; i++) {
-            arr.push(d[i]);
-        }
-        input.val(arr.join('/'));
-        //$("#s_id").val(s_id);
-
-    });
-
-</script>
+                            <dd class="tbox">
+                                <div><label>车型</label></div>
+                                <div>
+                                 <input type="text" name="choose" id="choose" value="{pigcms:$reser['choose']}" />
+                                </div>
+                            </dd>
 
                             <if condition="$addtype eq 'maintain'">
                             <dd class="tbox">
                                 <div><label>车牌</label></div>
                                 <div>
-                                   <input type="text" name="carnum" id="carnum" value="{weiwin:$reser['carnum']}" placeholder="如：京M 88888"/>
+                                   <input type="text" name="carnum" id="carnum" value="{pigcms:$reser['carnum']}" placeholder="如：京M 88888"/>
                                 </div>
                             </dd>
                             <dd class="tbox">
                                 <div><label>公里数</label></div>
                                 <div>
-                                  <input type="number" name="km" id="km"  value="{weiwin:$reser['km']}" placeholder="请输入您的公里数"  />
+                                  <input type="number" name="km" id="km"  value="{pigcms:$reser['km']}" placeholder="请输入您的公里数"  />
                                 </div>
                             </dd>
                             <else/>
@@ -260,7 +231,7 @@ function jumpurl(url){
                             </if>
                             <dd class="tbox">
                                 <div><label>预约日期：</label></div>
-                                <div><input type="text" name="dateline" id="dateline" readonly="readonly" placeholder="" value="{weiwin:$reser['dateline']}" /></div>
+                                <div><input type="text" name="dateline" id="dateline" readonly="readonly" placeholder="" value="{pigcms:$reser['dateline']}" /></div>
                             </dd>
                             <dd class="tbox">
                                 <div><label>预约时间：</label></div>
@@ -283,6 +254,6 @@ function jumpurl(url){
             <include file="Car:menu"/>
         </div>
 
-    </body>             
-   
+    </body>
+
 </html>

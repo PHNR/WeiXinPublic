@@ -1,8 +1,8 @@
 <?php
 define ("DEBUG_MODE", false);
-$k = $_GET['keyword'];
-$x = $_GET['x'];
-$y = $_GET['y'];
+$k = htmlspecialchars($_GET['keyword']);
+$x = htmlspecialchars($_GET['x']);
+$y = htmlspecialchars($_GET['y']);
 //VAR_dump($_GET);
 $searchArray = catchEntitiesFromLocation($k, $x, $y, 2000);
 echo json_encode($searchArray);
@@ -10,6 +10,7 @@ echo json_encode($searchArray);
 // var_dump( $searchArray);
 
 function catchEntitiesFromLocation($entity, $x, $y, $radius) {
+
     $mapObj = new baiduMapClient();
     $search = $mapObj->Place_search($entity, $x . "," . $y, $radius);
     $results = $search->results;
@@ -27,7 +28,10 @@ function catchEntitiesFromLocation($entity, $x, $y, $radius) {
     $shopArray = array();
     foreach($shopSortArrays as $key => $value) {
         $shopArray[] = array(
-            "title" => $value["Title"], "key" => $key, 'pic' => '', "url" => $value["Url"],
+            "title" => $value["Title"],
+            "key" => $key,
+            'pic' => '',
+            "url" => $value["Url"],
         );
         if(count($shopArray) > 9) {
             break;
@@ -70,7 +74,8 @@ class baiduMapClient {
         $headers = array(
             "User-Agent: Mozilla/5.0 (Windows NT 5.1; rv:14.0) Gecko/20100101 Firefox/14.0.1",
             "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-            "Accept-Language: en-us,en;q=0.5", //"Accept-Encoding: gzip, deflate",
+            "Accept-Language: en-us,en;q=0.5",
+            //"Accept-Encoding: gzip, deflate",
             "Referer: http://developer.baidu.com/"
         );
         $params = array_merge($this->auth_params, $params);

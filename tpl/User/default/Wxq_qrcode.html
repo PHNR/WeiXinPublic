@@ -2,38 +2,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{weiwin::C('site_name')}{weiwin:$wall.title}</title>
+<title>{pigcms::C('site_name')}{pigcms:$wall.title}</title>
 <meta name="keywords" content="微动力微信墻" />
 <meta name="description" content="微动力微信墻" />
-<script type="text/javascript" src="{weiwin::RES}/wxq/resource/script/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="{weiwin::RES}/wxq/source/modules/wxwall/template/common.js"></script>
-<link type="text/css" rel="stylesheet" href="{weiwin::RES}/wxq/source/modules/wxwall/template/common.css" />
+<script type="text/javascript" src="{pigcms::RES}/wxq/resource/script/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="{pigcms::RES}/wxq/source/modules/wxwall/template/common.js"></script>
+<link type="text/css" rel="stylesheet" href="{pigcms::RES}/wxq/source/modules/wxwall/template/common.css" />
 </head>
 <body>
-    <img id="img_id" src="{weiwin:$wall['background']}"/>
+    <img id="img_id" src="{pigcms:$wall['background']}"/>
 <div id="wallMain">
     <table id="topbox" class="topbox">
         <tr>
-            <td class="topbox_l"><span class="site">{weiwin::C('site_my')}</span>
-                <strong class="title">微信墻</strong><br><span class="site">{weiwin:$wall.title}</span></td>
-            <td class=""><span class="site">添加微信号</span> <strong class="title">{weiwin:$wall['account']['wxname']}</strong>
-                <span class="site">发送关键字<strong class="title">{weiwin:$wall['keyword']}</strong>,
+            <td class="topbox_l"><span class="site">{pigcms::C('site_my')}</span>
+                <strong class="title">微信墻</strong><br><span class="site">{pigcms:$wall.title}</span></td>
+            <td class=""><span class="site">添加微信号</span> <strong class="title">{pigcms:$wall['account']['wxname']}</strong>
+                <span class="site">发送关键字<strong class="title">{pigcms:$wall['keyword']}</strong>,
                     登记后发送内容，自动上墙</span>
             </td>
         </tr>
     </table>
 	<div id="msg_list">
 		<div class="talkList" id="msg_{$pigcms:$wall.id}">
-			<img src="{weiwin:$wall.qrcode}" style="width:500px;" />
-			<img src="{weiwin:$wall.qrcode}" style="width:420px;" />
+			<img src="{pigcms:$wall.qrcode}" style="width:500px;" />
+			<img src="{pigcms:$wall.qrcode}" style="width:420px;" />
 		</div>
 	</div>
 </div>
 
     <div class="side_div">
-        <div class="side_item"><a href="{weiwin::U('Wxq/qrcode',array('id'=>$wall['id']))}" >二维码</a></div>
-        <div class="side_item"><a href="{weiwin::U('Wxq/lottery',array('id'=>$wall['id'],'type'=>1))}">去抽奖</a></div>
-        <div class="side_item"><a href="{weiwin::U('Wxq/detail',array('id'=>$wall['id']))}">微信墻</a></div>
+        <div class="side_item"><a href="{pigcms::U('Wxq/qrcode',array('id'=>$wall['id']))}" >二维码</a></div>
+        <div class="side_item"><a href="{pigcms::U('Wxq/lottery',array('id'=>$wall['id'],'type'=>1))}">去抽奖</a></div>
+        <div class="side_item"><a href="{pigcms::U('Wxq/detail',array('id'=>$wall['id']))}">微信墻</a></div>
     </div>
 
 <script type="text/javascript">

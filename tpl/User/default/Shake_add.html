@@ -1,64 +1,16 @@
-<include file="Public:head"/> 
-
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/cymain.css" />
+<include file="Public:head"/>
 
 <script src="/tpl/static/artDialog/jquery.artDialog.js?skin=default"></script>
 
 <script src="/tpl/static/artDialog/plugins/iframeTools.js"></script>
 
-<link rel="stylesheet" href="{weiwin::STATICS}/kindeditor/themes/default/default.css" />
+<div class="content"  >          
 
-<link rel="stylesheet" href="{weiwin::STATICS}/kindeditor/plugins/code/prettify.css" />
-
-<script src="{weiwin::STATICS}/kindeditor/kindeditor.js" type="text/javascript"></script>
-
-<script src="{weiwin::STATICS}/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
-
-<script src="{weiwin::STATICS}/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
-
-<script src="./tpl/User/default/common/js/cart/jscolor.js" type="text/javascript"></script>
-
-
-
-<script type="text/javascript" src="/tpl/User/default/common/js/jQuery.js"></script>
-
-<script>
-
-var editor;
-
-KindEditor.ready(function(K) {
-
-editor = K.create('#intro', {
-
-resizeType : 1,
-
-allowPreviewEmoticons : false,
-
-allowImageUpload : true,
-
-uploadJson : '/index.php?g=User&m=Upyun&a=kindedtiropic',
-
-items : [
-
-'source','undo','clearhtml','hr',
-
-'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-
-'insertunorderedlist', '|', 'emoticons', 'image','link', 'unlink','baidumap','lineheight','table','anchor','preview','print','template','code','cut']
-
-});
-
-
-
-});
-
-</script>
-
-<div class="content" >          <div class="cLineB"><h4>摇一摇活动设置</h4><a href="javascript:history.go(-1);"  class="right btnGrayS vm" style="margin-top:-27px" >返回</a></div> 
+<div class="cLineB"><h4>摇一摇活动设置</h4><a href="javascript:history.go(-1);"  class="right btnGrayS vm" style="margin-top:-27px" >返回</a></div> 
 
 <div class="msgWrap">
 
-  <form class="form" method="post"   action="{weiwin::U('Shake/insert')}"  target="_top" enctype="multipart/form-data" >
+  <form class="form" method="post"   action="{pigcms::U('Shake/insert')}"  target="iframe" enctype="multipart/form-data" >
 
 <TABLE class="userinfoArea" style=" margin:20px 0 0 0;" border="0" cellSpacing="0" cellPadding="0" width="100%">
 
@@ -170,25 +122,23 @@ items : [
 
   <TH valign="top"><label for="text">前台页面背景：</label></TH>
 
-  <TD><input type="input" class="px require" id="pass" value="" name="pass" style="width:250px" value="" >  <script src="/tpl/static/upyun.js"></script><a href="###" onclick="upyunPicUpload('pass',700,420,'{weiwin:$token}')" class="a_upload">上传</a> <a href="###" onclick="viewImg('pass')">预览</a></td>
+  <TD><input type="input" class="px" id="pass" value="" name="pass" style="width:250px" value="" > <script src="/tpl/static/upyun.js"></script><a href="###" onclick="chooseFile('pass','background')" class="a_upload">选择</a>&nbsp;&nbsp;&nbsp;<a href="###" onclick="upyunPicUpload('pass',1500,1000,'{pigcms:$token}')" class="a_upload">上传</a>&nbsp;&nbsp;&nbsp;<a href="###" onclick="viewImg('pass')" class="a_upload">预览</a> 定义前台页面背景，为URL地址
+
+ 
+
+
+
+</TD>
 
   <TD rowspan="2" valign="top"></TD>
 
 </TR>
 
-
-
-
-
-
-
-
-
 <TR>
 
   <TH valign="top"><label for="text">前台背景音乐：</label></TH>
 
-  <TD><input type="input" class="px" id="pass" value="" name="pass2" style="width:250px" value="" >  定义前台背景音乐，为URL地址
+  <TD><input type="input" class="px" id="pass2" value="" name="pass2" style="width:250px" value="" >  <a href="###" onclick="chooseFile('pass2','music')" class="a_upload">选择</a> 定义前台背景音乐，为URL地址
 
  
 
@@ -204,7 +154,7 @@ items : [
 
   <TH valign="top"><label for="text">客户端起始音效：</label></TH>
 
-  <TD><input type="input" class="px" id="pass" value="" name="pass3" style="width:250px" value="" > 提醒用户开始摇一摇的音效
+  <TD><input type="input" class="px" id="pass3" value="" name="pass3" style="width:250px" value="" > <a href="###" onclick="chooseFile('pass3','music')" class="a_upload">选择</a>
 
  
 
@@ -220,7 +170,7 @@ items : [
 
   <TH valign="top"><label for="text">二维码图片地址：</label></TH>
 
-  <TD><input type="input" class="px require"  id="qrcode" value="" name="qrcode" style="width:250px" value="" >  <script src="/tpl/static/upyun.js"></script><a href="###" onclick="upyunPicUpload('qrcode',700,420,'{weiwin:$token}')" class="a_upload">上传</a> <a href="###" onclick="viewImg('qrcode')">预览</a></td>前台也显示二维码
+  <TD><input type="input" class="px" id="qrcode" value="" name="qrcode" style="width:250px" value="" > <a href="###" onclick="chooseFile('qrcode','my')" class="a_upload">选择</a>&nbsp;&nbsp;&nbsp;<a href="###" onclick="upyunPicUpload('qrcode',1500,1000,'{pigcms:$token}')" class="a_upload">上传</a>&nbsp;&nbsp;&nbsp;<a href="###" onclick="viewImg('qrcode')" class="a_upload">预览</a> 前台也显示二维码
 
  
 
@@ -231,12 +181,6 @@ items : [
   <TD rowspan="2" valign="top"></TD>
 
 </TR>  
-
-
-
-
-
-
 
 <TR>
 

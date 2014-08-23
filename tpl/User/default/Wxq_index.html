@@ -1,10 +1,11 @@
-﻿<include file="Public:head"/>
-<div class="content" >
-
-          <div class="cLine">
-            <div class="pageNavigator left">
-  <a href='{weiwin::U("Wxq/add")}' title='添加微信墻' class='btnGrayS vm bigbtn'><img src="{weiwin::RES}/images/text.png" class="vm" />添加微信墻</a>　
-  <!--<a class="btnGrayS vm bigbtn" onclick="location.href='index.php?ac=csv&id=9379';" ><img src="{weiwin::RES}/images/import.png" class="vm" />批量导入文本</a>　<a class="btnGrayS vm bigbtn" onclick="location.href='index.php?ac=outtxt&page=1&type=0&classid=0&wxid=gh_858dwjkeww5';" ><img src="{weiwin::RES}/images/export.png" class="vm" />批量导出本页文本结果</a>-->
+<include file="Public:head"/>
+<div class="content"   >
+  <div class="cLineB"> 
+  <h4>微信墙活动设置<span class="FAQ">只能添加一个活动，活动自动退出时间尽量不要写太长，</span>否则如果删除活动，那么在里面的用户就不能退出！刷新时间设置5000即可！</h4>
+ </div>
+         <div class="cLineC" style="line-height: 32px;">
+  <a href='{pigcms::U("Wxq/add")}' title='添加微信墻' class='btnGrayS vm bigbtn'><img src="{pigcms::RES}/images/text.png" class="vm" />添加微信墻</a>　
+  <!--<a class="btnGrayS vm bigbtn" onclick="location.href='index.php?ac=csv&id=9379';" ><img src="{pigcms::RES}/images/import.png" class="vm" />批量导入文本</a>　<a class="btnGrayS vm bigbtn" onclick="location.href='index.php?ac=outtxt&page=1&type=0&classid=0&wxid=gh_858dwjkeww5';" ><img src="{pigcms::RES}/images/export.png" class="vm" />批量导出本页文本结果</a>-->
 
             </div>
 
@@ -16,7 +17,12 @@
            <input name="wxid"  type="hidden" value="gh_858dwjkeww5" />
             <TABLE class="ListProduct" border="0" cellSpacing="0" cellPadding="0" width="100%">
               <THEAD>
-                  <TR>
+  <div class="msgWrap form">
+<div class="bdrcontent">
+<div id="div_ptype">
+<table class="ListProduct" border="0" style="margin-bottom:20px; border:2px #333 solid" cellSpacing="0" cellPadding="0" width="100%">
+<thead>
+<tr>
                       <TH >编号</TH>
                       <TH class="keywords">入墻关键词</TH>
                       <TH class="">活动主题</TH>
@@ -28,19 +34,19 @@
 				</TR>
 				<volist name="info" id="vo">
 				<tr>
-                  <td>  {weiwin:$i}</td>
-                  <td>{weiwin:$vo.keyword}</td>
-                  <td><div>{weiwin:$vo.title}</div></td>
+                  <td>  {pigcms:$i}</td>
+                  <td>{pigcms:$vo.keyword}</td>
+                  <td><div>{pigcms:$vo.title}</div></td>
 
-                   <td>
-                       <a href="{weiwin::U('Wxq/edit',array('id'=>$vo['id']))}" title="编辑文本">编辑</a>
-                       <a href="{weiwin::U('Wxq/del',array('id'=>$vo['id']))}">删除</a>
+                   <td class="norightborder">
+                       <a href="{pigcms::U('Wxq/edit',array('id'=>$vo['id']))}" title="编辑文本">编辑</a>
+                       <a href="{pigcms::U('Wxq/del',array('id'=>$vo['id']))}">删除</a>
                        <eq name="vo.isshow" value="1">
-                       <a href="{weiwin::U('Wxq/examineInfo',array('id'=>$vo['id'],'isshow'=>0))}" target="_blank">审核显示内容</a>
+                       <a href="{pigcms::U('Wxq/examineInfo',array('id'=>$vo['id'],'isshow'=>0))}" target="_blank">审核显示内容</a>
                    <else/>未开启审核</eq>
-<!--                   <a target="_blank" href="{weiwin::U('Wxq/manageUser',array('id'=>$vo['id']))}">管理用户</a>-->
-                   <a target="_blank" href="{weiwin::U('Wxq/detail',array('id'=>$vo['id']))}" >我的墻面</a>
-                   <a href="{weiwin::U('Wxq/awardList',array('id'=>$vo['id']))}">中奖用户</a>
+<!--                   <a target="_blank" href="{pigcms::U('Wxq/manageUser',array('id'=>$vo['id']))}">管理用户</a>-->
+                   <a target="_blank" href="{pigcms::U('Wxq/detail',array('id'=>$vo['id']))}" >我的墻面</a>
+                   <a href="{pigcms::U('Wxq/awardList',array('id'=>$vo['id']))}">中奖用户</a>
 
 
                    </td>
@@ -72,7 +78,7 @@ alert('未选中任何文章或回复！')
           </div>
           <div class="cLine">
             <div class="pageNavigator right">
-                 <div class="pages">{weiwin:$page}</div>
+                 <div class="pages">{pigcms:$page}</div>
               </div>
             <div class="clr"></div>
           </div>

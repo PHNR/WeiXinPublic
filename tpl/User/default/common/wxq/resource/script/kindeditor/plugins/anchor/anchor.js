@@ -6,6 +6,7 @@
 * @site http://www.kindsoft.net/
 * @licence http://www.kindsoft.net/license.php
 *******************************************************************************/
+
 KindEditor.plugin('anchor', function(K) {
 	var self = this, name = 'anchor', lang = self.lang(name + '.');
 	self.plugin.anchor = {

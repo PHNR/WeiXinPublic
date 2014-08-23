@@ -5,7 +5,7 @@
 defined('IN_IA') or exit('Access Denied');
 
 if(!$_W['isajax']) {
-    exit('Access Denied');
+	exit('Access Denied');
 }
 if($_GPC['tab'] == 'rule') {
     $current['rule'] = ' active';

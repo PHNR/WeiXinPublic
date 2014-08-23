@@ -22,13 +22,13 @@
 
 	<meta content="" name="Description">
 
-    <link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/diaoyan/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/diaoyan/common.css" media="all" />
 
-    <link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/diaoyan/survey.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/diaoyan/survey.css" media="all" />
 
-	<script type="text/javascript" src="{weiwin::RES}/js/diaoyan/zepto.js"></script>
+	<script type="text/javascript" src="{pigcms::RES}/js/diaoyan/zepto.js"></script>
 
-	<title>幸福调研</title>
+	<title>{pigcms:$data.title}</title>
 
 	<style type="text/css">
 
@@ -158,13 +158,13 @@
 
 	<volist name="info" id="data">
 
-		<img class="bg" src="{weiwin::RES}/images/diaoyan/bg.jpg" />
+		<img class="bg" src="{pigcms::RES}/images/diaoyan/bg.jpg" />
 
 		<div class="question" style="overflow:hidden;">
 
-			<div class="title">{weiwin:$data.title}</div>
+			<div class="title">{pigcms:$data.title}</div>
 
-			<div class="tip">注：本题最多能选择{weiwin:$data.max}个答案！</div>
+			<div class="tip">注：本题最多能选择{pigcms:$data.max}个答案！</div>
 
 			<div class="options">
 
@@ -178,13 +178,13 @@
 
 				<div class="option" data-value="1">
 
-					<img class="oimg" src="{weiwin::RES}/images/diaoyan/option_bg.png">
+					<img class="oimg" src="{pigcms::RES}/images/diaoyan/option_bg.png">
 
-					<img class="oimg-sel" src="{weiwin::RES}/images/diaoyan/option_sel_bg.png">
+					<img class="oimg-sel" src="{pigcms::RES}/images/diaoyan/option_sel_bg.png">
 
 					<div class="text">
 
-						<div class="otext">{weiwin:$data.optia}</div>
+						<div class="otext">{pigcms:$data.optia}</div>
 
 					</div>
 
@@ -206,13 +206,13 @@
 
 				<div class="option" data-value="2">
 
-					<img class="oimg" src="{weiwin::RES}/images/diaoyan/option_bg.png">
+					<img class="oimg" src="{pigcms::RES}/images/diaoyan/option_bg.png">
 
-					<img class="oimg-sel" src="{weiwin::RES}/images/diaoyan/option_sel_bg.png">
+					<img class="oimg-sel" src="{pigcms::RES}/images/diaoyan/option_sel_bg.png">
 
 					<div class="text">
 
-						<div class="otext">{weiwin:$data.optib}</div>
+						<div class="otext">{pigcms:$data.optib}</div>
 
 					</div>
 
@@ -234,13 +234,13 @@
 
 				<div class="option" data-value="3">
 
-					<img class="oimg" src="{weiwin::RES}/images/diaoyan/option_bg.png">
+					<img class="oimg" src="{pigcms::RES}/images/diaoyan/option_bg.png">
 
-					<img class="oimg-sel" src="{weiwin::RES}/images/diaoyan/option_sel_bg.png">
+					<img class="oimg-sel" src="{pigcms::RES}/images/diaoyan/option_sel_bg.png">
 
 					<div class="text">
 
-						<div class="otext">{weiwin:$data.optic}</div>
+						<div class="otext">{pigcms:$data.optic}</div>
 
 					</div>
 
@@ -262,13 +262,13 @@
 
 				<div class="option" data-value="4">
 
-					<img class="oimg" src="{weiwin::RES}/images/diaoyan/option_bg.png">
+					<img class="oimg" src="{pigcms::RES}/images/diaoyan/option_bg.png">
 
-					<img class="oimg-sel" src="{weiwin::RES}/images/diaoyan/option_sel_bg.png">
+					<img class="oimg-sel" src="{pigcms::RES}/images/diaoyan/option_sel_bg.png">
 
 					<div class="text">
 
-						<div class="otext">{weiwin:$data.optid}</div>
+						<div class="otext">{pigcms:$data.optid}</div>
 
 					</div>
 
@@ -290,13 +290,13 @@
 
 				<div class="option" data-value="5">
 
-					<img class="oimg" src="{weiwin::RES}/images/diaoyan/option_bg.png">
+					<img class="oimg" src="{pigcms::RES}/images/diaoyan/option_bg.png">
 
-					<img class="oimg-sel" src="{weiwin::RES}/images/diaoyan/option_sel_bg.png">
+					<img class="oimg-sel" src="{pigcms::RES}/images/diaoyan/option_sel_bg.png">
 
 					<div class="text">
 
-						<div class="otext">{weiwin:$data.optie}</div>
+						<div class="otext">{pigcms:$data.optie}</div>
 
 					</div>
 
@@ -320,31 +320,34 @@
 
 	
 
-		<!-- <div style="text-align:center; padding:35px; letter-spacing:3px;">{weiwin:$page}</div> -->
+		<!-- <div style="text-align:center; padding:35px; letter-spacing:3px;">{pigcms:$page}</div> -->
 
 			<div id="submit">
 
-				<img src="{weiwin::RES}/images/diaoyan/next_btn.png">
+				<img src="{pigcms::RES}/images/diaoyan/next_btn.png">
 
 				<span>下一步</span>
 
 			</div>
+           
+<br>
+<br>
+<br>
+ 	<p class="page-url"  align="center">
 
- 	<p class="page-url">
-
-		<a href="Research_Comment.html" target="_blank" class="page-url-link"></a>
+		<a href="Research_Comment.html" target="_blank" class="page-url-link">由微享平台提供技术支持</a>
 
 	</p>
 
 
 
-		<audio id="musicClick" src="{weiwin::RES}/images/diaoyan/click.mp3" preload="auto"></audio>
+		<audio id="musicClick" src="{pigcms::RES}/images/diaoyan/click.mp3" preload="auto"></audio>
 
 	</div>
 
 	<div id="loading" class="loading-mask">
 
-		<img class="gimg" src="{weiwin::RES}/images/diaoyan/ajax-loader.gif">
+		<img class="gimg" src="{pigcms::RES}/images/diaoyan/ajax-loader.gif">
 
 	</div>
 
@@ -354,7 +357,7 @@
 
 	$(function(){
 
-		var maxsel = {weiwin:$data.max};
+		var maxsel = {pigcms:$data.max};
 
 		$(".option").on("touchend",function(){
 
@@ -408,7 +411,7 @@
 
 			var submitData = {
 
-				"qid" : '{weiwin:$data.tid}',
+				"qid" : '{pigcms:$data.tid}',
 
 				"ans":ans
 
@@ -422,7 +425,7 @@
 
 				//url : "Research_Comment.html", 
 
-				url : '{weiwin::U("Diaoyan/set",array("token"=> $token, "wecha_id"=> $wecha_id, "id"=> $diaoyan_id, "uid"=>$uid, "p"=>$p))}',
+				url : '{pigcms::U("Diaoyan/set",array("token"=> $token, "wecha_id"=> $wecha_id, "id"=> $diaoyan_id, "uid"=>$uid, "p"=>$p))}',
 
 				data : submitData,
 
@@ -464,6 +467,13 @@
 
 </script>
 
+<!-- wtoken.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F866a46b8a4d233aa883b072a2158aaa2' type='text/javascript'%3E%3C/script%3E"));
+
+</script>
 </body>
 
 </html>

@@ -9,7 +9,7 @@
 
 	 <div class="ksearch">
     	<div class="fl">
-			<form action="{weiwin::U('Users/search')}" method="post">
+			<form action="{pigcms::U('Users/search')}" method="post">
 			<b class="kserico">快速搜索：</b>搜索类型：
 			<select name="type">
 				<option value="1">用户名</option>
@@ -49,19 +49,19 @@
 	  </tr>
 	    <volist name="info" id="vo">
 			<tr>
-				<td align='center'>{weiwin:$vo.id}</td>
-				<td align='center'>{weiwin:$vo.title}</td>
-				<td align='center'>{weiwin:$vo.uname}</td>
-				<td align='center'>{weiwin:$vo.indent_id}</td>
-				<td align='center'>{weiwin:$vo.price}</td>
-				<td align='center'>{weiwin:$vo.create_time|date='Y-m-d H:i:s',###}</td>
+				<td align='center'>{pigcms:$vo.id}</td>
+				<td align='center'>{pigcms:$vo.title}</td>
+				<td align='center'>{pigcms:$vo.uname}</td>
+				<td align='center'>{pigcms:$vo.indent_id}</td>
+				<td align='center'>{pigcms:$vo.price}</td>
+				<td align='center'>{pigcms:$vo.create_time|date='Y-m-d H:i:s',###}</td>
 				<td align='center'><if condition="$vo['status'] eq 1">已付款(未确认)<elseif condition="$vo['status'] eq 2"/>完成<else/>未付款</if></td>
-				<td align='center'><a href="{weiwin::U('Admin/Records/send',array('price'=>$vo['price'],'uid'=>$vo['uid'],'iid'=>$vo['id']))}">入金</a> 删除 </td>
+				<td align='center'><a href="{pigcms::U('Records/send',array('price'=>$vo['price'],'uid'=>$vo['uid'],'iid'=>$vo['id']))}">入金</a></td>
 
 			</tr>
 	    </volist>
      <tr bgcolor="#FFFFFF"> 
-      <td colspan="8"><div class="listpage">{weiwin:$page}</div></td>
+      <td colspan="8"><div class="listpage">{pigcms:$page}</div></td>
     </tr>
 </table>
 </body>

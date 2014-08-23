@@ -18,22 +18,22 @@
 	  </tr>
 	    <volist name="info" id="vo">
 			<tr>
-				<td align='center'>{weiwin:$vo.id}</td>
-				<td align='center'>{weiwin:$vo.keyword}</td>
-				<td align='center'><if condition="$vo['wxname'] eq null">微信已删除<else/>{weiwin:$vo.wxname}</if></td>
+				<td align='center'>{pigcms:$vo.id}</td>
+				<td align='center'>{pigcms:$vo.keyword}</td>
+				<td align='center'><if condition="$vo['wxname'] eq null">微信已删除<else/>{pigcms:$vo.wxname}</if></td>
 				
 				<td align='center'><php>echo date('Y-m-d', $vo['createtime'])</php></td>
 				<td align='center'><php>echo date('Y-m-d', $vo['uptatetime'])</php></td>
 				<td align='center'><php>echo $vo['uname']</php></td>
 				</td>
 				<td align='center'>
-					<a target="ddd" href="{weiwin::U('Wap/Index/content',array('token'=>$vo['token'],'id'=>$vo['id']))}">查看</a> |
-					<a href="{weiwin::U('Article/del/',array('id'=>$vo['id'],'pid'=>$_GET['pid']))}">删除</a>
+					<a target="ddd" href="{pigcms::U('Wap/Index/content',array('token'=>$vo['token'],'id'=>$vo['id']))}">查看</a> |
+					<a href="{pigcms::U('Article/del/',array('id'=>$vo['id'],'pid'=>$_GET['pid']))}">删除</a>
 				</td>
 			</tr>
 	    </volist>
      <tr bgcolor="#FFFFFF"> 
-      <td colspan="8"><div class="listpage">{weiwin:$page}</div></td>
+      <td colspan="8"><div class="listpage">{pigcms:$page}</div></td>
     </tr>
    
 </table>

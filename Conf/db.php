@@ -1,11 +1,11 @@
 <?php
-return array (
-  'DB_TYPE' => 'mysql',
-  'DB_HOST' => 'db947.72dns.net',
-  'DB_PORT' => '3306',
-  'DB_NAME' => 'db_webpower8com',
-  'DB_USER' => 'webpower8com',
-  'DB_PWD' => 'webpower',
-  'DB_PREFIX' => 'wy_',
+return array(
+	'DB_TYPE'=>'mysql',
+	'DB_HOST'=>'localhost',
+	'DB_PORT'=>'3306',
+	'DB_NAME'=>'gopecms',   //数据库名
+	'DB_USER'=>'root',          //数据库用户名
+	'DB_PWD'=>'123456',         //数据库密码
+	'DB_PREFIX'=>'tp_',
 );
 ?>

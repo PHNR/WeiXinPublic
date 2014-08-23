@@ -8,27 +8,27 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/car/css/reset.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/car/css/common.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/car/css/datepicker.css" media="all" />
-<script type="text/javascript" src="{weiwin::RES}/car/js/jQuery.js"></script>
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/car/css/reset.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/car/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/car/css/datepicker.css" media="all" />
+<script type="text/javascript" src="{pigcms::RES}/car/js/jQuery.js"></script>
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/car/Tabs/css/easy-responsive-tabs.css" media="all">
-<script type="text/javascript" src="{weiwin::RES}/car/Tabs/js/easyResponsiveTabs.js"></script>
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/car/Tabs/css/easy-responsive-tabs.css" media="all">
+<script type="text/javascript" src="{pigcms::RES}/car/Tabs/js/easyResponsiveTabs.js"></script>
 
 <title>预约列表</title>
-      
+
         <style>
             img{width:100%!important;}
         </style>
     </head>
     <body onselectstart="return true;" ondragstart="return false;">
-        
+
     <body onselectstart="return true;" ondragstart="return false;">
         <div id="bookBody" class="body">
             <header>
                 <ul>
-                    <li><img src="{weiwin:$reser['headpic']}" style="width:100%;" /></li>
+                    <li><img src="{pigcms:$reser['headpic']}" style="width:100%;" /></li>
                 </ul>
             </header>
 <if condition="$books eq ''">
@@ -37,7 +37,7 @@
             </a><div class="text"><a href="javascript:;">
                您还没有预约。
                 </div>
-       
+
 </li>
 </if>
 
@@ -48,7 +48,7 @@
             <ul class="resp-tabs-list">
 
             <volist name='books' id='vo'>
-                <li>{weiwin:$vo['dateline']}订单详情  <a href="javascript:;" style="background-color:#ccc;float:right;margin-right:0px;color:#000;line-height:20px;border-radius:8px;margin-top:3px;padding:0 5px;"> <if condition="$vo['remate'] eq 0"><em class="no">等待客服回电</em><elseif condition="$vo['remate'] eq 1" /><em class="no"><font color="green">客服已回复</font></em><elseif condition="$vo['remate'] eq 2" /><em class="no"><font color="red">您的请求被拒绝</font></em></if></a></li>
+                <li>{pigcms:$vo['dateline']}订单详情  <a href="javascript:;" style="background-color:#ccc;float:right;margin-right:0px;color:#000;line-height:20px;border-radius:8px;margin-top:3px;padding:0 5px;"> <if condition="$vo['remate'] eq 0"><em class="no">等待客服回电</em><elseif condition="$vo['remate'] eq 1" /><em class="no"><font color="green">客服已回复</font></em><elseif condition="$vo['remate'] eq 2" /><em class="no"><font color="red">您的请求被拒绝</font></em></if></a></li>
              </volist>
             </ul>
             <div class="resp-tabs-container">
@@ -61,43 +61,45 @@
                             </dt>
                             <dd class="tbox">
                                 <div><label>联系人:</label></div>
-                                <div><label>{weiwin:$vo['truename']}</label></div>
+                                <div><label>{pigcms:$vo['truename']}</label></div>
                             </dd>
                             <dd class="tbox">
                                 <div><label>联系电话：</label></div>
-                                <div><a href="tel:{weiwin:$vo['tel']}" style="color:#000;">{weiwin:$vo['tel']}</a></div>
+                                <div><a href="tel:{pigcms:$vo['tel']}" style="color:#000;">{pigcms:$vo['tel']}</a></div>
                             </dd>
                             <dd class="tbox">
-                                <div><label>车系/车型：</label></div>
-                                <div><label>{weiwin:$vo['housetype']}</label></div>
+                                <div><label>品牌/车系：</label></div>
+                                <div><label>{pigcms:$vo['housetype']}</label></div>
+                            </dd>
+                            <dd class="tbox">
+                                <div><label>车型：</label></div>
+                                <div><label>{pigcms:$vo['choose']}</label></div>
                             </dd>
                             <if condition="$vo['type'] eq 'maintain'">
                                 <dd class="tbox">
                                 <div><label>车牌：</label></div>
-                                <div><label>{weiwin:$vo['carnum']}</label></div>
+                                <div><label>{pigcms:$vo['carnum']}</label></div>
                                 </dd>
                                 <dd class="tbox">
                                     <div><label>公里：</label></div>
-                                    <div><label>{weiwin:$vo['km']}</label></div>
+                                    <div><label>{pigcms:$vo['km']}</label></div>
                                 </dd>
                             </if>
 
                             <dd class="tbox">
                                 <div><label>预约日期：</label></div>
-                                <div><label>{weiwin:$vo['dateline']} {weiwin:$vo['timepart']}</label></div>
+                                <div><label>{pigcms:$vo['dateline']} {pigcms:$vo['timepart']}</label></div>
                             </dd>
                             <dd class="tbox">
                                 <div><label>提交时间：</label></div>
-                                <div><label>{weiwin:$vo['booktime']|date='Y年m月d日',###}</label></div>
+                                <div><label>{pigcms:$vo['booktime']|date='Y年m月d日',###}</label></div>
                             </dd>
                             <div>
                                 <li class="box group_btn">
                                     <div>
-                                    <if  condition="$vo['remate'] neq 1" >
-                                    <a href="{weiwin::U('Car/ReserveBookingEdit',array('token'=>$token,'wecha_id'=>$wecha_id,'id'=>$vo['id'],'addtype'=>$reser['addtype']))}">修改订单</a>
-                                    </if>
+
                                     </div>
-                                    <div><a href="{weiwin::U('Car/delOrder',array('token'=>$vo['token'],'wecha_id'=>$vo['wecha_id'],'id'=>$vo['id'],'addtype'=>$vo['type']))}" onClick="return(confirm('您确定要删除吗?'));return false;" id="showcard2" class="gray">删除订单</a></div>
+                                    <div><a href="{pigcms::U('Car/delOrder',array('token'=>$vo['token'],'wecha_id'=>$vo['wecha_id'],'id'=>$vo['id'],'addtype'=>$vo['type']))}" onclick="return(confirm('您确定要删除吗?'));return false;" id="showcard2" class="gray">删除订单</a></div>
                                 </li>
                             </div>
                         </dl>

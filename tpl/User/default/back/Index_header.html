@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title> {pigcms:$f_siteTitle} {pigcms:$f_siteName}</title>
+
+<meta name="keywords" content="{pigcms:$f_metaKeyword}" />
+
+<meta name="description" content="{pigcms:$f_metaDes}" />
+
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+
+<script>var SITEURL='';</script>
+
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/style_2_common.css?BPm" />
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/index1.css" />
+<link href="{pigcms::RES}/css/style.css" rel="stylesheet" type="text/css" />
+
+<script src="{pigcms::RES}/js/common.js" type="text/javascript"></script>
+
+</head>
+
+<body id="nv_member" class="pg_CURMODULE">
+
+
+
+<div class="topbg">
+
+<div class="top">
+
+<div class="toplink">
+
+
+
+<div class="welcome"><ul><li><img src="./tpl/Home/pigcms/img/logo1.png"></li><li>欢迎使用多用户微信营销服务平台!</li></ul></div>
+
+    <div class="memberinfo"  id="destoon_member">	
+
+		<if condition="$_SESSION[uid]==false">
+
+			<a href="{pigcms::U('Index/login')}">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+
+			<a href="{pigcms::U('Index/login')}">注册</a>
+
+			<else/>
+
+			你好,<a href="/#" hidefocus="true"  ><span style="color:red">{pigcms:$Think.session.uname}</span></a>（uid:{pigcms:$Think.session.uid}）
+
+			<a href="/#" onclick="Javascript:window.open('{pigcms::U('System/Admin/logout')}','_blank')" >退出</a>
+
+	</if>	
+
+	</div>
+
+</div>
+
+    
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+<div id="wp" class="wp">
+
+ <div class="contentmanage">
+
+    <div class="developer">
+
+       
+
+      <div class="tableContent">
+
+        <!--左侧功能菜单-->
+
+        <div class="sideBar">
+
+          <div class="catalogList">
+
+            <ul>
+                <li class="subCatalogList" id="menut" style="font-size:14px; color:#FFF"><img src="./tpl/User/default/common/images/m-ico-0.png"> 管理平台</li>
+
+            	<li class="subCatalogList"> <a href="{pigcms::U('Index/useredit')}">+&nbsp;修改密码</a> </li>
+
+				<li class="selected" > <a href="{pigcms::U('Index/index')}">+&nbsp;我的公众号</a></li>
+
+				<li class=" subCatalogList "> <a href="{pigcms::U('Index/add')}">+&nbsp;添加公众号</a> </li>
+
+				<li class=" subCatalogList "> <a href="{pigcms::U('Alipay/index')}">+&nbsp;会员充值</a> </li>
+
+				<pigcmsif where="$thisUser['invitecode']"><li class=" subCatalogList "> <a href="{pigcms::U('Index/invite')}">+&nbsp;邀请朋友</a> </li></pigcmsif>
+
+            </ul>
+
+          </div>
+
+        </div>
+

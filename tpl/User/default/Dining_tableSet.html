@@ -1,45 +1,111 @@
- <include file="Public:head" /> 
-<style type="text/css">
-.userinfoArea td{width:auto;}
-</style>
-<input type="hidden" id="catUrl" value="{weiwin::U('Dining/ajaxCatOptions',array('token'=>$token))}" />
-  <div class="content"  > 
+<include file="Public:head" /> 
+
+<script src="{pigcms::STATICS}/artDialog/jquery.artDialog.js?skin=default"></script>
+
+<script src="{pigcms::STATICS}/artDialog/plugins/iframeTools.js"></script>
+
+<script src="{pigcms::STATICS}/upyun.js"></script>
+
+  <div class="content" style="width:900px; background:none; margin-left:275px; border:none; margin-bottom:30px;" > 
+
    <div class="cLineB"> 
+
     <h4>桌台设置</h4> 
-    <a href="{weiwin::U('Dining/tables',array('token'=>$token,'dining'=>$isDining))}" class="right  btnGreen" style="margin-top:-27px">返回</a> 
+
+    <a href="{pigcms::U('Dining/tables',array('token'=>$token,'storeid'=>$storeid))}" class="right  btnGreen" style="margin-top:-27px">返回</a> 
+
    </div> 
+
    <form class="form" method="post" action="" enctype="multipart/form-data"> 
-<if condition="$isUpdate eq 1">
-<input type="hidden" name="id" value="{weiwin:$set.id}" />
-</if>
-<input type="hidden" name="discount" id="discount" value="{weiwin:$set.id}" />
+
+<input type="hidden" name="id" value="{pigcms:$set.id}" />
+
     <div class="msgWrap bgfc" style="width:920p"> 
+
      <table class="userinfoArea" style=" margin:0;" border="0" cellspacing="0" cellpadding="0" width="100%"> 
+
       <tbody> 
+
        <tr> 
+
         <th><span class="red">*</span>名称：</th> 
-        <td><input type="text" name="name" value="{weiwin:$set.name}" class="px" style="width:400px;" /></td> 
-       </tr> 
+
+        <td><input type="text" name="name" value="{pigcms:$set.name}" class="px" style="width:400px;" /></td> 
+
+       </tr>
+
+       <tr> 
+
+        <th><span class="red">*</span>店铺：</th> 
+
+        <td><select id="storeid" name="storeid" class="px">  <option value="0">请选择...</option>
+
+        <volist id="v" name="Stores">
+
+        <option value="{pigcms:$v.id}" <if condition="$set['storeid'] eq $v['id']">selected</if>>{pigcms:$v.name}</option>
+
+        </volist>
+
+        </select></td> 
+
+       </tr>
+
+        <tr> 
+
+        <th>订金：</th>
+
+        <td><input type="text" id="price" name="price" value="{pigcms:$set.price}" class="px" style="width:60px;" /> 元</td> 
+
+       </tr>
+
+        <tr> 
+
+        <th>缩略图：</th>
+
+        <td><input type="text" name="picurl" value="{pigcms:$set.picurl}" class="px" id="picurl" style="width:400px;" /> <a href="###" onclick="upyunPicUpload('picurl',700,700,'{pigcms:$token}')" class="btnGreen">上传</a> <a href="###" class="btnGray vm" onclick="viewImg('picurl')">预览</a></td> 
+
+       </tr>
+
       <tr> 
-        <th><span class="red">*</span>介绍：</th>
-        <td><input type="text" name="intro" value="{weiwin:$set.intro}" class="px" style="width:400px;" /></td> 
+
+        <th>介绍：</th>
+
+        <td><textarea name="intro" class="px" style="width:400px;">{pigcms:$set.intro}</textarea></td> 
+
        </tr>
+
         <tr> 
-        <th><span class="red">*</span>顺序：</th> 
-        <td><input type="text" name="taxis" value="{weiwin:$set.taxis}" class="px" style="width:400px;" /></td> 
+
+        <th>顺序：</th> 
+
+        <td><input type="text" name="taxis" value="{pigcms:$set.taxis}" class="px" style="width:60px;" /></td> 
+
        </tr>
+
         <tr> 
+
        
+
        <tr>         
+
        <th>&nbsp;</th>
+
        <td>
-       <input type="hidden" name="id" value="{weiwin:$set.id}" />
-       <button type="submit" name="button" class="btnGreen">保存</button> &nbsp; <a href="{weiwin::U('Dining/tables',array('token'=>$token))}" class="btnGray vm">取消</a></td> 
+
+       <button type="submit" name="button" class="btnGreen">保存</button> &nbsp; <a href="{pigcms::U('Dining/tables',array('token'=>$token,'storeid'=>$storeid))}" class="btnGray vm">取消</a></td> 
+
        </tr> 
+
       </tbody> 
+
      </table> 
+
      </div>
+
     
+
    </form> 
+
   </div> 
+
   <include file="Public:footer" />

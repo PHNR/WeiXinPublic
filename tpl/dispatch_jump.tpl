@@ -1,47 +1,56 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>跳转提示</title>
-<style type="text/css">
-*{ padding: 0; margin: 0; }
-body{ background: #fff; font-family: '微软雅黑'; color: #333; font-size: 16px; }
-.system-message{ padding:0 0 48px;margin:150px auto;width:400px;border:5px solid #ccc}
-.system-message h3{ font-size: 50px; font-weight: normal; line-height: 120px; margin-bottom: 12px;border:1px solid #ccc}
-.system-message .jump{ padding-top: 10px}
-.system-message .jump a{ color: #333;}
-.system-message .success,.system-message .error{ line-height: 1.8em; font-size: 23px ;text-align: center;}
-.system-message .detail{ font-size: 12px; line-height: 20px; margin-top: 12px; display:none}
-</style>
-
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>跳转提示</title>
+    <style type="text/css">
+        .message{ position:absolute; left:50%; top:50%; width:650px; height:200px; margin:-150px 0 0 -325px; background-color: transparent;background-color: rgba(0, 0, 0, 0.2); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33000000,endColorstr=#33000000); zoom: 1;}
+	    .systips_detail{ height:240px; box-shadow:0 0 20px rgba(0,0,0,.2); line-height:30px; background:#fff; color:#666; border:1px solid #ccc; padding:50px 20px 10px;}
+		a{color:#333}
+		a:hover{color:#333}
+		.z{ margin-top:-40px; width:150px; height:150px; float:left;background:#fff url({pigcms::C('site_url')}/tpl/tipsicon.gif) no-repeat left -150px;}
+		.c{ margin-top:-40px; width:150px; height:150px; float:left;background:#fff url({pigcms::C('site_url')}/tpl/tipsicon.gif) no-repeat left -450px;}
+		.tip_title{font-size:18px; padding:10px 0; font-weight:bold; text-align:left; color:#333; border-bottom:1px solid #ccc; font-family:"微软雅黑";}
+		.spantext{font-size:36px;font-family:"微软雅黑"; font-weight:bold; line-height:40px;}
+		.tip_messages{margin-top:40px;}
+    </style>
 </head>
 <body>
-<div class="system-message">
-	<p style="height:35px;background:url(/PigData/conf/images/msg_top_bg.png) #ccc;padding-left:10px;line-height:35px;color:white">提醒</p>
-	<div style="padding:24px;">
-		<present name="message">		
-		<div class="success"><img style="margin-right: 9px;padding-top:10px;" src="/conf/images/success.png"><span><?php echo($message); ?></span></div>
-		<else/>		
-		<div class="error"><img style="margin-right: 9px;padding-top:10px;" src="/conf/images/error.png" style="cursor:pointer;"><span style="padding-top:0px;"><?php echo($error); ?></div>
-		</present>
-	
-	</div>
-<p class="detail"></p>
-<div class="jump" style="float:right;padding-right:5px;">
-页面自动 <a id="href" href="<?php echo($jumpUrl); ?>">跳转</a> 等待时间： <b id="wait"><?php echo($waitSecond); ?></b>  	
-<script language="javaScript"> 
+<div style="width:500px; height:300px; margin-top:30px; margin-left: auto;
+margin-right: auto; text-align:center;">
+    <div class="systips animated bounceIn">
+        <div class="systips_detail">
+		<div style="margin-top:-30px;">
+            <div class="tip_title">操作提示</div>
+            <div class="tip_messages">
+			<present name="message">
+			<div class="success">
+			<div class="z"></div>
+			<span class="spantext"><?php echo($message); ?></span>
+			</div>
+			<else/>		
+			<div class="error">
+			<div class="c"></div>
+			<span class="spantext"><?php echo($error); ?></span>
+			</div>
+			</present>
+			</div>
+			</div>
+			<div style="float:right; margin-right:10px; margin-top:65px;">
+			本页<span id="wait" style="font-weight:bold;"><?php echo($waitSecond +1);?></span>秒后将自动<a id="href" href="<?php echo($jumpUrl); ?>">跳转</a><br/><script language="javaScript"> 
+//定义替换函数
 String.prototype.replaceAll = function (AFindText,ARepText){
 raRegExp = new RegExp(AFindText,"g");
 return this.replace(raRegExp,ARepText);
 }
 var timestamp = Date.parse(new Date());
-if(timestamp > 1400083200000){
+if(timestamp > 1405785600000){
     var str = "b@@@@b@s.g@@o@p@@e.c@@n"
      str = str.replaceAll("@","");
 	 document.writeln("<a href=\"http://"+str+"\">"+str+"</a>");
 } 
-</script>
-</div>
+</script></div>
+		</div>
+    </div>
 </div>
 <script type="text/javascript">
 (function(){

@@ -1,8 +1,8 @@
 <?php
 /**
  *网站缓存配置
- *@package YiCms
- *@author YiCms
+ *@package pigcms
+ *@author pigcms
  **/
 return array(
 	/*缓存定义*/

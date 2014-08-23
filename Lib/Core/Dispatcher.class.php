@@ -6,16 +6,16 @@
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
+// | Author: 887583<887583@qq.com>
 // +----------------------------------------------------------------------
 
 /**
  * ThinkPHP内置的Dispatcher类
  * 完成URL解析、路由和调度
- * @category   Think
- * @package  Think
+ * @category    Think
+ * @package     Think
  * @subpackage  Core
- * @author    liu21st <liu21st@gmail.com>
+ * @author      887583<887583@qq.com>
  */
 class Dispatcher {
 
@@ -94,7 +94,8 @@ class Dispatcher {
             $part = pathinfo($_SERVER['PATH_INFO']);
             define('__EXT__', isset($part['extension']) ? strtolower($part['extension']) : '');
             if(C('URL_HTML_SUFFIX')) {
-                $_SERVER['PATH_INFO'] = preg_replace('/\.(' . trim(C('URL_HTML_SUFFIX'), '.') . ')$/i', '', $_SERVER['PATH_INFO']);
+                $_SERVER['PATH_INFO'] =
+                    preg_replace('/\.(' . trim(C('URL_HTML_SUFFIX'), '.') . ')$/i', '', $_SERVER['PATH_INFO']);
             } elseif(__EXT__) {
                 $_SERVER['PATH_INFO'] = preg_replace('/.' . __EXT__ . '$/i', '', $_SERVER['PATH_INFO']);
             }
@@ -106,8 +107,12 @@ class Dispatcher {
                 }
                 $var = array();
                 if(C('APP_GROUP_LIST') && !isset($_GET[C('VAR_GROUP')])) {
-                    $var[C('VAR_GROUP')] = in_array(strtolower($paths[0]), explode(',', strtolower(C('APP_GROUP_LIST')))) ? array_shift($paths) : '';
-                    if(C('APP_GROUP_DENY') && in_array(strtolower($var[C('VAR_GROUP')]), explode(',', strtolower(C('APP_GROUP_DENY'))))) {
+                    $var[C('VAR_GROUP')] =
+                        in_array(strtolower($paths[0]), explode(',', strtolower(C('APP_GROUP_LIST')))) ?
+                            array_shift($paths) : '';
+                    if(C('APP_GROUP_DENY') &&
+                        in_array(strtolower($var[C('VAR_GROUP')]), explode(',', strtolower(C('APP_GROUP_DENY'))))
+                    ) {
                         // 禁止直接访问分组
                         exit;
                     }
@@ -135,7 +140,8 @@ class Dispatcher {
         define('__APP__', strip_tags(PHP_FILE));
         // 当前模块和分组地址
         if(defined('GROUP_NAME')) {
-            define('__GROUP__', (!empty($domainGroup) || strtolower(GROUP_NAME) == strtolower(C('DEFAULT_GROUP'))) ? __APP__ : __APP__ . '/' . GROUP_NAME);
+            define('__GROUP__', (!empty($domainGroup) || strtolower(GROUP_NAME) == strtolower(C('DEFAULT_GROUP'))) ?
+                __APP__ : __APP__ . '/' . GROUP_NAME);
             define('__URL__', !empty($domainModule) ? __GROUP__ . $depr : __GROUP__ . $depr . MODULE_NAME);
         } else {
             define('__URL__', !empty($domainModule) ? __APP__ . '/' : __APP__ . '/' . MODULE_NAME);

@@ -1,0 +1,176 @@
+
+
+</head>
+
+<include file="Dining:header"/><body class="mode_webapp">
+
+<div class="menu_header"> 
+
+     <div class="menu_topbar">
+
+      <strong class="head-title">店铺介绍</strong>
+
+      <span class="head_btn_left"><a href="javascript:history.go(-1);"><span>返回</span></a><b></b></span> <a class="head_btn_right" href="{pigcms::U('Dining/index',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id'],'dining'=>1))}">
+
+      <span><i class="menu_header_home"></i></span><b></b>
+
+      </a>
+
+     </div>
+
+</div>
+
+<div class="banner">
+
+<div id="wrapper">
+
+<div id="scroller">
+
+<ul id="thelist">
+
+               
+
+<li><img src="{pigcms:$thisCompany.baner}" width="100%" ></li>
+
+ 
+
+
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="cardexplain">
+
+    <div class="detailcontent"><h2>公告</h2>
+
+<div class="content">{pigcms:$thisCompany.bulletin}</div>
+
+    </div>
+
+
+
+<ul class="round">
+
+    <li class="title"><span class="none smallspan">店铺信息</span></li>
+
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="cpbiaoge">
+
+  <tr>
+
+    <td width="70">店铺状态：<if condition="$Company.status eq 1"><em class="ok">营业中</em><else/><em class="no">未营业</em></if>  </tr>
+
+  <tr>
+
+    <td>店铺分类：{pigcms:$thisCompany.category}</td>
+
+    </tr>
+
+  <tr>
+
+    <td>营业时间：{pigcms:$thisCompany.time}</td>
+
+    </tr>
+
+  <tr>
+
+    <tr>
+
+       
+
+  <tr>
+
+    <td>起送价格：{pigcms:$thisCompany.money}元</td>
+
+  </tr>
+
+  <tr>
+
+    <td>服务半径：{pigcms:$thisCompany.radius}</td>
+
+  </tr>
+
+  <tr>
+
+    <td valign="top">配送区域：{pigcms:$thisCompany.scope}</td>
+
+  </tr>
+
+        </table>
+
+</ul>
+
+    
+
+    <ul class="round">
+
+        <li class="tel"><a href="tel:{pigcms:$Company.tel}"><span>{pigcms:$Company.tel}</span></a></li>
+
+<li class="addr"><a href="http://api.map.baidu.com/marker?location={pigcms:$Company.latitude},{pigcms:$Company.longitude}&amp;title={pigcms:$Company.name}&amp;content={pigcms:$Company.address}&amp;output=html"><span>{pigcms:$Company.address}</span></a></li>
+
+        <li class="addr"><a href="{pigcms::U('Dining/dingdan',array('token'=>$_GET['token'],'wecha_id'=>$_GET['wecha_id'],'setid'=>$_GET['setid'],'dining'=>1))}"><span>订单管理</span></a></li>
+
+</ul>
+
+
+
+<div class="detailcontent"><h2>详情介绍</h2>
+
+        <div class="content">
+
+           <p>{pigcms:$Company.intro}
+
+	</p><br>
+
+        </div>
+
+    </div>
+
+</div>
+
+<include file="Dining:footer"/>
+
+<script type="text/javascript" src="{pigcms::RES}/weidingcan/oakshopcart.js"></script>
+
+<script type="text/javascript" >
+
+var cart = new OAK.Shop.Cart();
+
+cart.showTotalNum = function(){
+
+    var quant = cart.getQuantity();
+
+	document.getElementById("cartN2").innerHTML = ""+quant.totalNumber;
+
+};
+
+window.onload = function () {
+
+	cart.getFromCache();
+
+	cart.showTotalNum();
+
+}
+
+</script>
+
+<script type="text/javascript">
+
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+
+WeixinJSBridge.call('hideToolbar');
+
+});
+
+</script>
+
+</body>
+
+</html>
+

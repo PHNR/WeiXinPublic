@@ -6,32 +6,36 @@
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
+// | Author: 887583<887583@qq.com>
 // +----------------------------------------------------------------------
 
 defined('THINK_PATH') or exit();
+
+
+
 /**
  * Mysqli数据库驱动类
- * @category   Think
- * @package  Think
+ * @category    Think
+ * @package     Think
  * @subpackage  Driver.Db
- * @author    liu21st <liu21st@gmail.com>
+ * @author      887583<887583@qq.com>
  */
-class DbMysqli extends Db{
+class DbMysqli extends Db {
 
     /**
      * 架构函数 读取数据库配置信息
      * @access public
+     *
      * @param array $config 数据库配置数组
      */
-    public function __construct($config=''){
-        if ( !extension_loaded('mysqli') ) {
-            throw_exception(L('_NOT_SUPPERT_').':mysqli');
+    public function __construct($config = '') {
+        if(!extension_loaded('mysqli')) {
+            throw_exception(L('_NOT_SUPPERT_') . ':mysqli');
         }
         if(!empty($config)) {
-            $this->config   =   $config;
+            $this->config = $config;
             if(empty($this->config['params'])) {
-                $this->config['params'] =   '';
+                $this->config['params'] = '';
             }
         }
     }
@@ -41,22 +45,24 @@ class DbMysqli extends Db{
      * @access public
      * @throws ThinkExecption
      */
-    public function connect($config='',$linkNum=0) {
-        if ( !isset($this->linkID[$linkNum]) ) {
-            if(empty($config))  $config =   $this->config;
-            $this->linkID[$linkNum] = new mysqli($config['hostname'],$config['username'],$config['password'],$config['database'],$config['hostport']?intval($config['hostport']):3306);
-            if (mysqli_connect_errno()) throw_exception(mysqli_connect_error());
+    public function connect($config = '', $linkNum = 0) {
+        if(!isset($this->linkID[$linkNum])) {
+            if(empty($config)) $config = $this->config;
+            $this->linkID[$linkNum] =
+                new mysqli($config['hostname'], $config['username'], $config['password'], $config['database'], $config['hostport'] ?
+                    intval($config['hostport']) : 3306);
+            if(mysqli_connect_errno()) throw_exception(mysqli_connect_error());
             $dbVersion = $this->linkID[$linkNum]->server_version;
-            if ($dbVersion >= '4.1') {
+            if($dbVersion >= '4.1') {
                 // 设置数据库编码 需要mysql 4.1.0以上支持
-                $this->linkID[$linkNum]->query("SET NAMES '".C('DB_CHARSET')."'");
+                $this->linkID[$linkNum]->query("SET NAMES '" . C('DB_CHARSET') . "'");
             }
             //设置 sql_model
-            if($dbVersion >'5.0.1'){
+            if($dbVersion > '5.0.1') {
                 $this->linkID[$linkNum]->query("SET sql_mode=''");
             }
             // 标记连接成功
-            $this->connected    =   true;
+            $this->connected = true;
             //注销数据库安全信息
             if(1 != C('DB_DEPLOY_TYPE')) unset($this->config);
         }
@@ -75,32 +81,34 @@ class DbMysqli extends Db{
     /**
      * 执行查询 返回数据集
      * @access public
-     * @param string $str  sql指令
+     *
+     * @param string $str sql指令
+     *
      * @return mixed
      */
     public function query($str) {
         $this->initConnect(false);
-        if ( !$this->_linkID ) return false;
+        if(!$this->_linkID) return false;
         $this->queryStr = $str;
         //释放前次的查询结果
-        if ( $this->queryID ) $this->free();
-        N('db_query',1);
+        if($this->queryID) $this->free();
+        N('db_query', 1);
         // 记录开始执行时间
         G('queryStartTime');
         $this->queryID = $this->_linkID->query($str);
         // 对存储过程改进
-        if( $this->_linkID->more_results() ){
-            while (($res = $this->_linkID->next_result()) != NULL) {
+        if($this->_linkID->more_results()) {
+            while(($res = $this->_linkID->next_result()) != null) {
                 $res->free_result();
             }
         }
         $this->debug();
-        if ( false === $this->queryID ) {
+        if(false === $this->queryID) {
             $this->error();
             return false;
         } else {
-            $this->numRows  = $this->queryID->num_rows;
-            $this->numCols    = $this->queryID->field_count;
+            $this->numRows = $this->queryID->num_rows;
+            $this->numCols = $this->queryID->field_count;
             return $this->getAll();
         }
     }
@@ -108,21 +116,23 @@ class DbMysqli extends Db{
     /**
      * 执行语句
      * @access public
-     * @param string $str  sql指令
+     *
+     * @param string $str sql指令
+     *
      * @return integer
      */
     public function execute($str) {
         $this->initConnect(true);
-        if ( !$this->_linkID ) return false;
+        if(!$this->_linkID) return false;
         $this->queryStr = $str;
         //释放前次的查询结果
-        if ( $this->queryID ) $this->free();
-        N('db_write',1);
+        if($this->queryID) $this->free();
+        N('db_write', 1);
         // 记录开始执行时间
         G('queryStartTime');
-        $result =   $this->_linkID->query($str);
+        $result = $this->_linkID->query($str);
         $this->debug();
-        if ( false === $result ) {
+        if(false === $result) {
             $this->error();
             return false;
         } else {
@@ -140,11 +150,11 @@ class DbMysqli extends Db{
     public function startTrans() {
         $this->initConnect(true);
         //数据rollback 支持
-        if ($this->transTimes == 0) {
+        if($this->transTimes == 0) {
             $this->_linkID->autocommit(false);
         }
         $this->transTimes++;
-        return ;
+        return;
     }
 
     /**
@@ -153,11 +163,11 @@ class DbMysqli extends Db{
      * @return boolen
      */
     public function commit() {
-        if ($this->transTimes > 0) {
+        if($this->transTimes > 0) {
             $result = $this->_linkID->commit();
-            $this->_linkID->autocommit( true);
+            $this->_linkID->autocommit(true);
             $this->transTimes = 0;
-            if(!$result){
+            if(!$result) {
                 $this->error();
                 return false;
             }
@@ -171,10 +181,10 @@ class DbMysqli extends Db{
      * @return boolen
      */
     public function rollback() {
-        if ($this->transTimes > 0) {
+        if($this->transTimes > 0) {
             $result = $this->_linkID->rollback();
             $this->transTimes = 0;
-            if(!$result){
+            if(!$result) {
                 $this->error();
                 return false;
             }
@@ -185,15 +195,17 @@ class DbMysqli extends Db{
     /**
      * 获得所有的查询数据
      * @access private
-     * @param string $sql  sql语句
+     *
+     * @param string $sql sql语句
+     *
      * @return array
      */
     private function getAll() {
         //返回数据集
         $result = array();
-        if($this->numRows>0) {
+        if($this->numRows > 0) {
             //返回数据集
-            for($i=0;$i<$this->numRows ;$i++ ){
+            for($i = 0; $i < $this->numRows; $i++) {
                 $result[$i] = $this->queryID->fetch_assoc();
             }
             $this->queryID->data_seek(0);
@@ -207,14 +219,14 @@ class DbMysqli extends Db{
      * @return array
      */
     public function getFields($tableName) {
-        $result =   $this->query('SHOW COLUMNS FROM '.$this->parseKey($tableName));
-        $info   =   array();
+        $result = $this->query('SHOW COLUMNS FROM ' . $this->parseKey($tableName));
+        $info = array();
         if($result) {
-            foreach ($result as $key => $val) {
+            foreach($result as $key => $val) {
                 $info[$val['Field']] = array(
-                    'name'    => $val['Field'],
-                    'type'    => $val['Type'],
-                    'notnull' => (bool) ($val['Null'] === ''), // not null is empty, null is yes
+                    'name' => $val['Field'],
+                    'type' => $val['Type'],
+                    'notnull' => (bool)($val['Null'] === ''), // not null is empty, null is yes
                     'default' => $val['Default'],
                     'primary' => (strtolower($val['Key']) == 'pri'),
                     'autoinc' => (strtolower($val['Extra']) == 'auto_increment'),
@@ -229,12 +241,12 @@ class DbMysqli extends Db{
      * @access public
      * @return array
      */
-    public function getTables($dbName='') {
-        $sql    = !empty($dbName)?'SHOW TABLES FROM '.$dbName:'SHOW TABLES ';
-        $result =   $this->query($sql);
-        $info   =   array();
+    public function getTables($dbName = '') {
+        $sql = !empty($dbName) ? 'SHOW TABLES FROM ' . $dbName : 'SHOW TABLES ';
+        $result = $this->query($sql);
+        $info = array();
         if($result) {
-            foreach ($result as $key => $val) {
+            foreach($result as $key => $val) {
                 $info[$key] = current($val);
             }
         }
@@ -244,46 +256,52 @@ class DbMysqli extends Db{
     /**
      * 替换记录
      * @access public
-     * @param mixed $data 数据
+     *
+     * @param mixed $data    数据
      * @param array $options 参数表达式
+     *
      * @return false | integer
      */
-    public function replace($data,$options=array()) {
-        foreach ($data as $key=>$val){
-            $value   =  $this->parseValue($val);
+    public function replace($data, $options = array()) {
+        foreach($data as $key => $val) {
+            $value = $this->parseValue($val);
             if(is_scalar($value)) { // 过滤非标量数据
-                $values[]   =  $value;
-                $fields[]   =  $this->parseKey($key);
+                $values[] = $value;
+                $fields[] = $this->parseKey($key);
             }
         }
-        $sql   =  'REPLACE INTO '.$this->parseTable($options['table']).' ('.implode(',', $fields).') VALUES ('.implode(',', $values).')';
+        $sql = 'REPLACE INTO ' . $this->parseTable($options['table']) . ' (' . implode(',', $fields) . ') VALUES (' .
+            implode(',', $values) . ')';
         return $this->execute($sql);
     }
 
     /**
      * 插入记录
      * @access public
-     * @param mixed $datas 数据
-     * @param array $options 参数表达式
+     *
+     * @param mixed   $datas   数据
+     * @param array   $options 参数表达式
      * @param boolean $replace 是否replace
+     *
      * @return false | integer
      */
-    public function insertAll($datas,$options=array(),$replace=false) {
+    public function insertAll($datas, $options = array(), $replace = false) {
         if(!is_array($datas[0])) return false;
         $fields = array_keys($datas[0]);
         array_walk($fields, array($this, 'parseKey'));
-        $values  =  array();
-        foreach ($datas as $data){
-            $value   =  array();
-            foreach ($data as $key=>$val){
-                $val   =  $this->parseValue($val);
+        $values = array();
+        foreach($datas as $data) {
+            $value = array();
+            foreach($data as $key => $val) {
+                $val = $this->parseValue($val);
                 if(is_scalar($val)) { // 过滤非标量数据
-                    $value[]   =  $val;
+                    $value[] = $val;
                 }
             }
-            $values[]    = '('.implode(',', $value).')';
+            $values[] = '(' . implode(',', $value) . ')';
         }
-        $sql   =  ($replace?'REPLACE':'INSERT').' INTO '.$this->parseTable($options['table']).' ('.implode(',', $fields).') VALUES '.implode(',',$values);
+        $sql = ($replace ? 'REPLACE' : 'INSERT') . ' INTO ' . $this->parseTable($options['table']) . ' (' .
+            implode(',', $fields) . ') VALUES ' . implode(',', $values);
         return $this->execute($sql);
     }
 
@@ -293,7 +311,7 @@ class DbMysqli extends Db{
      * @return volid
      */
     public function close() {
-        if ($this->_linkID){
+        if($this->_linkID) {
             $this->_linkID->close();
         }
         $this->_linkID = null;
@@ -308,10 +326,10 @@ class DbMysqli extends Db{
      */
     public function error() {
         $this->error = $this->_linkID->error;
-        if('' != $this->queryStr){
-            $this->error .= "\n [ SQL语句 ] : ".$this->queryStr;
+        if('' != $this->queryStr) {
+            $this->error .= "\n [ SQL语句 ] : " . $this->queryStr;
         }
-        trace($this->error,'','ERR');
+        trace($this->error, '', 'ERR');
         return $this->error;
     }
 
@@ -319,13 +337,15 @@ class DbMysqli extends Db{
      * SQL指令安全过滤
      * @static
      * @access public
-     * @param string $str  SQL指令
+     *
+     * @param string $str SQL指令
+     *
      * @return string
      */
     public function escapeString($str) {
         if($this->_linkID) {
-            return  $this->_linkID->real_escape_string($str);
-        }else{
+            return $this->_linkID->real_escape_string($str);
+        } else {
             return addslashes($str);
         }
     }
@@ -333,13 +353,15 @@ class DbMysqli extends Db{
     /**
      * 字段和表名处理添加`
      * @access protected
+     *
      * @param string $key
+     *
      * @return string
      */
     protected function parseKey(&$key) {
-        $key   =  trim($key);
-        if(!preg_match('/[,\'\"\*\(\)`.\s]/',$key)) {
-           $key = '`'.$key.'`';
+        $key = trim($key);
+        if(!preg_match('/[,\'\"\*\(\)`.\s]/', $key)) {
+            $key = '`' . $key . '`';
         }
         return $key;
     }

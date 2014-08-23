@@ -1,19 +1,17 @@
 <include file="Public:head"/>
-<div class="content"  >
-  <div class="cLineB">
-    <div  class="quick-actions_homepage">
-   
-  </div>
-              <h4 class="left">"{weiwin:$thisLottery.title}"作弊管理</h4>
+<div class="content">
+         
+          <div class="cLineB">
+              <h4 class="left">"{pigcms:$thisLottery.title}"作弊管理</h4>
                   <div>
          
-          <a href=""javascript:history.go(-1);"  class="right btnGrayS vm"  >返回</a>
+          <a href="javascript:history.go(-1);"  class="right btnGrayS vm"  >返回</a>
           
           </div>
               <div class="clr"></div> 
           </div>
         
-  <div style="background:#fefbe4;border:1px solid #f3ecb9;color:#993300;padding:10px;margin-top:5px;">使用方法：在需要中奖的微信里向本公众号发送“cheat {weiwin:$thisLottery.id} {weiwin:$thisLottery.parssword} 获奖等级 备注”（参数分别是：cheat 活动id 兑奖密码 获奖等级 备注），比如想让王局长获得一等奖那么就用王局长的手机发送“cheat {weiwin:$thisLottery.id} {weiwin:$thisLottery.parssword} 1 王局长”，收集好信息后，王局长在抽奖的时候就会中奖了</div>
+  <div style="background:#fefbe4;border:1px solid #f3ecb9;color:#993300;padding:10px;margin-top:5px;">使用方法：在需要中奖的微信里向本公众号发送“cheat {pigcms:$thisLottery.id} {pigcms:$thisLottery.parssword} 获奖等级 备注”（参数分别是：cheat 活动id 兑奖密码 获奖等级 备注），比如想让王局长获得一等奖那么就用王局长的手机发送“cheat {pigcms:$thisLottery.id} {pigcms:$thisLottery.parssword} 1 王局长”，收集好信息后，王局长在抽奖的时候就会中奖了</div>
 
           <div class="msgWrap">
           <form method="post"  action="" id="info" >
@@ -32,10 +30,10 @@
               <TBODY>
 				<volist name="records" id="record">
 					 <TR style="line-height:30px;height: 43px;line-height: 59px;">
-						<td>{weiwin:$record.wecha_id}</td>
-						<td>{weiwin:$record.prizetype}</td>
-						<td>{weiwin:$record.intro}</td>
-						<TD class="norightborder"><a href="###" onclick="if(confirm('确定要删除吗')){location.href='/index.php?g=User&m=Lottery&a=deleteCheat&id={weiwin:$record.id}';}">删除</a></TD>
+						<td>{pigcms:$record.wecha_id}</td>
+						<td>{pigcms:$record.prizetype}</td>
+						<td>{pigcms:$record.intro}</td>
+						<TD class="norightborder"><a href="###" onclick="if(confirm('确定要删除吗')){location.href='/index.php?g=User&m=Lottery&a=deleteCheat&id={pigcms:$record.id}';}">删除</a></TD>
 					</TR>
 				</volist>
 			  </TBODY>

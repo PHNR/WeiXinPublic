@@ -1,0 +1,147 @@
+<include file="Public:head"/>
+<script src="/tpl/static/artDialog/jquery.artDialog.js?skin=default">
+</script>
+<script src="/tpl/static/artDialog/plugins/iframeTools.js">
+</script>
+<style type="text/css">
+.userinfoArea th{ width:200px;}
+</style>
+<div class="content"  style="width:100%" >
+  <div class="cLineB">
+   
+  <h4>在线客服设置： </h4>
+ </div>
+         
+    <div class="msgWrap bgfc">
+	  <form class="form" method="post" action=""   >	 
+		<table class="userinfoArea" style=" margin:0;" border="0" cellspacing="0" cellpadding="0" width="100%">
+			<tbody>
+				<tr>
+				  <th valign="top"><span class="red">*</span>关键词：</th>
+				  <td width="570">
+					<input type="text" name="keyword" id="keyword" value="{pigcms:$kefu.keyword}"
+                            class="px" style="width:200px;"></td>
+				</tr>
+				<tr>
+				  <th valign="top">标题：</th>
+				  <td>
+					<input type="text" name="title" id="title" value="{pigcms:$kefu.title}"
+                            class="px" style="width:200px;"></td>
+				</tr>
+				<tr>
+                        <th>
+                            封面图片：
+                        </th>
+                        <td>
+                            <input type="text" name="picurl" id="picurl" value="{pigcms:$kefu.picurl}"
+                            class="px" style="width:350px;">
+                            <script src="/tpl/static/upyun.js">
+                            </script>
+                            <a href="#" onclick="upyunPicUpload('picurl',700,420,'{pigcms:$token}')"
+                            class="btnGrayS vm">
+                                上传
+                            </a>
+                            <a href="#" onclick="viewImg('picurl')" class="btnGrayS vm">
+                                预览
+                            </a>
+                        </td>
+                </tr>
+                <tr>
+
+					<th width="200">内容介绍：</th>
+
+					<td><textarea style="width:400px;height:75px" name="text" id="text" class="px">{pigcms:$kefu.text}</textarea><br/>最多填写120个字</td>
+
+				</tr>
+				
+				
+					<th>客服链接：</br>（直接聊天）</th>
+					<td><input type="text" name="info2" id="info2" value="{pigcms:$kefu.info2}" class="px" style="width:400px;">
+					</td>
+					<td>例如：http://kefu6.kuaishang.com.cn/bs/im.htm?cas=8953___851039&fi=9269&ism=1</td>
+				</tr>
+				<tr>
+				<th></th>
+				<td><a style="color:#F00; font-size:15px" target="_blank" href="http://www.kuaishang.cn">点击下载客户端获取相关代码</a></td>
+				</tr>
+                <tr>
+                 
+
+                  <th><span class="red">*</span>微网站客服状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$kefu.status eq 1">checked="checked"</if> name="status"/>开启 <input type="radio" value="0" 
+                  <if condition="$kefu.status eq 0">checked="checked"</if>name="status"/>关闭
+
+                  </td>
+
+                </tr>
+                 <tr>
+                 
+
+                  <th><span class="red">*</span>微商城客服状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$kefu.sc eq 1">checked="checked"</if> name="sc"/>开启 <input type="radio" value="0" 
+                  <if condition="$kefu.sc eq 0">checked="checked"</if>name="sc"/>关闭
+
+                  </td>
+
+                </tr>
+                  <tr>
+                 
+
+                  <th><span class="red">*</span>微餐饮客服状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$kefu.cy eq 1">checked="checked"</if> name="cy"/>开启 <input type="radio" value="0" 
+                  <if condition="$kefu.cy eq 0">checked="checked"</if>name="cy"/>关闭
+
+                  </td>
+
+                </tr>
+                  <tr>
+                 
+
+                  <th><span class="red">*</span>微论坛客服状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$kefu.lt eq 1">checked="checked"</if> name="lt"/>开启 <input type="radio" value="0" 
+                  <if condition="$kefu.lt eq 0">checked="checked"</if>name="lt"/>关闭
+
+                  </td>
+
+                </tr>
+                 <tr>
+                 
+
+                  <th><span class="red">*</span>微预约客服状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$kefu.yy eq 1">checked="checked"</if> name="yy"/>开启 <input type="radio" value="0" 
+                  <if condition="$kefu.yy eq 0">checked="checked"</if>name="yy"/>关闭
+
+                  </td>
+
+                </tr>
+                      <tr>
+                 
+
+                  <th><span class="red">*</span>微会员客服状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$kefu.hyk eq 1">checked="checked"</if> name="hyk"/>开启 <input type="radio" value="0" 
+                  <if condition="$kefu.hyk eq 0">checked="checked"</if>name="hyk"/>关闭
+
+                  </td>
+
+                </tr>
+                
+				<tr>
+					<th></th>
+					<td><input type="hidden"  name="token" i value="{Pigcms:$token}" class="px" style="width:550px;">
+						<button type="submit" name="button" class="btnGreen">保存</button> &nbsp;&nbsp;<a href="javascript:history.go(-1);" class="btnGray vm">取消</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+  </div> 
+ 
+  
+        </div>
+<include file="Public:footer"/>

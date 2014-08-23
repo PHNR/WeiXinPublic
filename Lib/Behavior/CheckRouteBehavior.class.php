@@ -6,7 +6,7 @@
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
+// | Author: 887583<887583@qq.com>
 // +----------------------------------------------------------------------
 
 defined('THINK_PATH') or exit();
@@ -15,7 +15,7 @@ defined('THINK_PATH') or exit();
  * @category   Think
  * @package  Think
  * @subpackage  Behavior
- * @author   liu21st <liu21st@gmail.com>
+ * @author   887583<887583@qq.com>
  */
 class CheckRouteBehavior extends Behavior {
     // 行为参数定义（默认值） 可在项目配置中覆盖

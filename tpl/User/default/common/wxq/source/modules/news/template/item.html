@@ -14,7 +14,7 @@
 	<div class="reply-news-list-cover"><img src="{$_W['attachurl']}{$news[thumb]}" alt=""></div>
 	<div class="reply-news-list-detail">
 		<div class="title">{$news['title']}</div>
-		<div class="content" style="width:920px; background:none; margin-left:275px; border:none; margin-bottom:30px;" >{$news['description']}</div>
+		<div id="content" style="margin-top:50px; margin-left:15px;">{$news['description']}</div>
 		<span class="pull-right">{if !empty($news)}<a href="{php echo create_url('index/module/delete', array('name' => 'news', 'id' => $news[id]))}" onclick="return doDeleteItem('news-item-{$news['id']}', this.href)" style="margin-right:5px;">删除</a>{else}<a onclick="doDeleteItem('{$itemid}')" href="javascript:;" style="margin-right:5px;">删除</a>{/if}<a onclick="newsHandler.doEditItem('{$itemid}', '{$wrapitemid}')" href="javascript:;">编辑</a></span>
 	</div>
 </div>

@@ -1,58 +1,51 @@
 <include file="Public:head"/>
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/default_user_com.css" media="all">
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/cymain.css" />
+<include file="Car:menu"/>
+<link rel="stylesheet" type="text/css" href="{pigcms::Common}/default_user_com.css" media="all">
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/cymain.css" />
 
-<script src="{weiwin::RES}/js/select/js/jquery.js"></script>
-<script src="{weiwin::RES}/js/select/js/comm.js"></script>
-<script src="{weiwin::RES}/js/select/js/linkagesel-min.js"></script>
+<script src="{pigcms::RES}/js/select/js/comm.js"></script>
+<script src="{pigcms::RES}/js/select/js/linkagesel-min.js"></script>
 
-<script src="{weiwin::STATICS}/artDialog/jquery.artDialog.js?skin=default"></script>
-<script src="{weiwin::STATICS}/artDialog/plugins/iframeTools.js"></script>
+<script src="{pigcms::STATICS}/artDialog/jquery.artDialog.js?skin=default"></script>
+<script src="{pigcms::STATICS}/artDialog/plugins/iframeTools.js"></script>
+<script>
+   jQuery(document).ready(function(){
+      jQuery("#formID").validationEngine();
+    });
+</script>
 
+<div class="content">
 
-<div class="content" style="width:95%; background:none; margin-left:25px; border:none; margin-bottom:30px; margin-top:30px;" >
-  <div class="cLineB">
-    <div  class="quick-actions_homepage">
-    <ul class="quick-actions">
-    <li class="bg_ls"> <a href="{weiwin::U('Car/index',array('token'=>$token))}"> <i class="icon-truck"></i> 微汽车 </a> </li>
-      <li class="bg_lb"> <a href="{weiwin::U('Product/orders',array('token'=>$token,'dining'=>1))}"> <i class="icon-glass"></i> 微餐饮 </a> </li>
-      <li class="bg_dy"> <a href="{weiwin::U('Estate/index',array('token'=>$token))}"> <i class="icon-star"></i> 微房产</a> </li>
-      <li class="bg_lg"> <a href="{weiwin::U('Jiudian/index',array('token'=>$token))}"> <i class="icon-plus"></i> 微酒店</a> </li>
-      <li class="bg_ly"> <a href="{weiwin::U('Yiliao/index',array('token'=>$token))}"> <i class="icon-tag"></i> 微医疗 </a> </li>
-      <li class="bg_lo"> <a href="{weiwin::U('Reservation/index',array('token'=>$token))}"> <i class="icon-map-marker"></i> 微预约 </a> </li>
-      <li class="bg_db"> <a href="javascript:history.go(-1);"> <i class="icon-share-alt"></i> 返回</a> </li>
-    </ul>
-  </div>
-  <h4>添加车型</h4>
-  <include file="Car:menu"/>
-  <a href="javascript:history.go(-1);return false;" class="right btnGrayS vm" style="margin-top:-27px">返回</a>
+<div class="cLineB">
+  <h4>添加车型</h4><a href="javascript:history.go(-1);return false;" class="right btnGrayS vm" style="margin-top:-27px">返回</a>
  </div>
  <!--tab start-->
 
 <!--tab end-->
     <div class="msgWrap bgfc" style="margin-top:10px;">
-      <form class="form" method="post" action="" target="_top" enctype="multipart/form-data">
+      <form class="form" method="post" action=""   id="formID" enctype="multipart/form-data">
 
         <table class="userinfoArea" style=" margin:0;" border="0" cellspacing="0" cellpadding="0" width="100%">
             <tbody>
                 <tr>
                     <th width="120">车型名称：</th>
-                    <td> <input type="text" name="name" id="name" class="input-medium px" data-rule-required="true" data-rule-maxlength="20" value="{weiwin:$carmodel['name']}"/>
+                    <td> <input type="text" name="name" id="name" class="px" data-validation-engine="validate[required,minSize[1],maxSize[20]]"
+                    data-errormessage-value-missing="必填项!" value="{pigcms:$carmodel['name']}"/>
                       <span class="maroon">*</span>
                     </td>
                 </tr>
                <tr>
                     <th>品牌/车系：</th>
                     <td>
-                    <select id="car_brands_id"  data-rule-required="true"></select>
-                    <input type='hidden' name='brand_serise' id="brand_serise"  value="{weiwin:$carmodel['brand_serise']}"/>
-                    <input type='hidden' name='s_id' id="s_id" class='px' value="{weiwin:$carmodel['s_id']}"/>
+                    <select id="car_brands_id"></select>
+                    <input type='hidden' name='brand_serise' id="brand_serise"  value="{pigcms:$carmodel['brand_serise']}"/>
+                    <input type='hidden' name='s_id' id="s_id" class='px' value="{pigcms:$carmodel['s_id']}"/>
                     <span class="maroon">选择品牌，车系会自动出来</span>
-                    <!--select name="car_series" id="car_series" class="input-medium px" data-rule-required="true"></select-->
+                    <!--select name="car_series" id="car_series" class="input-medium px" schoolSet></select-->
 <script>
     var opts = {
             select: '#car_brands_id',
-            url: "{weiwin::U('Car/get_car_brand',array('token'=>$token))}",
+            url: "{pigcms::U('Car/get_car_brand',array('token'=>$token))}",
             head:'请选择！',
             autoHide:true
 
@@ -108,31 +101,34 @@
                 </tr>
                 <tr>
                     <th width="120">显示顺序：</th>
-                    <td>  <input type="text" id="sort" name="sort" value="{weiwin:$carmodel['sort']|default=1}" class="input-mini px" data-rule-required="true" data-rule-number="true" /><span class="maroon">*</span>
-                                        <span class="help-inline">数字越大越靠前</span></td>
+                    <td>  <input type="text" id="sort" name="sort" value="{pigcms:$carmodel['sort']|default=1}" class="input-mini px" data-validation-engine="validate[required,custom[integer],min[1]]" data-errormessage-value-missing="必填项"  /><span class="maroon">*</span>
+                    <span class="help-inline">数字越大越靠前</span></td>
                 </tr>
                 <tr>
                     <th>指导价：</th>
-                    <td> 
-                             <input type="text" id="prices" name="guide_price" value="{weiwin:$carmodel['guide_price']}" class="input-mini px" data-rule-number="true" />
-                                        <span class="help-inline">(万元)</span>
+                    <td>
+                    <input type="text" id="prices" name="guide_price" value="{pigcms:$carmodel['guide_price']}" class="input-mini px" data-rule-number="true" />
+                      <span class="help-inline">(万元)</span>
                     </td>
                 </tr>
                 <tr>
                     <th width="120">经销商报价：</th>
-                    <td> <input type="text" id="Text1" name="dealer_price" class="input-medium px" value="{weiwin:$carmodel['dealer_price']}"/>
+                    <td> <input type="text" id="Text1" name="dealer_price" class="input-medium px" value="{pigcms:$carmodel['dealer_price']}"/>
                          <span class="help-inline">(万元) 如:19.24-35.59</span></td>
                 </tr>
 
                 <tr>
-                    <th width="120">图片：:</th>
-                    <td> 
+                    <th width="120">图片：</th>
+                    <td>
                                         <p>
-                                            <img class="thumb_img" id="pic_url_src" src="{weiwin:$carmodel['pic_url']|default='tpl/User/default/common/car/lanbo.jpg'}" style="max-height:100px;">
-                                            <input type="input" class="px" id="pic_url" value="{weiwin:$carmodel['pic_url']|default='tpl/User/default/common/car/lanbo.jpg'}" name="pic_url" >
+<if condition="$carmodel['pic_url'] neq ''">
+     <img class="thumb_img" id="pic_url_src" src="{pigcms:$carmodel['pic_url']}" style="max-height:100px;">
+</if>
+    <input type="input" class="px" id="pic_url" value="{pigcms:$carmodel['pic_url']}" name="pic_url" data-validation-engine="validate[required,custom[url]]"
+                    data-errormessage-value-missing="必须上传图片!"  data-errormessage-custom-error="如果是手动填写外链,正确的网址,如: http://www.baidu.com/images/demo.png">
 
                                             <span class="help-inline">
-                                                 <script src="{weiwin::STATICS}/upyun.js"></script><a href="###" onclick="upyunPicUpload('pic_url',720,400,'{weiwin:$token}')" class="a_upload">上传</a> <a href="###" onclick="viewImg('pic_url')">预览</a>
+                                                 <script src="{pigcms::STATICS}/upyun.js"></script><a href="###" onclick="upyunPicUpload('pic_url',720,400,'{pigcms:$token}')" class="a_upload">上传</a> <a href="###" onclick="viewImg('pic_url')">预览</a>
                                                 <span class="help-inline">建议尺寸：宽720像素，高400像素</span>
                                             </span>
                                         </p>
@@ -140,28 +136,29 @@
                 </tr>
                   <tr>
                     <th width="120">全景相册名称:</th>
-                    <td> 
-                         <select id="panorama_id" name="panorama_id" class="input-medium" data-rule-required="true"> 
-                                          <option value="0">请选择360全景相册</option> 
+                    <td>
+                         <select id="panorama_id" name="panorama_id" class="input-medium" schoolSet>
+                                          <option value="0">请选择360全景相册</option>
                                             <volist name="panorama" id="vo">
-                                               <option value="{weiwin:$vo['pid']}" <if condition="$vo['pid'] eq $carmodel['panorama_id']">selected="selected"</if>>{weiwin:$vo['name']}</option>
+                                               <option value="{pigcms:$vo['pid']}" <if condition="$vo['pid'] eq $carmodel['panorama_id']">selected="selected"</if>>{pigcms:$vo['name']}</option>
                                             </volist>
                                         </select>
                                         <span class="maroon">*</span>
-                                        <span class="help-inline">如果没有，请先到 <a href="{weiwin::U('Panorama/add',array('token'=>$token))}" class="btn"><strong><font color='red'>360°全景</strong></font></a>添加</span>
+                                        <span class="help-inline">如果没有留空或者到 <a href="{pigcms::U('Panorama/add',array('token'=>$token))}" class="btn"><strong><font color='red'>360°全景</strong></font></a>添加</span>
                     </td>
                 </tr>
                 <tr>
                     <th width="120">排量：</th>
-                    <td><input type="text" id="pl" name="emission" class="px" value="{weiwin:$carmodel['emission']}" data-rule-number="true" />
+                    <td><input type="text" id="pl" name="emission" class="px" value="{pigcms:$carmodel['emission']}" data-validation-engine="validate[required]"
+                    data-errormessage-value-missing="必填项!" />
                         <span class="help-inline">(L)</span></td>
                 <tr>
                     <th width="120">挡位个数：</th>
-                    <td>  <input type="text" id="dwgs" name="stalls" class="px" value="{weiwin:$carmodel['stalls']}" data-rule-integer="true" /></td>
+                    <td>  <input type="text" id="dwgs" name="stalls" class="px" value="{pigcms:$carmodel['stalls']}" data-rule-integer="true" /> 手动挡车可以留空</td>
                 </tr>
                 <tr>
                     <th width="120">变速箱：</th>
-                    <td> 
+                    <td>
                             <select name="box" id="bsx" class="input-medium">
                                 <option value="1" <if condition="$carmodel['box'] eq 1">selected</if> >自动变速箱(AT)</option>
                                 <option value="2" <if condition="$carmodel['box'] eq 2">selected</if> >手动变速箱(MT)</option>
@@ -177,17 +174,17 @@
                   </tr>
                     <td>
                     <if condition="$carmodel['id'] neq ''">
-                    <input type="hidden" name="id" value="{weiwin:$carmodel['id']}" />
+                    <input type="hidden" name="id" value="{pigcms:$carmodel['id']}" />
                     </if>
-                      <input type="hidden" name="token" value="{weiwin:$token}" />
-                        <button type="submit" name="button" class="btn btn-success">保存</button>
-                        <a href="javascript:history.go(-1);" class="btn btn-danger">取消</a>
+                      <input type="hidden" name="token" value="{Pigcms:$token}" />
+                        <button type="submit" name="button" class="btnGreen">保存</button>
+                        <a href="javascript:history.go(-1);" class="btnGray vm">取消</a>
                     </td>
                 </tr>
             </tbody>
         </table>
     </form>
-  </div> 
+  </div>
 
         </div>
 <include file="Public:footer"/>

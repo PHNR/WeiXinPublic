@@ -6,16 +6,15 @@
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
+// | Author: 887583<887583@qq.com>
 // +----------------------------------------------------------------------
 
 /**
  * ThinkPHP Portal类
- *
  * @category    Think
  * @package     Think
  * @subpackage  Core
- * @author      liu21st <liu21st@gmail.com>
+ * @author      887583<887583@qq.com>
  */
 class Think {
 
@@ -23,7 +22,6 @@ class Think {
 
     /**
      * 应用程序初始化
-     *
      * @access public
      * @return void
      */
@@ -45,7 +43,6 @@ class Think {
     //[RUNTIME]
     /**
      * 读取配置信息 编译项目
-     *
      * @access private
      * @return string
      */
@@ -167,7 +164,8 @@ class Think {
             if(require_cache(CORE_PATH . 'Behavior/' . $class . '.class.php')
                 || require_cache(EXTEND_PATH . 'Behavior/' . $class . '.class.php')
                 || require_cache(LIB_PATH . 'Behavior/' . $class . '.class.php')
-                || (defined('MODE_NAME') && require_cache(MODE_PATH . ucwords(MODE_NAME) . '/Behavior/' . $class . '.class.php'))
+                || (defined('MODE_NAME') &&
+                    require_cache(MODE_PATH . ucwords(MODE_NAME) . '/Behavior/' . $class . '.class.php'))
             ) {
                 return;
             }
@@ -221,20 +219,16 @@ class Think {
 
     /**
      * 自定义异常处理
-     *
      * @access public
      *
      * @param mixed $e 异常对象
      */
     static public function appException($e) {
-        var_export(debug_backtrace());
-        echo 'http://' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
         halt($e->__toString());
     }
 
     /**
      * 自定义错误处理
-     *
      * @access public
      *
      * @param int    $errno   错误类型

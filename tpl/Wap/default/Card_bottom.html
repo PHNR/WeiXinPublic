@@ -1,55 +1,30 @@
 <div class="footermenu">
-
     <ul>
-
     <li>
-
             <a href="javascript:history.go(-1);">
-
-            <img src="{weiwin::RES}/card/images/return.png">
-
+            <img src="{pigcms::RES}/card/images/return.png">
             <p>返回</p>
-
             </a>
-
         </li>
-
     <li>
-
-            <a <php>if($infoType=='memberCardHome'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=index&token={weiwin:$token}&wecha_id={weiwin:$wecha_id}">
-
-            <img src="{weiwin::RES}/card/images/home.png">
-
+            <a <php>if($infoType=='memberCardHome'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=index&token={pigcms:$token}&wecha_id={pigcms:$wecha_id}">
+            <img src="{pigcms::RES}/card/images/home.png">
             <p>会员卡首页</p>
-
             </a>
-
         </li>
-
         <li>
-
-            <a <php>if($infoType=='companyDetail'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=companyDetail&token={weiwin:$token}&wecha_id={weiwin:$wecha_id}&companyid={weiwin:$thisCompany.id}">
-
-            <img src="{weiwin::RES}/card/images/detaila.png">
-
+            <a <php>if($infoType=='companyDetail'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=companyDetail&token={pigcms:$token}&wecha_id={pigcms:$wecha_id}&companyid={pigcms:$thisCompany.id}">
+            <img src="{pigcms::RES}/card/images/detaila.png">
             <p>商家详情</p>
-
             </a>
-
         </li>
-
         <li>
-
-            <a <php>if($infoType=='myCard'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=index&token={weiwin:$token}&wecha_id={weiwin:$wecha_id}&mycard=1">
-
-            <span class="num2" >{weiwin:$cardsCount}</span><img src="{weiwin::RES}/card/images/my.png">
-
+            <a <php>if($infoType=='myCard'){</php>class="active"<php>}</php> href="/index.php?g=Wap&m=Card&a=index&token={pigcms:$token}&wecha_id={pigcms:$wecha_id}&mycard=1">
+            <span class="num2" >{pigcms:$cardsCount}</span><img src="{pigcms::RES}/card/images/my.png">
             <p>我的会员卡</p>
-
             </a>
-
         </li>
-
     </ul>
-
 </div>
+<script type="text/javascript" src="/tpl/Wap/default/common/js/ChatFloat.js"></script>
+<if condition="$kefu['hyk'] eq '1'"><a href="{pigcms:$kefu.info2}" id="CustomerChatFloat" style="position: fixed; right: 0px; top: 150px; z-index: 99999; height: 70px; width: 65px; min-width: 65px; background-image: url(/tpl/Wap/default/common/css/img/MobileChatFloat.png); background-size: 65px; background-position: 0px 0px; background-repeat: no-repeat no-repeat;"></a></if> 

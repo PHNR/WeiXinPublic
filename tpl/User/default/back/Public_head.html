@@ -1,0 +1,674 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title> {pigcms:$f_siteTitle} {pigcms:$f_siteName}</title>
+
+<meta name="keywords" content="{pigcms:$f_metaKeyword}" />
+
+<meta name="description" content="{pigcms:$f_metaDes}" />
+
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+
+<script>var SITEURL='';</script>
+
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/style_2_common.css?BPm" />
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/index1.css" />
+
+<script src="{pigcms::RES}/js/common.js" type="text/javascript"></script>
+
+</head>
+
+<body id="nv_member" class="pg_CURMODULE">
+
+<div class="topbg">
+
+<div class="top">
+
+<div class="toplink">
+
+<style>
+
+
+</style>
+
+<div class="welcome" style="height:60px"><ul><li><img src="./tpl/Home/pigcms/img/logo1.png"></li><li>欢迎使用多用户微信营销服务平台!</li></ul></div>
+
+    <div class="memberinfo"  id="destoon_member">	
+
+		<if condition="$_SESSION[uid]==false">
+
+			<a href="{pigcms::U('Index/login')}">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+
+			<a href="{pigcms::U('Index/login')}">注册</a>
+
+			<else/>
+
+			你好,<a href="/#" hidefocus="true"  ><span style="color:red">{pigcms:$Think.session.uname}</span></a>（uid:{pigcms:$Think.session.uid}）
+
+			<a href="/#" onclick="Javascript:window.open('{pigcms::U('System/Admin/logout')}','_blank')" >退出</a>
+            <a href="{pigcms::U('Index/index')}">公众号管理</a>
+
+	</if>	
+
+	</div>
+
+</div>
+</div>
+
+</div>
+
+<div id="aaa"></div>
+
+
+
+<div id="wp" class="wp"><link href="{pigcms::RES}/css/style.css?id=100" rel="stylesheet" type="text/css" />
+
+  <!--中间内容-->
+
+  <script src="{pigcms::STATICS}/jquery-1.4.2.min.js" type="text/javascript"></script>
+
+  
+
+  <div class="contentmanage">
+
+    <div class="developer">
+
+    <!--左侧功能菜单-->
+
+
+
+ 
+
+<style type="text/css">
+
+
+</style>  
+
+      <div class="tableContent">
+
+        
+
+        <!--左侧功能菜单-->
+
+ <div  class="sideBar " id="sideBar">
+
+<div class="catalogList">
+
+<ul id="menu">
+
+<?php
+
+$menus=array(
+
+array(
+
+'name'=>'<img src="./tpl/User/default/common/images/m-ico-0.png" style="margin-bottom: -5px;margin-right: 10px;margin-left: 10px;}">基础设置',
+
+'display'=>0,
+
+'subs'=>array(
+array('name'=>'+&nbsp;基本信息','link'=>U('Info/index',array('token'=>$token)),'id'=>session('wxid'),'selectedCondition'=>array('m'=>'Info')),
+
+array('name'=>'+&nbsp;功能管理','link'=>U('Function/index',array('token'=>$token,'id'=>session('wxid'))),'new'=>0,'selectedCondition'=>array('m'=>'Function')),
+
+array('name'=>'+&nbsp;关注时回复与帮助','link'=>U('Areply/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Areply')),
+
+array('name'=>'+&nbsp;微信－文本回复','link'=>U('Text/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Text')),
+
+array('name'=>'+&nbsp;微信－图文回复','link'=>U('Img/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Img')),
+
+array('name'=>'+&nbsp;微信－语音回复','link'=>U('Voiceresponse/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Voiceresponse')),
+
+array('name'=>'+&nbsp;自定义LBS回复','link'=>U('Company/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Company')),
+
+array('name'=>'+&nbsp;回答不上来的配置','link'=>U('Other/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Other')),
+array('name'=>'+&nbsp;短信配置','link'=>U('Index/editsms',array('token'=>$token,'id'=>session('wxid'))),'new'=>0,'selectedCondition'=>array('m'=>'Index')),
+array('name'=>'+&nbsp;邮箱配置','link'=>U('Index/editemail',array('token'=>$token,'id'=>session('wxid'))),'new'=>0,'selectedCondition'=>array('m'=>'Index')),
+
+)),
+
+
+
+array(
+
+'name'=>'<img src="./tpl/User/default/common/images/m-ico-3.png" style="margin-bottom: -5px;margin-right: 10px;margin-left: 10px;}">3G网站设置',
+
+'display'=>0,
+
+'subs'=>array(
+
+array('name'=>'+&nbsp;首页回复配置','link'=>U('Home/set',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Home','g'=>'User','a'=>'set')),
+
+array('name'=>'+&nbsp;分类管理','link'=>U('Classify/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Classify')),
+
+array('name'=>'+&nbsp;模板管理','link'=>U('Tmpls/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Tmpls')),
+
+array('name'=>'+&nbsp;微站预览','link'=>U('Yulan/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Yulan')),
+
+
+array('name'=>'+&nbsp;首页幻灯片','link'=>U('Flash/index',array('token'=>$token,'tip'=>0)),'new'=>0,'selectedCondition'=>array('m'=>'Flash','tip'=>0)),
+
+array('name'=>'+&nbsp;轮播背景图','link'=>U('Flash/index',array('token'=>$token,'tip'=>2)),'new'=>0,'selectedCondition'=>array('m'=>'Flash','tip'=>2)),
+
+array('name'=>'+&nbsp;底部导航菜单','link'=>U('Catemenu/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Catemenu')),
+
+array('name'=>'+&nbsp;自定义菜单','link'=>U('Diymen/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Diymen')),
+
+array('name'=>'+&nbsp;实用工具外链','link'=>U('Tool/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Tool')),
+
+
+array('name'=>'+&nbsp;留言板','link'=>U('Reply/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Reply')),
+
+)),
+
+array(
+
+'name'=>'<img src="./tpl/User/default/common/images/m-ico-3.png" style="margin-bottom: -5px;margin-right: 10px;margin-left: 10px;}">微生活',
+
+'display'=>0,
+
+'subs'=>array(
+
+array('name'=>'+&nbsp;商户管理','link'=>U('Weilive/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Weilive','a'=>'index')),
+
+
+array('name'=>'+&nbsp;广告管理','link'=>U('Weilive/ad',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Weilive','a'=>'ad')),
+
+)),
+
+
+
+array(
+
+'name'=>'<img src="./tpl/User/default/common/images/m-ico-4.png" style="margin-bottom: -5px;margin-right: 10px;margin-left: 10px;}">行业应用',
+
+'display'=>0,
+
+'subs'=>array(
+
+
+
+array('name'=>'+&nbsp;婚庆喜帖','link'=>U('Wedding/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Wedding')),
+
+array('name'=>'+&nbsp;微汽车','link'=>U('Car/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Car')),
+
+array('name'=>'+&nbsp;楼盘房产','link'=>U('Estate/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Estate')),
+
+
+array('name'=>'+&nbsp;微酒店','link'=>U('Jiudian/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Jiudian')),
+
+array('name'=>'+&nbsp;微酒吧','link'=>U('Jiuba/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Jiuba')),
+
+array('name'=>'+&nbsp;微医疗','link'=>U('Yiliao/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Yiliao')),
+array('name'=>'+&nbsp;微Ktv','link'=>U('Ktv/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Ktv')),
+array('name'=>'+&nbsp;微会所','link'=>U('Huisuo/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Huisuo')),
+
+array('name'=>'+&nbsp;微预约','link'=>U('Reservation/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Reservation')),
+array('name'=>'+&nbsp;新微预约','link'=>U('Yuyue/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Yuyue')),
+
+
+
+
+
+)),
+
+array(
+
+'name'=>'<img src="./tpl/User/default/common/images/m-ico-4.png" style="margin-bottom: -5px;margin-right: 10px;margin-left: 10px;}">通用功能',
+
+'display'=>0,
+
+'subs'=>array(
+
+
+array('name'=>'+&nbsp;360°全景','link'=>U('Panorama/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Panorama')),
+
+
+
+array('name'=>'+&nbsp;3G微投票','link'=>U('Vote/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Vote')),
+
+array('name'=>'+&nbsp;微调研','link'=>U('Diaoyan/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Host')),
+
+array('name'=>'+&nbsp;万能表单,报名,留言,预约','link'=>U('Selfform/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Selfform')),
+
+array('name'=>'+&nbsp;通用订单(酒店,Ktv)','link'=>U('Host/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Host')),
+
+
+
+
+)),
+
+
+
+
+array(
+
+'name'=>'<img src="./tpl/User/default/common/images/m-ico-7.png" style="margin-bottom: -5px;margin-right: 10px;margin-left: 10px;}">电商系统',
+
+'display'=>0,
+
+'subs'=>array(
+
+array('name'=>'+&nbsp;在线支付设置','link'=>U('Alipay_config/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Alipay_config')),
+array('name'=>'+&nbsp;无线订餐（网络打印）','link'=>U('Dining/orders',array('token'=>$token,'dining'=>0)),'new'=>0,'selectedCondition'=>array('m'=>'Dining','a'=>'orders')),
+
+array('name'=>'+&nbsp;微信团购系统','link'=>U('Groupon/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Groupon')),
+array('name'=>'+&nbsp;商城模板管理','link'=>U('Shoptmpls/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Shoptmpls')),
+
+array('name'=>'+&nbsp;微信商城系统','link'=>U('Product/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Product','a'=>'index')),
+
+array('name'=>'+&nbsp;淘宝天猫店铺配置','link'=>U('Taobao/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Taobao')),
+
+array('name'=>'+&nbsp;融合第三方','link'=>U('Api/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Api')),
+
+array('name'=>'+&nbsp;DIY宣传页','link'=>U('Adma/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Adma')),
+
+array('name'=>'+&nbsp;3G图集(相册)','link'=>U('Photo/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Photo')),
+
+)),
+
+
+
+array(
+
+'name'=>'<img src="./tpl/User/default/common/images/m-ico-11.png" style="margin-bottom: -5px;margin-right: 10px;margin-left: 10px;}">微用户管理CRM',
+
+'display'=>0,
+
+'subs'=>array(
+
+array('name'=>'+&nbsp;粉丝管理','link'=>U('Wechat_group/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Wechat_group','a'=>'index')),
+
+array('name'=>'+&nbsp;分组管理','link'=>U('Wechat_group/groups',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Wechat_group','a'=>'groups')),
+
+array('name'=>'+&nbsp;粉丝行为分析','link'=>U('Wechat_behavior/statistics',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Wechat_behavior','a'=>'statistics')),
+
+array('name'=>'+&nbsp;渠道二维码','link'=>U('Recognition/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Recognition')),
+
+array('name'=>'+&nbsp;人工客服','link'=>U('ServiceUser/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'ServiceUser')),
+
+)),
+array(
+
+'name'=>'<img src="./tpl/User/default/common/images/m-ico-4.png" style="margin-bottom: -5px;margin-right: 10px;margin-left: 10px;}">微游戏',
+
+'display'=>0,
+
+'subs'=>array(
+
+
+array('name'=>'+&nbsp;2048正常版','link'=>U('Game/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Game')),
+array('name'=>'+&nbsp;2048虐心版','link'=>U('Gamet/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Gamet')),
+
+
+
+)),
+
+
+
+
+array(
+
+'name'=>'<img src="./tpl/User/default/common/images/m-ico-4.png" style="margin-bottom: -5px;margin-right: 10px;margin-left: 10px;}">推广活动',
+
+'display'=>0,
+
+'subs'=>array(
+
+array('name'=>'+&nbsp;幸运大转盘','link'=>U('Lottery/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Lottery')),
+
+array('name'=>'+&nbsp;优惠券','link'=>U('Coupon/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Coupon')),
+
+array('name'=>'+&nbsp;刮刮卡','link'=>U('Guajiang/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Guajiang')),
+
+array('name'=>'+&nbsp;幸运水果机','link'=>U('LuckyFruit/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'LuckyFruit')),
+
+array('name'=>'+&nbsp;砸金蛋','link'=>U('GoldenEgg/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'GoldenEgg')),
+
+array('name'=>'+&nbsp;祝福贺卡','link'=>U('Greeting_card/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Greeting_card')),
+
+array('name'=>'+&nbsp;摇一摇','link'=>U('Shake/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Greeting_card')),
+
+array('name'=>'+&nbsp;微信墙','link'=>U('Wxq/index',array('token'=>$token)),'test'=>0,'selectedCondition'=>array('m'=>'Wxq')),
+
+
+
+
+)),
+
+
+
+array(
+
+'name'=>'<img src="./tpl/User/default/common/images/m-ico-8.png" style="margin-bottom: -5px;margin-right: 10px;margin-left: 10px;}">会员卡',
+
+'display'=>0,
+
+'subs'=>array(
+
+array('name'=>'+&nbsp;会员卡','link'=>U('Member_card/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Member_card'),'exceptCondition'=>array('a'=>'replyInfoSet')),
+
+array('name'=>'+&nbsp;回复设置','link'=>U('Member_card/replyInfoSet',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Member_card','a'=>'replyInfoSet')),
+
+)),
+
+
+
+array(
+
+'name'=>'<img src="./tpl/User/default/common/images/m-ico-10.png" style="margin-bottom: -5px;margin-right: 10px;margin-left: 10px;}">统计分析',
+
+'display'=>0,
+
+'subs'=>array(
+
+array('name'=>'+&nbsp;请求数详情','link'=>U('Requerydata/index',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Requerydata')),
+
+array('name'=>'+&nbsp;粉丝行为分析','link'=>U('Wechat_behavior/statistics',array('token'=>$token)),'new'=>0,'selectedCondition'=>array('m'=>'Wechat_behavior','a'=>'statistics')),
+
+)),
+
+
+
+
+
+);
+
+?>
+
+<?php
+
+$i=0;
+
+
+
+$parms=$_SERVER['QUERY_STRING'];
+
+$parms1=explode('&',$parms);
+
+$parmsArr=array();
+
+if ($parms1){
+
+	foreach ($parms1 as $p){
+
+		$parms2=explode('=',$p);
+
+		$parmsArr[$parms2[0]]=$parms2[1];
+
+	}
+
+}
+
+/*
+
+ksort($parmsArr);
+
+$newParmStr='';
+
+if ($parmsArr){
+
+	$comma='';
+
+	foreach ($parmsArr as $k=>$v){
+
+		$newParmStr.=$comma.$k.'='.$v;
+
+		$comma='&';
+
+	}
+
+}
+
+*/
+
+//
+
+$subMenus=array();
+
+$t=0;
+
+$currentMenuID=0;
+
+$currentParentMenuID=0;
+
+foreach ($menus as $m){
+
+	$loopContinue=1;
+
+	if ($m['subs']){
+
+		$st=0;
+
+		foreach ($m['subs'] as $s){
+
+			/*
+
+			$conditionParmStr='';
+
+			ksort($s['selectedCondition']);
+
+			if ($s['selectedCondition']){
+
+				$comma='';
+
+				foreach ($s['selectedCondition'] as $k=>$v){
+
+					$conditionParmStr.=$comma.$k.'='.$v;
+
+					$comma='&';
+
+				}
+
+			}
+
+			*/
+
+			$includeArr=1;
+
+			if ($s['selectedCondition']){
+
+				foreach ($s['selectedCondition'] as $condition){
+
+					if (!in_array($condition,$parmsArr)){
+
+						$includeArr=0;
+
+						break;
+
+					}
+
+				}
+
+			}
+
+			if ($includeArr){
+
+				if ($s['exceptCondition']){
+
+					foreach ($s['exceptCondition'] as $eptCondition){
+
+						if (in_array($eptCondition,$parmsArr)){
+
+							$includeArr=0;
+
+							break;
+
+						}
+
+					}
+
+				}
+
+			}
+
+			/*
+
+			if ($t==1&&$st==4){
+
+				echo $conditionParmStr;
+
+			}
+
+			*/
+
+			//
+
+			if ($includeArr){
+
+				$currentMenuID=$st;
+
+				$currentParentMenuID=$t;
+
+				$loopContinue=0;
+
+				break;
+
+			}
+
+			$st++;
+
+		}
+
+		//
+
+		if ($loopContinue==0){
+
+			break;
+
+		}
+
+	}
+
+	$t++;
+
+}
+
+//
+
+/*
+
+echo $currentMenuID;
+
+echo $currentParentMenuID;
+
+*/
+
+//
+
+foreach ($menus as $m){
+
+	//
+
+	$displayStr='';
+
+	if ($currentParentMenuID!=0||0!=$currentMenuID){
+
+		$m['display']=0;
+
+	}
+
+	if (!$m['display']){
+
+		$displayStr=' style="display:none"';
+
+	}
+
+	if ($currentParentMenuID==$i){
+
+		$displayStr='';
+
+	}
+
+	$aClassStr='';
+
+	if ($displayStr){
+
+		$aClassStr=' nav-header-current';
+
+	}
+
+	echo '<a class="nav-header'.$aClassStr.'">'.$m['name'].'</a><ul class="ckit"'.$displayStr.'>';
+
+	if ($m['subs']){
+
+		$j=0;
+
+		foreach ($m['subs'] as $s){
+
+			$selectedClassStr='subCatalogList';
+
+			if ($currentParentMenuID==$i&&$j==$currentMenuID){
+
+				$selectedClassStr='selected';
+
+			}
+
+			$newStr='';
+
+			if ($s['test']){
+
+				$newStr.='<span class="test"></span>';
+
+			}else {
+
+			if ($s['new']){
+
+				$newStr.='<span class="new"></span>';
+
+			}
+
+			}
+
+			echo '<li class="'.$selectedClassStr.'"> <a href="'.$s['link'].'">'.$s['name'].'</a>'.$newStr.'</li>';
+
+			if ($s['name']=='模板管理'&&is_dir($_SERVER['DOCUMENT_ROOT'].'/cms')&&!strpos($_SERVER['HTTP_HOST'],'pigcms')){
+
+				echo '<li class="subCatalogList"> <a href="/cms/manage/index.php">高级模板</a><span class="new"></span></li>';
+
+			}
+
+			$j++;
+
+		}
+
+	}
+
+	echo '</ul>';
+
+	$i++;
+
+}
+
+?>
+
+
+
+
+
+</ul>
+
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$(".nav-header").click(function(){
+
+		$(this).toggleClass('nav-header-current');
+
+		$(this).next('.ckit').slideToggle();
+
+	})
+
+});
+
+</script>

@@ -5,5 +5,5 @@ return array (
   'TOKEN_TYPE' => 'md5',
   'TOKEN_RESET' => 'true',
   'DB_FIELDTYPE_CHECK' => 'true',
-  'VAR_FILTERS' => 'trim',
+  'VAR_FILTERS' => 'htmlspecialchars',
 );

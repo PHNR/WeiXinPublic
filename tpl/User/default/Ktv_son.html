@@ -1,19 +1,6 @@
-<include file="Public:head"/>
-<link rel="stylesheet" type="text/css" href="{weiwin::STATICS}/default_user_com.css" media="all">
- <div class="content" >
-         <link rel="stylesheet" type="text/css" href="./tpl/User/default/common/css/cymain.css" />
-        <div class="tab">
-<ul>
-<li class="<if condition="ACTION_NAME EQ 'index'">current</if> tabli" id="tab0"><a href="{weiwin::U('Ktv/index',array('token'=>$token))}">经营主体介绍</a></li>
-<li class="<if condition="ACTION_NAME EQ 'son' ">current</if> tabli" id="tab2"><a href="{weiwin::U('Ktv/son',array('token'=>$token))}">KTV分店</a></li>
-<li class="<if condition="ACTION_NAME EQ 'housetype' ">current</if> tabli" id="tab2"><a href="{weiwin::U('Ktv/housetype',array('token'=>$token))}">KTV包厢</a></li>
-<li class="<if condition="ACTION_NAME EQ 'album' or ACTION_NAME EQ 'album_add'">current</if> tabli" id="tab5"><a href="{weiwin::U('Ktv/album',array('token'=>$token))}">宣传相册</a></li>
-<li class="<if condition="ACTION_NAME EQ 'expert'">current</if> tabli" id="tab5"><a href="{weiwin::U('Ktv/expert',array('token'=>$token))}">客人印象</a></li>
-<li class="<if condition="ACTION_NAME EQ 'ktvindex'">current</if> tabli" id="tab6"><a href="{weiwin::U('Reservation/ktvindex',array('token'=>$token))}">预约管理</a></li>
-</ul>
-</ul>
-</div>
-          
+<include file="Public:head"/><include file="Ktv:menu"/> 
+<link rel="stylesheet" type="text/css" href="{pigcms::STATICS}/default_user_com.css" media="all">
+ <div class="content">  
           <div class="cLine">
     <div class="alert">
     <p><span class="bold">使用方法：</span> 如果您的整体经营主体由多个KTV分店项目组成，请在此添加，如果没有可以不添加。</p>
@@ -22,8 +9,8 @@
           
           <div class="cLine">
             <div class="pageNavigator left">
-                <a href="{weiwin::U('Ktv/son_add',array('token'=>$token,'pid'=>$pid))}" class="btnGrayS vm bigbtn">
-                    <img src="tpl/User/default/common/images/pic.png" class="vm">添加KTV分店
+                <a href="{pigcms::U('Ktv/son_add',array('token'=>$token,'pid'=>$pid))}" class="btnGrayS vm bigbtn">
+                    <img src="{pigcms::RES}/images/pic.png" class="vm">添加KTV分店
                 </a>
             </div>
             <div class="clr"></div>
@@ -49,12 +36,12 @@
                                     <else/>
                                     <volist name="son_data" id="list">
                                         <tr>
-                                        <td style="">{weiwin:$list['title']}</td>
+                                        <td style="">{pigcms:$list['title']}</td>
         
-                                        <td style="">{weiwin:$list['sort']}</td>
+                                        <td style="">{pigcms:$list['sort']}</td>
                                         <td style="">
-                                        <a href="{weiwin::U('Ktv/son_add',array('id'=>$list['id'],'token'=>$list['token'],'pid'=>$pid))}" class="btn">编辑</a>
-                                        <a href="{weiwin::U('Ktv/son_del',array('id'=>$list['id'],'token'=>$list['token']))}" onclick="return(confirm('确定要删除吗？'))" class="btn">删除</a></a>
+                                        <a href="{pigcms::U('Ktv/son_add',array('id'=>$list['id'],'token'=>$list['token'],'pid'=>$pid))}" class="btn">编辑</a>
+                                        <a href="{pigcms::U('Ktv/son_del',array('id'=>$list['id'],'token'=>$list['token']))}" onclick="return(confirm('确定要删除吗？'))" class="btn">删除</a></a>
 </td>
                                         </tr>
                                     </volist>
@@ -65,7 +52,7 @@
           </div>
           <div class="cLine">
             <div class="pageNavigator right">
-                 <div class="pages">{weiwin:$page}</div>
+                 <div class="pages">{pigcms:$page}</div>
             </div>
             <div class="clr"></div>
           </div>

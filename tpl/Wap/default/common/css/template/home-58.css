@@ -8,7 +8,7 @@
 
 .body{
 	display:block;
-	background:url(../../tpl/Wap/default/common/css/template/v67_1.png);
+	background:url(../../img/template/lib/v67_1.png);
 	background-size:6px 6px;
 	background-color:#e95b60;
 }
@@ -96,4 +96,3 @@
 	max-height:100px;
 	max-width:100px;
 }
-.weimob-copyright{ color:#000;}

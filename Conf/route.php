@@ -1,8 +1,8 @@
 <?php
 /**
  *网站路由配置
- *@package YiCms
- *@author YiCms
+ *@package pigcms
+ *@author pigcms
  **/
 return array(
 	/*路由设置*/

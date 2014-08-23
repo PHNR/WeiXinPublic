@@ -12,11 +12,11 @@
 
 	<meta content="" name="Description">
 
-    <link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/diaoyan/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/diaoyan/common.css" media="all" />
 
-    <link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/diaoyan/survey.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/diaoyan/survey.css" media="all" />
 
-<title>{weiwin:$data.title}</title>
+<title>{pigcms:$data.title}</title>
 
 </head>
 
@@ -152,7 +152,7 @@
 
 	<div class="wrapper">
 
-		<img class="bg" src="{weiwin::RES}/images/diaoyan/bg.jpg">
+		<img class="bg" src="{pigcms::RES}/images/diaoyan/bg.jpg">
 
 		<div style="height: 25px;"></div>
 
@@ -164,9 +164,9 @@
 
 					<div class="title">写下您宝贵建议</div>
 
-					<img class="connect" src="{weiwin::RES}/images/diaoyan/connect.png">
+					<img class="connect" src="{pigcms::RES}/images/diaoyan/connect.png">
 
-					<form action="{weiwin::U('Diaoyan/end',$urlarr)}" method="post">
+					<form action="{pigcms::U('Diaoyan/end',$urlarr)}" method="post">
 
 					<div class="desc-cont">
 
@@ -190,12 +190,19 @@
 
  	<p class="page-url">
 
-		<a href="#" target="_blank" class="page-url-link">由{weiwin::C('site_name')}平台提供</a>
+		<a href="#" target="_blank" class="page-url-link">由微享提供技术支持</a>
 
 	</p>
 
 	</div>
 
+<!-- wtoken.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F866a46b8a4d233aa883b072a2158aaa2' type='text/javascript'%3E%3C/script%3E"));
+
+</script>
 </body>
 
 </html>

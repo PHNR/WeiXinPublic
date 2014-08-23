@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -7,9 +7,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no" />
   <title>相册</title>
-  <link rel="stylesheet" href="/tpl/Wap/default/common/estate/wap/gallery/css/demo-styles.css" />
-  <link rel="stylesheet" href="/tpl/Wap/default/common/estate/wap/gallery/css/styles.css" />
-  <link rel="stylesheet" type="text/css" href="/tpl/Wap/default/common/estate/wap/estate/back.css" media="all">
+  <link rel="stylesheet" href="/tpl/Wap/default/common/zhuangxiu/demo-styles.css" />
+  <link rel="stylesheet" href="/tpl/Wap/default/common/zhuangxiu/styles.css" />
+  <link rel="stylesheet" type="text/css" href="/tpl/Wap/default/common/zhuangxiu/back.css" media="all">
   <meta content="clickberry-extension-here">
 </head>
 
@@ -20,7 +20,7 @@
     <ul class="items--small">
       <volist name="photolist" id="list">
       <volist name="list" id="li">
-      <li class="item"><a href="#"><img src="{weiwin:$li['picurl']}" alt="" /></a></li>
+      <li class="item"><a href="#"><img src="{pigcms:$li['picurl']}" alt="" /></a></li>
       </volist>
       </volist>
 
@@ -31,9 +31,9 @@
       <li class="item--big">
         <a href="#">
           <figure>
-            <img src="{weiwin:$li['picurl']}" alt="{weiwin:$li['title']}" />
+            <img src="{pigcms:$li['picurl']}" alt="{pigcms:$li['title']}" />
             <figcaption class="img-caption">
-              {weiwin:$li['title']} - {weiwin:$li['info']}
+              {pigcms:$li['title']} - {pigcms:$li['info']}
             </figcaption>
           </figure>
           </a>
@@ -52,9 +52,9 @@
 
 </div><!--end demo-wrapper-->
 
-  <script src="/tpl/Wap/default/common/estate/wap/gallery/js/jquery-1.8.2.min.js"></script>
-  <script src="/tpl/Wap/default/common/estate/wap/gallery/js/plugins.js"></script>
-  <script src="/tpl/Wap/default/common/estate/wap/gallery/js/scripts.js"></script>
+  <script src="/tpl/Wap/default/common/zhuangxiu/js/jquery-1.8.2.min.js"></script>
+  <script src="/tpl/Wap/default/common/zhuangxiu/js/plugins.js"></script>
+  <script src="/tpl/Wap/default/common/zhuangxiu/js/scripts.js"></script>
   <script>
     $(document).ready(function(){
      $('#gallery-container').sGallery({
@@ -62,6 +62,7 @@
       });
     });
   </script>
-<a href="javascript:history.go(-1);" class="back360" style="">&nbsp;</a>
+<a href="javascript:history.go(-1);" class="back360" style="">&nbsp;</a>             <script type="text/javascript" src="/tpl/Wap/default/common/js/ChatFloat.js"></script>
+<if condition="$kefu['zhuangxiu'] eq '1'"><a href="{pigcms:$kefu.info2}" id="CustomerChatFloat" style="position: fixed; right: 0px; top: 150px; z-index: 99999; height: 70px; width: 65px; min-width: 65px; background-image: url(/tpl/Wap/default/common/css/img/MobileChatFloat.png); background-size: 65px; background-position: 0px 0px; background-repeat: no-repeat no-repeat;"></a></if>
 </body>
 </html>

@@ -24,11 +24,11 @@
 
 	
 
-    <link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/diaoyan/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/diaoyan/common.css" media="all" />
 
-    <link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/diaoyan/survey.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/diaoyan/survey.css" media="all" />
 
-	<script type="text/javascript" src="{weiwin::RES}/js/diaoyan/zepto.js"></script>
+	<script type="text/javascript" src="{pigcms::RES}/js/diaoyan/zepto.js"></script>
 
 	<title>个人信息</title>
 
@@ -150,7 +150,7 @@
 
 	<div class="wrapper">
 
-		<img class="bg" src="{weiwin::RES}/images/diaoyan/bg.jpg">
+		<img class="bg" src="{pigcms::RES}/images/diaoyan/bg.jpg">
 
 		<div class="inner-cont">
 
@@ -188,7 +188,7 @@
 
  	<p class="page-url">
 
-		<a href="Research_set.html" target="_blank" class="page-url-link">由“{weiwin::C('site_name')}”平台提供</a>
+		<a href="Research_set.html" target="_blank" class="page-url-link">由微享平台提供技术支持</a>
 
 	</p>
 
@@ -204,7 +204,7 @@
 
 	<div id="loading" class="loading-mask">
 
-		<img class="gimg" src="{weiwin::RES}/images/diaoyan/ajax-loader.gif">
+		<img class="gimg" src="{pigcms::RES}/images/diaoyan/ajax-loader.gif">
 
 	</div>
 
@@ -264,9 +264,9 @@
 
 				"phone":phone,
 
-				"diaoyan_id":'{weiwin:$diaoyan_id}',
+				"diaoyan_id":'{pigcms:$diaoyan_id}',
 
-				"wecha_id":'{weiwin:$wecha_id}',
+				"wecha_id":'{pigcms:$wecha_id}',
 
 			};
 
@@ -274,7 +274,7 @@
 
 				type : "POST",
 
-				url : '{weiwin::U("Diaoyan/name",$urlarr)}',
+				url : '{pigcms::U("Diaoyan/name",$urlarr)}',
 
 				data : submitData,
 
@@ -316,6 +316,13 @@
 
 </script>
 
+<!-- wtoken.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F866a46b8a4d233aa883b072a2158aaa2' type='text/javascript'%3E%3C/script%3E"));
+
+</script>
 </body>
 
 </html>

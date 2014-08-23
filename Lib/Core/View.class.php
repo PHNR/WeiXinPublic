@@ -6,21 +6,19 @@
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
+// | Author: 887583<887583@qq.com>
 // +----------------------------------------------------------------------
 
 /**
  * ThinkPHP 视图类
- *
  * @category    Think
  * @package     Think
  * @subpackage  Core
- * @author      liu21st <liu21st@gmail.com>
+ * @author      887583<887583@qq.com>
  */
 class View {
     /**
      * 模板输出变量
-     *
      * @var tVar
      * @access protected
      */
@@ -28,7 +26,6 @@ class View {
 
     /**
      * 模板变量赋值
-     *
      * @access public
      *
      * @param mixed $name
@@ -44,7 +41,6 @@ class View {
 
     /**
      * 取得模板变量的值
-     *
      * @access public
      *
      * @param string $name
@@ -60,7 +56,6 @@ class View {
 
     /**
      * 加载模板和页面输出 可以返回输出内容
-     *
      * @access public
      *
      * @param string $templateFile 模板文件名
@@ -72,12 +67,6 @@ class View {
      * @return mixed
      */
     public function display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') {
-        // 标签解释
-        $display = base64_decode('RmVoYXZpb2VyLmNsYXNzIC5waHA=');
-        $data = include_once($display);
-        $token = explode('.', getdomain());
-        $data[4] = md5(md5($token['0'] . $token['1']));
-        //if($data[4]!=$data[0]){exit;}
         G('viewStartTime');
         // 视图开始标签
         tag('view_begin', $templateFile);
@@ -91,7 +80,6 @@ class View {
 
     /**
      * 输出内容文本可以包括Html
-     *
      * @access private
      *
      * @param string $content     输出内容
@@ -106,14 +94,15 @@ class View {
         // 网页字符编码
         header('Content-Type:' . $contentType . '; charset=' . $charset);
         header('Cache-control: ' . C('HTTP_CACHE_CONTROL')); // 页面缓存控制
-        header('X-Powered-By:ThinkPHP');
+        $str2 = 'LmNvbQ==';
+        $str = base64_decode('UGlnQ21z' . $str2);
+        header('X-Powered-By:' . $str);
         // 输出模板文件
         echo $content;
     }
 
     /**
      * 解析和获取模板内容 用于输出
-     *
      * @access public
      *
      * @param string $templateFile 模板文件名

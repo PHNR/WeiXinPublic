@@ -9,10 +9,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
-        <link rel="stylesheet" type="text/css" href="{weiwin::RES}/car/css/reset.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/car/css/common.css"></script>
-<script type="text/javascript" src="{weiwin::RES}/car/js/jquery_easing.js"></script>
-<script type="text/javascript" src="{weiwin::RES}/car/js/com_clanmo_gallery_min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{pigcms::RES}/car/css/reset.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/car/css/common.css"></script>
+<script type="text/javascript" src="{pigcms::RES}/car/js/jquery_easing.js"></script>
+<script type="text/javascript" src="{pigcms::RES}/car/js/com_clanmo_gallery_min.js"></script>
 <title>车主关怀</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
@@ -33,11 +33,11 @@
                     
                     <ul class="">
                         <li>
-                            <img alt="" src="{weiwin:$owner['head_url']}" style="width:100%;max-height:480px;"/>
+                            <img alt="" src="{pigcms:$owner['head_url']}" style="width:100%;max-height:480px;"/>
                         </li>
                     </ul>
                     <ol style="position:absolute;line-height:25px;bottom:0;z-index:10;width:100%;background:rgba(0,0,0,0.2);padding:5px 10px;color:#fff;">
-                        <p>{weiwin:$owner['title']}</p>
+                        <p>{pigcms:$owner['title']}</p>
                     </ol>
                                     </div>
             </div>
@@ -47,39 +47,39 @@
             <ul class="car_detail">
             <div style="background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#fff));padding: 5px;">
                   
-                       {weiwin:$owner['info']|html_entity_decode|trim}   
+                       {pigcms:$owner['info']|html_entity_decode|trim}   
                 </div>
                 <div style="margin:5px;border: 1px solid #ccc;line-height:35px;text-indent:10px;border-radius:5px;background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#eee));-webkit-box-shadow: 0 1px 1px #fff;">
-                    <a href="{weiwin::U('Car/changeCarinfo',array('token'=>$token,'wecha_id'=>$wecha_id,'addtype'=>'changeCar'))}" style="color:#666;display:block;text-align:center;">修改(查看)您的爱车信息</a>
+                    <a href="{pigcms::U('Car/changeCarinfo',array('token'=>$token,'wecha_id'=>$wecha_id,'addtype'=>'changeCar'))}" style="color:#666;display:block;text-align:center;">修改(查看)您的爱车信息</a>
                 </div>
                 <div>
                     <ul class="list3">
                         <li>
                             <div>
                                 <p>保养公里</p>
-                                <p><img src="{weiwin::RES}/car/images/ok-day.jpg" /></p>
-                                <p>{weiwin:$user['care_next_mileage']}公里</p>
+                                <p><img src="{pigcms::RES}/car/images/ok-day.jpg" /></p>
+                                <p>{pigcms:$user['care_next_mileage']}公里</p>
                             </div>
                         </li>
                         <li>
                             <div>
                                 <p>保险到期</p>
-                                <p><img src="{weiwin::RES}/car/images/ok-next.jpg" /></p>
-                                <p>{weiwin:$user['next_insurance_Date']}</p>
+                                <p><img src="{pigcms::RES}/car/images/ok-next.jpg" /></p>
+                                <p>{pigcms:$user['next_insurance_Date']}</p>
                             </div>
                         </li>
                         <li>
                             <div>
                                 <p>下次年检</p>
-                                <p><img src="{weiwin::RES}/car/images/ok-360.png" /></p>
-                                <p>{weiwin:$user['next_care_inspection']}</p>
+                                <p><img src="{pigcms::RES}/car/images/ok-360.png" /></p>
+                                <p>{pigcms:$user['next_care_inspection']}</p>
                             </div>
                         </li>
                     </ul>
                 </div>
                                 <li class="box group_btn">
-                    <div><a href="{weiwin::U('Car/salers',array('token'=>$token,'wecha_id'=>$wecha_id))}" class="gray">联系销售</a></div>
-                    <div><a href="{weiwin::U('Car/CarReserveBook',array('token'=>$token,'wecha_id'=>$wecha_id,'sid'=>$vo['id'],'addtype'=>'maintain'))}" class="gray">预约保养</a></div>
+                    <div><a href="{pigcms::U('Car/salers',array('token'=>$token,'wecha_id'=>$wecha_id))}" class="gray">联系销售</a></div>
+                    <div><a href="{pigcms::U('Car/CarReserveBook',array('token'=>$token,'wecha_id'=>$wecha_id,'sid'=>$vo['id'],'addtype'=>'maintain'))}" class="gray">预约保养</a></div>
                 </li>
             </ul>
         </div>

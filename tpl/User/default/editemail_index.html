@@ -1,26 +1,26 @@
 ﻿<include file="Public:head"/>
 <div class="content">
           <div class="cLineB"><h4>邮件平台</h4></div>
-          <form method="post" action="{weiwin::U('User/Index/upsave')}" enctype="multipart/form-data">
-          <input type="hidden" name="id" value="{weiwin:$info.id}">
+          <form method="post" action="{pigcms::U('User/Index/upsave')}" enctype="multipart/form-data">
+          <input type="hidden" name="id" value="{pigcms:$info.id}">
           <div class="msgWrap">
             <table class="userinfoArea" border="0" cellspacing="0" cellpadding="0" width="100%">
               <thead>
 			    <tr>
                   <th><span class="red">*</span>邮件地址：</th>
-                  <td><input type="text" required="" class="px" name="email" value="{weiwin:$info.email}" tabindex="1" size="25">
+                  <td><input type="text" required="" class="px" name="email" value="{pigcms:$info.email}" tabindex="1" size="25">
                   <span class="red">商家邮箱用于接收邮件</span>
                   </td>
                 </tr>
                 <tr>
                   <th><span class="red">*</span>SMTP账号：</th>
-                  <td><input type="text" required="" class="px" name="emailuser" value="{weiwin:$info.emailuser}" tabindex="1" size="25">
-                  <span class="red">输入QQ帐号</span>
+                  <td><input type="text" required="" class="px" name="emailuser" value="{pigcms:$info.emailuser}" tabindex="1" size="25">
+                  <span class="red">输入163帐号</span>
                   </td>
                 </tr>
 				<tr>
                   <th><span class="red">*</span>SMTP密码：</th>
-                  <td><input type="text" required="" class="px" name="emailpassword" value="{weiwin:$info.emailpassword}" tabindex="1" size="25">
+                  <td><input type="text" required="" class="px" name="emailpassword" value="{pigcms:$info.emailpassword}" tabindex="1" size="25">
                   <span class="red">输入QQ密码</span>
                   </td>
                 </tr>
@@ -30,16 +30,16 @@
                   </td>
                 </tr>
 				<div>
-				<input type="hidden" required="" class="px" name="wxname" value="{weiwin:$info.wxname}" tabindex="1" size="25">
-				<input type="hidden" required=""  name="wxid" value="{weiwin:$info.wxid}" class="px" tabindex="1" size="25" >
-				<input type="hidden" required="" name="weixin" value="{weiwin:$info.weixin}" class="px" tabindex="1" size="25">
-				<input type="hidden" class="px" name="headerpic" value="{weiwin:$info.headerpic}" size="60">
-				<input type="hidden" name="token" value="{weiwin:$info.token}" class="px" tabindex="1" size="40">
-				<input type="hidden" class="px" id="province" value="{weiwin:$info.province}" name="province" tabindex="1" size="20">
-				<input id="city" value="{weiwin:$info.city}" type="hidden" name="city" class="px" tabindex="1" size="20">
-				<input type="hidden" required="" class="px" tabindex="1" value="{weiwin:$info.qq}" name="qq" size="25">
-				<input type="hidden" required="" name="wxfans" value="{weiwin:$info.wxfans}" class="px" tabindex="1" size="25">
-				<input type="hidden" required="" name="type" value="{weiwin:$info.typeid}" class="px" tabindex="1" size="25">
+				<input type="hidden" required="" class="px" name="wxname" value="{pigcms:$info.wxname}" tabindex="1" size="25">
+				<input type="hidden" required=""  name="wxid" value="{pigcms:$info.wxid}" class="px" tabindex="1" size="25" >
+				<input type="hidden" required="" name="pigcms" value="{pigcms:$info.pigcms}" class="px" tabindex="1" size="25">
+				<input type="hidden" class="px" name="headerpic" value="{pigcms:$info.headerpic}" size="60">
+				<input type="hidden" name="token" value="{pigcms:$info.token}" class="px" tabindex="1" size="40">
+				<input type="hidden" class="px" id="province" value="{pigcms:$info.province}" name="province" tabindex="1" size="20">
+				<input id="city" value="{pigcms:$info.city}" type="hidden" name="city" class="px" tabindex="1" size="20">
+				<input type="hidden" required="" class="px" tabindex="1" value="{pigcms:$info.qq}" name="qq" size="25">
+				<input type="hidden" required="" name="wxfans" value="{pigcms:$info.wxfans}" class="px" tabindex="1" size="25">
+				<input type="hidden" required="" name="type" value="{pigcms:$info.typeid}" class="px" tabindex="1" size="25">
 				</div>
               </thead>
               

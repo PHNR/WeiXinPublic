@@ -11,23 +11,21 @@
 		<td>公众号名称</td>
 		<td >所属等级</td>
 		<td >所属用户名</td>
-		<td >使用次数</td>
+		<td  style="display:none">使用次数</td>
 		
-		<td>状态</td>
+		<td style="display:none">状态</td>
 		<td>管理操作</td>
 	  </tr>
 	    <volist name="list" id="vo">
 			<tr>
-				<td align='center'>{weiwin:$vo.id}</td>
-				<td >{weiwin:$vo.wxname}</td>
-				<td ><if condition="$vo['usr']['gid'] eq -1">0<else/>{weiwin:$vo.user.gid}</if></td>
-				<td >{weiwin:$vo.user.username}</td>
-				<td align='center'>{weiwin:$vo.usenum}</td>
-				<td align='center'><eq name="vo.status" value="1"><font color="red">√</font><else/><font color="blue">×</font></eq> 
+				<td align='center'>{pigcms:$vo.id}</td>
+				<td >{pigcms:$vo.wxname}</td>
+				<td ><if condition="$vo['usr']['gid'] eq -1">0<else/>{pigcms:$vo.user.gid}</if></td>
+				<td >{pigcms:$vo.user.username}</td>
+				<td align='center' style="display:none">{pigcms:$vo.usenum}</td>
+				<td align='center' style="display:none"><eq name="vo.status" value="1"><font color="red">√</font><else/><font color="blue">×</font></eq> 
 				</td>
-				<td align='center'>
-					
-					| <eq name="vo.username" value="admin"><font color="#cccccc">删除</font><else/><a href="javascript:void(0)" onclick="return confirmurl('{weiwin::U('Token/del/',array('id'=>$vo['id']))}','确定删除该用户吗?')">删除</a></eq>
+				<td align='center'><a href="javascript:void(0)" onclick="if(confirm('确定删除吗')){location.href='{pigcms::U('Token/del/',array('id'=>$vo['id']))}'}">删除</a>
 				</td>
 			</tr>
 	    </volist>
@@ -36,7 +34,7 @@
 		</style>
      <tr bgcolor="#FFFFFF"> 
 	 
-      <td colspan="7"><div class="listpage">{weiwin:$page}</div></td>
+      <td colspan="7"><div class="listpage">{pigcms:$page}</div></td>
      
     </tr>
    

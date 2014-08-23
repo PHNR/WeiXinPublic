@@ -4,18 +4,18 @@ $(function(){
 		var url = this.href;
 		var flg_weixin = /(MicroMessenger)/i.test(navigator.userAgent);
 		var flg_ios = /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent);
-		//if(flg_weixin && !flg_ios){
+		if(flg_weixin && !flg_ios){
 			if(url.indexOf('tel:')==0){
 			}else{
 				e.preventDefault();
 				if(url.indexOf('?')!=-1){
-					window.location.href = (url + '&weiwin=mp.weixin.qq.com');
+					window.location.href = (url + '&xiaozhucms=mp.weixin.qq.com');
 				}else{
-					window.location.href = (url + '?weiwin=mp.weixin.qq.com');
+					window.location.href = (url + '?xiaozhucms=mp.weixin.qq.com');
 				}
 				return false;
 			}
-		//}
+		}
 	})
 })
 

@@ -2,7 +2,7 @@
 
 
 
-<div class="content" >
+<div class="content" style="width:920px; background:none; border:none; margin-bottom:30px;">
 
 
 
@@ -30,7 +30,7 @@
 
 
 
- <a href="{weiwin::U('Wewall/add')}" class="btnGrayS vm bigbtn" >添加活动</a>　 
+ <a href="{pigcms::U('Wewall/add')}" class="btnGrayS vm bigbtn" >添加活动</a>　 
 
 
 
@@ -114,11 +114,11 @@
 
 
 
-<td>{weiwin:$actinfo.acttitle}</td>
+<td>{pigcms:$actinfo.acttitle}</td>
 
 
 
-<td>{weiwin:$actinfo.showtime}秒</td>
+<td>{pigcms:$actinfo.showtime}秒</td>
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-<td><if condition="$actinfo['background'] eq Null">未设置自定义背景<else/><img style="width:100px" src="{weiwin:$info.background}"></if></td>
+<td><if condition="$actinfo['background'] eq Null">未设置自定义背景<else/><img style="width:100px" src="{pigcms:$info.background}"></if></td>
 
 
 
@@ -142,11 +142,11 @@
 
 
 
-    <a href="{weiwin::U('Wewall/change',array('id'=>$actinfo['id'],'actid'=>0,'token'=>$_SESSION['token']))}">启动</a>
+    <a href="{pigcms::U('Wewall/change',array('id'=>$actinfo['id'],'actid'=>0,'token'=>$_SESSION['token']))}">启动</a>
 
 
 
-    <else /> <a href="{weiwin::U('Wewall/change',array('id'=>$actinfo['id'],'actid'=>1,'token'=>$_SESSION['token']))}">停止</a>
+    <else /> <a href="{pigcms::U('Wewall/change',array('id'=>$actinfo['id'],'actid'=>1,'token'=>$_SESSION['token']))}">停止</a>
 
 
 
@@ -154,7 +154,7 @@
 
 
 
-    <a target="_blank" href="{weiwin::U('Wewall/show',array('token'=>$_SESSION['token'],'id'=>$actinfo['id']))}">前台</a>
+    <a target="_blank" href="{pigcms::U('Wewall/show',array('token'=>$_SESSION['token'],'id'=>$actinfo['id']))}">前台</a>
 
 
 
@@ -162,7 +162,7 @@
 
 
 
-    <a target="_blank" href="{weiwin::U('Wewall/gocheck',array('token'=>$_SESSION['token'],'id'=>$actinfo['id']))}">审核</a>
+    <a target="_blank" href="{pigcms::U('Wewall/gocheck',array('token'=>$_SESSION['token'],'id'=>$actinfo['id']))}">审核</a>
 
 
 
@@ -170,11 +170,11 @@
 
 
 
-    <a href="{weiwin::U('Wewall/edit',array('id'=>$actinfo['id'],'token'=>$_SESSION['token']))}" >编辑</a>
+    <a href="{pigcms::U('Wewall/edit',array('id'=>$actinfo['id'],'token'=>$_SESSION['token']))}" target=iframe>编辑</a>
 
 
 
-    <a href="{weiwin::U('Wewall/change',array('id'=>$actinfo['id'],'actid'=>2,'token'=>$_SESSION['token']))}" title="统计活动结果并关闭游戏，无法再次开启">关闭</a>
+    <a href="{pigcms::U('Wewall/change',array('id'=>$actinfo['id'],'actid'=>2,'token'=>$_SESSION['token']))}" title="统计活动结果并关闭游戏，无法再次开启">关闭</a>
 
 
 
@@ -254,11 +254,11 @@
 
 
 
-<td>{weiwin:$vo.acttitle}</td>
+<td>{pigcms:$vo.acttitle}</td>
 
 
 
-<td>{weiwin:$vo.endtime|date="Y-m-d",###}</td>
+<td>{pigcms:$vo.endtime|date="Y-m-d",###}</td>
 
 
 
@@ -266,11 +266,11 @@
 
 
 
-	<a target="ddd" href="{weiwin::U('Wewall/result',array('id'=>$vo['id'],'token'=>$_SESSION['token']))}">查看结果</a>
+	<a target="ddd" href="{pigcms::U('Wewall/result',array('id'=>$vo['id'],'token'=>$_SESSION['token']))}">查看结果</a>
 
 
 
-	<a href="{weiwin::U('Wewall/delold',array('id'=>$vo['id']))}">删除</a>
+	<a href="{pigcms::U('Wewall/delold',array('id'=>$vo['id']))}">删除</a>
 
 
 
@@ -306,7 +306,7 @@
 
 
 
-  <div class="pages">{weiwin:$page}</div>
+  <div class="pages">{pigcms:$page}</div>
 
 
 

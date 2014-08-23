@@ -2,16 +2,16 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{weiwin:$wall.title}信息管理后台</title>
+<title>{pigcms:$wall.title}信息管理后台</title>
 <meta name="keywords" content="微动力微信墻" />
 <meta name="description" content="微动力微信墻" />
-<link type="text/css" rel="stylesheet" href="{weiwin::RES}/wxq/resource/style/bootstrap.css" />
-<link type="text/css" rel="stylesheet" href="{weiwin::RES}/wxq/resource/style/font-awesome.css" />
-<link type="text/css" rel="stylesheet" href="{weiwin::RES}/wxq/resource/style/common.css" />
-<script type="text/javascript" src="{weiwin::RES}/wxq/resource/script/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="{weiwin::RES}/wxq/resource/script/bootstrap.js"></script>
-<script type="text/javascript" src="{weiwin::RES}/wxq/resource/script/common.js"></script>
-<script type="text/javascript" src="{weiwin::RES}/wxq/resource/script/emotions.js"></script>
+<link type="text/css" rel="stylesheet" href="{pigcms::RES}/wxq/resource/style/bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="{pigcms::RES}/wxq/resource/style/font-awesome.css" />
+<link type="text/css" rel="stylesheet" href="{pigcms::RES}/wxq/resource/style/common.css" />
+<script type="text/javascript" src="{pigcms::RES}/wxq/resource/script/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="{pigcms::RES}/wxq/resource/script/bootstrap.js"></script>
+<script type="text/javascript" src="{pigcms::RES}/wxq/resource/script/common.js"></script>
+<script type="text/javascript" src="{pigcms::RES}/wxq/resource/script/emotions.js"></script>
 <script type="text/javascript">
     function selectall(){
 	$("input[type=checkbox]").each(function() {
@@ -35,7 +35,7 @@ function noSelect(){
 					</div>
 				</div>
 				<div class="sub-item" id="table-list">
-					<form action="" method="post" onSubmit="">
+					<form action="" method="post" onsubmit="">
 					<div class="sub-content">
 						<table class="table table-hover">
 							<thead class="navbar-inner">
@@ -50,19 +50,19 @@ function noSelect(){
 							<tbody>
                                 <volist name="list" id="vo">
 								<tr>
-									<td class="row-first">{weiwin:$vo['nickname']}</td>
-									<td class="row-hover">{weiwin:$vo['from_user']}</td>
-                                    <td class="row-hover"><img src="{weiwin:$vo['avatar']}" style="width:60px;"/></td>
+									<td class="row-first">{pigcms:$vo['nickname']}</td>
+									<td class="row-hover">{pigcms:$vo['from_user']}</td>
+                                    <td class="row-hover"><img src="{pigcms:$vo['avatar']}" style="width:60px;"/></td>
 									<td style="font-size:12px; color:#666;">
 										<?php echo date('Y-m-d h:i:s', $vo[createtime]); ?>
 									</td>
                                     <td>
                                         <if condition="$vo['status'] eq 0" >
-                                            <a href="{weiwin::U('Wxq/awardList',array('wid'=>$vo['id'],'status'=>1))}">标记领奖</a>
+                                            <a href="{pigcms::U('Wxq/awardList',array('wid'=>$vo['id'],'status'=>1))}">标记领奖</a>
                                          <else/>
-                                         <a  href="{weiwin::U('Wxq/awardList',array('wid'=>$vo['id'],'status'=>0))}">取消领奖</a>
+                                         <a  href="{pigcms::U('Wxq/awardList',array('wid'=>$vo['id'],'status'=>0))}">取消领奖</a>
                                         </if>
-                                        <a  href="{weiwin::U('Wxq/awardList',array('wid'=>$vo['id'],'type'=>'del'))}">删除</a>
+                                        <a  href="{pigcms::U('Wxq/awardList',array('wid'=>$vo['id'],'type'=>'del'))}">删除</a>
                                     </td>
 								</tr>
                                 </volist>
@@ -79,7 +79,7 @@ function noSelect(){
 						</table>
 					</div>
 					</form>
-					{weiwin:$page}
+					{pigcms:$page}
 				</div>
 			</div>
 		</div>

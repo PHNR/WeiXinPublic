@@ -6,7 +6,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>{weiwin:$tpl.wxname}</title>
+<title>{pigcms:$tpl.wxname}</title>
 
 <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
 
@@ -18,9 +18,9 @@
 
 <meta charset="utf-8">
 
-<link href="{weiwin::RES}/css/ktv/news5.css" rel="stylesheet" type="text/css" />
+<link href="{pigcms::RES}/css/ktv/news5.css" rel="stylesheet" type="text/css" />
 
-<script src="{weiwin::RES}/js/ktv//iscroll.js" type="text/javascript"></script>
+<script src="{pigcms::RES}/js/ktv//iscroll.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 
@@ -80,7 +80,7 @@ width:0px;
 
 <body id="cate7">
 
-<div class="banner"><img src="{weiwin:$flash[0]['img']}" /></div>
+<div class="banner"><img src="{pigcms:$flash[0]['img']}" /></div>
 
 
 
@@ -96,13 +96,13 @@ width:0px;
 
 <li class="li0 ">
 
-<a href="<if condition="$vo['url'] eq ''">{weiwin::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{weiwin:$vo.url|htmlspecialchars_decode}</if>">
+<a href="<if condition="$vo['url'] eq ''">{pigcms::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{pigcms:$vo.url|htmlspecialchars_decode}</if>">
 
 <div class="menubtn">
 
-<div class="menuimg"><img src="{weiwin:$vo.img}" /></div>
+<div class="menuimg"><img src="{pigcms:$vo.img}" /></div>
 
-<div class="menutitle">{weiwin:$vo.name}</div>
+<div class="menutitle">{pigcms:$vo.name}</div>
 
 </div>
 
@@ -134,8 +134,67 @@ width:0px;
 
 </eq>
 
-<include file="Index:styleInclude"/> 
+<include file="Index:styleInclude"/><include file="$cateMenuFileName"/> 
 
+	<if condition="ACTION_NAME eq 'index'">
+
+		<script type="text/javascript">
+
+			window.shareData = {  
+
+					"moduleName":"Index",
+
+					"moduleID": '0',
+
+					"imgUrl": "{pigcms:$homeInfo.picurl}", 
+
+					"timeLineLink": "{pigcms::C('site_url')}{pigcms::U(Index/ACTION_NAME,array('token'=>$_GET['token']))}",
+
+					"sendFriendLink": "{pigcms::C('site_url')}{pigcms::U(Index/ACTION_NAME,array('token'=>$_GET['token']))}",
+
+					"weiboLink": "{pigcms::C('site_url')}{pigcms::U(Index/ACTION_NAME,array('token'=>$_GET['token']))}",
+
+					"tTitle": "{pigcms:$homeInfo.title}",
+
+					"tContent": "{pigcms:$homeInfo.info}"
+
+				};
+
+		</script>
+
+	<else />
+
+		<script type="text/javascript">
+
+			window.shareData = {  
+
+				"moduleName":"Index",
+
+				"moduleID": '1',
+
+				"imgUrl": "{pigcms:$homeInfo.picurl}", 
+
+				"timeLineLink": "{pigcms::C('site_url')}{pigcms::U(Index/ACTION_NAME,array('token'=>$_GET['token'],'classid'=>$_GET['classid']))}",
+
+				"sendFriendLink": "{pigcms::C('site_url')}{pigcms::U(MODULE_NAME/ACTION_NAME,array('token'=>$_GET['token'],'classid'=>$_GET['classid']))}",
+
+				"weiboLink": "{pigcms::C('site_url')}{pigcms::U(MODULE_NAME/ACTION_NAME,array('token'=>$_GET['token'],'classid'=>$_GET['classid']))}",
+
+				"tTitle": "{pigcms:$homeInfo.title}",
+
+				"tContent": "{pigcms:$homeInfo.info}"
+
+			};
+
+		</script>	
+
+	
+
+	</if>
+
+{pigcms:$shareScript}
+<script type="text/javascript" src="/tpl/Wap/default/common/js/ChatFloat.js"></script>
+<if condition="$kefu['status'] eq '1'"><a href="{pigcms:$kefu.info2}" id="CustomerChatFloat" style="position: fixed; right: 0px; top: 150px; z-index: 99999; height: 70px; width: 65px; min-width: 65px; background-image: url(/tpl/Wap/default/common/css/img/MobileChatFloat.png); background-size: 65px; background-position: 0px 0px; background-repeat: no-repeat no-repeat;"></a></if>  
 </body>
 
 </html>

@@ -1,28 +1,22 @@
 <include file="Public:head"/>
-<link rel="stylesheet" type="text/css" href="{weiwin::STATICS}/default_user_com.css" media="all">
- <div class="content"  >
-<link rel="stylesheet" type="text/css" href="./tpl/User/default/common/css/cymain.css" />
-      <div class="tab">
-<ul>
-<li class="<if condition="ACTION_NAME EQ 'index'">current</if> tabli" id="tab0"><a href="{weiwin::U('Meirong/index',array('token'=>$token))}">美容机构简介</a></li>
-<li class="<if condition="ACTION_NAME EQ 'son' ">current</if> tabli" id="tab2"><a href="{weiwin::U('Meirong/son',array('token'=>$token))}">美容店面</a></li>
-<li class="<if condition="ACTION_NAME EQ 'housetype' ">current</if> tabli" id="tab2"><a href="{weiwin::U('Meirong/housetype',array('token'=>$token))}">美容服务</a></li>
-<li class="<if condition="ACTION_NAME EQ 'album' or ACTION_NAME EQ 'album_add'">current</if> tabli" id="tab5"><a href="{weiwin::U('Meirong/album',array('token'=>$token))}">美容相册</a></li>
-<li class="<if condition="ACTION_NAME EQ 'expert'">current</if> tabli" id="tab5"><a href="{weiwin::U('Meirong/expert',array('token'=>$token))}">客人印象</a></li>
-<li class="<if condition="ACTION_NAME EQ 'meirongindex'">current</if> tabli" id="tab6"><a href="{weiwin::U('Reservation/meirongindex',array('token'=>$token))}">预约管理</a></li>
-</ul>
-</div>
+<include file="Meirong:menu"/>
+<link rel="stylesheet" type="text/css" href="{pigcms::Common}/default_user_com.css" media="all">
+<div class="content">
+          <div class="cLineB">
+              <h4 class="left">客人印象管理</h4>
+               
+          </div>
           
           <div class="cLine">
     <div class="alert">
-    <p><span class="bold">使用方法：</span>请添加点评</p>
+    <p><span class="bold">使用方法：</span>请添加客人印象</p>
     </div>
 </div>
           
           <div class="cLine">
             <div class="pageNavigator left">
-                <a href="{weiwin::U('Meirong/expert_add',array('token'=>$token))}" class="btnGrayS vm bigbtn">
-                    <img src="tpl/User/default/common/images/pic.png" class="vm">添加点评
+                <a href="{pigcms::U('Meirong/expert_add',array('token'=>$token))}" class="btnGrayS vm bigbtn">
+                    <img src="{pigcms::RES}/images/pic.png" class="vm">添加点评
                 </a>
             </div>
             <div class="clr"></div>
@@ -43,18 +37,18 @@
                                        <tbody>
                                             <if condition="$expert eq ''">
                                         <tr>
-                                        <td colspan="5" style="text-align:center; height:30px;"><strong>请加添客人印象信息.</strong></td>
+                                        <td colspan="5" style="text-align:center; height:30px;"><strong>请加添客户印象信息.</strong></td>
                                         </tr>
                                     <else/>
                                     <volist name="expert" id="list">
                                         <tr>
                                          
-                                        <td>{weiwin:$list['title']}</td>
-                                        <td>{weiwin:$list['name']}</td> 
-                                        <td>{weiwin:$list['sort']}</td>
-                                        <td>
-                                        <a href="{weiwin::U('Meirong/expert_add',array('id'=>$list['id'],'token'=>$list['token']))}" class="btn">编辑</a>
-                                        <a href="{weiwin::U('Meirong/expert_del',array('id'=>$list['id'],'token'=>$list['token']))}" onclick="return(confirm('确定要删除吗？'))"  class="btn">删除</a></a>
+                                        <td style="text-align:center; ;">{pigcms:$list['title']}</td>
+                                        <td style="text-align:center; ;">{pigcms:$list['name']}</td> 
+                                        <td style="text-align:center; ">{pigcms:$list['sort']}</td>
+                                        <td style="text-align:center; ">
+                                        <a href="{pigcms::U('Meirong/expert_add',array('id'=>$list['id'],'token'=>$list['token']))}" class="btn">编辑</a>
+                                        <a href="{pigcms::U('Meirong/expert_del',array('id'=>$list['id'],'token'=>$list['token']))}" onclick="return(confirm('确定要删除吗？'))"  class="btn">删除</a></a>
 </td>
                                         </tr>
                                     </volist>
@@ -65,7 +59,7 @@
           </div>
           <div class="cLine">
             <div class="pageNavigator right">
-                 <div class="pages">{weiwin:$page}</div>
+                 <div class="pages">{pigcms:$page}</div>
             </div>
             <div class="clr"></div>
           </div>

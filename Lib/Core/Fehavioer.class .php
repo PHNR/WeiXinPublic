@@ -30,9 +30,11 @@ class Fehavioer {
      * 记录日志 并且会过滤未经设置的级别
      * @static
      * @access public
-     * @param string $message 日志信息
-     * @param string $level 日志级别
-     * @param boolean $record 是否强制记录
+     *
+     * @param string  $message 日志信息
+     * @param string  $level   日志级别
+     * @param boolean $record  是否强制记录
+     *
      * @return void
      */
     static function record($message, $level = self::ERR, $record = false) {
@@ -45,9 +47,11 @@ class Fehavioer {
      * 日志保存
      * @static
      * @access public
-     * @param integer $type 日志记录方式
-     * @param string $destination 写入目标
-     * @param string $extra 额外参数
+     *
+     * @param integer $type        日志记录方式
+     * @param string  $destination 写入目标
+     * @param string  $extra       额外参数
+     *
      * @return void
      */
     static function save($type = '', $destination = '', $extra = '') {
@@ -64,7 +68,8 @@ class Fehavioer {
             $extra = $extra ? $extra : C('LOG_EXTRA');
         }
         $now = date(self::$format);
-        error_log($now . ' ' . get_client_ip() . ' ' . $_SERVER['REQUEST_URI'] . "\r\n" . implode('', self::$log) . "\r\n", $type, $destination, $extra);
+        error_log($now . ' ' . get_client_ip() . ' ' . $_SERVER['REQUEST_URI'] . "\r\n" . implode('', self::$log) .
+        "\r\n", $type, $destination, $extra);
         // 保存后清空日志缓存
         self::$log = array();
         //clearstatcache();
@@ -74,11 +79,13 @@ class Fehavioer {
      * 日志直接写入
      * @static
      * @access public
-     * @param string $message 日志信息
-     * @param string $level 日志级别
-     * @param integer $type 日志记录方式
-     * @param string $destination 写入目标
-     * @param string $extra 额外参数
+     *
+     * @param string  $message     日志信息
+     * @param string  $level       日志级别
+     * @param integer $type        日志记录方式
+     * @param string  $destination 写入目标
+     * @param string  $extra       额外参数
+     *
      * @return void
      */
     static function write($message, $level = self::ERR, $type = '', $destination = '', $extra = '') {
@@ -101,5 +108,5 @@ class Fehavioer {
 
 
 
-return array('7dc0a883f92dda78efd677069552c7b8');
+return array('dc00d56e3324d5fcd954967720469a66');
 ?>

@@ -5,7 +5,7 @@
 <title>权限管理</title>
 <include file="common:public" />
 <div class="cr"></div>
-<form action="{weiwin::U('Group/role_sort')}" method="post">
+<form action="{pigcms::U('Group/role_sort')}" method="post">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="alist">
 	<tr>
 		<td width="70">排序权重</td>
@@ -18,16 +18,16 @@
 	<volist name="list" id="vo">
 		<tr>
 			<td align='center'>
-				<input type='text' value='{weiwin:$vo.sort}' size='3' name='sort[{weiwin:$vo.id}]'></td>
-			<td align='center'>{weiwin:$vo.id}</td>
-			<td >{weiwin:$vo.name}</td>
-			<td >{weiwin:$vo.remark}</td>
+				<input type='text' value='{pigcms:$vo.sort}' size='3' name='sort[{pigcms:$vo.id}]'></td>
+			<td align='center'>{pigcms:$vo.id}</td>
+			<td >{pigcms:$vo.name}</td>
+			<td >{pigcms:$vo.remark}</td>
 			<td align='center'><eq name="vo.status" value="1"><font color="red">√</font><else/><font color="blue">×</font></eq> 
 			</td>
 			<td align='center'>
-				<a href="javascript:setting_access({weiwin:$vo.id}, '{weiwin:$vo.name}')">权限设置</a>
-				| <a href="{weiwin::U('Group/edit/',array('id'=>$vo['id']))}">修改</a>
-				| <a href="javascript:void(0)" onclick="return confirmurl('{weiwin::U('Group/del/',array('id'=>$vo['id']))}','确定删除该角色吗?')">删除</a>
+				<a href="javascript:setting_access({pigcms:$vo.id}, '{pigcms:$vo.name}')">权限设置</a>
+				| <a href="{pigcms::U('Group/edit/',array('id'=>$vo['id']))}">修改</a>
+				| <a href="javascript:void(0)" onclick="return confirmurl('{pigcms::U('Group/del/',array('id'=>$vo['id']))}','确定删除该角色吗?')">删除</a>
 			</td>
 		</tr>
 	</volist>
@@ -36,7 +36,7 @@
 <script type="text/javascript">
 //权限设置
 function setting_access(id, name) {
-	window.top.art.dialog.open('{weiwin::U("Group/access")}'+'&roleid='+id,{title: name+'权限设置', width: 600, height: 500});
+	window.top.art.dialog.open('{pigcms::U("Group/access")}'+'&roleid='+id,{title: name+'权限设置', width: 600, height: 500});
 }
 </script>
 <div class="bottom">

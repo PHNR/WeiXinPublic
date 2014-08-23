@@ -1,0 +1,89 @@
+<include file="Public:head"/>
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/cymain.css" />
+<link rel="stylesheet" href="{pigcms::STATICS}/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="{pigcms::STATICS}/kindeditor/plugins/code/prettify.css" />
+<script src="{pigcms::STATICS}/kindeditor/kindeditor.js" type="text/javascript"></script>
+<script src="{pigcms::STATICS}/kindeditor/lang/zh_CN.js" type="text/javascript"></script>
+<script src="{pigcms::STATICS}/kindeditor/plugins/code/prettify.js" type="text/javascript"></script>
+<script src="{pigcms::RES}/js/date/WdatePicker.js"></script>
+<script type="text/javascript" src="{pigcms::RES}/js/formCheck/formcheck.js"> </script>
+<script>
+				var editor;
+				KindEditor.ready(function(K) {
+					editor = K.create('#contentt', {
+					resizeType : 1,
+					allowPreviewEmoticons : false,
+					allowImageUpload : false,
+					items : [
+					'source','undo','clearhtml','hr',
+					'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+					'insertunorderedlist', '|', 'emoticons', 'image','link', 'unlink','baidumap','lineheight','table','anchor','preview','print','template','code','cut']
+					});
+				});
+				</script>
+<div class="content"   >
+<include file="Public:hangye"/>
+    <h4>编辑校区</h4>
+<div class="tab">
+<ul>
+      <li class="tabli" id="tab0"><a href="{pigcms::U('Jiaoyu/index',array('token'=>$token))}">教育机构简介</a></li>
+<li class="current tabli" id="tab0"><a href="{pigcms::U('Jiaoyusub/index',array('token'=>$token))}">校区</a></li>
+<li class="tabli" id="tab0"><a href="{pigcms::U('Jiaoyuunits/index',array('token'=>$token))}">培训课程</a></li>
+<li class="tabli" id="tab0"><a href="{pigcms::U('Jiaoyuposter/index',array('token'=>$token))}">宣传海报</a></li>
+<li class="tabli" id="tab0"><a href="{pigcms::U('Jiaoyuphoto/index',array('token'=>$token))}">学员相册</a></li>
+<li class="tabli" id="tab0"><a href="{pigcms::U('Jiaoyucom/index',array('token'=>$token))}">家长点评</a></li>
+</ul>
+</div>    <a href="javascript:history.go(-1);"  class="right btnGrayS vm" style="margin-top:-27px" >返回</a>
+  <div class="msgWrap">
+    <form class="form" method="post"  action="{pigcms::U('Jiaoyusub/upsave')}"  target="_top" enctype="multipart/form-data" >
+      <TABLE class="userinfoArea" style=" margin:20px 0 0 0;" border="0" cellSpacing="0" cellPadding="0" width="100%">
+        <TBODY>
+        <input type="hidden" class="px" id="id" value="{pigcms:$_GET['id']}" name="id" style="width:500px" >
+        <input type="hidden" class="px" id="token" value="{pigcms:$_SESSION['token']}" name="token" style="width:500px" >
+        <TR>
+          <TH valign="top"><label for="keyword">课程名称：</label></TH>
+          <TD><input type="input" class="px" id="name" value="{pigcms:$info.name}" name="name" style="width:300px" onfocus="leave();"  >
+            <br/>
+          </TD>
+          <TD></TD>
+        </TR>
+        <TR>
+          <TH valign="top"><label for="keyword">教育机构名称：</label></TH>
+          <TD><input type="input" class="px" id="title" value="{pigcms:$info.title}" name="title" style="width:50px" onfocus="leave();"  >
+            <br/>
+          </TD>
+          <TD></TD>
+        </TR>
+        <TR>
+          <TH valign="top"><label for="keyword">显示顺序：</label></TH>
+          <TD><input type="input" class="px" id="sort" value="{pigcms:$info.sort}" name="sort" style="width:30px" onfocus="leave();"  >
+            <br/>
+            请输入数字 0-9 </TD>
+          <TD></TD>
+        </TR>
+        <TR>
+          <TH valign="top"><label for="keyword">校区介绍：</label></TH>
+          <TD><input type="input" class="px" id="contentt" value="{pigcms:$info.contentt}" name="contentt" style="width:500px" onfocus="leave();"  >
+            <br/>
+          </TD>
+          <TD></TD>
+        </TR>
+        <TR>
+          <TH></TH>
+          <TD><button type="submit"  name="button"  class="btnGreen" >保存</button>
+            <div class="clr"></div></div></TD>
+        </TR>
+        </TBODY>
+        
+      </TABLE> </form>
+
+  </div>
+
+</div></div>
+<div class="clr"></div></div>
+</div>
+</div>
+</div>
+<!--底部-->
+</div>
+<include file="Public:footer"/>

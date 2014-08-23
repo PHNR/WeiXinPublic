@@ -1,29 +1,13 @@
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<meta name="format-detection" content="telephone=no" />
-
-        <link rel="stylesheet" type="text/css" href="{weiwin::COMMON}/wap/estate/weiwin-ui-1-1.css" media="all">
-		<link rel="stylesheet" type="text/css" href="{weiwin::STATICS}/vhouse/wap/style.css" media="all">
-<link rel="stylesheet" type="text/css" href="{weiwin::STATICS}/vhouse/wap/back.css" media="all">
-<link rel="stylesheet" type="text/css" href="{weiwin::STATICS}/vhouse/.css" media="all">
-<script type="text/javascript" src="{weiwin::STATICS}/vhouse/wap/share.js"></script>
-<script type="text/javascript" src="{weiwin::STATICS}/vhouse/wap/common.js"></script>
-<script type="text/javascript" src="{weiwin::STATICS}/vhouse/wap/index.js"></script>
-<link rel="stylesheet" type="text/css" href="{weiwin::STATICS}/vhouse/waphome.css" media="all">
-<link rel="stylesheet" type="text/css" href="{weiwin::STATICS}/vhouse/reset.css" media="all">
-<script type="text/javascript" src="{weiwin::STATICS}/vhouse/jQuery.js"></script>
-<script type="text/javascript" src="{weiwin::STATICS}/vhouse/swipe.js"></script>
-<script type="text/javascript" src="{weiwin::STATICS}/vhouse/zepto.js"></script>
-<link rel="stylesheet" type="text/css" href="{weiwin::COMMON}/wap/estate/common.css" media="all">
-<link rel="stylesheet" type="text/css" href="{weiwin::COMMON}/wap/estate/car_reset.css" media="all">
-<link rel="stylesheet" type="text/css" href="{weiwin::COMMON}/wap/estate/list-8.css" media="all">
-<link rel="stylesheet" type="text/css" href="{weiwin::COMMON}/wap/estate/menu-2.css" media="all">
-<script type="text/javascript" src="{weiwin::COMMON}/wap/estate/jQuery.js"></script>
-<title>{weiwin:$classify['name']}</title>
+        <link rel="stylesheet" type="text/css" href="{pigcms::STATICS}/wap/estate/pigcms-ui-1-1.css" media="all">
+<link rel="stylesheet" type="text/css" href="{pigcms::STATICS}/wap/estate/common.css" media="all">
+<link rel="stylesheet" type="text/css" href="{pigcms::STATICS}/wap/estate/car_reset.css" media="all">
+<link rel="stylesheet" type="text/css" href="{pigcms::STATICS}/wap/estate/list-8.css" media="all">
+<link rel="stylesheet" type="text/css" href="{pigcms::STATICS}/wap/estate/menu-2.css" media="all">
+<script type="text/javascript" src="{pigcms::STATICS}/wap/estate/jQuery.js"></script>
+<title>{pigcms:$classify['name']}</title>
 
         <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
         <meta name="Keywords" content="小猪cms、微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销">
@@ -37,6 +21,12 @@
             <meta content="width=device-width, initial-scale=1.0" name="viewport">
             <meta name="apple-mobile-web-app-capable" content="yes"> <!-- apple devices fullscreen -->
             <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+
         <!-- Mobile Devices Support @end -->
         
     </head>
@@ -48,18 +38,20 @@
         <ul class="box">
             <li><a href="javascript:history.go(-1);">返回</a></li>
             <li><a href="javascript:history.go(1);">前进</a></li>
-            <li><a href="{weiwin::U('Estate/index',array('token'=>$token,'wecha_id'=>$Think.get.wecha_id))}">首页</a></li>
+            <li><a href="{pigcms::U('Estate/index',array('token'=>$token,'wecha_id'=>$Think.get.wecha_id))}">首页</a></li>
             <li><a href="javascript:location.reload();">刷新</a></li>
         </ul>
     </footer>
  
                     <header>
             <div class="head_news">
-                <a href="{weiwin:$classify['url']}">
+                <a href="{pigcms:$classify['url']}">
                     <ul>
-                        <li><img src="{weiwin:$classify['img']}" style="width:100%; max-height:400px;"></li>
+<if condition="$classify['img'] neq ''">
+                         <li><img src="{pigcms:$classify['img']}" style="width:100%; max-height:400px;"></li>
+</if>
                     </ul>
-                    <ol>{weiwin:$classify['name']}</ol>
+                    <ol>{pigcms:$classify['name']}</ol>
                 </a>
             </div>
         </header>
@@ -69,13 +61,13 @@
                     <ul class="list_ul list_ul_news">
                      <volist name="imgtxt" id="vo">
                       <li>
-                        <a class="tbox" href="{weiwin::U('Estate/newlist',array('token'=>$token,'wecha_id'=>$wecha_id,'mid'=>$vo['mid']))}">
+                        <a class="tbox" href="{pigcms::U('Estate/newlist',array('token'=>$token,'wecha_id'=>$wecha_id,'mid'=>$vo['mid']))}">
                             <div>
-                                <img src="{weiwin:$vo['pic']}" style="width:60px!important; height:60px;">
+                                <img src="{pigcms:$vo['pic']}" style="width:60px!important; height:60px;">
                             </div>
                             <div>
-                                <p>{weiwin:$vo['title']}</p>
-                                <p>{weiwin:$vo['createtime']|date="Y年m月d日",###}</p>
+                                <p>{pigcms:$vo['title']}</p>
+                                <p>{pigcms:$vo['createtime']|date="Y年m月d日",###}</p>
                             </div>
                         </a>
 

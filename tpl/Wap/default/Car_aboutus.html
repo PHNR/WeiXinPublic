@@ -7,11 +7,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/car/css/reset.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/car/css/common.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/car/css/peak-3.css" media="all" />
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/car/css/home-menu.css" media="all" />
-<script type="text/javascript" src="{weiwin::RES}/car/js/jQuery.js"></script>
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/car/css/reset.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/car/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/car/css/peak-3.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/car/css/home-menu.css" media="all" />
+<script type="text/javascript" src="{pigcms::RES}/car/js/jQuery.js"></script>
 <title>关于我们</title>
 
         <style>
@@ -34,19 +34,19 @@
                                 </a>
                             </li>
                                                             <li>
-                                <a href="tel:{weiwin:$about['tel']}">
+                                <a href="tel:{pigcms:$about['tel']}">
                                     <p class="tel"></p>
                                     <span>联系电话</span>
                                 </a>
                             </li>
                                 <li>
-                                <a href="http://api.map.baidu.com/marker?location={weiwin:$about['latitude']},{weiwin:$about['longitude']}&title={weiwin:$about['shortname']}&name={weiwin:$about['name']}&content={weiwin:$about['address']}&output=html&src=weiba|weiweb">
+                                <a href="http://api.map.baidu.com/marker?location={pigcms:$about['latitude']},{pigcms:$about['longitude']}&title={pigcms:$about['shortname']}&name={pigcms:$about['name']}&content={pigcms:$about['address']}&output=html&src=weiba|weiweb">
                                     <p class="addr"></p>
                                     <span>地址导航</span>
                                 </a>
                             </li>
                                                         <li>
-                                <a href="{weiwin::U('Car/index',array('token'=>$token,'wecha_id'=>$wecha_id))}">
+                                <a href="{pigcms::U('Car/index',array('token'=>$token,'wecha_id'=>$wecha_id))}">
                                     <p class="home"></p>
                                     <span>首页</span>
                                 </a>
@@ -60,22 +60,22 @@
         <section class="news_article">
         <header>
             <h3 style="font-size:14px;">联系我们</h3>
-            <small class="gray">{weiwin:$about['name']}</small>
-            <p><img src="{weiwin:$about['logourl']}" width="180" height="50" alt="" style="width:auto!important;max-width:240px;"></p>
+            <small class="gray">{pigcms:$about['name']}</small>
+            <p><img src="{pigcms:$about['logourl']}" width="180" height="50" alt="" style="width:auto!important;max-width:240px;"></p>
         </header>
         <article>
             <p>
             <div class="box_map"> 
-    <a  href="http://chabus.duapp.com/mapapi.php?lng={weiwin:$about['longitude']}&lat={weiwin:$about['latitude']}&title=地址&info=温馨提示：{weiwin:$about['address']}"> <div class="map_area">
+    <a  href="http://chabus.duapp.com/mapapi.php?lng={pigcms:$about['longitude']}&lat={pigcms:$about['latitude']}&title=地址&info=温馨提示：{pigcms:$about['address']}"> <div class="map_area">
     <span>
-    地址： {weiwin:$about['address']}</span>
+    地址： {pigcms:$about['address']}</span>
       </div> </a>
     </div>
 <p>
-    <strong><span style="color:#009900;font-size:16px;">免费热线：{weiwin:$about['tel']}</span></strong><br />
+    <strong><span style="color:#009900;font-size:16px;">免费热线：{pigcms:$about['tel']}</span></strong><br />
 
 公司简介：<br />
- {weiwin:$about['intro']|html_entity_decode|trim}
+ {pigcms:$about['intro']|html_entity_decode|trim}
 </p></P>
         </article>
     </section>

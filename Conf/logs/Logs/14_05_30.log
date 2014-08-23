@@ -1,0 +1,429 @@
+[ 2014-05-30T23:02:17+08:00 ] 114.89.53.189 /index.php?g=Wap&m=Gamett&a=index&token=avljgc1397041839&wecha_id=ob2qxjgbC8wTmFfmJdS14O-So_jg&from=timeline&isappinstalled=0
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000848s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001023s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+SQL: SHOW COLUMNS FROM `tp_gamettreply_info` [ RunTime:0.001467s ]
+SQL: SELECT * FROM `tp_gamettreply_info` WHERE ( `token` = 0 ) LIMIT 1   [ RunTime:0.000160s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.043859s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001703s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.045909s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029440s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.075430s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.076254s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.081233s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.085913s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011382s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.086928s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001066s ]
+
+[ 2014-05-30T23:02:21+08:00 ] 58.35.217.18 /index.php?g=Wap&m=Gamett&a=index&token=avljgc1397041839&wecha_id=ob2qxjgbC8wTmFfmJdS14O-So_jg&from=timeline&isappinstalled=0
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000850s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001004s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+SQL: SHOW COLUMNS FROM `tp_gamettreply_info` [ RunTime:0.001129s ]
+SQL: SELECT * FROM `tp_gamettreply_info` WHERE ( `token` = 0 ) LIMIT 1   [ RunTime:0.000131s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.028760s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001355s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.030211s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034727s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.065237s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.066286s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.067125s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.067490s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003721s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.069980s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002578s ]
+
+[ 2014-05-30T23:02:51+08:00 ] 117.136.0.138 /index.php?g=Wap&m=Gamett&a=index&token=avljgc1397041839&wecha_id=ob2qxjgbC8wTmFfmJdS14O-So_jg&from=groupmessage&isappinstalled=0
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000966s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001126s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+SQL: SHOW COLUMNS FROM `tp_gamettreply_info` [ RunTime:0.000908s ]
+SQL: SELECT * FROM `tp_gamettreply_info` WHERE ( `token` = 0 ) LIMIT 1   [ RunTime:0.000117s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.025964s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000874s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.026942s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029066s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.056107s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.056773s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.057566s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.058013s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002759s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.059008s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001025s ]
+
+[ 2014-05-30T23:03:04+08:00 ] 111.42.31.152 /index.php?g=Wap&m=Gamett&a=index&token=avljgc1397041839&wecha_id=ob2qxjgbC8wTmFfmJdS14O-So_jg&from=timeline&isappinstalled=0
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001003s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001125s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+SQL: SHOW COLUMNS FROM `tp_gamettreply_info` [ RunTime:0.001148s ]
+SQL: SELECT * FROM `tp_gamettreply_info` WHERE ( `token` = 0 ) LIMIT 1   [ RunTime:0.000198s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.030183s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001083s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.031443s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026992s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.058657s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.059183s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.059900s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.060330s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002712s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.061570s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000939s ]
+
+[ 2014-05-30T23:03:09+08:00 ] 123.152.107.143 /index.php?g=Wap&m=Gamett&a=index&token=avljgc1397041839&wecha_id=ob2qxjgbC8wTmFfmJdS14O-So_jg&from=timeline&isappinstalled=0
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001511s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001810s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+SQL: SHOW COLUMNS FROM `tp_gamettreply_info` [ RunTime:0.002696s ]
+SQL: SELECT * FROM `tp_gamettreply_info` WHERE ( `token` = 0 ) LIMIT 1   [ RunTime:0.000152s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.053611s ]
+INFO: [ view_template ] --END-- [ RunTime:0.005690s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.059733s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039292s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.099005s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.099907s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.101136s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.101770s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003887s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.103038s ]
+INFO: [ view_end ] --END-- [ RunTime:0.005166s ]
+
+[ 2014-05-30T23:03:16+08:00 ] 36.250.89.58 /index.php?g=Wap&m=Gamett&a=index&token=avljgc1397041839&wecha_id=ob2qxjgbC8wTmFfmJdS14O-So_jg&from=timeline&isappinstalled=0
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.006411s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006713s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+SQL: SHOW COLUMNS FROM `tp_gamettreply_info` [ RunTime:0.001367s ]
+SQL: SELECT * FROM `tp_gamettreply_info` WHERE ( `token` = 0 ) LIMIT 1   [ RunTime:0.000155s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.053730s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001315s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.055140s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035338s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.090668s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.093158s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.094638s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.096324s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007279s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.098241s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001674s ]
+
+[ 2014-05-30T23:03:27+08:00 ] 58.35.217.18 /index.php?g=Wap&m=Gamett&a=index&token=avljgc1397041839&wecha_id=ob2qxjgbC8wTmFfmJdS14O-So_jg&from=timeline&isappinstalled=0
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.004063s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004433s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+SQL: SHOW COLUMNS FROM `tp_gamettreply_info` [ RunTime:0.001692s ]
+SQL: SELECT * FROM `tp_gamettreply_info` WHERE ( `token` = 0 ) LIMIT 1   [ RunTime:0.000185s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.047114s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001417s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.048701s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.057836s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.106674s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.108388s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.109515s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.110222s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005074s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.112049s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001735s ]
+
+[ 2014-05-30T23:03:43+08:00 ] 111.0.236.128 /index.php?g=Wap&m=Gamett&a=index&token=avljgc1397041839&wecha_id=ob2qxjgbC8wTmFfmJdS14O-So_jg&from=timeline&isappinstalled=0
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001714s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001901s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+SQL: SHOW COLUMNS FROM `tp_gamettreply_info` [ RunTime:0.001301s ]
+SQL: SELECT * FROM `tp_gamettreply_info` WHERE ( `token` = 0 ) LIMIT 1   [ RunTime:0.000125s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.043183s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001208s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.044417s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021661s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.066561s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.067349s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.068108s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.068949s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007110s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.073853s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001150s ]
+
+[ 2014-05-30T23:04:09+08:00 ] 61.171.119.130 /index.php?g=Wap&m=Gamett&a=index&token=avljgc1397041839&wecha_id=ob2qxjgbC8wTmFfmJdS14O-So_jg&from=timeline&isappinstalled=0
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001497s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+SQL: SHOW COLUMNS FROM `tp_gamettreply_info` [ RunTime:0.000942s ]
+SQL: SELECT * FROM `tp_gamettreply_info` WHERE ( `token` = 0 ) LIMIT 1   [ RunTime:0.000133s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.048137s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000864s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.049278s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030205s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.079621s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.090638s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.091574s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.092143s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.018084s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.097894s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000928s ]
+
+[ 2014-05-30T23:04:10+08:00 ] 122.228.131.68 /index.php?g=Home&m=Index&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002199s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002621s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.015969s ]
+INFO: [ view_template ] --END-- [ RunTime:0.006914s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.023296s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040763s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.064302s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.067287s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.068308s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.069208s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010176s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.074901s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002425s ]
+
+[ 2014-05-30T23:04:16+08:00 ] 211.140.18.101 /index.php?g=Wap&m=Gamett&a=index&token=avljgc1397041839&wecha_id=ob2qxjgbC8wTmFfmJdS14O-So_jg&from=timeline&isappinstalled=0
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001780s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002038s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+SQL: SHOW COLUMNS FROM `tp_gamettreply_info` [ RunTime:0.006448s ]
+SQL: SELECT * FROM `tp_gamettreply_info` WHERE ( `token` = 0 ) LIMIT 1   [ RunTime:0.000200s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.071806s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001064s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.073154s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035022s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.108456s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.109903s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.115324s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.116229s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010098s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.118767s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001938s ]
+
+[ 2014-05-30T23:04:16+08:00 ] 122.228.131.68 /index.php?m=Users&a=checklogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001642s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001835s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.002528s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `username` = '283497031' ) LIMIT 1   [ RunTime:0.000941s ]
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.007844s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000532s ]
+SQL: UPDATE `tp_users` SET `lasttime`=1401462256,`lastloginmonth`=5,`lastip`='122.228.131.68' WHERE ( `id` = 3 ) [ RunTime:0.000940s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.074802s ]
+INFO: [ view_template ] --END-- [ RunTime:0.006444s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.081936s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.041944s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.124031s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.129156s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.131662s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.133025s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011230s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.135560s ]
+INFO: [ view_end ] --END-- [ RunTime:0.005755s ]
+
+[ 2014-05-30T23:04:19+08:00 ] 122.228.131.68 /index.php?g=User&m=Index&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001522s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001724s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() /www/web/ceshi/public_html/PigCms/Lib/Action/User/IndexAction.class.php 第 2 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.001951s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000173s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.002801s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 3 ) LIMIT 1   [ RunTime:0.000492s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.002663s ]
+SQL: SELECT `wxname`,`weixin`,`wxid`,`headerpic` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000399s ]
+SQL: SHOW COLUMNS FROM `tp_token_open` [ RunTime:0.001125s ]
+SQL: SELECT `queryname` FROM `tp_token_open` WHERE ( `token` = null ) LIMIT 1   [ RunTime:0.000194s ]
+NOTIC: [8] Undefined index:  width /www/web/ceshi/public_html/PigCms/Lib/Action/UserAction.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.001422s ]
+SQL: SELECT * FROM `tp_user_group`  [ RunTime:0.000276s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_wxuser` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.004109s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `uid` = 3 ) LIMIT 0,25   [ RunTime:0.001367s ]
+SQL: SHOW COLUMNS FROM `tp_diymen_set` [ RunTime:0.008304s ]
+SQL: SELECT * FROM `tp_diymen_set` WHERE ( `token` = 'avljgc1397041839' ) LIMIT 1   [ RunTime:0.000398s ]
+SQL: SELECT * FROM `tp_diymen_set` WHERE ( `token` = 'imywfr1400223186' ) LIMIT 1   [ RunTime:0.000123s ]
+SQL: SELECT * FROM `tp_diymen_set` WHERE ( `token` = 'xgtfui1400681463' ) LIMIT 1   [ RunTime:0.000167s ]
+SQL: UPDATE `tp_wxuser` SET `appid`='',`appsecret`='' WHERE ( `id` = 45 ) [ RunTime:0.000462s ]
+SQL: SELECT * FROM `tp_diymen_set` WHERE ( `token` = 'utxcrr1400760392' ) LIMIT 1   [ RunTime:0.000216s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.092819s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001649s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.094729s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.041031s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.135892s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.137561s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.138748s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.139638s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004958s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.141004s ]
+INFO: [ view_end ] --END-- [ RunTime:0.005505s ]
+
+[ 2014-05-30T23:04:19+08:00 ] 122.228.131.68 /index.php?g=User&m=Index&a=info
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001981s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002355s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+NOTIC: [2048] Declaration of IndexAction::insert() should be compatible with that of BaseAction::insert() /www/web/ceshi/public_html/PigCms/Lib/Action/User/IndexAction.class.php 第 2 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.001544s ]
+SQL: SELECT * FROM `tp_user_group` WHERE ( `id` = 4 ) LIMIT 1   [ RunTime:0.000865s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007033s ]
+SQL: SELECT * FROM `tp_users` WHERE ( `id` = 3 ) LIMIT 1   [ RunTime:0.000378s ]
+SQL: SHOW COLUMNS FROM `tp_wxuser` [ RunTime:0.007271s ]
+SQL: SELECT `wxname`,`weixin`,`wxid`,`headerpic` FROM `tp_wxuser` WHERE ( `token` = null ) AND ( `uid` = 3 ) LIMIT 1   [ RunTime:0.000494s ]
+SQL: SHOW COLUMNS FROM `tp_token_open` [ RunTime:0.001602s ]
+SQL: SELECT `queryname` FROM `tp_token_open` WHERE ( `token` = null ) LIMIT 1   [ RunTime:0.000163s ]
+NOTIC: [8] Undefined index:  width /www/web/ceshi/public_html/PigCms/Lib/Action/UserAction.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `tp_user_group` [ RunTime:0.001665s ]
+SQL: SELECT * FROM `tp_user_group`  [ RunTime:0.000176s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_wxuser` WHERE ( `uid` = 3 ) LIMIT 1   [ RunTime:0.001283s ]
+SQL: SELECT * FROM `tp_wxuser` WHERE ( `uid` = 3 ) LIMIT 0,25   [ RunTime:0.000290s ]
+SQL: SHOW COLUMNS FROM `tp_diymen_set` [ RunTime:0.001592s ]
+SQL: SELECT * FROM `tp_diymen_set` WHERE ( `token` = 'avljgc1397041839' ) LIMIT 1   [ RunTime:0.000196s ]
+SQL: SELECT * FROM `tp_diymen_set` WHERE ( `token` = 'imywfr1400223186' ) LIMIT 1   [ RunTime:0.000147s ]
+SQL: SELECT * FROM `tp_diymen_set` WHERE ( `token` = 'xgtfui1400681463' ) LIMIT 1   [ RunTime:0.000173s ]
+SQL: UPDATE `tp_wxuser` SET `appid`='',`appsecret`='' WHERE ( `id` = 45 ) [ RunTime:0.000345s ]
+SQL: SELECT * FROM `tp_diymen_set` WHERE ( `token` = 'utxcrr1400760392' ) LIMIT 1   [ RunTime:0.000150s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.135044s ]
+INFO: [ view_template ] --END-- [ RunTime:0.005050s ]
+INFO: [ view_parse ] --START--
+NOTIC: [2] file_get_contents(./tpl/User/default/Index_header.html) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory /www/web/ceshi/public_html/Lib/Template/ThinkTemplate.class.php 第 624 行.
+INFO: Run ParseTemplate Behavior [ RunTime:-0.140331s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.068256s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.208713s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.213448s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.214380s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.214841s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007280s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.216293s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001905s ]
+
+[ 2014-05-30T23:04:25+08:00 ] 125.126.4.193 /index.php?g=Wap&m=Gamett&a=index&token=avljgc1397041839&wecha_id=ob2qxjgbC8wTmFfmJdS14O-So_jg&from=timeline&isappinstalled=1
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001533s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002492s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+SQL: SHOW COLUMNS FROM `tp_gamettreply_info` [ RunTime:0.001418s ]
+SQL: SELECT * FROM `tp_gamettreply_info` WHERE ( `token` = 0 ) LIMIT 1   [ RunTime:0.000189s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.050541s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002069s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.053298s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.049166s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.103380s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.106299s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.109184s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.110443s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.009418s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.113193s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003206s ]
+
+[ 2014-05-30T23:04:26+08:00 ] 180.154.108.171 /index.php?g=Wap&m=Gamett&a=index&token=avljgc1397041839&wecha_id=ob2qxjgbC8wTmFfmJdS14O-So_jg&from=timeline&isappinstalled=0
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001501s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001752s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+SQL: SHOW COLUMNS FROM `tp_gamettreply_info` [ RunTime:0.001770s ]
+SQL: SELECT * FROM `tp_gamettreply_info` WHERE ( `token` = 0 ) LIMIT 1   [ RunTime:0.000198s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.053402s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001029s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.054604s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037923s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.094827s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.096299s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.097634s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.098631s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005925s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.101040s ]
+INFO: [ view_end ] --END-- [ RunTime:0.007312s ]
+
+[ 2014-05-30T23:04:43+08:00 ] 36.250.89.58 /index.php?g=Wap&m=Gamett&a=index&token=avljgc1397041839&wecha_id=ob2qxjgbC8wTmFfmJdS14O-So_jg&from=timeline&isappinstalled=0
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001391s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001625s ]
+NOTIC: [2048] Declaration of BaseAction::ajaxReturn() should be compatible with that of Action::ajaxReturn() /www/web/ceshi/public_html/PigCms/Lib/Action/BaseAction.class.php 第 279 行.
+SQL: SHOW COLUMNS FROM `tp_gamettreply_info` [ RunTime:0.011846s ]
+SQL: SELECT * FROM `tp_gamettreply_info` WHERE ( `token` = 0 ) LIMIT 1   [ RunTime:0.000393s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:-0.053132s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003775s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:-0.057128s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.042395s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:-0.099594s ]
+INFO: Run TokenBuild Behavior [ RunTime:-0.100512s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:-0.101374s ]
+INFO: Run ShowRuntime Behavior [ RunTime:-0.102419s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004109s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:-0.104098s ]
+INFO: [ view_end ] --END-- [ RunTime:0.005004s ]
+

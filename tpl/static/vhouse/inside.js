@@ -1,17 +1,11 @@
-﻿if (!window.console) {
-    var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];
-    window.console = {};
-    for (var i = 0; i < names.length; ++i)
-        window.console[names[i]] = function () { }
-}; 
 var G = {
     ui: {},
     logic: {},
     util: {},
     domain: {
-        w: 'weiwin.com',
-        t: 'http://weixin.weiwin.com',
-        k: '../../font'
+        w: 'pigcms.com',
+        t: 'http://stc.pigcms.com',
+        k: 'http://www.pigcms.com/wm-xin-a'
     },
     set: {
         KindEditor_seting: {
@@ -173,23 +167,6 @@ G.ui.tips = {
             icon: 'trash'
         });
     },
-    confirm_tips:function (u,t) {
-        $.fallr('show', {
-            position: 'center',
-            buttons: {
-                button1: {
-                    text: '验证', danger: true, onclick: function () {
-                        window.location = u;
-                    }
-                },
-                button2: {
-                    text: '继续使用'
-                }
-            },
-            content: t,
-            icon: 'info'
-        });
-    },
     iframe: function (t, u, w, h) {
         if (w) w = 500;
         if (h) h = 300;
@@ -290,7 +267,7 @@ G.logic.form = {
                           e.addClass("valid").closest(".control-group").removeClass("error success");
                           //.addClass("success") 加上绿色
                       },
-                      submitHandler: function (form) {
+                      submitHandler: function (form) { 
                           var _sb = true;
                           if (typeof KindEditor !== "undefined" && KindEditor.instances) {
                               $.each(KindEditor.instances, function () {
@@ -319,7 +296,7 @@ G.logic.form = {
                                   }
                               });
                           }
-                          if (_sb) {
+                          if (_sb) { 
                               var btn = $("button[type='submit']", form);
                               btn.button('loading')
                               $(form).ajaxSubmit({
@@ -340,53 +317,6 @@ G.logic.form = {
                       }
                   })
               });
-        }
-    },
-    ajax_modal: function () {
-        var $from = $("form.form-modal");
-        var btn = $("button[type='submit']", $from);
-        if ($from.length > 0 && btn.length > 0) {
-            btn.click(function () {
-                $from.ajaxSubmit({
-                    dataType: 'json',
-                    success: function (d) {
-                        btn.button('reset');
-                        btn.parents(".modal").modal('hide');
-                        G.logic.form.tip(d);
-                    },
-                    error: function (d) {
-                        btn.button('reset');
-                        btn.parents(".modal").modal('hide');
-                        G.ui.tips.info(d.responseText);
-                    }
-                });
-
-                return false;
-            })
-
-        }
-    },
-    ajax_modal_dd: function () {
-        var $from = $("form.form-modal_dd");
-        var btn = $("button[type='submit']", $from);
-        if ($from.length > 0 && btn.length > 0) {
-            btn.click(function () {
-                $.ajax($from.attr("action"), {
-                    type: "post", dataType: "json",
-                    data: $from.serialize()
-                }).done(function (d) {
-                    btn.button('reset');
-                    btn.parents(".modal").modal('hide');
-                    G.logic.form.tip(d);
-                    $("textarea", $from).val("");
-                }).fail(function (d) {
-                    btn.button('reset');
-                    btn.parents(".modal").modal('hide');
-                    G.ui.tips.info(d.responseText);
-                });
-                return false;
-            })
-
         }
     },
     wizard: function () {
@@ -453,14 +383,12 @@ G.logic.form = {
     init: function () {
         this.validate();
         this.wizard();
-        this.ajax_modal();
-        this.ajax_modal_dd();
     }
 }
 G.logic.page = {
     skn: function () {
         var tm = $.cookie('data-theme');
-        if (tm) $("body").attr('class', tm).attr("data-theme", tm);
+        if (tm) $("body").addClass(tm).attr("data-theme", tm);
     },
     table: function () {
         var $datatabletool = $("div.datatabletool");
@@ -506,16 +434,10 @@ G.logic.page = {
         $(".chosen-select").length > 0 && $(".chosen-select").each(function () {
             var e = $(this),
                 t = e.attr("data-nosearch") === "true" ? !0 : !1,
-                n = {}, m = e.data("maxlength");
-            m && (n.max_selected_options = m);
+                n = {};
             t && (n.disable_search_threshold = 9999999);
-            n.no_results_text = "找不到";
             e.chosen(n)
         });
-        $('div.datetimepicker').length > 0 && $('div.datetimepicker').datetimepicker({
-            language: 'cn'
-        });
-        $(".timepicker").length > 0 && $(".timepicker").timepicker({ showMeridian: false });
         $(".daterangepick").length > 0 && $(".daterangepick").daterangepicker({ timePicker: true, format: 'YYYY/MM/DD HH:mm' });
         $(".datepick").length > 0 && $(".datepick").datepicker();
         $(".gototop").click(function (e) {
@@ -559,15 +481,15 @@ G.logic.page = {
     },
     tabs: function () {
         var hash = window.location.hash;
-        hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+        hash && $('ul.nav a[href="' + hash + '"]').tab('show'); 
         //$('.nav-tabs a').click(function (e) {
         //    $(this).tab('show');
         //    var scrollmem = $('body').scrollTop();
         //    window.location.hash = this.hash;
         //    $('html,body').scrollTop(scrollmem);
         //});
-    }, 
-    copy: function () { 
+    },
+    copy: function () {
         ZeroClipboard.setDefaults({
             moviePath: G.domain.k + "/swf/zeroclipboard.swf"
         });
@@ -578,7 +500,7 @@ G.logic.page = {
             if (((/^(https?|s?ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(v)))) {
                 var _atmp = '<a href="{0}" target="_blank" title="点击新窗口打开">{0}</a>'
                 $this.html(_atmp.format(v));
-            }
+            } 
             $this.append(_tmp.format($id, v));
             var el = $("#" + $id);
             var clip = new ZeroClipboard(el)
@@ -753,12 +675,12 @@ G.logic.uploadify = {
         $("textarea.bewrite").live("blur ", function () { $(this).parents("span").removeClass("on") });
         $("a.item_close").live("click ", function (e) {
             var _self = G.logic.uploadify;
-            var _op = G.logic.uploadify.op;
+            var _op = G.logic.uploadify.op; 
             $.fallr('show', {
                 buttons: {
                     button1: {
                         text: '确定', danger: true, onclick: function () {
-                            var el = $(e.target).closest('li.imgbox');
+                            var el = $(e.target).closest('li.imgbox'); 
                             $.post(_self.op.del_url, {
                                 "id": el.data('postId'),
                                 "url": el.data('url')
@@ -767,7 +689,7 @@ G.logic.uploadify = {
                                 var button = $("#file_upload-button");
                                 button.removeClass("disabled").attr("style", "")
                                 button.html('<i class="icon-plus-sign"></i> 继续上传');
-                            }
+                            } 
                             _op.el.uploadify('settings', 'uploadLimit', ++_op.count);
                             //console.log(_op.el.uploadify('settings', 'uploadLimit'));
                             el.remove();
@@ -805,7 +727,7 @@ G.logic.uploadify = {
     set: function () {
         var _self = this;
         var c = _self.op.count - $("li.imgbox").length;
-        var max_size = (_self.op.data.type_id > 0) ? '300kb' : '600kb';
+		var max_size = (_self.op.data.type_id > 0)?'300kb':'600kb';
         _self.op.el.uploadify({
             'swf': _self.op.swf,
             'uploader': _self.op.url,
@@ -838,10 +760,10 @@ G.logic.uploadify = {
                     return;
                 }
                 else {
-                    if (typeof G.logic.uploadify.Callback !== "undefined") {
-                        G.logic.uploadify.Callback(json.image)
-                    }
-                    _self.add(json.image);
+                	if (typeof G.logic.uploadify.Callback !== "undefined"){
+				   G.logic.uploadify.Callback(json.image)
+				   }
+				    _self.add(json.image);
                 }
             }
         });
@@ -852,9 +774,9 @@ G.logic.uploadify = {
         this.live();
     }
 };
-if (!((/weimob.com/i.test(window.location)))) G.domain.t = "/static", G.domain.k = "/font";
-$(function () { 
+if (!((/www.pigcms.com/i.test(window.location)))) G.domain.t = "/static", G.domain.k = "/wm-xin-a"; 
+$(function () {
     G.logic.page.init();
-    G.logic.form.init();
+    G.logic.form.init(); 
 })
 /*作者: wang_.long@qq.com  */

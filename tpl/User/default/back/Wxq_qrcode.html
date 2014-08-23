@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{pigcms::C('site_name')}{pigcms:$wall.title}</title>
+<meta name="keywords" content="微米微信墻" />
+<meta name="description" content="微米微信墻" />
+<script type="text/javascript" src="{pigcms::RES}/wxq/resource/script/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="{pigcms::RES}/wxq/source/modules/wxwall/template/common.js"></script>
+<link type="text/css" rel="stylesheet" href="{pigcms::RES}/wxq/source/modules/wxwall/template/common.css" />
+</head>
+<body>
+    <img id="img_id" src="{pigcms:$wall['background']}"/>
+<div id="wallMain">
+	<div id="topbox" class="topbox">
+		<div class="topbox_l">
+			<div class="topic">
+				<h1 class="msg_tit">添加微信号 <strong class="red">{pigcms:$wall['account']['wxname']}</strong></h1>
+				<span class="addCnt">发送 <span class="red Topic_cnt">{pigcms:$wall['keyword']}</span>，登记后发送内容，就有机会上墙哦！</span>
+			</div>
+		</div>
+	</div>
+	<div id="msg_list">
+		<div class="talkList" id="msg_{$pigcms:$wall.id}">
+			<img src="{pigcms:$wall.qrcode}" style="width:500px;" />
+			<img src="{pigcms:$wall.qrcode}" style="width:420px;" />
+		</div>
+	</div>
+</div>
+
+    <div class="side_div">
+        <div class="side_item"><a href="{pigcms::U('Wxq/qrcode',array('id'=>$wall['id']))}" >二维码</a></div>
+        <div class="side_item"><a href="{pigcms::U('Wxq/lottery',array('id'=>$wall['id'],'type'=>1))}">去抽奖</a></div>
+        <div class="side_item"><a href="{pigcms::U('Wxq/detail',array('id'=>$wall['id']))}">微信墻</a></div>
+    </div>
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

@@ -1,32 +1,27 @@
 <include file="Public:head"/>
-<link rel="stylesheet" type="text/css" href="{weiwin::Common}/default_user_com.css" media="all">
- <link rel="stylesheet" type="text/css" href="./tpl/User/default/common/css/cymain.css" />
- <div class="content"  >
-       
-  <div class="tab">
-<ul>
-<li class="<if condition="ACTION_NAME EQ 'index'">current</if> tabli" id="tab0"><a href="{weiwin::U('Jiaoyu/index',array('token'=>$token))}">培训结构介绍</a></li>
-<li class="<if condition="ACTION_NAME EQ 'son' ">current</if> tabli" id="tab2"><a href="{weiwin::U('Jiaoyu/son',array('token'=>$token))}">校区</a></li>
-<li class="<if condition="ACTION_NAME EQ 'housetype' ">current</if> tabli" id="tab2"><a href="{weiwin::U('Jiaoyu/housetype',array('token'=>$token))}">培训课程</a></li>
-<li class="<if condition="ACTION_NAME EQ 'album' or ACTION_NAME EQ 'album_add'">current</if> tabli" id="tab5"><a href="{weiwin::U('Jiaoyu/album',array('token'=>$token))}">教学相册</a></li>
-<li class="<if condition="ACTION_NAME EQ 'impress'">current</if> tabli" id="tab5" style="display:none"><a href="{weiwin::U('Jiaoyu/impress',array('token'=>$token))}" style="display:none">学员印象</a></li>
-<li class="<if condition="ACTION_NAME EQ 'expert'">current</if> tabli" id="tab5"><a href="{weiwin::U('Jiaoyu/expert',array('token'=>$token))}">学院印象</a></li>
-<li class="<if condition="ACTION_NAME EQ 'jiaoyuindex'">current</if> tabli" id="tab6"><a href="{weiwin::U('Reservation/jiaoyuindex',array('token'=>$token))}">预约管理</a></li>
-</ul>
-</div>  
+<include file="Jiaoyu:menu"/> 
+<link rel="stylesheet" type="text/css" href="{pigcms::Common}/default_user_com.css" media="all">
+ <link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/cymain.css" />
+ <div class="content"  style="width:920px; background:none; border:none; margin-bottom:30px;" >
+
+          
+		<div class="cLineB">
+			  <h4 class="left">教育预约管理</h4>  
+		</div>
+		<div class="cLine">
+			<div class="alert">
+			<p><span class="bold">使用方法：添加一项即可,请勿重复添加。</span> <a class="btn" href="javascript:location.reload()">刷新</a></p>
+			</div>
+		</div>          
           
           <div class="cLine">
-    <div class="alert">
-    </div>
-</div>
-          
-          <div class="cLine">
+		  <if condition="$count eq 0">
             <div class="pageNavigator left">
-                <a href="{weiwin::U('Reservation/add',array('token'=>$token,'thetype'=>'jiaoyu'))}" class="btnGrayS vm bigbtn">
-                    <img src="tpl/User/default/common/images/pic.png" class="vm">添加预约
+                <a href="{pigcms::U('Reservation/add',array('token'=>$token,'addtype'=>'jiaoyu'))}" class="btnGrayS vm bigbtn">
+                    <img src="{pigcms::RES}/images/pic.png" class="vm">添加预约
                 </a>
             </div>
-            <div class="clr"></div>
+            <div class="clr"></div></if>
           </div>
           <div class="msgWrap">
           <form method="post" action="" id="info">
@@ -47,16 +42,16 @@
 				  <tbody>
 					<volist name="reslist" id="vo">
 						 <tr> 
-							<td>{weiwin:$vo['title']}</td>
-							<td>{weiwin:$vo['keyword']}</td>
-							<td>{weiwin:$vo['tel']}</td>
+							<td>{pigcms:$vo['title']}</td>
+							<td>{pigcms:$vo['keyword']}</td>
+							<td>{pigcms:$vo['tel']}</td>
 							<td><if condition="$vo['type'] eq 1">时间限制<elseif condition="$vo['type'] eq 2"/>限定每日量<else/>限定全部总量</if></td>
 							<td></td>
-							<td>{weiwin:$vo['date']}</td>
+							<td>{pigcms:$vo['date']}</td>
 						   <td > 
-								<a href="{weiwin::U('Reservation/manage',array('token'=>$vo['token'],'thetype'=>'jiaoyu','id'=>$vo['id']))}" class="btn" title="订单管理">订单管理</a>
-								<a class="btn" href="{weiwin::U('Reservation/edit',array('token'=>$vo['token'],'thetype'=>'jiaoyu','id'=>$vo['id']))}" title="编辑">编辑</a> 
-								<a class="btn" href="{weiwin::U('Reservation/del',array('token'=>$vo['token'],'thetype'=>'jiaoyu','id'=>$vo['id']))}" onclick="return(confirm('确定要删除吗？'))"  title="删除">删除</a></td>
+								<a href="{pigcms::U('Reservation/manage',array('token'=>$vo['token'],'addtype'=>'jiaoyu','id'=>$vo['id']))}" class="btn" title="订单管理">订单管理</a>
+								<a class="btn" href="{pigcms::U('Reservation/edit',array('token'=>$vo['token'],'addtype'=>'jiaoyu','id'=>$vo['id']))}" title="编辑">编辑</a> 
+								<a class="btn" href="{pigcms::U('Reservation/del',array('token'=>$vo['token'],'addtype'=>'jiaoyu','id'=>$vo['id']))}" onclick="return(confirm('确定要删除吗？'))"  title="删除">删除</a></td>
 						</tr>
 						</volist>
 					</tbody>
@@ -65,7 +60,7 @@
           </div>
           <div class="cLine">
             <div class="pageNavigator right">
-                 <div class="pages">{weiwin:$page}</div>
+                 <div class="pages">{pigcms:$page}</div>
             </div>
             <div class="clr"></div>
           </div>

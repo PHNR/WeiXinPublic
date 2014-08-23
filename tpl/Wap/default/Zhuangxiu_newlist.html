@@ -9,8 +9,8 @@
 <link rel="stylesheet" type="text/css" href="/tpl/Wap/default/common/estate/car_reset.css" media="all">
 <link rel="stylesheet" type="text/css" href="/tpl/Wap/default/common/estate/list-8.css" media="all">
 <link rel="stylesheet" type="text/css" href="/tpl/Wap/default/common/estate/menu-2.css" media="all">
-<script type="text/javascript" src="{weiwin::COMMON}/wap/estate/jQuery.js"></script>
-<title>{weiwin:$imgtxt['title']}</title>
+<script type="text/javascript" src="{pigcms::COMMON}/wap/estate/jQuery.js"></script>
+<title>{pigcms:$imgtxt['title']}</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta content="微信营销、微信代运营、微信定制开发、微信托管、微网站、微商城、微营销">
         <meta name="Description" content="国内最大的微信公众智能服务平台，八大微体系：微菜单、微官网、微会员、微活动、微商城、微推送、微服务、微统计，企业微营销必备。">
@@ -44,12 +44,12 @@
 
         <section class="news_article">
         <header>
-            <h3 style="font-size:14px;">{weiwin:$imgtxt['title']}</h3>
-            <small class="gray">{weiwin:$imgtxt['createtime']|date="Y-m-d",###}</small>
+            <h3 style="font-size:14px;">{pigcms:$imgtxt['title']}</h3>
+            <small class="gray">{pigcms:$imgtxt['createtime']|date="Y-m-d",###}</small>
         </header>
         <article>
             <p>
-             <img src="{weiwin:$imgtxt['pic']}" style="width:100%;">
+             <img src="{pigcms:$imgtxt['pic']}" style="width:100%;">
              </p><p>
    <?php echo html_entity_decode(htmlspecialchars_decode($imgtxt['info'])); ?>
 </p>            <p></p>
@@ -65,6 +65,7 @@
                             <span class="weimob-support" style="display:none;">新闻</span>
                             </footer>
                 <div mark="stat_code" style="width:0px; height:0px; display:none;">
-                    </div>
+                    </div>             <script type="text/javascript" src="/tpl/Wap/default/common/js/ChatFloat.js"></script>
+<if condition="$kefu['zhuangxiu'] eq '1'"><a href="{pigcms:$kefu.info2}" id="CustomerChatFloat" style="position: fixed; right: 0px; top: 150px; z-index: 99999; height: 70px; width: 65px; min-width: 65px; background-image: url(/tpl/Wap/default/common/css/img/MobileChatFloat.png); background-size: 65px; background-position: 0px 0px; background-repeat: no-repeat no-repeat;"></a></if>
     
 </body></html>

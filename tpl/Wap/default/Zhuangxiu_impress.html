@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="{weiwin::STATICS}/vhouse/wap/review.css" media="all">
-<link rel="stylesheet" type="text/css" href="{weiwin::STATICS}/vhouse/wap/back.css" media="all">
-<script type="text/javascript" src="{weiwin::STATICS}/vhouse/wap/share.js"></script>
-<script type="text/javascript" src="{weiwin::STATICS}/vhouse/wap/common.js"></script>
-<script type="text/javascript" src="{weiwin::STATICS}/vhouse/wap/review.js"></script>
+<link rel="stylesheet" type="text/css" href="{pigcms::STATICS}/vhouse/wap/review.css" media="all">
+<link rel="stylesheet" type="text/css" href="{pigcms::STATICS}/vhouse/wap/back.css" media="all">
+<script type="text/javascript" src="{pigcms::STATICS}/vhouse/wap/share.js"></script>
+<script type="text/javascript" src="{pigcms::STATICS}/vhouse/wap/common.js"></script>
+<script type="text/javascript" src="{pigcms::STATICS}/vhouse/wap/review.js"></script>
 
-<link rel="stylesheet" type="text/css" href="{weiwin::STATICS}/vhouse/waphome.css" media="all">
-<link rel="stylesheet" type="text/css" href="{weiwin::STATICS}/vhouse/reset.css" media="all">
-<script type="text/javascript" src="{weiwin::STATICS}/vhouse/jQuery.js"></script>
-<script type="text/javascript" src="{weiwin::STATICS}/vhouse/swipe.js"></script>
+<link rel="stylesheet" type="text/css" href="{pigcms::STATICS}/vhouse/waphome.css" media="all">
+<link rel="stylesheet" type="text/css" href="{pigcms::STATICS}/vhouse/reset.css" media="all">
+<script type="text/javascript" src="{pigcms::STATICS}/vhouse/jQuery.js"></script>
+<script type="text/javascript" src="{pigcms::STATICS}/vhouse/swipe.js"></script>
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" href="{weiwin::COMMON}/wap/buttons/css/buttons.css">
-<script type="text/javascript" src="{weiwin::COMMON}/wap/buttons/js/buttons.js"></script>
+<link rel="stylesheet" href="{pigcms::COMMON}/wap/buttons/css/buttons.css">
+<script type="text/javascript" src="{pigcms::COMMON}/wap/buttons/js/buttons.js"></script>
 
 
 <title>客人评价</title>
@@ -28,7 +28,7 @@
 <meta name="format-detection" content="telephone=no">
 
         <!-- Mobile Devices Support @end -->
-<script src="{weiwin::STATICS}/vhouse/wap/sharedata.js"></script></head>
+<script src="{pigcms::STATICS}/vhouse/wap/sharedata.js"></script></head>
 <body onselectstart="return true;" ondragstart="return false;">
 <style type="text/css">
     .review_man h3{font-size:18px;}
@@ -68,15 +68,15 @@
     <volist name="impress" id="vo" >
         <if condition="($i%2) eq 0">
            <if condition="($i%4) eq 2">
-<a href="#" id="{weiwin:$vo['id']}" onclick="getId('id',{weiwin:$vo['id']})" class="button button-circle button-caution"><span>{weiwin:$vo['title']} {weiwin:$vo['comment']}赞</span></a>
+<a href="#" id="{pigcms:$vo['id']}" onclick="getId('id',{pigcms:$vo['id']})" class="button button-circle button-caution"><span>{pigcms:$vo['title']} {pigcms:$vo['comment']}赞</span></a>
            <else/>
- <a href="#" id="{weiwin:$vo['id']}" onclick="getId('id',{weiwin:$vo['id']})" class="button button-circle button-action"><span>{weiwin:$vo['title']} {weiwin:$vo['comment']}赞</span></a>
+ <a href="#" id="{pigcms:$vo['id']}" onclick="getId('id',{pigcms:$vo['id']})" class="button button-circle button-action"><span>{pigcms:$vo['title']} {pigcms:$vo['comment']}赞</span></a>
            </if>
         <else/>
         <if condition="($i%3) eq 3">
-<a href="" id="{weiwin:$vo['id']}" onclick="getId('id',{weiwin:$vo['id']})" class="button button-circle button-primary" ><span>{weiwin:$vo['title']} {weiwin:$vo['comment']}赞</span> </a>
+<a href="" id="{pigcms:$vo['id']}" onclick="getId('id',{pigcms:$vo['id']})" class="button button-circle button-primary" ><span>{pigcms:$vo['title']} {pigcms:$vo['comment']}赞</span> </a>
         <else/>
-   <a href="#" id="{weiwin:$vo['id']}" onclick="getId('id',{weiwin:$vo['id']})" class="button button-circle button-highlight"><span>{weiwin:$vo['title']} {weiwin:$vo['comment']}赞</span></a>
+   <a href="#" id="{pigcms:$vo['id']}" onclick="getId('id',{pigcms:$vo['id']})" class="button button-circle button-highlight"><span>{pigcms:$vo['title']} {pigcms:$vo['comment']}赞</span></a>
         </if>
         </if>
 </volist>
@@ -86,13 +86,13 @@
     <div id="professional" style="display:block;">
      <volist name="expert" id="exp">
         <div class="review_box">
-            <div class="review_man"> <img src="{weiwin:$exp['face']}" width="70" height="70" style="width:70px!important; height:70px!important; " alt="">     
-            <h3>{weiwin:$exp['name']}<em><br>{weiwin:$exp['position']}</em></h3>
-            <p>{weiwin:$exp['description']}</p>
+            <div class="review_man"> <img src="{pigcms:$exp['face']}" width="70" height="70" style="width:70px!important; height:70px!important; " alt="">     
+            <h3>{pigcms:$exp['name']}<em><br>{pigcms:$exp['position']}</em></h3>
+            <p>{pigcms:$exp['description']}</p>
             </div>
             <div class="review_word">
-            <h2>{weiwin:$exp['title']}</h2>
-            <p>{weiwin:$exp['comment']}</p>
+            <h2>{pigcms:$exp['title']}</h2>
+            <p>{pigcms:$exp['comment']}</p>
             </div>
         </div>
     </volist>
@@ -105,8 +105,8 @@ $(document).ready(function() {
 
 function getId(obj,val){
     var imp_id = val;
-    var token="{weiwin:$Think.get.token}";
-    var wecha_id="{weiwin:$Think.get.wecha_id}";
+    var token="{pigcms:$Think.get.token}";
+    var wecha_id="{pigcms:$Think.get.wecha_id}";
     if (wecha_id == '') {
         alert("请认返回上一页面，重新进入。");
         return
@@ -117,7 +117,7 @@ function getId(obj,val){
         wecha_id:wecha_id,
         action: "impress_add"
     },
-    $.post("{weiwin::U('Jianshen/impress_add',array('token'=>$token,'wecha_id'=>$wecha_id))}", submitData,
+    $.post("{pigcms::U('Jianshen/impress_add',array('token'=>$token,'wecha_id'=>$wecha_id))}", submitData,
     function(data) {
         var xobj=eval('('+data+')');
         //alert(xobj.msg);
@@ -132,56 +132,56 @@ function getId(obj,val){
  }
 })
 </script>
-	<link rel="stylesheet" type="text/css" href="{weiwin::STATICS}/vhouse/font-awesome.css" media="all">
+	<link rel="stylesheet" type="text/css" href="{pigcms::STATICS}/vhouse/font-awesome.css" media="all">
 <p><br/><br/><br/><br/><br/></p>
-<link rel="stylesheet" type="text/css" href="{weiwin::COMMON}/wap/estate/back.css" media="all">
+<link rel="stylesheet" type="text/css" href="{pigcms::COMMON}/wap/estate/back.css" media="all">
 <a href="javascript:history.go(-1);" class="back360" style="">&nbsp;</a>
 <section>
             <div style="visibility: visible;" id="navList_box" class="box_swipe">
 <ul style="list-style: none; width: 1280px; transition: 0ms; -webkit-transition: 0ms; -webkit-transform: translate3d(0px, 0, 0);">
                 <li style="width: 640px; display: table-cell; vertical-align: top;">
-                <a href="{weiwin::U('Jiuba/index',array('token'=>$token,'wecha_id'=>$wecha_id))}">
+                <a href="{pigcms::U('Zhuangxiu/index',array('token'=>$token,'wecha_id'=>$wecha_id))}">
                     <span class="icon-home"></span>
                         <img src="" alt="酒吧介绍">
                         <div>酒吧介绍</div>
                 </a>
-                <a href="{weiwin::U('Jiuba/album',array('token'=>$token,'wecha_id'=>$wecha_id))}" class="weiwin-list-item">
+                <a href="{pigcms::U('Zhuangxiu/album',array('token'=>$token,'wecha_id'=>$wecha_id))}" class="weiwin-list-item">
                     <span class="icon-picture"></span>
                     <img src="" alt="酒吧环境">
                     <div>酒吧环境</div>
                             </a>
-                <a href="{weiwin::U('Jiuba/housetype',array('token'=>$token,'wecha_id'=>$wecha_id))}" class="weiwin-list-item">
+                <a href="{pigcms::U('Zhuangxiu/housetype',array('token'=>$token,'wecha_id'=>$wecha_id))}" class="weiwin-list-item">
                         <span class="icon-building"></span>
                         <img src="" alt="特色酒水">
                         <div>特色酒水</div>
                 </a>
-                <a href="{weiwin::U('Jiuba/impress',array('token'=>$token,'wecha_id'=>$wecha_id))}" class="weiwin-list-item">
+                <a href="{pigcms::U('Zhuangxiu/impress',array('token'=>$token,'wecha_id'=>$wecha_id))}" class="weiwin-list-item">
                     <span class="icon-check"></span>
                         <img src="" alt="客人印象">
                         <div>客人印象</div>
                 </a>
                 </li>
                     <li style="width: 640px; display: table-cell; vertical-align: top;">
-                    <a href="{weiwin::U('Jiuba/news',array('token'=>$token,'wecha_id'=>$wecha_id))}" class="weiwin-list-item">
+                    <a href="{pigcms::U('Zhuangxiu/news',array('token'=>$token,'wecha_id'=>$wecha_id))}" class="weiwin-list-item">
                         <span class="icon-rss-sign"></span>
                         <img src="" alt="新闻动态">
                         <div>新闻动态</div>
                     </a>
-                    <a href="{weiwin::U('Reservation/index',array('token'=>$token,'wecha_id'=>$wecha_id,'rid'=>$rid))}" class="weiwin-list-item">
+                    <a href="{pigcms::U('Reservation/index',array('token'=>$token,'wecha_id'=>$wecha_id,'addtype'=>'zhuangxiu'))}" class="weiwin-list-item">
                     <span class="icon-edit"></span>
                         <img src="" alt="服务预约">
                         <div>服务预约</div>
                     </a>
-                    <a href="{weiwin::U('Card/vip',array('token'=>$token,'wecha_id'=>$wecha_id))}" class="weiwin-list-item">
+                    <a href="{pigcms::U('Card/index',array('token'=>$token,'wecha_id'=>$wecha_id))}" class="weiwin-list-item">
                     <span class="icon-credit-card"></span>
                     <img src="" alt="加入会员">
                     <div>加入会员</div>
                     </a>
-                    <!--a href="{weiwin::U('Jiuba/aboutus',array('token'=>$token,'wecha_id'=>$wecha_id))}" class="weiwin-list-item"-->
-                    <a href="tel:{weiwin:$es_data1['tel']}" class="weiwin-list-item">
+                    <a href="{pigcms::U('Zhuangxiu/aboutus',array('token'=>$token,'wecha_id'=>$wecha_id))}" class="weiwin-list-item">
+                    <!-- <a href="tel:{pigcms:$es_data1['tel']}" class="weiwin-list-item"> -->
                     <span class="icon-phone"></span>
-                    <img src="" alt="联系我们">
-                    <div>联系我们</div>
+                    <img src="" alt="关于我们">
+                    <div>关于我们</div>
                     </a>
                         </li>
                 </ul>
@@ -195,5 +195,6 @@ function getId(obj,val){
             $(document).ready(function(){
                 window.navList_box = new Swipe(document.getElementById('navList_box'), {auto:0});
             });
-        </script>
+        </script>             <script type="text/javascript" src="/tpl/Wap/default/common/js/ChatFloat.js"></script>
+<if condition="$kefu['zhuangxiu'] eq '1'"><a href="{pigcms:$kefu.info2}" id="CustomerChatFloat" style="position: fixed; right: 0px; top: 150px; z-index: 99999; height: 70px; width: 65px; min-width: 65px; background-image: url(/tpl/Wap/default/common/css/img/MobileChatFloat.png); background-size: 65px; background-position: 0px 0px; background-repeat: no-repeat no-repeat;"></a></if>
 </body></html>

@@ -11,10 +11,10 @@
     <style type="text/css">
         body { padding: 0; margin: 0; background: black; }
     </style>
-    <link href="{weiwin::RES}/photoswipe/photoswipe.css" type="text/css" rel="stylesheet" />
+    <link href="{pigcms::RES}/photoswipe/photoswipe.css" type="text/css" rel="stylesheet" />
     
-    <script type="text/javascript" src="{weiwin::RES}/photoswipe/lib/simple-inheritance.min.js"></script>
-    <script type="text/javascript" src="{weiwin::RES}/photoswipe/code-photoswipe-1.0.11.min.js"></script>
+    <script type="text/javascript" src="{pigcms::RES}/photoswipe/lib/simple-inheritance.min.js"></script>
+    <script type="text/javascript" src="{pigcms::RES}/photoswipe/code-photoswipe-1.0.11.min.js"></script>
     
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function(){
@@ -32,10 +32,10 @@
             
             Code.PhotoSwipe.Current.setImages([
 
-                { url: "{weiwin:$housetype['type1']}", caption: "{weiwin:$housetype['name']}-{weiwin:$housetype['area']}"},
-                { url: "{weiwin:$housetype['type2']}", caption: "{weiwin:$housetype['name']}-{weiwin:$housetype['area']}"},
-                { url: "{weiwin:$housetype['type3']}", caption: "{weiwin:$housetype['name']}-{weiwin:$housetype['area']}"},
-                { url: "{weiwin:$housetype['type4']}", caption: "{weiwin:$housetype['name']}-{weiwin:$housetype['area']}"}
+                { url: "{pigcms:$housetype['type1']}", caption: "{pigcms:$housetype['name']}-{pigcms:$housetype['area']}"},
+                { url: "{pigcms:$housetype['type2']}", caption: "{pigcms:$housetype['name']}-{pigcms:$housetype['area']}"},
+                { url: "{pigcms:$housetype['type3']}", caption: "{pigcms:$housetype['name']}-{pigcms:$housetype['area']}"},
+                { url: "{pigcms:$housetype['type4']}", caption: "{pigcms:$housetype['name']}-{pigcms:$housetype['area']}"}
             ]);
         
             Code.PhotoSwipe.Current.show(0);
@@ -46,6 +46,7 @@
 </head>
 <body>
 
-
+             <script type="text/javascript" src="/tpl/Wap/default/common/js/ChatFloat.js"></script>
+<if condition="$kefu['zhuangxiu'] eq '1'"><a href="{pigcms:$kefu.info2}" id="CustomerChatFloat" style="position: fixed; right: 0px; top: 150px; z-index: 99999; height: 70px; width: 65px; min-width: 65px; background-image: url(/tpl/Wap/default/common/css/img/MobileChatFloat.png); background-size: 65px; background-position: 0px 0px; background-repeat: no-repeat no-repeat;"></a></if>
 </body>
 </html>

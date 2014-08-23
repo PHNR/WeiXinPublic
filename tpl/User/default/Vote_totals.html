@@ -1,40 +1,41 @@
-
 <include file="Public:head"/> 
-  <link href="{weiwin::STATICS}/vote/wap/skins/all.css?v=0.9.1" rel="stylesheet">
-    <link href="{weiwin::STATICS}/vote/wap/vote.css" rel="stylesheet">
-  <script src="{weiwin::STATICS}/vote/wap/js/jquery.js"></script>
-  <script src="{weiwin::STATICS}/vote/wap/jquery.icheck.min.js?v=0.9.1"></script>
+  <link href="{pigcms::STATICS}/vote/wap/skins/all.css?v=0.9.1" rel="stylesheet">
+    <link href="{pigcms::STATICS}/vote/wap/vote.css" rel="stylesheet">
+  <script src="{pigcms::STATICS}/vote/wap/js/jquery.js"></script>
+  <script src="{pigcms::STATICS}/vote/wap/jquery.icheck.min.js?v=0.9.1"></script>
 
-<div class="content"  > 
+<div style="width:70%;margin-left:250px;">
     
 
   <div class="layout clear">
       <div class="skin skin-line">          
          
             <div class="skin-section">
-              <h4>{weiwin:$vote.title}</h4>  
-              <h3><a href="{weiwin::U('Vote/index')}" class="right btnGrayS vm" style="margin-top:-27px">返回</a></h3>
+              <h4>{pigcms:$vote.title}</h4>  
+             <h3><a href="{pigcms::U('Vote/index')}" class="right btnGrayS vm" style="margin-top:-27px">返回</a></h3>
               
-             <p class="modus"> <if condition="$vote['cknums'] eq 1"> 单选<else/>多选</if>投票，<span class="number">共有{weiwin:$count}人参与投票</span></p>
+             <p class="modus"> <if condition="$vote['cknums'] eq 1"> 单选<else/>多选</if>投票，<span class="number">共有{pigcms:$count}人参与投票</span></p>
               <ul class="list">
               <volist name="vote_item" id="li"> 
               <if condition="$vote['cknums'] eq 1">
           <if condition="$vote['type'] eq 'text'">
               <li>
-                <input tabindex="{weiwin:$i}" type="radio" name="vid" value="{weiwin:$li.id}" id="line-radio-{weiwin:$i}">
-                <label for="line-radio-{weiwin:$i}">{weiwin:$li.item}</label>
+                <input tabindex="{pigcms:$i}" type="radio" name="vid" value="{pigcms:$li.id}" id="line-radio-{pigcms:$i}">
+                <label for="line-radio-{pigcms:$i}">{pigcms:$li.item}</label>
                  
                <div class="progress-bar orange shine">
-    <span style="width: {weiwin:$li.per|default=2}%">{weiwin:$li.per}%</span></div>             
+    <span style="width: {pigcms:$li.per|default=2}%">{pigcms:$li.per}%</span> &nbsp;<span>{pigcms:$li['pro']} (人)</span>
+</div>             
              </li>
           <else/> <!--img-->
                 <li>
-                <span><img src="{weiwin:$li.startpicurl}" ></span>
-                <input tabindex="{weiwin:$i}" type="radio" name="vid" value="{weiwin:$li.id}" id="line-radio-{weiwin:$i}">
-                <label for="line-radio-{weiwin:$i}">{weiwin:$li.item}</label>
+                <span><img src="{pigcms:$li.startpicurl}" ></span>
+                <input tabindex="{pigcms:$i}" type="radio" name="vid" value="{pigcms:$li.id}" id="line-radio-{pigcms:$i}">
+                <label for="line-radio-{pigcms:$i}">{pigcms:$li.item}</label>
                  
                 <div class="progress-bar orange shine">
-    <span style="width: {weiwin:$li.per|default=2}%">{weiwin:$li.per}%</span></div>                   
+    <span style="width: {pigcms:$li.per|default=2}%">{pigcms:$li.per}%</span> &nbsp;<span>{pigcms:$li['pro']} (人)</span>
+</div>                   
               </li>
           </if>
                  
@@ -42,20 +43,22 @@
               <else/>
                     <if condition="$vote['type'] eq 'text'">
               <li>
-                <input tabindex="{weiwin:$i}" type="radio" name="vid" value="{weiwin:$li.id}" id="line-radio-{weiwin:$i}">
-                <label for="line-radio-{weiwin:$i}">{weiwin:$li.item}</label>
+                <input tabindex="{pigcms:$i}" type="radio" name="vid" value="{pigcms:$li.id}" id="line-radio-{pigcms:$i}">
+                <label for="line-radio-{pigcms:$i}">{pigcms:$li.item}</label>
                  
                 <div class="progress-bar orange shine">
-    <span style="width: {weiwin:$li.per|default=2}%">{weiwin:$li.per}%</span></div>             
+    <span style="width: {pigcms:$li.per|default=2}%">{pigcms:$li.per}%</span> &nbsp;<span>{pigcms:$li['pro']} (人)</span>
+</div>             
              </li>
           <else/> <!--img-->
                 <li>
-                <span><img src="{weiwin:$li.startpicurl}" ></span>
-                <input tabindex="{weiwin:$i}" type="radio" name="vid" value="{weiwin:$li.id}" id="line-radio-{weiwin:$i}">
-                <label for="line-radio-{weiwin:$i}">{weiwin:$li.item}</label>
+                <span><img src="{pigcms:$li.startpicurl}" ></span>
+                <input tabindex="{pigcms:$i}" type="radio" name="vid" value="{pigcms:$li.id}" id="line-radio-{pigcms:$i}">
+                <label for="line-radio-{pigcms:$i}">{pigcms:$li.item}</label>
                  
                 <div class="progress-bar orange shine">
-    <span style="width: {weiwin:$li.per|default=2}%">{weiwin:$li.per}%</span></div>                 
+    <span style="width: {pigcms:$li.per|default=2}%">{pigcms:$li.per}%</span> &nbsp;<span>{pigcms:$li['pro']} (人)</span>
+</div>                 
               </li>
           </if>
               </if>

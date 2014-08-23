@@ -12,11 +12,11 @@
 
 	<meta content="" name="Description">
 
-    <link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/diaoyan/common.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/diaoyan/common.css" media="all" />
 
-    <link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/diaoyan/survey.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/diaoyan/survey.css" media="all" />
 
-<title>幸福调研</title>
+<title>{pigcms:$data.title}</title>
 
 </head>
 
@@ -140,7 +140,7 @@
 
 	<div class="wrapper">
 
-		<img class="bg" src="{weiwin::RES}/images/diaoyan/bg.jpg">
+		<img class="bg" src="{pigcms::RES}/images/diaoyan/bg.jpg">
 
 		<div style="height: 25px;"></div>
 
@@ -150,17 +150,17 @@
 
 				<div class="content">
 
-					<div class="title">{weiwin:$data.title}</div>
+					<div class="title">{pigcms:$data.title}</div>
 
-					<img class="connect" src="{weiwin::RES}/images/diaoyan/connect.png">
+					<img class="connect" src="{pigcms::RES}/images/diaoyan/connect.png">
 
 					<div class="desc-cont">
 
-						{weiwin:$data.sinfo}
+						{pigcms:$data.sinfo}
 
 					</div>
 
-					<a class="next-btn" href="{weiwin::U('Diaoyan/name', $urlarr)}" style="text-decoration:none;">马上开始</a>
+					<a class="next-btn" href="{pigcms::U('Diaoyan/name', $urlarr)}" style="text-decoration:none;">马上开始</a>
 
 				</div>
 
@@ -172,12 +172,19 @@
 
  	<p class="page-url">
 
-		<a href="#" target="_blank" class="page-url-link"></a>
+		<a href="#" target="_blank" class="page-url-link">由微享提供技术支持</a>
 
 	</p>
 
 	</div>
 
+<!-- wtoken.com Baidu tongji analytics -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F866a46b8a4d233aa883b072a2158aaa2' type='text/javascript'%3E%3C/script%3E"));
+
+</script>
 </body>
 
 </html>

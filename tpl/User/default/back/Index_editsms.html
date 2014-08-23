@@ -1,0 +1,226 @@
+<include file="Public:head"/>
+
+<div class="content" >
+
+          <div class="cLineB"><h4>短信平台</h4></div>
+
+          <form method="post" action="{pigcms::U('User/Index/upsave')}" enctype="multipart/form-data">
+
+          <input type="hidden" name="id" value="{pigcms:$info.id}">
+
+          <div class="msgWrap">
+
+            <table class="userinfoArea" border="0" cellspacing="0" cellpadding="0" width="100%">
+
+              <thead>
+
+			    <tr>
+
+                  <th><span class="red">*</span>短信平台手机号：</th>
+
+                  <td><input type="text" required class="px" name="phone" value="{pigcms:$info.phone}" tabindex="1" size="25"><span class="red">用于接收订单的手机号</span>
+
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <th><span class="red">*</span>短信平台账号：</th>
+
+                  <td><input type="text" required class="px" name="smsuser" value="{pigcms:$info.smsuser}" tabindex="1" size="25"><span class="red">支持平台：<a href="http://api.smsbao.com/" target="_blank">点击注册</a></span>
+
+                  </td>
+
+                </tr>
+
+				<tr>
+
+                  <th><span class="red">*</span>短信平台密码：</th>
+                  <td><input type="password" required class="px" name="smspassword" value="{pigcms:$info.smspassword}" tabindex="1" size="25"><span class="red">短信平台密码</span>
+
+
+                  </td>
+
+                </tr>
+
+				<tr>
+
+                  <th><span class="red">*</span>商城短信通知状态：</th>
+
+                  <td><input type="radio" value="1"<if condition="$info.smsstatus eq 1">checked="checked"</if> name="smsstatus"/>开启 <input type="radio" value="0" 
+                  <if condition="$info.smsstatus eq 0">checked="checked"</if>name="smsstatus"/>关闭
+
+                  </td>
+
+                </tr>
+                
+
+                  <th><span class="red">*</span>预约短信通知状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$info.yuyuesmssmsstatus eq 1">checked="checked"</if> name="yuyuesmsstatus"/>开启 <input type="radio" value="0" 
+                  <if condition="$info.yuyuesmsstatus eq 0">checked="checked"</if>name="yuyuesmsstatus"/>关闭
+
+                  </td>
+
+                </tr>
+                 <tr>
+
+                  <th><span class="red">*</span>订餐短信通知状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$info.dingcansmsstatus eq 1">checked="checked"</if> name="dingcansmsstatus"/>开启 <input type="radio" value="0" 
+                  <if condition="$info.dingcansmsstatus eq 0">checked="checked"</if>name="dingcansmsstatus"/>关闭
+
+                  </td>
+
+                </tr>
+                  <tr>
+
+                  <th><span class="red">*</span>投票短信通知状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$info.toupiaosmsstatus eq 1">checked="checked"</if> name="toupiaosmsstatus"/>开启 <input type="radio" value="0" 
+                  <if condition="$info.toupiaosmsstatus eq 0">checked="checked"</if>name="toupiaosmsstatus"/>关闭
+
+                  </td>
+
+                </tr>
+                  <tr>
+
+                  <th><span class="red">*</span>微汽车短信通知状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$info.carsmsstatus eq 1">checked="checked"</if> name="carsmsstatus"/>开启 <input type="radio" value="0" 
+                  <if condition="$info.carsmsstatus eq 0">checked="checked"</if>name="carsmsstatus"/>关闭
+
+                  </td>
+
+                </tr>
+                 <tr>
+
+                  <th><span class="red">*</span>微酒店短信通知状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$info.jiudiansmsstatus eq 1">checked="checked"</if> name="jiudiansmsstatus"/>开启 <input type="radio" value="0" 
+                  <if condition="$info.jiudiansmsstatus eq 0">checked="checked"</if>name="jiudiansmsstatus"/>关闭
+
+                  </td>
+
+                </tr>
+                 <tr>
+
+                  <th><span class="red">*</span>微酒吧短信通知状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$info.jiubasmsstatus eq 1">checked="checked"</if> name="jiubasmsstatus"/>开启 <input type="radio" value="0" 
+                  <if condition="$info.jiubasmsstatus eq 0">checked="checked"</if>name="jiubasmsstatus"/>关闭
+
+                  </td>
+
+                </tr>
+                 <tr>
+
+                  <th><span class="red">*</span>微医疗短信通知状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$info.yiliaosmsstatus eq 1">checked="checked"</if> name="yiliaosmsstatus"/>开启 <input type="radio" value="0" 
+                  <if condition="$info.yiliaosmsstatus eq 0">checked="checked"</if>name="yiliaosmsstatus"/>关闭
+
+                  </td>
+
+                </tr>
+                 <tr>
+
+                  <th><span class="red">*</span>微KTV短信通知状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$info.ktvsmsstatus eq 1">checked="checked"</if> name="ktvsmsstatus"/>开启 <input type="radio" value="0" 
+                  <if condition="$info.ktvsmsstatus eq 0">checked="checked"</if>name="ktvsmsstatus"/>关闭
+
+                  </td>
+
+                </tr>
+                 <tr>
+
+                  <th><span class="red">*</span>微会所短信通知状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$info.huisuosmsstatus eq 1">checked="checked"</if> name="huisuosmsstatus"/>开启 <input type="radio" value="0" 
+                  <if condition="$info.huisuosmsstatus eq 0">checked="checked"</if>name="huisuosmsstatus"/>关闭
+
+                  </td>
+
+                </tr>
+                 <tr>
+
+                  <th><span class="red">*</span>万能表单短信通知状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$info.wnsmsstatus eq 1">checked="checked"</if> name="wnsmsstatus"/>开启 <input type="radio" value="0" 
+                  <if condition="$info.wnsmsstatus eq 0">checked="checked"</if>name="wnsmsstatus"/>关闭
+
+                  </td>
+
+                </tr>
+                 <tr>
+
+                  <th><span class="red">*</span>通用订单短信通知状态：</th>
+
+                  <td><input type="radio" value="1" <if condition="$info.tysmsstatus eq 1">checked="checked"</if> name="tysmsstatus"/>开启 <input type="radio" value="0" 
+                  <if condition="$info.tysmsstatus eq 0">checked="checked"</if>name="tysmsstatus"/>关闭
+
+                  </td>
+
+                </tr>
+
+				<div>
+
+				<input type="hidden" required class="px" name="wxname" value="{pigcms:$info.wxname}" tabindex="1" size="25">
+
+				<input type="hidden" required title="无法修改，您可以联系管理员" name="wxid" value="{pigcms:$info.wxid}" class="px" tabindex="1" size="25" style="color:#DDD;">
+
+				<input type="hidden" required name="weixin" value="{pigcms:$info.weixin}" class="px" tabindex="1" size="25">
+
+				<input type="hidden" class="px" name="headerpic" value="{pigcms:$info.headerpic}" size="60">
+
+				<input type="hidden" name="token" value="{pigcms:$info.token}" class="px" tabindex="1" size="40">
+
+				<input type="hidden" class="px" id="province" value="{pigcms:$info.province}" name="province" tabindex="1" size="20">
+
+				<input id="city" value="{pigcms:$info.city}" type="hidden" name="city" class="px" tabindex="1" size="20">
+
+				<input type="hidden" required class="px" tabindex="1" value="{pigcms:$info.qq}" name="qq" size="25">
+
+				<input type="hidden" required name="wxfans" value="{pigcms:$info.wxfans}" class="px" tabindex="1" size="25">
+
+				<input type="hidden" required name="type" value="{pigcms:$info.typeid}" class="px" tabindex="1" size="25">
+
+				</div>
+
+              </thead>
+
+              
+
+                <tr>
+
+                  <td><button type="submit" class="btnGreen" id="saveSetting">保存</button></td>
+
+                </tr>
+
+            </table>
+
+            
+
+          </div>
+
+          </form>
+
+        </div>
+
+        
+
+        <div class="clr"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!--底部-->
+
+  	</div>
+
+<include file="Public:footer"/>	

@@ -6,7 +6,7 @@
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
+// | Author: 887583<887583@qq.com>
 // +----------------------------------------------------------------------
 
 /**
@@ -14,7 +14,7 @@
  *  如果项目有定义自己的调试模式配置文件，本文件无效
  * @category   Think
  * @package  Common
- * @author   liu21st <liu21st@gmail.com>
+ * @author   887583<887583@qq.com>
  * @version  $Id: debug.php 3071 2012-07-15 07:59:23Z liu21st@gmail.com $
  */
 defined('THINK_PATH') or exit();

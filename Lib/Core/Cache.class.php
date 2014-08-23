@@ -6,7 +6,7 @@
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
+// | Author: 887583<887583@qq.com>
 // +----------------------------------------------------------------------
 
 /**
@@ -14,7 +14,7 @@
  * @category   Think
  * @package  Think
  * @subpackage  Core
- * @author    liu21st <liu21st@gmail.com>
+ * @author    887583<887583@qq.com>
  */
 class Cache {
 

@@ -1,8 +1,10 @@
 <include file="Public:head"/>
-<div class="content"  >
+<script src="/tpl/static/artDialog/jquery.artDialog.js?skin=default"></script>
+<script src="/tpl/static/artDialog/plugins/iframeTools.js"></script>
+ <div class="content">
           <div class="cLineB"><h4>编辑语音回复</h4><a href="javascript:history.go(-1);"  class="right btnGrayS vm" style="margin-top:-27px" >返回</a></div> 
 <div class="msgWrap">
-  <form class="form" method="post"   action="{weiwin::U('Voiceresponse/insert')}"  target="_top" enctype="multipart/form-data" >
+  <form class="form" method="post"   action="{pigcms::U('Voiceresponse/insert')}"  target="iframe" enctype="multipart/form-data" >
 <TABLE class="userinfoArea" style=" margin:20px 0 0 0;" border="0" cellSpacing="0" cellPadding="0" width="100%">
   <THEAD>
                           <TR>
@@ -17,12 +19,12 @@
 </TR>
                             <TR>
   <TH valign="top"><span class="red">*</span><label for="MusicUrl">音乐链接：</label></TH>
-  <TD><input type="input" class="px" id="MusicUrl" value="" name="musicurl" style="width:600px" ><br />
+  <TD><input type="input" class="px" id="musicurl" value="" name="musicurl" style="width:600px" > &nbsp; <script src="/tpl/static/upyun.js"></script><a href="###" onclick="chooseFile('musicurl','music')" class="a_upload">选择</a> <br />
                   </TD>
 </TR>
                             <TR>
   <TH valign="top"><span class="red">*</span><label for="HQMusicUrl">高品质音乐链接：</label></TH>
-  <TD><input type="input" class="px" id="HQMusicUrl" value="" name="hqmusicurl" style="width:600px" ><br />没有高品质音乐链接，请直接再填一遍音乐链接。（高质量音乐链接，WIFI环境优先使用该链接播放音乐）
+  <TD><input type="input" class="px" id="HQMusicUrl" value="" name="hqmusicurl" style="width:600px" > &nbsp; <a href="###" onclick="chooseFile('HQMusicUrl','music')" class="a_upload">选择</a><br />没有高品质音乐链接，请直接再填一遍音乐链接。（高质量音乐链接，WIFI环境优先使用该链接播放音乐）
                   </TD>
 </TR>
   </THEAD>

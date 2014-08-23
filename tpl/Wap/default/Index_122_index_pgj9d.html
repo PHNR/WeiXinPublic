@@ -4,7 +4,7 @@
 
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-        <title>{weiwin:$tpl.wxname}</title>
+        <title>{pigcms:$tpl.wxname}</title>
 
         <base href="." />
 
@@ -14,25 +14,37 @@
 
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-        <meta name="format-detection" content="telephone=no" />
+         <meta name="format-detection" content="telephone=no" /><style>
 
-<link href="{weiwin::RES}/css/allcss/cate{weiwin:$tpl.tpltypeid}_{weiwin:$tpl.color_id}.css" rel="stylesheet" type="text/css" />
+#iframe_screen{
+    background:#fff;
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+    z-index:300000;
+    overflow:hidden;
+}
+</style>
+
+<link href="{pigcms::RES}/css/allcss/cate{pigcms:$tpl.tpltypeid}_{pigcms:$tpl.color_id}.css" rel="stylesheet" type="text/css" />
 
         
 
-    <!-- <link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/122/common.css" media="all"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/122/common.css" media="all"> -->
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/122/reset.css" media="all">
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/122/reset.css" media="all">
 
-<link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/122/font-awesome.css" media="all">
+<link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/122/font-awesome.css" media="all">
 
-<!-- <link rel="stylesheet" type="text/css" href="{weiwin::RES}/css/122/home-42.css" media="all"> -->
+<!-- <link rel="stylesheet" type="text/css" href="{pigcms::RES}/css/122/home-42.css" media="all"> -->
 
-<script type="text/javascript" src="{weiwin::RES}/css/116/jQuery.js"></script>
+<script type="text/javascript" src="{pigcms::RES}/css/116/jQuery.js"></script>
 
-<script type="text/javascript" src="{weiwin::RES}/css/122/zepto.js"></script>
+<script type="text/javascript" src="{pigcms::RES}/css/122/zepto.js"></script>
 
-<script type="text/javascript" src="{weiwin::RES}/css/122/swipe.js"></script>
+<script type="text/javascript" src="{pigcms::RES}/css/122/swipe.js"></script>
 
 
 
@@ -40,19 +52,19 @@
 
     <!--背景音乐-->
 
-<if condition="$homeInfo['musicurl'] neq false">
+<if condition="$dh['animation'] neq '0'"><iframe id="iframe_screen" src="./tpl/Wap/default/Index_an{pigcms:$dh.animation}.html" frameborder="0"></iframe></if> <if condition="$homeInfo['musicurl'] neq false">
 
 <include file="Index:music"/>
 
 </if>
 
-        <div class="body">
+        <div class="body" style="width:100%">
 
     <section>
 
         <!--img src="../images/v32_1.jpg" style="width:100%;" /-->
 
-        <ul class="list_ul">
+        <ul class="list_ul" style="width:100%">
 
             <li class="box">
 
@@ -60,13 +72,13 @@
 
                 <if condition="$i lt 3">    
 
-            <a href="<if condition="$vo['url'] eq ''">{weiwin::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{weiwin:$vo.url|htmlspecialchars_decode}</if>">
+            <a href="<if condition="$vo['url'] eq ''">{pigcms::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{pigcms:$vo.url|htmlspecialchars_decode}</if>">
 
-            <label>{weiwin:$vo.name}</label>
+            <label>{pigcms:$vo.name}</label>
 
                     <span>
 
-                            <img src="{weiwin:$vo.img}" class="icon-file-text" style="width:60px;height:40px;"align="right">
+                            <img src="{pigcms:$vo.img}" class="icon-file-text" style="width:60px;height:40px;"align="right">
 
                         </span>
 
@@ -86,15 +98,15 @@
 
                 <if condition="$i eq 3">                           
 
-            <a href="<if condition="$vo['url'] eq ''">{weiwin::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{weiwin:$vo.url|htmlspecialchars_decode}</if>">
+            <a href="<if condition="$vo['url'] eq ''">{pigcms::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{pigcms:$vo.url|htmlspecialchars_decode}</if>">
 
                                 <div class="imgBox fl">
 
-                        <img src="{weiwin:$vo.img}">
+                        <img src="{pigcms:$vo.img}">
 
                     </div>
 
-                    <label>{weiwin:$vo.name}</label>
+                    <label>{pigcms:$vo.name}</label>
 
                 </a>
 
@@ -110,13 +122,13 @@
 
                 <if condition="($i gt 3) and ($i lt 6)">                              
 
-                <a href="<if condition="$vo['url'] eq ''">{weiwin::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{weiwin:$vo.url|htmlspecialchars_decode}</if>">
+                <a href="<if condition="$vo['url'] eq ''">{pigcms::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{pigcms:$vo.url|htmlspecialchars_decode}</if>">
 
-            <label>{weiwin:$vo.name}</label>
+            <label>{pigcms:$vo.name}</label>
 
                     <span>
 
-                            <img src="{weiwin:$vo.img}" class="icon-file-text" style="width:60px;height:40px;"align="right">
+                            <img src="{pigcms:$vo.img}" class="icon-file-text" style="width:60px;height:40px;"align="right">
 
                         </span>
 
@@ -136,15 +148,15 @@
 
                 <if condition="$i eq 6">                          
 
-            <a href="<if condition="$vo['url'] eq ''">{weiwin::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{weiwin:$vo.url|htmlspecialchars_decode}</if>">
+            <a href="<if condition="$vo['url'] eq ''">{pigcms::U('Wap/Index/lists',array('classid'=>$vo['id'],'token'=>$vo['token']))}<else/>{pigcms:$vo.url|htmlspecialchars_decode}</if>">
 
                                 <div class="imgBox fl">
 
-                        <img src="{weiwin:$vo.img}">
+                        <img src="{pigcms:$vo.img}">
 
                     </div>
 
-                    <label>{weiwin:$vo.name}</label>
+                    <label>{pigcms:$vo.name}</label>
 
                 </a>
 
@@ -160,11 +172,11 @@
 
 <if condition="$iscopyright eq 1">
 
-{weiwin:$homeInfo.copyright}
+{pigcms:$homeInfo.copyright}
 
 <else/>
 
-{weiwin:$siteCopyright}
+{pigcms:$siteCopyright}
 
 </if>
 
@@ -172,7 +184,68 @@
 
 </div>
 
-<include file="Index:styleInclude"/>   
+<include file="Index:styleInclude"/><include file="$cateMenuFileName"/>   
 
-</body></html>
+	<if condition="ACTION_NAME eq 'index'">
+
+		<script type="text/javascript">
+
+			window.shareData = {  
+
+					"moduleName":"Index",
+
+					"moduleID": '0',
+
+					"imgUrl": "{pigcms:$homeInfo.picurl}", 
+
+					"timeLineLink": "{pigcms::C('site_url')}{pigcms::U(Index/ACTION_NAME,array('token'=>$_GET['token']))}",
+
+					"sendFriendLink": "{pigcms::C('site_url')}{pigcms::U(Index/ACTION_NAME,array('token'=>$_GET['token']))}",
+
+					"weiboLink": "{pigcms::C('site_url')}{pigcms::U(Index/ACTION_NAME,array('token'=>$_GET['token']))}",
+
+					"tTitle": "{pigcms:$homeInfo.title}",
+
+					"tContent": "{pigcms:$homeInfo.info}"
+
+				};
+
+		</script>
+
+	<else />
+
+		<script type="text/javascript">
+
+			window.shareData = {  
+
+				"moduleName":"Index",
+
+				"moduleID": '1',
+
+				"imgUrl": "{pigcms:$homeInfo.picurl}", 
+
+				"timeLineLink": "{pigcms::C('site_url')}{pigcms::U(Index/ACTION_NAME,array('token'=>$_GET['token'],'classid'=>$_GET['classid']))}",
+
+				"sendFriendLink": "{pigcms::C('site_url')}{pigcms::U(MODULE_NAME/ACTION_NAME,array('token'=>$_GET['token'],'classid'=>$_GET['classid']))}",
+
+				"weiboLink": "{pigcms::C('site_url')}{pigcms::U(MODULE_NAME/ACTION_NAME,array('token'=>$_GET['token'],'classid'=>$_GET['classid']))}",
+
+				"tTitle": "{pigcms:$homeInfo.title}",
+
+				"tContent": "{pigcms:$homeInfo.info}"
+
+			};
+
+		</script>	
+
+	
+
+	</if>
+
+{pigcms:$shareScript}
+
+<!--chat-->
+<script type="text/javascript" src="/tpl/Wap/default/common/js/ChatFloat.js"></script>
+<if condition="$kefu['status'] eq '1'"><a href="{pigcms:$kefu.info2}" id="CustomerChatFloat" style="position: fixed; right: 0px; top: 150px; z-index: 99999; height: 70px; width: 65px; min-width: 65px; background-image: url(/tpl/Wap/default/common/css/img/MobileChatFloat.png); background-size: 65px; background-position: 0px 0px; background-repeat: no-repeat no-repeat;"></a></if>   </body>
+</html>
 

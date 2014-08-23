@@ -19,23 +19,23 @@
 	  </tr>
 	    <volist name="list" id="vo">
 			<tr>
-				<td align='center'>{weiwin:$vo.id}</td>
-				<td >{weiwin:$vo.username}</td>
-				<td >{weiwin:$role[$vo['role']]}</td>
-				<td >{weiwin:$vo.remark}</td>
-				<td align='center'>{weiwin:$vo.last_login_ip}</td>
-				<td align='center'>{weiwin:$vo.last_location}</td>
+				<td align='center'>{pigcms:$vo.id}</td>
+				<td >{pigcms:$vo.username}</td>
+				<td >{pigcms:$role[$vo['role']]}</td>
+				<td >{pigcms:$vo.remark}</td>
+				<td align='center'>{pigcms:$vo.last_login_ip}</td>
+				<td align='center'>{pigcms:$vo.last_location}</td>
 				<td align='center'><php>echo date('Y-m-d H:i:s', $vo['last_login_time'])</php></td>
 				<td align='center'><eq name="vo.status" value="1"><font color="red">√</font><else/><font color="blue">×</font></eq> 
 				</td>
 				<td align='center'>
-					<a href="{weiwin::U('User/edit/',array('id'=>$vo['id']))}">修改</a>
-					| <eq name="vo.username" value="admin"><font color="#cccccc">删除</font><else/><a href="javascript:void(0)" onclick="return confirmurl('{weiwin::U('User/del/',array('id'=>$vo['id']))}','确定删除该用户吗?')">删除</a></eq>
+					<a href="{pigcms::U('User/edit/',array('id'=>$vo['id']))}">修改</a>
+					| <eq name="vo.username" value="admin"><font color="#cccccc">删除</font><else/><a href="javascript:void(0)" onclick="return confirmurl('{pigcms::U('User/del/',array('id'=>$vo['id']))}','确定删除该用户吗?')">删除</a></eq>
 				</td>
 			</tr>
 	    </volist>
      <tr bgcolor="#FFFFFF"> 
-      <td colspan="8"><div class="listpage">{weiwin:$page}</div></td>
+      <td colspan="8"><div class="listpage">{pigcms:$page}</div></td>
     </tr>
    
 </table>

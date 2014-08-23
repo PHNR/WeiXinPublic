@@ -23,7 +23,7 @@ td{width:100%}
 .focus{outline:1px dotted rgba(0,0,0,0.5) !important}
 .clear{position:relative;*zoom:1;}
 .clear:before,.clear:after{content:'';display:table;clear:both}
-.layout{width:930px;margin:0 auto;padding:0 15px}
+.layout{margin:0 auto;padding:0 15px}
 .header{padding:115px 0 73px;color:#fff;text-align:center;}
 .header h1,.header strong{letter-spacing:-1px;text-transform:uppercase}
 .header h1{padding-bottom:23px;font-size:22px;line-height:28px}
@@ -121,7 +121,7 @@ td{width:100%}
 .skin.skin-futurico dd{color:#888;background:#2e3035;}
 .skin.skin-futurico dd a{color:#888;border-bottom-color:#545861;}
 .skin.skin-futurico dd a:hover{color:#aaa}
-.skin-section{float:left;padding:42px 0 31px 57px;line-height:18px;}
+.skin-section{float:left;/*padding:42px 0 31px 57px;*/line-height:18px;}
 .skin-section h4{padding-bottom:18px;}
 .skin-polaris .skin-section h4{color:#959ba2}
 .skin-futurico .skin-section h4{color:#a0a0a0}
