@@ -455,6 +455,10 @@ class TmplsAction extends UserAction {
                 $data['tpltypeid'] = 100;
                 $data['tpltypename'] = '76_index';
                 break;
+            case 187:
+                $data['tpltypeid'] = 187;
+                $data['tpltypename'] = '187_index';
+                break;
         }
         $where['token'] = session('token');
         $db->where($where)->save($data);
@@ -476,6 +480,10 @@ class TmplsAction extends UserAction {
             case 1:
                 $data['tpllistid'] = 1;
                 $data['tpllistname'] = 'yl_list';
+                break;
+            case 2:
+                $data['tpllistid'] = 2;
+                $data['tpllistname'] = 'yl_list2';
                 break;
             case 5:
                 $data['tpllistid'] = 5;
