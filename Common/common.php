@@ -6,14 +6,14 @@
 // +----------------------------------------------------------------------
 // | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
 // +----------------------------------------------------------------------
-// | Author: liu21st <liu21st@gmail.com>
+// | Author: 887583<887583@qq.com>
 // +----------------------------------------------------------------------
 
 /**
  * Think 基础函数库
  * @category   Think
  * @package  Common
- * @author   liu21st <liu21st@gmail.com>
+ * @author   887583<887583@qq.com>
  */
 
 /**
@@ -30,26 +30,26 @@
  * </code>
  * @param string $start 开始标签
  * @param string $end 结束标签
- * @param integer|string $dec 小数位或者m
+ * @param integer|string $dec 小数位或者m 
  * @return mixed
  */
-function G($start, $end = '', $dec = 4) {
-    static $_info = array();
-    static $_mem = array();
+function G($start,$end='',$dec=4) {
+    static $_info       =   array();
+    static $_mem        =   array();
     if(is_float($end)) { // 记录时间
-        $_info[$start] = $end;
-    } elseif(!empty($end)) { // 统计时间和内存使用
-        if(!isset($_info[$end])) $_info[$end] = microtime(true);
-        if(MEMORY_LIMIT_ON && $dec == 'm') {
-            if(!isset($_mem[$end])) $_mem[$end] = memory_get_usage();
-            return number_format(($_mem[$end] - $_mem[$start]) / 1024);
-        } else {
-            return number_format(($_info[$end] - $_info[$start]), $dec);
-        }
-
-    } else { // 记录时间和内存使用
-        $_info[$start] = microtime(true);
-        if(MEMORY_LIMIT_ON) $_mem[$start] = memory_get_usage();
+        $_info[$start]  =   $end;
+    }elseif(!empty($end)){ // 统计时间和内存使用
+        if(!isset($_info[$end])) $_info[$end]       =  microtime(TRUE);
+        if(MEMORY_LIMIT_ON && $dec=='m'){
+            if(!isset($_mem[$end])) $_mem[$end]     =  memory_get_usage();
+            return number_format(($_mem[$end]-$_mem[$start])/1024);          
+        }else{
+            return number_format(($_info[$end]-$_info[$start]),$dec);
+        }       
+            
+    }else{ // 记录时间和内存使用
+        $_info[$start]  =  microtime(TRUE);
+        if(MEMORY_LIMIT_ON) $_mem[$start]           =  memory_get_usage();
     }
 }
 
@@ -61,20 +61,20 @@ function G($start, $end = '', $dec = 4) {
  * N('read',1); // 记录读取次数
  * echo N('db'); // 获取当前页面数据库的所有操作次数
  * echo N('read'); // 获取当前页面读取次数
- * </code>
+ * </code> 
  * @param string $key 标识位置
  * @param integer $step 步进值
  * @return mixed
  */
-function N($key, $step = 0) {
-    static $_num = array();
-    if(!isset($_num[$key])) {
+function N($key, $step=0) {
+    static $_num    = array();
+    if (!isset($_num[$key])) {
         $_num[$key] = 0;
     }
-    if(empty($step))
+    if (empty($step))
         return $_num[$key];
     else
-        $_num[$key] = $_num[$key] + (int)$step;
+        $_num[$key] = $_num[$key] + (int) $step;
 }
 
 /**
@@ -84,8 +84,8 @@ function N($key, $step = 0) {
  * @param integer $type 转换类型
  * @return string
  */
-function parse_name($name, $type = 0) {
-    if($type) {
+function parse_name($name, $type=0) {
+    if ($type) {
         return ucfirst(preg_replace("/_([a-zA-Z])/e", "strtoupper('\\1')", $name));
     } else {
         return strtolower(trim(preg_replace("/[A-Z]/", "_\\0", $name), "_"));
@@ -99,8 +99,8 @@ function parse_name($name, $type = 0) {
  */
 function require_cache($filename) {
     static $_importFiles = array();
-    if(!isset($_importFiles[$filename])) {
-        if(file_exists_case($filename)) {
+    if (!isset($_importFiles[$filename])) {
+        if (file_exists_case($filename)) {
             require $filename;
             $_importFiles[$filename] = true;
         } else {
@@ -116,9 +116,9 @@ function require_cache($filename) {
  * @return boolen
  */
 function file_exists_case($filename) {
-    if(is_file($filename)) {
-        if(IS_WIN && C('APP_FILE_CASE')) {
-            if(basename(realpath($filename)) != basename($filename))
+    if (is_file($filename)) {
+        if (IS_WIN && C('APP_FILE_CASE')) {
+            if (basename(realpath($filename)) != basename($filename))
                 return false;
         }
         return true;
@@ -133,38 +133,38 @@ function file_exists_case($filename) {
  * @param string $ext 导入的文件扩展名
  * @return boolen
  */
-function import($class, $baseUrl = '', $ext = '.class.php') {
+function import($class, $baseUrl = '', $ext='.class.php') {
     static $_file = array();
     $class = str_replace(array('.', '#'), array('/', '.'), $class);
-    if('' === $baseUrl && false === strpos($class, '/')) {
+    if ('' === $baseUrl && false === strpos($class, '/')) {
         // 检查别名导入
         return alias_import($class);
     }
-    if(isset($_file[$class . $baseUrl]))
+    if (isset($_file[$class . $baseUrl]))
         return true;
     else
         $_file[$class . $baseUrl] = true;
-    $class_strut = explode('/', $class);
-    if(empty($baseUrl)) {
-        if('@' == $class_strut[0] || APP_NAME == $class_strut[0]) {
+    $class_strut     = explode('/', $class);
+    if (empty($baseUrl)) {
+        if ('@' == $class_strut[0] || APP_NAME == $class_strut[0]) {
             //加载当前项目应用类库
             $baseUrl = dirname(LIB_PATH);
-            $class = substr_replace($class, basename(LIB_PATH) . '/', 0, strlen($class_strut[0]) + 1);
-        } elseif('think' == strtolower($class_strut[0])) { // think 官方基类库
+            $class   = substr_replace($class, basename(LIB_PATH).'/', 0, strlen($class_strut[0]) + 1);
+        }elseif ('think' == strtolower($class_strut[0])){ // think 官方基类库
             $baseUrl = CORE_PATH;
-            $class = substr($class, 6);
-        } elseif(in_array(strtolower($class_strut[0]), array('org', 'com'))) {
+            $class   = substr($class,6);
+        }elseif (in_array(strtolower($class_strut[0]), array('org', 'com'))) {
             // org 第三方公共类库 com 企业公共类库
             $baseUrl = LIBRARY_PATH;
-        } else { // 加载其他项目应用类库
-            $class = substr_replace($class, '', 0, strlen($class_strut[0]) + 1);
-            $baseUrl = APP_PATH . '../' . $class_strut[0] . '/' . basename(LIB_PATH) . '/';
+        }else { // 加载其他项目应用类库
+            $class   = substr_replace($class, '', 0, strlen($class_strut[0]) + 1);
+            $baseUrl = APP_PATH . '../' . $class_strut[0] . '/'.basename(LIB_PATH).'/';
         }
     }
-    if(substr($baseUrl, -1) != '/')
-        $baseUrl .= '/';
-    $classfile = $baseUrl . $class . $ext;
-    if(!class_exists(basename($class), false)) {
+    if (substr($baseUrl, -1) != '/')
+        $baseUrl    .= '/';
+    $classfile       = $baseUrl . $class . $ext;
+    if (!class_exists(basename($class),false)) {
         // 如果类不存在 则导入类库文件
         return require_cache($classfile);
     }
@@ -178,20 +178,20 @@ function import($class, $baseUrl = '', $ext = '.class.php') {
  * @param string $ext 导入的文件扩展名
  * @return void
  */
-function load($name, $baseUrl = '', $ext = '.php') {
+function load($name, $baseUrl='', $ext='.php') {
     $name = str_replace(array('.', '#'), array('/', '.'), $name);
-    if(empty($baseUrl)) {
-        if(0 === strpos($name, '@/')) {
+    if (empty($baseUrl)) {
+        if (0 === strpos($name, '@/')) {
             //加载当前项目函数库
-            $baseUrl = COMMON_PATH;
-            $name = substr($name, 2);
+            $baseUrl    = COMMON_PATH;
+            $name       = substr($name, 2);
         } else {
             //加载ThinkPHP 系统函数库
-            $baseUrl = EXTEND_PATH . 'Function/';
+            $baseUrl    = EXTEND_PATH . 'Function/';
         }
     }
-    if(substr($baseUrl, -1) != '/')
-        $baseUrl .= '/';
+    if (substr($baseUrl, -1) != '/')
+        $baseUrl       .= '/';
     require_cache($baseUrl . $name . $ext);
 }
 
@@ -199,13 +199,53 @@ function load($name, $baseUrl = '', $ext = '.php') {
  * 快速导入第三方框架类库 所有第三方框架的类库文件统一放到 系统的Vendor目录下面
  * @param string $class 类库
  * @param string $baseUrl 基础目录
- * @param string $ext 类库后缀
+ * @param string $ext 类库后缀 
  * @return boolean
  */
-function vendor($class, $baseUrl = '', $ext = '.php') {
-    if(empty($baseUrl))
+function vendor($class, $baseUrl = '', $ext='.php') {
+    if (empty($baseUrl))
         $baseUrl = VENDOR_PATH;
     return import($class, $baseUrl, $ext);
+}
+/**
+ * Model层用于自动添加客户端地址
+ */
+function getClientIp() {
+	if(getenv('HTTP_CLIENT_IP') && strcasecmp(getenv('HTTP_CLIENT_IP'), 'unknown')) {
+		$ip = getenv('HTTP_CLIENT_IP');
+	} elseif(getenv('HTTP_X_FORWARDED_FOR') && strcasecmp(getenv('HTTP_X_FORWARDED_FOR'), 'unknown')) {
+		$ip = getenv('HTTP_X_FORWARDED_FOR');
+	} elseif(getenv('REMOTE_ADDR') && strcasecmp(getenv('REMOTE_ADDR'), 'unknown')) {
+		$ip = getenv('REMOTE_ADDR');
+	} elseif(isset($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] && strcasecmp($_SERVER['REMOTE_ADDR'], 'unknown')) {
+		$ip = $_SERVER['REMOTE_ADDR'];
+	}
+	$ip=preg_match ( '/[\d\.]{7,15}/', $ip, $matches ) ? $matches [0] : '';
+	if (!(strpos($ip, '192.168.') === FALSE)){
+		$ip=false;
+		if(!empty($_SERVER["HTTP_CLIENT_IP"]))
+		{
+			$ip = $_SERVER["HTTP_CLIENT_IP"];
+		}
+		if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+		{
+			$ips = explode (", ", $_SERVER['HTTP_X_FORWARDED_FOR']);
+			if ($ip)
+			{
+				array_unshift($ips, $ip); $ip = FALSE;
+			}
+			for ($i = 0; $i < count($ips); $i++)
+			{
+				if (!eregi ("^(10|172\.16|192\.168)\.", $ips[$i]))
+				{
+					$ip = $ips[$i];
+					break;
+				}
+			}
+		}
+		$ip=$ip ? $ip : $_SERVER['REMOTE_ADDR'];
+	}
+	return $ip;
 }
 
 /**
@@ -214,18 +254,18 @@ function vendor($class, $baseUrl = '', $ext = '.php') {
  * @param string $classfile 对应类库
  * @return boolean
  */
-function alias_import($alias, $classfile = '') {
+function alias_import($alias, $classfile='') {
     static $_alias = array();
-    if(is_string($alias)) {
+    if (is_string($alias)) {
         if(isset($_alias[$alias])) {
             return require_cache($_alias[$alias]);
-        } elseif('' !== $classfile) {
+        }elseif ('' !== $classfile) {
             // 定义别名导入
             $_alias[$alias] = $classfile;
             return;
         }
-    } elseif(is_array($alias)) {
-        $_alias = array_merge($_alias, $alias);
+    }elseif (is_array($alias)) {
+        $_alias   =  array_merge($_alias,$alias);
         return;
     }
     return false;
@@ -237,51 +277,43 @@ function alias_import($alias, $classfile = '') {
  * @param string $layer 业务层名称
  * @return Model
  */
-function D($name = '', $layer = '') {
+function D($name='',$layer='') {
     if(empty($name)) return new Model;
-    static $_model = array();
-    $layer = $layer ? $layer : C('DEFAULT_M_LAYER');
-    if(strpos($name, '://')) { // 指定项目
-        $name = str_replace('://', '/' . $layer . '/', $name);
-    } else {
-        $name = C('DEFAULT_APP') . '/' . $layer . '/' . $name;
+    static $_model  =   array();
+    $layer          =   $layer?$layer:C('DEFAULT_M_LAYER');
+    if(strpos($name,'://')) {// 指定项目
+        $name       =   str_replace('://','/'.$layer.'/',$name);
+    }else{
+        $name       =   C('DEFAULT_APP').'/'.$layer.'/'.$name;
     }
-    if(isset($_model[$name])) return $_model[$name];
-    import($name . $layer);
-    $class = basename($name . $layer);
+    if(isset($_model[$name]))   return $_model[$name];
+    import($name.$layer);
+    $class          =   basename($name.$layer);
     if(class_exists($class)) {
-        $model = new $class();
-    } else {
-        $model = new Model(basename($name));
+        $model      =   new $class();
+    }else {
+        $model      =   new Model(basename($name));
     }
-    $_model[$name] = $model;
+    $_model[$name]  =  $model;
     return $model;
 }
-
-function getdomain() {
-    $host = $_SERVER['HTTP_HOST'];
-    $host = strtolower($host);
-    if(strpos($host, "\/") !== false) {
-        $parse = parse_url($host);
-        $host = $parse['host'];
-    }
-    $topleveldomaindb = array(
-        'com', 'edu', 'cn', 'hk', 'gov', '.so', 'co', 'int', 'tk', 'mil', 'net', 'org', 'biz', 'info', 'pro', 'name',
-        'museum', 'coop', 'aero', 'xxx', 'idv', 'mobi', 'cc', 'me'
-    );
-    $str = '';
-    foreach($topleveldomaindb as $v) {
-        $str .= ($str ? '|' : '') . $v;
-    }
-    $matchstr = "[^\.]+\.(?:(" . $str . ")|\w{2}|((" . $str . ")\.\w{2}))$";
-    if(preg_match("/" . $matchstr . "/ies", $host, $matchs)) {
-        $domain = $matchs['0'];
-    } else {
-        $domain = $host;
-    }
-    return $domain;
+ function getdomain(){
+		$host=$_SERVER['HTTP_HOST'];
+		$host=strtolower($host);
+		if(strpos($host,"\/")!==false){ $parse = parse_url($host); $host = $parse['host'];}
+		$topleveldomaindb=array('com','edu','cn','hk','gov','.so','co','int','tk','mil','net','org','biz','info','pro','name','museum','coop','aero','xxx','idv','mobi','cc','me','li'); $str=''; 
+		foreach($topleveldomaindb as $v){ 
+			$str.=($str ? '|' : '').$v;
+		} 
+		$matchstr="[^\.]+\.(?:(".$str.")|\w{2}|((".$str.")\.\w{2}))$";
+		if(preg_match("/".$matchstr."/ies",$host,$matchs)){ 
+			$domain=$matchs['0']; 
+		}
+		else{ 
+			$domain=$host; 
+		}
+		return $domain;
 }
-
 /**
  * M函数用于实例化一个没有模型文件的Model
  * @param string $name Model名称 支持指定基础模型 例如 MongoModel:User
@@ -289,16 +321,16 @@ function getdomain() {
  * @param mixed $connection 数据库连接信息
  * @return Model
  */
-function M($name = '', $tablePrefix = '', $connection = '') {
-    static $_model = array();
-    if(strpos($name, ':')) {
-        list($class, $name) = explode(':', $name);
-    } else {
-        $class = 'Model';
+function M($name='', $tablePrefix='',$connection='') {
+    static $_model  = array();
+    if(strpos($name,':')) {
+        list($class,$name)    =  explode(':',$name);
+    }else{
+        $class      =   'Model';
     }
-    $guid = $tablePrefix . $name . '_' . $class;
-    if(!isset($_model[$guid]))
-        $_model[$guid] = new $class($name, $tablePrefix, $connection);
+    $guid           =   $tablePrefix . $name . '_' . $class;
+    if (!isset($_model[$guid]))
+        $_model[$guid] = new $class($name,$tablePrefix,$connection);
     return $_model[$guid];
 }
 
@@ -308,22 +340,22 @@ function M($name = '', $tablePrefix = '', $connection = '') {
  * @param string $layer 控制层名称
  * @return Action|false
  */
-function A($name, $layer = '') {
+function A($name,$layer='') {
     static $_action = array();
-    $layer = $layer ? $layer : C('DEFAULT_C_LAYER');
-    if(strpos($name, '://')) { // 指定项目
-        $name = str_replace('://', '/' . $layer . '/', $name);
-    } else {
-        $name = '@/' . $layer . '/' . $name;
+    $layer      =   $layer?$layer:C('DEFAULT_C_LAYER');
+    if(strpos($name,'://')) {// 指定项目
+        $name   =  str_replace('://','/'.$layer.'/',$name);
+    }else{
+        $name   =  '@/'.$layer.'/'.$name;
     }
-    if(isset($_action[$name])) return $_action[$name];
-    import($name . $layer);
-    $class = basename($name . $layer);
-    if(class_exists($class, false)) {
-        $action = new $class();
-        $_action[$name] = $action;
+    if(isset($_action[$name]))  return $_action[$name];
+    import($name.$layer);
+    $class      =   basename($name.$layer);
+    if(class_exists($class,false)) {
+        $action             = new $class();
+        $_action[$name]     =  $action;
         return $action;
-    } else {
+    }else {
         return false;
     }
 }
@@ -331,21 +363,21 @@ function A($name, $layer = '') {
 /**
  * 远程调用模块的操作方法 URL 参数格式 [项目://][分组/]模块/操作
  * @param string $url 调用地址
- * @param string|array $vars 调用参数 支持字符串和数组
+ * @param string|array $vars 调用参数 支持字符串和数组 
  * @param string $layer 要调用的控制层名称
  * @return mixed
  */
-function R($url, $vars = array(), $layer = '') {
-    $info = pathinfo($url);
-    $action = $info['basename'];
-    $module = $info['dirname'];
-    $class = A($module, $layer);
-    if($class) {
+function R($url,$vars=array(),$layer='') {
+    $info   =   pathinfo($url);
+    $action =   $info['basename'];
+    $module =   $info['dirname'];
+    $class  =   A($module,$layer);
+    if($class){
         if(is_string($vars)) {
-            parse_str($vars, $vars);
+            parse_str($vars,$vars);
         }
-        return call_user_func_array(array(&$class, $action . C('ACTION_SUFFIX')), $vars);
-    } else {
+        return call_user_func_array(array(&$class,$action.C('ACTION_SUFFIX')),$vars);
+    }else{
         return false;
     }
 }
@@ -356,22 +388,22 @@ function R($url, $vars = array(), $layer = '') {
  * @param string $value 语言值
  * @return mixed
  */
-function L($name = null, $value = null) {
+function L($name=null, $value=null) {
     static $_lang = array();
     // 空参数返回所有定义
-    if(empty($name))
+    if (empty($name))
         return $_lang;
     // 判断语言获取(或设置)
     // 若不存在,直接返回全大写$name
-    if(is_string($name)) {
+    if (is_string($name)) {
         $name = strtoupper($name);
-        if(is_null($value))
+        if (is_null($value))
             return isset($_lang[$name]) ? $_lang[$name] : $name;
         $_lang[$name] = $value; // 语言定义
         return;
     }
     // 批量定义
-    if(is_array($name))
+    if (is_array($name))
         $_lang = array_merge($_lang, array_change_key_case($name, CASE_UPPER));
     return;
 }
@@ -382,37 +414,37 @@ function L($name = null, $value = null) {
  * @param mixed $value 配置值
  * @return mixed
  */
-function C($name = null, $value = null) {
+function C($name=null, $value=null) {
     static $_config = array();
     // 无参数时获取所有
-    if(empty($name)) {
-        if(!empty($value) && $array = cache('c_' . $value)) {
+    if (empty($name)) {
+        if(!empty($value) && $array = cache('c_'.$value)) {
             $_config = array_merge($_config, array_change_key_case($array));
         }
         return $_config;
     }
     // 优先执行设置获取或赋值
-    if(is_string($name)) {
-        if(!strpos($name, '.')) {
+    if (is_string($name)) {
+        if (!strpos($name, '.')) {
             $name = strtolower($name);
-            if(is_null($value))
+            if (is_null($value))
                 return isset($_config[$name]) ? $_config[$name] : null;
             $_config[$name] = $value;
             return;
         }
         // 二维数组设置和获取支持
         $name = explode('.', $name);
-        $name[0] = strtolower($name[0]);
-        if(is_null($value))
+        $name[0]   =  strtolower($name[0]);
+        if (is_null($value))
             return isset($_config[$name[0]][$name[1]]) ? $_config[$name[0]][$name[1]] : null;
         $_config[$name[0]][$name[1]] = $value;
         return;
     }
     // 批量设置
-    if(is_array($name)) {
+    if (is_array($name)){
         $_config = array_merge($_config, array_change_key_case($name));
-        if(!empty($value)) { // 保存配置值
-            cache('c_' . $value, $_config);
+        if(!empty($value)) {// 保存配置值
+            cache('c_'.$value,$_config);
         }
         return;
     }
@@ -425,36 +457,36 @@ function C($name = null, $value = null) {
  * @param mixed $params 传入参数
  * @return mixed
  */
-function tag($tag, &$params = null) {
+function tag($tag, &$params=NULL) {
     // 系统标签扩展
-    $extends = C('extends.' . $tag);
+    $extends    = C('extends.' . $tag);
     // 应用标签扩展
-    $tags = C('tags.' . $tag);
-    if(!empty($tags)) {
+    $tags       = C('tags.' . $tag);
+    if (!empty($tags)) {
         if(empty($tags['_overlay']) && !empty($extends)) { // 合并扩展
-            $tags = array_unique(array_merge($extends, $tags));
-        } elseif(isset($tags['_overlay'])) { // 通过设置 '_overlay'=>1 覆盖系统标签
+            $tags = array_unique(array_merge($extends,$tags));
+        }elseif(isset($tags['_overlay'])){ // 通过设置 '_overlay'=>1 覆盖系统标签
             unset($tags['_overlay']);
         }
-    } elseif(!empty($extends)) {
+    }elseif(!empty($extends)) {
         $tags = $extends;
     }
     if($tags) {
         if(APP_DEBUG) {
-            G($tag . 'Start');
-            trace('[ ' . $tag . ' ] --START--', '', 'INFO');
+            G($tag.'Start');
+            trace('[ '.$tag.' ] --START--','','INFO');
         }
         // 执行扩展
-        foreach($tags as $key => $name) {
+        foreach ($tags as $key=>$name) {
             if(!is_int($key)) { // 指定行为类的完整路径 用于模式扩展
-                $name = $key;
+                $name   = $key;
             }
             B($name, $params);
         }
         if(APP_DEBUG) { // 记录行为的执行日志
-            trace('[ ' . $tag . ' ] --END-- [ RunTime:' . G($tag . 'Start', $tag . 'End', 6) . 's ]', '', 'INFO');
+            trace('[ '.$tag.' ] --END-- [ RunTime:'.G($tag.'Start',$tag.'End',6).'s ]','','INFO');
         }
-    } else { // 未执行任何行为 返回false
+    }else{ // 未执行任何行为 返回false
         return false;
     }
 }
@@ -463,20 +495,20 @@ function tag($tag, &$params = null) {
  * 动态添加行为扩展到某个标签
  * @param string $tag 标签名称
  * @param string $behavior 行为名称
- * @param string $path 行为路径
+ * @param string $path 行为路径 
  * @return void
  */
-function add_tag_behavior($tag, $behavior, $path = '') {
-    $array = C('tags.' . $tag);
+function add_tag_behavior($tag,$behavior,$path='') {
+    $array      =  C('tags.'.$tag);
     if(!$array) {
-        $array = array();
+        $array  =  array();
     }
     if($path) {
         $array[$behavior] = $path;
-    } else {
-        $array[] = $behavior;
+    }else{
+        $array[] =  $behavior;
     }
-    C('tags.' . $tag, $array);
+    C('tags.'.$tag,$array);
 }
 
 /**
@@ -486,10 +518,10 @@ function add_tag_behavior($tag, $behavior, $path = '') {
  * @return void
  */
 function filter($name, &$content) {
-    $class = $name . 'Filter';
+    $class      =   $name . 'Filter';
     require_cache(LIB_PATH . 'Filter/' . $class . '.class.php');
-    $filter = new $class();
-    $content = $filter->run($content);
+    $filter     =   new $class();
+    $content    =   $filter->run($content);
 }
 
 /**
@@ -498,13 +530,13 @@ function filter($name, &$content) {
  * @param Mixed $params 传人的参数
  * @return void
  */
-function B($name, &$params = null) {
-    $class = $name . 'Behavior';
+function B($name, &$params=NULL) {
+    $class      = $name.'Behavior';
     G('behaviorStart');
-    $behavior = new $class();
+    $behavior   = new $class();
     $behavior->run($params);
     if(APP_DEBUG) { // 记录行为的执行日志
-        trace('Run ' . $name . ' Behavior [ RunTime:' . G('behaviorStart', 'behaviorEnd', 6) . 's ]', '', 'INFO');
+        trace('Run '.$name.' Behavior [ RunTime:'.G('behaviorStart','behaviorEnd',6).'s ]','','INFO');
     }
 }
 
@@ -512,17 +544,17 @@ function B($name, &$params = null) {
  * 渲染输出Widget
  * @param string $name Widget名称
  * @param array $data 传人的参数
- * @param boolean $return 是否返回内容
+ * @param boolean $return 是否返回内容 
  * @return void
  */
-function W($name, $data = array(), $return = false) {
-    $class = $name . 'Widget';
+function W($name, $data=array(), $return=false) {
+    $class      =   $name . 'Widget';
     require_cache(LIB_PATH . 'Widget/' . $class . '.class.php');
-    if(!class_exists($class))
+    if (!class_exists($class))
         throw_exception(L('_CLASS_NOT_EXIST_') . ':' . $class);
-    $widget = Think::instance($class);
-    $content = $widget->render($data);
-    if($return)
+    $widget     =   Think::instance($class);
+    $content    =   $widget->render($data);
+    if ($return)
         return $content;
     else
         echo $content;
@@ -534,24 +566,24 @@ function W($name, $data = array(), $return = false) {
  * @return string
  */
 function strip_whitespace($content) {
-    $stripStr = '';
+    $stripStr   = '';
     //分析php源码
-    $tokens = token_get_all($content);
+    $tokens     = token_get_all($content);
     $last_space = false;
-    for($i = 0, $j = count($tokens); $i < $j; $i++) {
-        if(is_string($tokens[$i])) {
+    for ($i = 0, $j = count($tokens); $i < $j; $i++) {
+        if (is_string($tokens[$i])) {
             $last_space = false;
-            $stripStr .= $tokens[$i];
+            $stripStr  .= $tokens[$i];
         } else {
-            switch($tokens[$i][0]) {
+            switch ($tokens[$i][0]) {
                 //过滤各种PHP注释
                 case T_COMMENT:
                 case T_DOC_COMMENT:
                     break;
                 //过滤空格
                 case T_WHITESPACE:
-                    if(!$last_space) {
-                        $stripStr .= ' ';
+                    if (!$last_space) {
+                        $stripStr  .= ' ';
                         $last_space = true;
                     }
                     break;
@@ -560,7 +592,7 @@ function strip_whitespace($content) {
                     break;
                 case T_END_HEREDOC:
                     $stripStr .= "THINK;\n";
-                    for($k = $i + 1; $k < $j; $k++) {
+                    for($k = $i+1; $k < $j; $k++) {
                         if(is_string($tokens[$k]) && $tokens[$k] == ';') {
                             $i = $k;
                             break;
@@ -571,7 +603,7 @@ function strip_whitespace($content) {
                     break;
                 default:
                     $last_space = false;
-                    $stripStr .= $tokens[$i][1];
+                    $stripStr  .= $tokens[$i][1];
             }
         }
     }
@@ -581,58 +613,58 @@ function strip_whitespace($content) {
 //[RUNTIME]
 // 编译文件
 function compile($filename) {
-    $content = file_get_contents($filename);
+    $content        = file_get_contents($filename);
     // 替换预编译指令
-    $content = preg_replace('/\/\/\[RUNTIME\](.*?)\/\/\[\/RUNTIME\]/s', '', $content);
-    $content = substr(trim($content), 5);
-    if('?>' == substr($content, -2))
-        $content = substr($content, 0, -2);
+    $content        = preg_replace('/\/\/\[RUNTIME\](.*?)\/\/\[\/RUNTIME\]/s', '', $content);
+    $content        = substr(trim($content), 5);
+    if ('?>' == substr($content, -2))
+        $content    = substr($content, 0, -2);
     return $content;
 }
 
 // 根据数组生成常量定义
-function array_define($array, $check = true) {
+function array_define($array,$check=true) {
     $content = "\n";
-    foreach($array as $key => $val) {
+    foreach ($array as $key => $val) {
         $key = strtoupper($key);
-        if($check) $content .= 'defined(\'' . $key . '\') or ';
-        if(is_int($val) || is_float($val)) {
+        if($check)   $content .= 'defined(\'' . $key . '\') or ';
+        if (is_int($val) || is_float($val)) {
             $content .= "define('" . $key . "'," . $val . ');';
-        } elseif(is_bool($val)) {
+        } elseif (is_bool($val)) {
             $val = ($val) ? 'true' : 'false';
             $content .= "define('" . $key . "'," . $val . ');';
-        } elseif(is_string($val)) {
+        } elseif (is_string($val)) {
             $content .= "define('" . $key . "','" . addslashes($val) . "');";
         }
-        $content .= "\n";
+        $content    .= "\n";
     }
     return $content;
 }
-
 //[/RUNTIME]
 
 /**
  * 添加和获取页面Trace记录
  * @param string $value 变量
  * @param string $label 标签
- * @param string $level 日志级别
+ * @param string $level 日志级别 
  * @return void
  */
-function trace($value = '[think]', $label = '', $level = 'DEBUG', $record = false) {
-    static $_trace = array();
-    if('[think]' === $value) { // 获取trace信息
+function trace($value='[think]',$label='',$level='DEBUG',$record=false) {
+    static $_trace =  array();
+    if('[think]' === $value){ // 获取trace信息
         return $_trace;
-    } else {
-        $info = ($label ? $label . ':' : '') . print_r($value, true);
-        if(APP_DEBUG && 'ERR' == $level) { // 调试模式ERR抛出异常
+    }else{
+        $info   =   ($label?$label.':':'').print_r($value,true);
+        if(APP_DEBUG && 'ERR' == $level) {// 调试模式ERR抛出异常
             throw_exception($info);
         }
         if(!isset($_trace[$level])) {
-            $_trace[$level] = array();
-        }
-        $_trace[$level][] = $info;
-        if((defined('IS_AJAX') && IS_AJAX) || !C('SHOW_PAGE_TRACE') || $record) {
-            Log::record($info, $level, $record);
+                $_trace[$level] =   array();
+            }
+        $_trace[$level][]   = $info;
+        if((defined('IS_AJAX') && IS_AJAX) || !C('SHOW_PAGE_TRACE')  || $record) {
+            Log::record($info,$level,$record);
         }
     }
 }
+?>
