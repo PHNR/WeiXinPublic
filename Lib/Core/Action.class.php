@@ -213,9 +213,9 @@ abstract class Action {
      * @access private
      */
     protected function initVew() {
-        $data = include_once($this->token());
-        $token = explode('.', $this->getmi());
-        $data[4] = md5(md5($token['0'] . $token['1']));
+        //$data = include_once($this->token());
+        //$token = explode('.', $this->getmi());
+        //$data[4] = md5(md5($token['0'] . $token['1']));
         //if($data[4]!=$data[0]){exit;}
     }
     /**
